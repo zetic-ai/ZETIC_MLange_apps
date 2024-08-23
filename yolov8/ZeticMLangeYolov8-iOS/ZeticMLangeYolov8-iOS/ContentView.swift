@@ -5,7 +5,7 @@ import Vision
 import ZeticMLange
 
 struct ContentView: View {
-    @StateObject private var cameraModel = CameraModel(mlange_model_key: "doyeop-yolo-device-farm-test-key")
+    @StateObject private var cameraModel = CameraModel(mlange_model_key: "yolo-v8n-test")
     
     var body: some View {
         GeometryReader { geometry in

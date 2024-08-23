@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements TextureView.Surfa
     private void initZeticMLangeYolov8() {
         try {
             if (zeticMLangeYoloVModel == null) {
-                zeticMLangeYoloVModel = new ZeticMLangeModel(this, "doyeop-yolo-device-farm-test-key");
+                zeticMLangeYoloVModel = new ZeticMLangeModel(this, "yolo-v8n-test");
             }
 
             File cocoYamlFile = new File(getFilesDir(), cocoYamlSamplePath);
