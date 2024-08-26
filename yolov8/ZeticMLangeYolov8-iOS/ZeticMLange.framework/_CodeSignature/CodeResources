@@ -10,35 +10,35 @@
 		</data>
 		<key>Frameworks/libZeticMLangeFeatureYoloV8Native.dylib</key>
 		<data>
-		Rt11+gFvrjq5L/zOZ+LZz4l48RE=
+		exCR0bgdVQDyiyerH+g1broNDtQ=
 		</data>
 		<key>Frameworks/libZeticMLangeModelNative.dylib</key>
 		<data>
-		VGjdIqlRWwS5mMKpYTWGlBX2BFs=
+		gecwqu3J2xekDW/h853fV8n+Xt0=
 		</data>
 		<key>Frameworks/libZeticMLangeTorchNative.dylib</key>
 		<data>
-		tylablGDFRU3FIomGXGEbRjl4VU=
+		KHilKihPs+9qWsA21fy17/Mdpb8=
 		</data>
 		<key>Frameworks/libzetic_common.dylib</key>
 		<data>
-		E2rIJTIp/EQ7hrm/5sVxZanyQTE=
+		6xDv17JDtoEPMEiyEDFiwiDWZZ8=
 		</data>
 		<key>Frameworks/libzetic_feature_common.dylib</key>
 		<data>
-		UibtSfV0D924vKrsa4ujiUgZIy4=
+		rhvPyThgYEjtRs6sDGRgP0YUVcI=
 		</data>
 		<key>Frameworks/libzetic_mlange_feature_opencv.dylib</key>
 		<data>
-		y68WPy1JSvtM/jcStgrJGlcaMfA=
+		UBGEAFxGGmwrsJWr9WnG1odq+yU=
 		</data>
 		<key>Frameworks/libzetic_mlange_feature_yolov8.dylib</key>
 		<data>
-		UhIx4+AflD7lvbpXQwLzWDQnoJg=
+		+WVve0qvJKXi6yepyR6fetM/J6Y=
 		</data>
 		<key>Frameworks/libzetic_mlange_model.dylib</key>
 		<data>
-		uYf5lDmWB0ftMqAlHxxfMnkCucE=
+		I1fK6UR/PzUnVwk5eErkpaCiN88=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Modules/ZeticMLange.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		AOfhb5qNxDllqq8Nk4RrB/L8R6E=
+		2YRyMUMwzs5l26ssGNHMXKChqdk=
 		</data>
 		<key>Modules/ZeticMLange.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
@@ -82,63 +82,63 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			YSlF1LHkeJmOKyHleExESLpOXpWQmVEAyJvDPeqhv2w=
+			TzU2elMgu9Qi5ovDyCjvH1Lqu4avH1Ga2NNLU56QVLg=
 			</data>
 		</dict>
 		<key>Frameworks/libZeticMLangeModelNative.dylib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			YxIKjBeEZz3t8ugSQRZZrC6ZVC3Z39j4c0lGOwqwmNc=
+			wBkqaXY+s73QqIm+0tnGnPTGC9J4Rs4SMLO/tD3Tvp4=
 			</data>
 		</dict>
 		<key>Frameworks/libZeticMLangeTorchNative.dylib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vXfOv1Q0UD7vJi4x0EtzrMCtZ9W8BNgAtsVeXqnHefg=
+			vBIfEKQo90IU19ntnoNJvAZ2wta8FC/t70l4AgsjU/4=
 			</data>
 		</dict>
 		<key>Frameworks/libzetic_common.dylib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1LOf8GEXoxHgAhRCMyV+lgZKRi2LHbShO7k5QvPOs4E=
+			Xj3vAp/ycOG+0w6tjjOKFXpDoJWkow4VucbX1MN97EU=
 			</data>
 		</dict>
 		<key>Frameworks/libzetic_feature_common.dylib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			yX1G43cttEevWUrm5KA6bdhNjV7TLnjSYz1N1zW+AA8=
+			eTKeHxlDDBGLknh+vbdP7uTuuYjEokC/vDYHA+F7Qsk=
 			</data>
 		</dict>
 		<key>Frameworks/libzetic_mlange_feature_opencv.dylib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1ZGKzunQ3VunQtzImGfIGzw73BTj3wzDBG648y+wt9I=
+			OUJIi7NRj1c8XfmmLQ7C2da2OZGUTiMdtBisuxQkGmY=
 			</data>
 		</dict>
 		<key>Frameworks/libzetic_mlange_feature_yolov8.dylib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2yE6sNZ4gMGfytyTjq9bph4lW3tWxvSsVWxb+S6gS6U=
+			BMLndlczI/HR2tuKHtqyMF7nK++lyvxM+pkJH/oOI1w=
 			</data>
 		</dict>
 		<key>Frameworks/libzetic_mlange_model.dylib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			B2eZPXB/rcA8nRad3knKwTmtEifurH7mS9rBQs70MlI=
+			rKF4UoBno2LHQh+3f+BS+bWoYAudDJHEXsjosQUDLEA=
 			</data>
 		</dict>
 		<key>Modules/ZeticMLange.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			e0D4QWXSuTs+HvyKBbTHWMPjCr4FasQmp+LtKLTwlMw=
+			0IAGnDAuXvxUQZDapph3sX5M5OJuYQDinBzN5DxnG90=
 			</data>
 		</dict>
 		<key>Modules/ZeticMLange.swiftmodule/arm64-apple-ios.abi.json</key>
