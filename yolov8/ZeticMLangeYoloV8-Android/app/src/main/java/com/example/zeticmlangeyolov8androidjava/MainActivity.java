@@ -22,6 +22,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Surface;
 import android.view.TextureView;
 import android.widget.ImageView;
@@ -30,6 +31,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -57,44 +59,38 @@ public class MainActivity extends AppCompatActivity implements TextureView.Surfa
     private Handler backgroundHandler;
     private HandlerThread backgroundThread;
 
+    // YAML file to initialize yolo variables
+    final String cocoYamlSamplePath = "coco.yaml";
+
     // ZETIC.MLange related variables
     ZeticMLangeModel zeticMLangeYoloVModel;
     ZeticMLangeFeatureYolov8 zeticMLangeFeatureYolov8;
 
-    // YAML file to initialize yolo variables
-    final String cocoYamlSamplePath = "coco.yaml";
 
     // ZETIC.MLange function (1) - Initialization
-    private void initZeticMLangeYolov8() {
-        try {
-            if (zeticMLangeYoloVModel == null) {
-                zeticMLangeYoloVModel = new ZeticMLangeModel(this, "yolo-v8n-test");
-            }
+    private void initZeticMLangeYolov8() throws ZeticMLangeException {
 
-            File cocoYamlFile = new File(getFilesDir(), cocoYamlSamplePath);
-            String cocoYamlPath = cocoYamlFile.getAbsolutePath();
-            if (zeticMLangeFeatureYolov8 == null) {
-                zeticMLangeFeatureYolov8 = new ZeticMLangeFeatureYolov8(cocoYamlPath);
-            }
+        if (zeticMLangeYoloVModel == null) {
+            zeticMLangeYoloVModel = new ZeticMLangeModel(this, "yolo-v8n-test");
+        }
 
-        } catch (ZeticMLangeException e) {
-            throw new RuntimeException(e);
+        File cocoYamlFile = new File(getFilesDir(), cocoYamlSamplePath);
+        String cocoYamlPath = cocoYamlFile.getAbsolutePath();
+        if (zeticMLangeFeatureYolov8 == null) {
+            zeticMLangeFeatureYolov8 = new ZeticMLangeFeatureYolov8(cocoYamlPath);
         }
     }
 
     // ZETIC.MLange function (2) - Run
-    private Bitmap runZeticMLangeYolov8(Bitmap bitmap) {
+    private Bitmap runZeticMLangeYolov8(Bitmap bitmap) throws ZeticMLangeException {
         float[] floatInput = zeticMLangeFeatureYolov8.preprocess(bitmap);
         float[][] floatInputs = {floatInput};
         ByteBuffer[] inputs = ZeticMLangeDataUtils.convertFloatArrayToByteBufferArray(floatInputs);
-        try {
-            zeticMLangeYoloVModel.run(inputs);
-            ByteBuffer[] outputs = zeticMLangeYoloVModel.getOutputBuffers();
-            float[] outputFloatArray = ZeticMLangeDataUtils.convertByteBufferToFloatArray(outputs[0]);
-            return zeticMLangeFeatureYolov8.postprocess(outputFloatArray);
-        } catch (ZeticMLangeException e) {
-            throw new RuntimeException(e);
-        }
+
+        zeticMLangeYoloVModel.run(inputs);
+        ByteBuffer[] outputs = zeticMLangeYoloVModel.getOutputBuffers();
+        float[] outputFloatArray = ZeticMLangeDataUtils.convertByteBufferToFloatArray(outputs[0]);
+        return zeticMLangeFeatureYolov8.postprocess(outputFloatArray);
     }
 
     @Override
@@ -107,12 +103,19 @@ public class MainActivity extends AppCompatActivity implements TextureView.Surfa
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+
+        // Prepare coco yaml file for YoloV8 model
         _prepareCocoYamlFromAsset();
 
         // [ZETIC.MLange] - (1) Initialize model and feature extractor
-        initZeticMLangeYolov8();
+        try {
+            initZeticMLangeYolov8();
+        } catch (ZeticMLangeException e) {
+            Log.e(TAG, "Failed to initialize ZeticMLange model!.");
+            throw new RuntimeException(e);
+        }
 
-        // Yolo test
+        // UI components
         imageView = findViewById(R.id.imageView);
         textureView = findViewById(R.id.textureView);
         textureView.setSurfaceTextureListener(this);
@@ -245,16 +248,23 @@ public class MainActivity extends AppCompatActivity implements TextureView.Surfa
             Bitmap bitmap = rotateBitmap(imageToBitmap(image), 90);
 
             image.close();
+            
+            try {
+                // [ZETIC.MLange] - (1) Process the bitmap image
+                Bitmap proc_image = runZeticMLangeYolov8(bitmap);
 
-            // [ZETIC.MLange] - (1) Process the bitmap image
-            Bitmap proc_image = runZeticMLangeYolov8(bitmap);
+                runOnUiThread(new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        imageView.setImageBitmap(proc_image);
+                    }
+                }));
+            } catch (ZeticMLangeException e) {
+                Log.e(TAG, "Failed to run ZeticMLange Model!");
+                throw new RuntimeException(e);
+            }
 
-            runOnUiThread(new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    imageView.setImageBitmap(proc_image);
-                }
-            }));
+
         }
     };
 
