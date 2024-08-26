@@ -102,6 +102,9 @@ public class MainActivity extends AppCompatActivity implements TextureView.Surfa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Check and request camera permission
+        checkCameraPermission();
+
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         _prepareCocoYamlFromAsset();
@@ -316,4 +319,36 @@ public class MainActivity extends AppCompatActivity implements TextureView.Surfa
         out.flush();
         out.close();
     }
+
+    private static final int CAMERA_PERMISSION_CODE = 100;
+    private void checkCameraPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+            // Permission is not granted, request it
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.CAMERA},
+                    CAMERA_PERMISSION_CODE);
+        } else {
+            // Permission has already been granted
+            // Proceed with using the camera
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String[] permissions,
+                                           int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case CAMERA_PERMISSION_CODE:
+                if (grantResults.length > 0 &&
+                        grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // Permission was granted, proceed with using the camera
+                } else {
+                    // Permission denied, handle the failure scenario
+                }
+                break;
+        }
+    }
+
 }
