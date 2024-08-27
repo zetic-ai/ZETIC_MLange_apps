@@ -44,5 +44,5 @@ dependencies {
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
 
-    implementation files('libs/zeticlibs/zeticMLange.aar')
+    implementation files('libs/zeticlibs/zeticMLangeYoloV8.aar')
 }
