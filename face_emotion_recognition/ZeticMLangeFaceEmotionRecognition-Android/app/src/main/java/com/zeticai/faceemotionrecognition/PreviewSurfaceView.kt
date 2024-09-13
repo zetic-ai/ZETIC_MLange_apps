@@ -17,7 +17,6 @@ open class PreviewSurfaceView(context: Context, attrSet: AttributeSet) :
             Size(
                 screenSize.width * if (size.width > size.height) (size.width / size.height) else (size.height / size.width),
                 screenSize.width
-//                screenSize.width * if (size.width > size.height) (size.width / size.height) else (size.height / size.width)
             )
         )
     }

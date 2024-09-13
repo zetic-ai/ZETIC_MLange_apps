@@ -82,10 +82,10 @@ class MainActivity : AppCompatActivity() {
             val res = faceDetectionResult.faceDetections[0]
             val resizeFactor = 0.2f
             val roi = Box(
-                clamp(res.bbox.xMin * width * (1 - resizeFactor), width.toFloat()),
-                clamp(res.bbox.yMin * height * (1 - resizeFactor), height.toFloat()),
-                clamp(res.bbox.xMax * width * (1 + resizeFactor), width.toFloat()),
-                clamp(res.bbox.yMax * height * (1 + resizeFactor), height.toFloat()),
+                clamp(res.bbox.xMin * (1 - resizeFactor), 1f),
+                clamp(res.bbox.yMin * (1 - resizeFactor), 1f),
+                clamp(res.bbox.xMax * (1 + resizeFactor), 1f),
+                clamp(res.bbox.yMax * (1 + resizeFactor), 1f),
             )
             Pair(faceLandmark.run(imagePtr, roi), faceEmotionRecognition.run(imagePtr, roi))
         }

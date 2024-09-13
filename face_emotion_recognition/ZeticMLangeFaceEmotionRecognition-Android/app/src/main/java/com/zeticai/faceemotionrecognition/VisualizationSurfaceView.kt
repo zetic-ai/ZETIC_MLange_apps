@@ -73,9 +73,9 @@ class VisualizationSurfaceView(context: Context, attrSet: AttributeSet) :
         val resizeFactor = 0.2f
         val scaledDetectionBox = Box(
             detectionBox.xMin * width * (1 - resizeFactor),
-            detectionBox.yMin * height * (1 - resizeFactor - 0.1f),
+            detectionBox.yMin * height * (1 - resizeFactor),
             detectionBox.xMax * width * (1 + resizeFactor),
-            detectionBox.yMax * height * (1 + resizeFactor + 0.1f)
+            detectionBox.yMax * height * (1 + resizeFactor)
         )
         val detectionBoxWidth = (scaledDetectionBox.xMax - scaledDetectionBox.xMin)
         val detectionBoxHeight = (scaledDetectionBox.yMax - scaledDetectionBox.yMin)
@@ -83,7 +83,7 @@ class VisualizationSurfaceView(context: Context, attrSet: AttributeSet) :
         faceLandmarkResult?.landmarks?.forEach {
             canvas.drawCircle(
                 width - (scaledDetectionBox.xMin + (it.x * detectionBoxWidth)),
-                scaledDetectionBox.yMin + (it.y * detectionBoxHeight) - 10,
+                scaledDetectionBox.yMin + (it.y * detectionBoxHeight),
                 1f,
                 paint
             )
