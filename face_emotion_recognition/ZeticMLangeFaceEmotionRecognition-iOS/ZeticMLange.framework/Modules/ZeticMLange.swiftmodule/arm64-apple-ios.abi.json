@@ -1,8 +1,8 @@
 {
   "ABIRoot": {
     "kind": "Root",
-    "name": "TopLevel",
-    "printedName": "TopLevel",
+    "name": "ZeticMLange",
+    "printedName": "ZeticMLange",
     "children": [
       {
         "kind": "Import",
@@ -184,7 +184,23 @@
         "declAttributes": [
           "AccessControl"
         ],
-        "hasMissingDesignatedInitializers": true
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
       },
       {
         "kind": "Import",
@@ -1047,7 +1063,23 @@
         "declAttributes": [
           "AccessControl"
         ],
-        "hasMissingDesignatedInitializers": true
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
       },
       {
         "kind": "Import",
@@ -1217,6 +1249,22 @@
         "isOpen": true,
         "declAttributes": [
           "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
         ]
       },
       {
@@ -1570,6 +1618,22 @@
         "isOpen": true,
         "declAttributes": [
           "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
         ]
       },
       {
@@ -1809,7 +1873,23 @@
         "declAttributes": [
           "AccessControl"
         ],
-        "hasMissingDesignatedInitializers": true
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
       },
       {
         "kind": "TypeDecl",
@@ -1942,6 +2022,20 @@
           "AccessControl"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Error",
@@ -2336,7 +2430,23 @@
         "declAttributes": [
           "AccessControl"
         ],
-        "hasMissingDesignatedInitializers": true
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
       },
       {
         "kind": "Import",
@@ -2504,6 +2614,22 @@
         "isOpen": true,
         "declAttributes": [
           "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
         ]
       },
       {
@@ -2670,6 +2796,22 @@
         "isOpen": true,
         "declAttributes": [
           "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
         ]
       },
       {
@@ -3518,6 +3660,9 @@
             "moduleName": "ZeticMLange",
             "static": true,
             "implicit": true,
+            "declAttributes": [
+              "Nonisolated"
+            ],
             "accessors": [
               {
                 "kind": "Accessor",
@@ -3559,6 +3704,20 @@
         ],
         "enumRawTypeName": "Int",
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -3807,6 +3966,22 @@
         "isOpen": true,
         "declAttributes": [
           "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
         ]
       },
       {
@@ -4171,7 +4346,23 @@
         "declAttributes": [
           "AccessControl"
         ],
-        "hasMissingDesignatedInitializers": true
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
       },
       {
         "kind": "TypeDecl",
@@ -4306,6 +4497,22 @@
         "moduleName": "ZeticMLange",
         "declAttributes": [
           "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
         ]
       },
       {
@@ -4541,6 +4748,22 @@
         "moduleName": "ZeticMLange",
         "declAttributes": [
           "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
         ]
       },
       {
@@ -4680,6 +4903,22 @@
         "moduleName": "ZeticMLange",
         "declAttributes": [
           "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
         ]
       },
       {
@@ -5059,7 +5298,23 @@
         "declAttributes": [
           "AccessControl"
         ],
-        "hasMissingDesignatedInitializers": true
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
       },
       {
         "kind": "TypeDecl",
@@ -5194,6 +5449,22 @@
         "moduleName": "ZeticMLange",
         "declAttributes": [
           "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
         ]
       },
       {
@@ -5489,6 +5760,20 @@
           "AccessControl"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "ZeticMLangeTargetModel",
@@ -6050,6 +6335,22 @@
         "isOpen": true,
         "declAttributes": [
           "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
         ]
       },
       {
@@ -6250,7 +6551,23 @@
         "declAttributes": [
           "AccessControl"
         ],
-        "hasMissingDesignatedInitializers": true
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
       },
       {
         "kind": "Import",
@@ -6309,54 +6626,6 @@
                 "declKind": "Accessor",
                 "usr": "s:11ZeticMLange0aB26FeatureFaceLandmarkWrapperC05zeticbcdE3Ptrs5Int64Vvg",
                 "mangledName": "$s11ZeticMLange0aB26FeatureFaceLandmarkWrapperC05zeticbcdE3Ptrs5Int64Vvg",
-                "moduleName": "ZeticMLange",
-                "implicit": true,
-                "declAttributes": [
-                  "Final"
-                ],
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "outputSize",
-            "printedName": "outputSize",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:11ZeticMLange0aB26FeatureFaceLandmarkWrapperC10outputSizeSivp",
-            "mangledName": "$s11ZeticMLange0aB26FeatureFaceLandmarkWrapperC10outputSizeSivp",
-            "moduleName": "ZeticMLange",
-            "declAttributes": [
-              "HasInitialValue",
-              "Final",
-              "HasStorage"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:11ZeticMLange0aB26FeatureFaceLandmarkWrapperC10outputSizeSivg",
-                "mangledName": "$s11ZeticMLange0aB26FeatureFaceLandmarkWrapperC10outputSizeSivg",
                 "moduleName": "ZeticMLange",
                 "implicit": true,
                 "declAttributes": [
@@ -6590,7 +6859,7 @@
           {
             "kind": "Function",
             "name": "nativePostprocess",
-            "printedName": "nativePostprocess(_:_:_:)",
+            "printedName": "nativePostprocess(_:_:_:_:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -6655,10 +6924,24 @@
                   }
                 ],
                 "usr": "s:Sp"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UnsafeMutablePointer",
+                "printedName": "Swift.UnsafeMutablePointer<Swift.Int>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sp"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11ZeticMLange0aB26FeatureFaceLandmarkWrapperC17nativePostprocessySpyAA0dE0VGs5Int64V_SpySpySfGGSgAJtFZ",
+            "usr": "s:11ZeticMLange0aB26FeatureFaceLandmarkWrapperC17nativePostprocessySpyAA0dE0VGs5Int64V_SpySpySfGGSgAJSpySiGtFZ",
             "mangledName": "nativePostprocessFaceLandmark",
             "moduleName": "ZeticMLange",
             "static": true,
@@ -6677,7 +6960,23 @@
         "declAttributes": [
           "AccessControl"
         ],
-        "hasMissingDesignatedInitializers": true
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
       },
       {
         "kind": "TypeDecl",
@@ -6836,6 +7135,22 @@
         "moduleName": "ZeticMLange",
         "declAttributes": [
           "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
         ]
       },
       {
@@ -7018,6 +7333,22 @@
         "moduleName": "ZeticMLange",
         "declAttributes": [
           "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
         ]
       },
       {
@@ -7202,7 +7533,23 @@
         "usr": "s:11ZeticMLange0aB10ModelUtilsC",
         "mangledName": "$s11ZeticMLange0aB10ModelUtilsC",
         "moduleName": "ZeticMLange",
-        "isOpen": true
+        "isOpen": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
       }
     ],
     "json_format_version": 8
@@ -7235,272 +7582,6 @@
       "offset": 249,
       "length": 1,
       "value": "3"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 142,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 181,
-      "length": 26,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 263,
-      "length": 23,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 333,
-      "length": 29,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 393,
-      "length": 23,
-      "value": "4"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 426,
-      "length": 29,
-      "value": "5"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 483,
-      "length": 26,
-      "value": "6"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 519,
-      "length": 31,
-      "value": "7"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 581,
-      "length": 30,
-      "value": "8"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 621,
-      "length": 36,
-      "value": "9"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 687,
-      "length": 26,
-      "value": "10"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 723,
-      "length": 32,
-      "value": "11"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 784,
-      "length": 25,
-      "value": "12"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 819,
-      "length": 31,
-      "value": "13"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 877,
-      "length": 24,
-      "value": "14"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 911,
-      "length": 30,
-      "value": "15"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 956,
-      "length": 30,
-      "value": "16"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1066,
-      "length": 2,
-      "value": "64"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1078,
-      "length": 24,
-      "value": "65"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 142,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 181,
-      "length": 26,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 263,
-      "length": 23,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 333,
-      "length": 29,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 393,
-      "length": 23,
-      "value": "4"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 426,
-      "length": 29,
-      "value": "5"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 483,
-      "length": 26,
-      "value": "6"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 519,
-      "length": 31,
-      "value": "7"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 581,
-      "length": 30,
-      "value": "8"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 621,
-      "length": 36,
-      "value": "9"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 687,
-      "length": 26,
-      "value": "10"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 723,
-      "length": 32,
-      "value": "11"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 784,
-      "length": 25,
-      "value": "12"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 819,
-      "length": 31,
-      "value": "13"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 877,
-      "length": 24,
-      "value": "14"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 911,
-      "length": 30,
-      "value": "15"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 956,
-      "length": 30,
-      "value": "16"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1066,
-      "length": 2,
-      "value": "64"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1078,
-      "length": 24,
-      "value": "65"
     },
     {
       "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLange\/ZeticMLangeTarget.swift",
@@ -7676,13 +7757,6 @@
       "offset": 228,
       "length": 3,
       "value": "200"
-    },
-    {
-      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLangeFeature\/ZeticMLangeFeatureFaceLandmarkWrapper.swift",
-      "kind": "IntegerLiteral",
-      "offset": 155,
-      "length": 3,
-      "value": "468"
     }
   ]
 }
