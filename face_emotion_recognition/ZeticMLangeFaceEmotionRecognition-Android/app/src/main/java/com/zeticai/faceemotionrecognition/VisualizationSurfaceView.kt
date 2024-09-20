@@ -8,10 +8,8 @@ import android.graphics.PorterDuff
 import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
 import android.util.AttributeSet
-import com.zetic.ZeticMLangeFeature.type.Box
 import com.zetic.ZeticMLangeFeature.type.FaceDetectionResult
 import com.zetic.ZeticMLangeFeature.type.FaceEmotionRecognitionResult
-import com.zetic.ZeticMLangeFeature.type.FaceLandmarkResult
 
 class VisualizationSurfaceView(context: Context, attrSet: AttributeSet) :
     PreviewSurfaceView(context, attrSet) {
@@ -31,7 +29,6 @@ class VisualizationSurfaceView(context: Context, attrSet: AttributeSet) :
 
     fun visualize(
         faceDetectionResult: FaceDetectionResult?,
-        faceLandmarkResult: FaceLandmarkResult?,
         faceEmotionRecognitionResult: FaceEmotionRecognitionResult?
     ) {
         if (!holder.surface.isValid)
@@ -68,25 +65,6 @@ class VisualizationSurfaceView(context: Context, attrSet: AttributeSet) :
         if (detectionBox == null) {
             holder.unlockCanvasAndPost(canvas)
             return
-        }
-
-        val resizeFactor = 0.2f
-        val scaledDetectionBox = Box(
-            detectionBox.xMin * width * (1 - resizeFactor),
-            detectionBox.yMin * height * (1 - resizeFactor),
-            detectionBox.xMax * width * (1 + resizeFactor),
-            detectionBox.yMax * height * (1 + resizeFactor)
-        )
-        val detectionBoxWidth = (scaledDetectionBox.xMax - scaledDetectionBox.xMin)
-        val detectionBoxHeight = (scaledDetectionBox.yMax - scaledDetectionBox.yMin)
-
-        faceLandmarkResult?.landmarks?.forEach {
-            canvas.drawCircle(
-                width - (scaledDetectionBox.xMin + (it.x * detectionBoxWidth)),
-                scaledDetectionBox.yMin + (it.y * detectionBoxHeight),
-                1f,
-                paint
-            )
         }
 
         if (faceEmotionRecognitionResult == null) {

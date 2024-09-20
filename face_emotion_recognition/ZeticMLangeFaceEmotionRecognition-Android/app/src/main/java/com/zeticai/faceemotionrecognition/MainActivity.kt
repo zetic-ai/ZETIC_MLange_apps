@@ -12,7 +12,6 @@ import com.zetic.ZeticMLangeFeature.ZeticMLangeFeatureCameraController
 import com.zetic.ZeticMLangeFeature.type.Box
 import com.zeticai.faceemotionrecognition.feature.FaceDetection
 import com.zeticai.faceemotionrecognition.feature.FaceEmotionRecognition
-import com.zeticai.faceemotionrecognition.feature.FaceLandmark
 import kotlin.math.min
 import kotlin.math.max
 
@@ -28,7 +27,6 @@ class MainActivity : AppCompatActivity() {
     private val visualizationSurfaceView: VisualizationSurfaceView by lazy { findViewById(R.id.visualizationSurfaceView) }
     private val zeticMLangeFeatureCameraController: ZeticMLangeFeatureCameraController = ZeticMLangeFeatureCameraController()
     private val faceDetection by lazy { FaceDetection(this, "face_detection_short_range") }
-    private val faceLandmark by lazy { FaceLandmark(this, "face_landmark") }
     private val faceEmotionRecognition by lazy { FaceEmotionRecognition(this, "face_emotion_recognition") }
 
     private val cameraController by lazy {
@@ -68,7 +66,6 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         cameraController.close()
         faceDetection.close()
-        faceLandmark.close()
         faceEmotionRecognition.close()
     }
 
@@ -77,7 +74,7 @@ class MainActivity : AppCompatActivity() {
 
         val faceDetectionResult = faceDetection.run(imagePtr)
 
-        val (faceLandmarkResult, faceEmotionRecognitionResult) = if (faceDetectionResult.faceDetections.isEmpty()) Pair(null, null)
+        val faceEmotionRecognitionResult = if (faceDetectionResult.faceDetections.isEmpty()) null
         else {
             val res = faceDetectionResult.faceDetections[0]
             val resizeFactor = 0.2f
@@ -87,12 +84,11 @@ class MainActivity : AppCompatActivity() {
                 clamp(res.bbox.xMax * (1 + resizeFactor), 1f),
                 clamp(res.bbox.yMax * (1 + resizeFactor), 1f),
             )
-            Pair(faceLandmark.run(imagePtr, roi), faceEmotionRecognition.run(imagePtr, roi))
+            faceEmotionRecognition.run(imagePtr, roi)
         }
 
         visualizationSurfaceView.visualize(
             faceDetectionResult,
-            faceLandmarkResult,
             faceEmotionRecognitionResult)
     }
 
