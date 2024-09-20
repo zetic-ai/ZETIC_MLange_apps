@@ -7,8 +7,13 @@
 
 ```
 └── yolov8                                      
-    ├── ZeticMLangeYoloV8-Android               : YoloV8 Android Application
-    └── ZeticMLangeYolov8-iOS                   : YoloV8 iOS Application
+    ├── samples                                                 : YoloV8 Model Samples
+    ├── ZeticMLangeYoloV8-Android                               : YoloV8 Android Application
+    └── ZeticMLangeYolov8-iOS                                   : YoloV8 iOS Application
+└── face_emotion_recognition                                      
+    ├── samples                                                 : Face Emotion Recognition Model Samples
+    ├── ZeticMLangeFaceEmotionRecognition-Android               : Face Emotion Recognition Android Application
+    └── ZeticMLangeFaceEmotionRecognition-iOS                   : Face Emotion Recognition iOS Application
 ```
 
 

@@ -7,24 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16C5C3542C9C02ED0092E02F /* ZeticMLange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C5C3522C9C02EA0092E02F /* ZeticMLange.framework */; };
+		16C5C3552C9C02ED0092E02F /* ZeticMLange.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16C5C3522C9C02EA0092E02F /* ZeticMLange.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DCB22A432C77582A0080FB6B /* ZeticMLangeYolov8_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB22A422C77582A0080FB6B /* ZeticMLangeYolov8_iOSApp.swift */; };
 		DCB22A452C77582A0080FB6B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB22A442C77582A0080FB6B /* ContentView.swift */; };
 		DCB22A472C77582B0080FB6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCB22A462C77582B0080FB6B /* Assets.xcassets */; };
 		DCB22A4A2C77582B0080FB6B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCB22A492C77582B0080FB6B /* Preview Assets.xcassets */; };
-		DCB22A512C77594A0080FB6B /* ZeticMLange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB22A502C77594A0080FB6B /* ZeticMLange.framework */; };
 		DCB22A582C775A5F0080FB6B /* coco.yaml in Resources */ = {isa = PBXBuildFile; fileRef = DCB22A572C775A5F0080FB6B /* coco.yaml */; };
-		DCF5258A2C78702D00C76F7A /* ZeticMLange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF525882C78702900C76F7A /* ZeticMLange.framework */; };
-		DCF5258B2C78702D00C76F7A /* ZeticMLange.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DCF525882C78702900C76F7A /* ZeticMLange.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		DCB22A562C7759F70080FB6B /* Embed Frameworks */ = {
+		16C5C3562C9C02ED0092E02F /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DCF5258B2C78702D00C76F7A /* ZeticMLange.framework in Embed Frameworks */,
+				16C5C3552C9C02ED0092E02F /* ZeticMLange.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -32,15 +31,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		16C5C3522C9C02EA0092E02F /* ZeticMLange.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZeticMLange.framework; path = "ZeticMLangeYolov8-iOS/ZeticMLange.framework"; sourceTree = "<group>"; };
 		DCB22A3F2C77582A0080FB6B /* ZeticMLangeYolov8-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZeticMLangeYolov8-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB22A422C77582A0080FB6B /* ZeticMLangeYolov8_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeticMLangeYolov8_iOSApp.swift; sourceTree = "<group>"; };
 		DCB22A442C77582A0080FB6B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DCB22A462C77582B0080FB6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCB22A492C77582B0080FB6B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		DCB22A502C77594A0080FB6B /* ZeticMLange.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZeticMLange.framework; sourceTree = "<group>"; };
 		DCB22A572C775A5F0080FB6B /* coco.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = coco.yaml; sourceTree = "<group>"; };
-		DCB22A722C775DF50080FB6B /* ZeticMLange.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZeticMLange.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/ZeticMLangeiOS-hemgpwkqeifbbbdecbwjrrgadrhh/Build/Products/Debug-iphoneos/ZeticMLange.framework"; sourceTree = "<group>"; };
-		DCF525882C78702900C76F7A /* ZeticMLange.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZeticMLange.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,20 +45,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCF5258A2C78702D00C76F7A /* ZeticMLange.framework in Frameworks */,
-				DCB22A512C77594A0080FB6B /* ZeticMLange.framework in Frameworks */,
+				16C5C3542C9C02ED0092E02F /* ZeticMLange.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16C5C34D2C9C02980092E02F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DCB22A362C77582A0080FB6B = {
 			isa = PBXGroup;
 			children = (
-				DCF525882C78702900C76F7A /* ZeticMLange.framework */,
+				16C5C3522C9C02EA0092E02F /* ZeticMLange.framework */,
 				DCB22A572C775A5F0080FB6B /* coco.yaml */,
 				DCB22A412C77582A0080FB6B /* ZeticMLangeYolov8-iOS */,
+				16C5C34D2C9C02980092E02F /* Frameworks */,
 				DCB22A402C77582A0080FB6B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,8 +92,6 @@
 		DCB22A482C77582B0080FB6B /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				DCB22A502C77594A0080FB6B /* ZeticMLange.framework */,
-				DCB22A722C775DF50080FB6B /* ZeticMLange.framework */,
 				DCB22A492C77582B0080FB6B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -105,7 +107,7 @@
 				DCB22A3B2C77582A0080FB6B /* Sources */,
 				DCB22A3C2C77582A0080FB6B /* Frameworks */,
 				DCB22A3D2C77582A0080FB6B /* Resources */,
-				DCB22A562C7759F70080FB6B /* Embed Frameworks */,
+				16C5C3562C9C02ED0092E02F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -303,12 +305,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ZeticMLangeYolov8-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = L2W9MUG73J;
+				DEVELOPMENT_TEAM = 7MFYYTGH2P;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ZeticMLangeYolov8-iOS/Preview\\ Content",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/ZeticMLangeYolov8-iOS",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -340,12 +343,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ZeticMLangeYolov8-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = L2W9MUG73J;
+				DEVELOPMENT_TEAM = 7MFYYTGH2P;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ZeticMLangeYolov8-iOS/Preview\\ Content",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/ZeticMLangeYolov8-iOS",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
