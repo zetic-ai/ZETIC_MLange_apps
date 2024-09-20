@@ -36,7 +36,7 @@ class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBuf
     private let videoOutput = AVCaptureVideoDataOutput()
     private let processingQueue = DispatchQueue(label: "image_processing_queue", qos: .userInitiated)
     
-    private var yoloModel: ZeticMLangeModel!
+    private var yoloModel: ZeticMLangeModel
     private let yoloFeature = ZeticMLangeFeatureYolov8(Bundle.main.url(forResource: "coco", withExtension: "yaml")!.absoluteString)
     private let context = CIContext()
     
@@ -58,11 +58,7 @@ class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBuf
     }
     
     init(mlange_model_key: String) {
-        do {
-            self.yoloModel = try ZeticMLangeModel(mlange_model_key)
-        } catch {
-            print("ZETIC MLANGE YOLO8 TEST", "Failed to read extra data: \(error)")
-        }
+        self.yoloModel = ZeticMLangeModel(mlange_model_key)!
         super.init()
     }
     
@@ -124,11 +120,10 @@ class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBuf
     }
     
     private func processYolo(_ image: UIImage) -> UIImage? {
-        var yoloProcessedData = self.yoloFeature.preprocess(image)
+        let yoloProcessedData = self.yoloFeature.preprocess(image)
         let yoloModelInput = [yoloProcessedData]
             
         do {
-            
             try self.yoloModel.run(yoloModelInput);
             var outputs = self.yoloModel.getOutputDataArray()
                         
@@ -137,7 +132,5 @@ class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBuf
         } catch {
             return nil
         }
-        
-        return nil
     }
 }
