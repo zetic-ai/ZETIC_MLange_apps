@@ -23,6 +23,7 @@ public class ZeticMLangeFeatureFaceDetection {
   @objc deinit
 }
 public class ZeticMLangeModel {
+  final public let zeticMLangeTargetModel: any ZeticMLange.ZeticMLangeTargetModel
   public init?(_ modelKey: Swift.String)
   public func run(_ inputs: [Foundation.Data]) throws
   public func getOutputDataArray() -> [Foundation.Data]

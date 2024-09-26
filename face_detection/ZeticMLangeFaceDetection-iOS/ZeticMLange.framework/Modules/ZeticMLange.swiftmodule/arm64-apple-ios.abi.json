@@ -1391,7 +1391,8 @@
             "moduleName": "ZeticMLange",
             "declAttributes": [
               "Final",
-              "HasStorage"
+              "HasStorage",
+              "AccessControl"
             ],
             "isLet": true,
             "hasStorage": true,
