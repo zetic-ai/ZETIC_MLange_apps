@@ -1,0 +1,600 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		166095882CB37B5F00B2F403 /* yamnet_class_map.csv in Resources */ = {isa = PBXBuildFile; fileRef = 166095872CB37B5F00B2F403 /* yamnet_class_map.csv */; };
+		1660959B2CB385BA00B2F403 /* ZeticMLange.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166095992CB385B200B2F403 /* ZeticMLange.xcframework */; };
+		1660959C2CB385BA00B2F403 /* ZeticMLange.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 166095992CB385B200B2F403 /* ZeticMLange.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1660956B2CB37B5200B2F403 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 166095522CB37B5100B2F403 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 166095592CB37B5100B2F403;
+			remoteInfo = "ZeticMLangeYAMNET-iOS";
+		};
+		166095752CB37B5200B2F403 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 166095522CB37B5100B2F403 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 166095592CB37B5100B2F403;
+			remoteInfo = "ZeticMLangeYAMNET-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		166095902CB37DE800B2F403 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1660959C2CB385BA00B2F403 /* ZeticMLange.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1660955A2CB37B5100B2F403 /* ZeticMLangeYAMNET-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZeticMLangeYAMNET-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1660956A2CB37B5200B2F403 /* ZeticMLangeYAMNET-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ZeticMLangeYAMNET-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		166095742CB37B5200B2F403 /* ZeticMLangeYAMNET-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ZeticMLangeYAMNET-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		166095872CB37B5F00B2F403 /* yamnet_class_map.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = yamnet_class_map.csv; sourceTree = "<group>"; };
+		166095992CB385B200B2F403 /* ZeticMLange.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = ZeticMLange.xcframework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		1660955C2CB37B5100B2F403 /* ZeticMLangeYAMNET-iOS */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "ZeticMLangeYAMNET-iOS";
+			sourceTree = "<group>";
+		};
+		1660956D2CB37B5200B2F403 /* ZeticMLangeYAMNET-iOSTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "ZeticMLangeYAMNET-iOSTests";
+			sourceTree = "<group>";
+		};
+		166095772CB37B5200B2F403 /* ZeticMLangeYAMNET-iOSUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "ZeticMLangeYAMNET-iOSUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		166095572CB37B5100B2F403 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1660959B2CB385BA00B2F403 /* ZeticMLange.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		166095672CB37B5200B2F403 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		166095712CB37B5200B2F403 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		166095512CB37B5100B2F403 = {
+			isa = PBXGroup;
+			children = (
+				1660955C2CB37B5100B2F403 /* ZeticMLangeYAMNET-iOS */,
+				1660956D2CB37B5200B2F403 /* ZeticMLangeYAMNET-iOSTests */,
+				166095772CB37B5200B2F403 /* ZeticMLangeYAMNET-iOSUITests */,
+				1660955B2CB37B5100B2F403 /* Products */,
+				166095872CB37B5F00B2F403 /* yamnet_class_map.csv */,
+				166095992CB385B200B2F403 /* ZeticMLange.xcframework */,
+			);
+			sourceTree = "<group>";
+		};
+		1660955B2CB37B5100B2F403 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1660955A2CB37B5100B2F403 /* ZeticMLangeYAMNET-iOS.app */,
+				1660956A2CB37B5200B2F403 /* ZeticMLangeYAMNET-iOSTests.xctest */,
+				166095742CB37B5200B2F403 /* ZeticMLangeYAMNET-iOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		166095592CB37B5100B2F403 /* ZeticMLangeYAMNET-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1660957E2CB37B5200B2F403 /* Build configuration list for PBXNativeTarget "ZeticMLangeYAMNET-iOS" */;
+			buildPhases = (
+				166095562CB37B5100B2F403 /* Sources */,
+				166095572CB37B5100B2F403 /* Frameworks */,
+				166095582CB37B5100B2F403 /* Resources */,
+				166095902CB37DE800B2F403 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				1660955C2CB37B5100B2F403 /* ZeticMLangeYAMNET-iOS */,
+			);
+			name = "ZeticMLangeYAMNET-iOS";
+			packageProductDependencies = (
+			);
+			productName = "ZeticMLangeYAMNET-iOS";
+			productReference = 1660955A2CB37B5100B2F403 /* ZeticMLangeYAMNET-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		166095692CB37B5200B2F403 /* ZeticMLangeYAMNET-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 166095812CB37B5200B2F403 /* Build configuration list for PBXNativeTarget "ZeticMLangeYAMNET-iOSTests" */;
+			buildPhases = (
+				166095662CB37B5200B2F403 /* Sources */,
+				166095672CB37B5200B2F403 /* Frameworks */,
+				166095682CB37B5200B2F403 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1660956C2CB37B5200B2F403 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				1660956D2CB37B5200B2F403 /* ZeticMLangeYAMNET-iOSTests */,
+			);
+			name = "ZeticMLangeYAMNET-iOSTests";
+			packageProductDependencies = (
+			);
+			productName = "ZeticMLangeYAMNET-iOSTests";
+			productReference = 1660956A2CB37B5200B2F403 /* ZeticMLangeYAMNET-iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		166095732CB37B5200B2F403 /* ZeticMLangeYAMNET-iOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 166095842CB37B5200B2F403 /* Build configuration list for PBXNativeTarget "ZeticMLangeYAMNET-iOSUITests" */;
+			buildPhases = (
+				166095702CB37B5200B2F403 /* Sources */,
+				166095712CB37B5200B2F403 /* Frameworks */,
+				166095722CB37B5200B2F403 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				166095762CB37B5200B2F403 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				166095772CB37B5200B2F403 /* ZeticMLangeYAMNET-iOSUITests */,
+			);
+			name = "ZeticMLangeYAMNET-iOSUITests";
+			packageProductDependencies = (
+			);
+			productName = "ZeticMLangeYAMNET-iOSUITests";
+			productReference = 166095742CB37B5200B2F403 /* ZeticMLangeYAMNET-iOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		166095522CB37B5100B2F403 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					166095592CB37B5100B2F403 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					166095692CB37B5200B2F403 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 166095592CB37B5100B2F403;
+					};
+					166095732CB37B5200B2F403 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 166095592CB37B5100B2F403;
+					};
+				};
+			};
+			buildConfigurationList = 166095552CB37B5100B2F403 /* Build configuration list for PBXProject "ZeticMLangeYAMNET-iOS" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 166095512CB37B5100B2F403;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 1660955B2CB37B5100B2F403 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				166095592CB37B5100B2F403 /* ZeticMLangeYAMNET-iOS */,
+				166095692CB37B5200B2F403 /* ZeticMLangeYAMNET-iOSTests */,
+				166095732CB37B5200B2F403 /* ZeticMLangeYAMNET-iOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		166095582CB37B5100B2F403 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				166095882CB37B5F00B2F403 /* yamnet_class_map.csv in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		166095682CB37B5200B2F403 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		166095722CB37B5200B2F403 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		166095562CB37B5100B2F403 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		166095662CB37B5200B2F403 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		166095702CB37B5200B2F403 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1660956C2CB37B5200B2F403 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 166095592CB37B5100B2F403 /* ZeticMLangeYAMNET-iOS */;
+			targetProxy = 1660956B2CB37B5200B2F403 /* PBXContainerItemProxy */;
+		};
+		166095762CB37B5200B2F403 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 166095592CB37B5100B2F403 /* ZeticMLangeYAMNET-iOS */;
+			targetProxy = 166095752CB37B5200B2F403 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1660957C2CB37B5200B2F403 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1660957D2CB37B5200B2F403 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1660957F2CB37B5200B2F403 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ZeticMLangeYAMNET-iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = 7MFYYTGH2P;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = asfda;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zetic.ZeticMLangeYAMNET-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		166095802CB37B5200B2F403 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ZeticMLangeYAMNET-iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = 7MFYYTGH2P;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = asfda;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zetic.ZeticMLangeYAMNET-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		166095822CB37B5200B2F403 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7MFYYTGH2P;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zetic.ZeticMLangeYAMNET-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZeticMLangeYAMNET-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ZeticMLangeYAMNET-iOS";
+			};
+			name = Debug;
+		};
+		166095832CB37B5200B2F403 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7MFYYTGH2P;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zetic.ZeticMLangeYAMNET-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZeticMLangeYAMNET-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ZeticMLangeYAMNET-iOS";
+			};
+			name = Release;
+		};
+		166095852CB37B5200B2F403 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7MFYYTGH2P;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zetic.ZeticMLangeYAMNET-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "ZeticMLangeYAMNET-iOS";
+			};
+			name = Debug;
+		};
+		166095862CB37B5200B2F403 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7MFYYTGH2P;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zetic.ZeticMLangeYAMNET-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "ZeticMLangeYAMNET-iOS";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		166095552CB37B5100B2F403 /* Build configuration list for PBXProject "ZeticMLangeYAMNET-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1660957C2CB37B5200B2F403 /* Debug */,
+				1660957D2CB37B5200B2F403 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1660957E2CB37B5200B2F403 /* Build configuration list for PBXNativeTarget "ZeticMLangeYAMNET-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1660957F2CB37B5200B2F403 /* Debug */,
+				166095802CB37B5200B2F403 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		166095812CB37B5200B2F403 /* Build configuration list for PBXNativeTarget "ZeticMLangeYAMNET-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				166095822CB37B5200B2F403 /* Debug */,
+				166095832CB37B5200B2F403 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		166095842CB37B5200B2F403 /* Build configuration list for PBXNativeTarget "ZeticMLangeYAMNET-iOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				166095852CB37B5200B2F403 /* Debug */,
+				166095862CB37B5200B2F403 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 166095522CB37B5100B2F403 /* Project object */;
+}
