@@ -9,9 +9,8 @@ struct ContentView: View {
             ZStack {
                 if let scores = processor.scores {
                     let scoredClasses = scores.map {
-                        "\(classes[$0.key]) : \($0.value)"
+                        "\(classes[$0.index]) : \($0.score)"
                     }.joined(separator: "\n")
-                    let _ = print(scoredClasses)
                     Canvas { context, size in
                         context.draw(Text(scoredClasses), in: CGRect(x: 100, y: 100, width: 2000, height: 2000))
                     }.frame(width: geometry.size.width, height: geometry.size.height)

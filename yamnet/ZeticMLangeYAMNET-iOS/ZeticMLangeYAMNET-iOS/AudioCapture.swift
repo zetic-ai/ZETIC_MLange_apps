@@ -63,7 +63,7 @@ class AudioCapture {
             }
             
             if self.audioData.count >= totalCaptureSamples {
-                let data = self.audioData.prefix(totalCaptureSamples).withUnsafeBufferPointer { bufferPointer in
+                let data = self.audioData.suffix(totalCaptureSamples).withUnsafeBufferPointer { bufferPointer in
                     Data(buffer: bufferPointer)
                 }
                 
@@ -118,10 +118,20 @@ class AudioCapture {
         audioEngine.stop()
     }
 }
+class AudioClass {
+    let index: Int
+    let score: Float
+    
+    init(index: Int, score: Float) {
+        self.index = index
+        self.score = score
+    }
+}
+
 @available(iOS 13.0, *)
 class AudioProcessor: ObservableObject {
     
-    @Published var scores: Dictionary<Int, Float>?
+    @Published var scores: Array<AudioClass>?
     
     let audioCapture = AudioCapture()!
     let model = ZeticMLangeModel("YAMNet")!
@@ -208,11 +218,11 @@ class AudioProcessor: ObservableObject {
         }
         
     }
-    private func getTopClassIndices(scores: [[Float]], topN: Int) -> Dictionary<Int, Float> {
+    private func getTopClassIndices(scores: [[Float]], topN: Int) -> Array<AudioClass> {
         let numberOfRows = scores.count
         guard numberOfRows > 0 else {
             print("Scores array is empty.")
-            return [:]
+            return []
         }
         
         let numberOfColumns = scores[0].count
@@ -220,7 +230,7 @@ class AudioProcessor: ObservableObject {
         for (rowIndex, row) in scores.enumerated() {
             if row.count != numberOfColumns {
                 print("Row \(rowIndex) has inconsistent number of columns.")
-                return [:]
+                return []
             }
         }
         
@@ -243,6 +253,8 @@ class AudioProcessor: ObservableObject {
         let topClassIndices = Array(sortedIndices.prefix(topN))
         let topClassScores = Array(sortedScores.prefix(topN))
         
-        return Dictionary(uniqueKeysWithValues: zip(topClassIndices, topClassScores))
+        return Array(zip(topClassIndices, topClassScores).map {
+            AudioClass(index: $0, score: $1)
+        })
     }
 }
