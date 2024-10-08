@@ -1,6 +1,6 @@
 import XCTest
 
-final class ZeticMLangeYAMNET_iOSUITests: XCTestCase {
+final class ZeticMLangeYAMNet_iOSUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

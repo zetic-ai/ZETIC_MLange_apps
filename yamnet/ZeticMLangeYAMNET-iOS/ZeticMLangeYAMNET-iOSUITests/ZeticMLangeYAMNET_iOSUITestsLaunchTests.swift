@@ -1,6 +1,6 @@
 import XCTest
 
-final class ZeticMLangeYAMNET_iOSUITestsLaunchTests: XCTestCase {
+final class ZeticMLangeYAMNet_iOSUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
