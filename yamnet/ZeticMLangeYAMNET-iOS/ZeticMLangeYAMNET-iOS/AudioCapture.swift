@@ -186,16 +186,16 @@ class AudioProcessor: ObservableObject {
     private func processAudioData(_ audioData: Data) {
         do {
             try model.run([audioData])
-            let outputs = model.getOutputDataArray().sorted { $0.count < $1.count }
+            let outputs = model.getOutputDataArray()
             
-            let floats = outputs[0].withUnsafeBytes { ptr -> [[Float]] in
+            let floats = outputs[1].withUnsafeBytes { ptr -> [[Float]] in
                 
                 let rowCount = 6
                 let columnCount = 521
                 let totalCount = rowCount * columnCount
                 let expectedByteCount = totalCount * MemoryLayout<Float>.size
-                guard ptr.count >= expectedByteCount else {
-                    print("Error: Not enough data in outputs[0].")
+                guard ptr.count == expectedByteCount else {
+                    print("Error: Data Size Not Matching. ExpectedByteCount : \(expectedByteCount).")
                     return []
                 }
                 let baseAddress = ptr.baseAddress!.assumingMemoryBound(to: Float.self)

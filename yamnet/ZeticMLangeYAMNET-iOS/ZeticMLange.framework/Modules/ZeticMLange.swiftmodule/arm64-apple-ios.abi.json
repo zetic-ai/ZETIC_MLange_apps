@@ -556,6 +556,72 @@
           },
           {
             "kind": "Function",
+            "name": "getInputTensorNameHashAt",
+            "printedName": "getInputTensorNameHashAt(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.Int32]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ZeticMLange0aB18ModelNativeWrapperC24getInputTensorNameHashAtySays5Int32VGSiF",
+            "mangledName": "$s11ZeticMLange0aB18ModelNativeWrapperC24getInputTensorNameHashAtySays5Int32VGSiF",
+            "moduleName": "ZeticMLange",
+            "isOpen": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getOutputTensorNameHashAt",
+            "printedName": "getOutputTensorNameHashAt(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.Int32]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ZeticMLange0aB18ModelNativeWrapperC25getOutputTensorNameHashAtySays5Int32VGSiF",
+            "mangledName": "$s11ZeticMLange0aB18ModelNativeWrapperC25getOutputTensorNameHashAtySays5Int32VGSiF",
+            "moduleName": "ZeticMLange",
+            "isOpen": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "getName",
             "printedName": "getName()",
             "children": [
@@ -1017,6 +1083,92 @@
             "declKind": "Func",
             "usr": "s:11ZeticMLange0aB18ModelNativeWrapperC28nativeGetTargetPriorityValAtySis5Int64V_Spys4Int8VGSitFZ",
             "mangledName": "nativeGetTargetPriorityValAt",
+            "moduleName": "ZeticMLange",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "SILGenName"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "nativeGetInputTensorNameHashAt",
+            "printedName": "nativeGetInputTensorNameHashAt(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UnsafeMutablePointer",
+                "printedName": "Swift.UnsafeMutablePointer<Swift.Int32>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "usr": "s:Sp"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int64",
+                "printedName": "Swift.Int64",
+                "usr": "s:s5Int64V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ZeticMLange0aB18ModelNativeWrapperC30nativeGetInputTensorNameHashAtySpys5Int32VGs5Int64V_SitFZ",
+            "mangledName": "nativeGetInputTensorNameHashAt",
+            "moduleName": "ZeticMLange",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "SILGenName"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "nativeGetOutputTensorNameHashAt",
+            "printedName": "nativeGetOutputTensorNameHashAt(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UnsafeMutablePointer",
+                "printedName": "Swift.UnsafeMutablePointer<Swift.Int32>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "usr": "s:Sp"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int64",
+                "printedName": "Swift.Int64",
+                "usr": "s:s5Int64V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ZeticMLange0aB18ModelNativeWrapperC31nativeGetOutputTensorNameHashAtySpys5Int32VGs5Int64V_SitFZ",
+            "mangledName": "nativeGetOutputTensorNameHashAt",
             "moduleName": "ZeticMLange",
             "static": true,
             "declAttributes": [
@@ -4895,6 +5047,82 @@
             "protocolReq": true,
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getInputTensorNameHashes",
+            "printedName": "getInputTensorNameHashes()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[[Swift.Int32]]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.Int32]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int32",
+                        "printedName": "Swift.Int32",
+                        "usr": "s:s5Int32V"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ZeticMLange0aB11TargetModelP24getInputTensorNameHashesSaySays5Int32VGGyF",
+            "mangledName": "$s11ZeticMLange0aB11TargetModelP24getInputTensorNameHashesSaySays5Int32VGGyF",
+            "moduleName": "ZeticMLange",
+            "genericSig": "<τ_0_0 where τ_0_0 : ZeticMLange.ZeticMLangeTargetModel>",
+            "sugared_genericSig": "<Self where Self : ZeticMLange.ZeticMLangeTargetModel>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getOutputTensorNameHashes",
+            "printedName": "getOutputTensorNameHashes()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[[Swift.Int32]]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.Int32]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int32",
+                        "printedName": "Swift.Int32",
+                        "usr": "s:s5Int32V"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ZeticMLange0aB11TargetModelP25getOutputTensorNameHashesSaySays5Int32VGGyF",
+            "mangledName": "$s11ZeticMLange0aB11TargetModelP25getOutputTensorNameHashesSaySays5Int32VGGyF",
+            "moduleName": "ZeticMLange",
+            "genericSig": "<τ_0_0 where τ_0_0 : ZeticMLange.ZeticMLangeTargetModel>",
+            "sugared_genericSig": "<Self where Self : ZeticMLange.ZeticMLangeTargetModel>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Protocol",
@@ -5482,6 +5710,13 @@
         "moduleName": "ZeticMLange"
       },
       {
+        "kind": "Import",
+        "name": "CryptoKit",
+        "printedName": "CryptoKit",
+        "declKind": "Import",
+        "moduleName": "ZeticMLange"
+      },
+      {
         "kind": "TypeDecl",
         "name": "ZeticMLangeCoreMLModel",
         "printedName": "ZeticMLangeCoreMLModel",
@@ -5743,6 +5978,82 @@
             "declKind": "Func",
             "usr": "s:11ZeticMLange0aB11CoreMLModelC13isInitializedSbyF",
             "mangledName": "$s11ZeticMLange0aB11CoreMLModelC13isInitializedSbyF",
+            "moduleName": "ZeticMLange",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getInputTensorNameHashes",
+            "printedName": "getInputTensorNameHashes()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[[Swift.Int32]]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.Int32]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int32",
+                        "printedName": "Swift.Int32",
+                        "usr": "s:s5Int32V"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ZeticMLange0aB11CoreMLModelC24getInputTensorNameHashesSaySays5Int32VGGyF",
+            "mangledName": "$s11ZeticMLange0aB11CoreMLModelC24getInputTensorNameHashesSaySays5Int32VGGyF",
+            "moduleName": "ZeticMLange",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getOutputTensorNameHashes",
+            "printedName": "getOutputTensorNameHashes()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[[Swift.Int32]]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.Int32]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int32",
+                        "printedName": "Swift.Int32",
+                        "usr": "s:s5Int32V"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ZeticMLange0aB11CoreMLModelC25getOutputTensorNameHashesSaySays5Int32VGGyF",
+            "mangledName": "$s11ZeticMLange0aB11CoreMLModelC25getOutputTensorNameHashesSaySays5Int32VGGyF",
             "moduleName": "ZeticMLange",
             "isOpen": true,
             "declAttributes": [
@@ -7719,7 +8030,7 @@
     {
       "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/ZeticMLangeCoreML\/ZeticMLangeCoreMLModel.swift",
       "kind": "Array",
-      "offset": 189,
+      "offset": 206,
       "length": 2,
       "value": "[]"
     },
