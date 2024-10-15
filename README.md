@@ -24,5 +24,5 @@
     └── ZeticMLangeFaceLandmark-iOS                             : Face Landmark iOS Application
 └── yamnet
     ├── ZeticMLangeYAMNet-Android                               : YAMNet Android Application
-    └── ZeticMLangeYAMNet-iOS                                   : YAMNet Emotion Recognition iOS Application
+    └── ZeticMLangeYAMNet-iOS                                   : YAMNet iOS Application
 ```
