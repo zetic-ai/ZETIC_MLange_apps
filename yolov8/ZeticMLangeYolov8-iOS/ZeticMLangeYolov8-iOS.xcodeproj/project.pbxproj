@@ -7,36 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		16563F5B2CA570F500733DC7 /* libzetic_mlange_feature_face_emotion_recognition.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F4C2CA570F500733DC7 /* libzetic_mlange_feature_face_emotion_recognition.dylib */; };
-		16563F5C2CA570F500733DC7 /* libzetic_mlange_feature_face_emotion_recognition.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F4C2CA570F500733DC7 /* libzetic_mlange_feature_face_emotion_recognition.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F5D2CA570F500733DC7 /* libZeticMLangeTorchNative.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F4D2CA570F500733DC7 /* libZeticMLangeTorchNative.dylib */; };
-		16563F5E2CA570F500733DC7 /* libZeticMLangeTorchNative.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F4D2CA570F500733DC7 /* libZeticMLangeTorchNative.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F5F2CA570F500733DC7 /* libZeticMLangeFeatureFaceDetectionNative.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F4E2CA570F500733DC7 /* libZeticMLangeFeatureFaceDetectionNative.dylib */; };
-		16563F602CA570F500733DC7 /* libZeticMLangeFeatureFaceDetectionNative.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F4E2CA570F500733DC7 /* libZeticMLangeFeatureFaceDetectionNative.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F612CA570F500733DC7 /* libZeticMLangeFeatureFaceEmotionRecognitionNative.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F4F2CA570F500733DC7 /* libZeticMLangeFeatureFaceEmotionRecognitionNative.dylib */; };
-		16563F622CA570F500733DC7 /* libZeticMLangeFeatureFaceEmotionRecognitionNative.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F4F2CA570F500733DC7 /* libZeticMLangeFeatureFaceEmotionRecognitionNative.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F632CA570F500733DC7 /* libzetic_mlange_feature_opencv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F502CA570F500733DC7 /* libzetic_mlange_feature_opencv.dylib */; };
-		16563F642CA570F500733DC7 /* libzetic_mlange_feature_opencv.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F502CA570F500733DC7 /* libzetic_mlange_feature_opencv.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F652CA570F500733DC7 /* libzetic_mlange_feature_face_detection.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F512CA570F500733DC7 /* libzetic_mlange_feature_face_detection.dylib */; };
-		16563F662CA570F500733DC7 /* libzetic_mlange_feature_face_detection.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F512CA570F500733DC7 /* libzetic_mlange_feature_face_detection.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F672CA570F500733DC7 /* libzetic_mlange_feature_yolov8.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F522CA570F500733DC7 /* libzetic_mlange_feature_yolov8.dylib */; };
-		16563F682CA570F500733DC7 /* libzetic_mlange_feature_yolov8.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F522CA570F500733DC7 /* libzetic_mlange_feature_yolov8.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F692CA570F500733DC7 /* libzetic_feature_common.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F532CA570F500733DC7 /* libzetic_feature_common.dylib */; };
-		16563F6A2CA570F500733DC7 /* libzetic_feature_common.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F532CA570F500733DC7 /* libzetic_feature_common.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F6B2CA570F500733DC7 /* libzetic_mlange_feature_face_landmark.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F542CA570F500733DC7 /* libzetic_mlange_feature_face_landmark.dylib */; };
-		16563F6C2CA570F500733DC7 /* libzetic_mlange_feature_face_landmark.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F542CA570F500733DC7 /* libzetic_mlange_feature_face_landmark.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F6D2CA570F500733DC7 /* libZeticMLangeFeatureFaceLandmarkNative.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F552CA570F500733DC7 /* libZeticMLangeFeatureFaceLandmarkNative.dylib */; };
-		16563F6E2CA570F500733DC7 /* libZeticMLangeFeatureFaceLandmarkNative.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F552CA570F500733DC7 /* libZeticMLangeFeatureFaceLandmarkNative.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F6F2CA570F500733DC7 /* libzetic_common.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F562CA570F500733DC7 /* libzetic_common.dylib */; };
-		16563F702CA570F500733DC7 /* libzetic_common.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F562CA570F500733DC7 /* libzetic_common.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F712CA570F500733DC7 /* libZeticMLangeModelNative.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F572CA570F500733DC7 /* libZeticMLangeModelNative.dylib */; };
-		16563F722CA570F500733DC7 /* libZeticMLangeModelNative.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F572CA570F500733DC7 /* libZeticMLangeModelNative.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F732CA570F500733DC7 /* libZeticMLangeFeatureYoloV8Native.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F582CA570F500733DC7 /* libZeticMLangeFeatureYoloV8Native.dylib */; };
-		16563F742CA570F500733DC7 /* libZeticMLangeFeatureYoloV8Native.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F582CA570F500733DC7 /* libZeticMLangeFeatureYoloV8Native.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F752CA570F500733DC7 /* libZeticMLangeFeatureOpenCVNative.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F592CA570F500733DC7 /* libZeticMLangeFeatureOpenCVNative.dylib */; };
-		16563F762CA570F500733DC7 /* libZeticMLangeFeatureOpenCVNative.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F592CA570F500733DC7 /* libZeticMLangeFeatureOpenCVNative.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F772CA570F500733DC7 /* libzetic_mlange_model.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F5A2CA570F500733DC7 /* libzetic_mlange_model.dylib */; };
-		16563F782CA570F500733DC7 /* libzetic_mlange_model.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F5A2CA570F500733DC7 /* libzetic_mlange_model.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		166DB6582CEB388900EECB35 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166DB6572CEB388900EECB35 /* PreviewView.swift */; };
+		16B84BB82CEB03F30000E3D6 /* CocoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B84BB42CEB03F30000E3D6 /* CocoConfig.swift */; };
+		16B84BB92CEB03F30000E3D6 /* FPSDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B84BB62CEB03F30000E3D6 /* FPSDisplayView.swift */; };
+		16B84BBA2CEB03F30000E3D6 /* DetectionBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B84BB52CEB03F30000E3D6 /* DetectionBoxView.swift */; };
+		16B84BBC2CEB04030000E3D6 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B84BBB2CEB04030000E3D6 /* CameraModel.swift */; };
 		16C5C3542C9C02ED0092E02F /* ZeticMLange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C5C3522C9C02EA0092E02F /* ZeticMLange.framework */; };
 		16C5C3552C9C02ED0092E02F /* ZeticMLange.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16C5C3522C9C02EA0092E02F /* ZeticMLange.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DCB22A432C77582A0080FB6B /* ZeticMLangeYolov8_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB22A422C77582A0080FB6B /* ZeticMLangeYolov8_iOSApp.swift */; };
@@ -53,22 +28,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				16563F6C2CA570F500733DC7 /* libzetic_mlange_feature_face_landmark.dylib in Embed Frameworks */,
-				16563F642CA570F500733DC7 /* libzetic_mlange_feature_opencv.dylib in Embed Frameworks */,
-				16563F6A2CA570F500733DC7 /* libzetic_feature_common.dylib in Embed Frameworks */,
-				16563F722CA570F500733DC7 /* libZeticMLangeModelNative.dylib in Embed Frameworks */,
-				16563F5C2CA570F500733DC7 /* libzetic_mlange_feature_face_emotion_recognition.dylib in Embed Frameworks */,
-				16563F682CA570F500733DC7 /* libzetic_mlange_feature_yolov8.dylib in Embed Frameworks */,
-				16563F782CA570F500733DC7 /* libzetic_mlange_model.dylib in Embed Frameworks */,
-				16563F622CA570F500733DC7 /* libZeticMLangeFeatureFaceEmotionRecognitionNative.dylib in Embed Frameworks */,
 				16C5C3552C9C02ED0092E02F /* ZeticMLange.framework in Embed Frameworks */,
-				16563F5E2CA570F500733DC7 /* libZeticMLangeTorchNative.dylib in Embed Frameworks */,
-				16563F602CA570F500733DC7 /* libZeticMLangeFeatureFaceDetectionNative.dylib in Embed Frameworks */,
-				16563F702CA570F500733DC7 /* libzetic_common.dylib in Embed Frameworks */,
-				16563F742CA570F500733DC7 /* libZeticMLangeFeatureYoloV8Native.dylib in Embed Frameworks */,
-				16563F762CA570F500733DC7 /* libZeticMLangeFeatureOpenCVNative.dylib in Embed Frameworks */,
-				16563F662CA570F500733DC7 /* libzetic_mlange_feature_face_detection.dylib in Embed Frameworks */,
-				16563F6E2CA570F500733DC7 /* libZeticMLangeFeatureFaceLandmarkNative.dylib in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,21 +36,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		16563F4C2CA570F500733DC7 /* libzetic_mlange_feature_face_emotion_recognition.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libzetic_mlange_feature_face_emotion_recognition.dylib; path = "ZeticMLangeYolov8-iOS/ZeticMLange.framework/Frameworks/libzetic_mlange_feature_face_emotion_recognition.dylib"; sourceTree = "<group>"; };
-		16563F4D2CA570F500733DC7 /* libZeticMLangeTorchNative.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libZeticMLangeTorchNative.dylib; path = "ZeticMLangeYolov8-iOS/ZeticMLange.framework/Frameworks/libZeticMLangeTorchNative.dylib"; sourceTree = "<group>"; };
-		16563F4E2CA570F500733DC7 /* libZeticMLangeFeatureFaceDetectionNative.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libZeticMLangeFeatureFaceDetectionNative.dylib; path = "ZeticMLangeYolov8-iOS/ZeticMLange.framework/Frameworks/libZeticMLangeFeatureFaceDetectionNative.dylib"; sourceTree = "<group>"; };
-		16563F4F2CA570F500733DC7 /* libZeticMLangeFeatureFaceEmotionRecognitionNative.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libZeticMLangeFeatureFaceEmotionRecognitionNative.dylib; path = "ZeticMLangeYolov8-iOS/ZeticMLange.framework/Frameworks/libZeticMLangeFeatureFaceEmotionRecognitionNative.dylib"; sourceTree = "<group>"; };
-		16563F502CA570F500733DC7 /* libzetic_mlange_feature_opencv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libzetic_mlange_feature_opencv.dylib; path = "ZeticMLangeYolov8-iOS/ZeticMLange.framework/Frameworks/libzetic_mlange_feature_opencv.dylib"; sourceTree = "<group>"; };
-		16563F512CA570F500733DC7 /* libzetic_mlange_feature_face_detection.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libzetic_mlange_feature_face_detection.dylib; path = "ZeticMLangeYolov8-iOS/ZeticMLange.framework/Frameworks/libzetic_mlange_feature_face_detection.dylib"; sourceTree = "<group>"; };
-		16563F522CA570F500733DC7 /* libzetic_mlange_feature_yolov8.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libzetic_mlange_feature_yolov8.dylib; path = "ZeticMLangeYolov8-iOS/ZeticMLange.framework/Frameworks/libzetic_mlange_feature_yolov8.dylib"; sourceTree = "<group>"; };
-		16563F532CA570F500733DC7 /* libzetic_feature_common.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libzetic_feature_common.dylib; path = "ZeticMLangeYolov8-iOS/ZeticMLange.framework/Frameworks/libzetic_feature_common.dylib"; sourceTree = "<group>"; };
-		16563F542CA570F500733DC7 /* libzetic_mlange_feature_face_landmark.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libzetic_mlange_feature_face_landmark.dylib; path = "ZeticMLangeYolov8-iOS/ZeticMLange.framework/Frameworks/libzetic_mlange_feature_face_landmark.dylib"; sourceTree = "<group>"; };
-		16563F552CA570F500733DC7 /* libZeticMLangeFeatureFaceLandmarkNative.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libZeticMLangeFeatureFaceLandmarkNative.dylib; path = "ZeticMLangeYolov8-iOS/ZeticMLange.framework/Frameworks/libZeticMLangeFeatureFaceLandmarkNative.dylib"; sourceTree = "<group>"; };
-		16563F562CA570F500733DC7 /* libzetic_common.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libzetic_common.dylib; path = "ZeticMLangeYolov8-iOS/ZeticMLange.framework/Frameworks/libzetic_common.dylib"; sourceTree = "<group>"; };
-		16563F572CA570F500733DC7 /* libZeticMLangeModelNative.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libZeticMLangeModelNative.dylib; path = "ZeticMLangeYolov8-iOS/ZeticMLange.framework/Frameworks/libZeticMLangeModelNative.dylib"; sourceTree = "<group>"; };
-		16563F582CA570F500733DC7 /* libZeticMLangeFeatureYoloV8Native.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libZeticMLangeFeatureYoloV8Native.dylib; path = "ZeticMLangeYolov8-iOS/ZeticMLange.framework/Frameworks/libZeticMLangeFeatureYoloV8Native.dylib"; sourceTree = "<group>"; };
-		16563F592CA570F500733DC7 /* libZeticMLangeFeatureOpenCVNative.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libZeticMLangeFeatureOpenCVNative.dylib; path = "ZeticMLangeYolov8-iOS/ZeticMLange.framework/Frameworks/libZeticMLangeFeatureOpenCVNative.dylib"; sourceTree = "<group>"; };
-		16563F5A2CA570F500733DC7 /* libzetic_mlange_model.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libzetic_mlange_model.dylib; path = "ZeticMLangeYolov8-iOS/ZeticMLange.framework/Frameworks/libzetic_mlange_model.dylib"; sourceTree = "<group>"; };
+		166DB6572CEB388900EECB35 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		16B84BB42CEB03F30000E3D6 /* CocoConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoConfig.swift; sourceTree = "<group>"; };
+		16B84BB52CEB03F30000E3D6 /* DetectionBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionBoxView.swift; sourceTree = "<group>"; };
+		16B84BB62CEB03F30000E3D6 /* FPSDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPSDisplayView.swift; sourceTree = "<group>"; };
+		16B84BBB2CEB04030000E3D6 /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
 		16C5C3522C9C02EA0092E02F /* ZeticMLange.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZeticMLange.framework; path = "ZeticMLangeYolov8-iOS/ZeticMLange.framework"; sourceTree = "<group>"; };
 		DCB22A3F2C77582A0080FB6B /* ZeticMLangeYolov8-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZeticMLangeYolov8-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB22A422C77582A0080FB6B /* ZeticMLangeYolov8_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeticMLangeYolov8_iOSApp.swift; sourceTree = "<group>"; };
@@ -105,46 +55,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16563F6B2CA570F500733DC7 /* libzetic_mlange_feature_face_landmark.dylib in Frameworks */,
-				16563F632CA570F500733DC7 /* libzetic_mlange_feature_opencv.dylib in Frameworks */,
-				16563F692CA570F500733DC7 /* libzetic_feature_common.dylib in Frameworks */,
-				16563F712CA570F500733DC7 /* libZeticMLangeModelNative.dylib in Frameworks */,
-				16563F5B2CA570F500733DC7 /* libzetic_mlange_feature_face_emotion_recognition.dylib in Frameworks */,
-				16563F672CA570F500733DC7 /* libzetic_mlange_feature_yolov8.dylib in Frameworks */,
-				16563F772CA570F500733DC7 /* libzetic_mlange_model.dylib in Frameworks */,
-				16563F612CA570F500733DC7 /* libZeticMLangeFeatureFaceEmotionRecognitionNative.dylib in Frameworks */,
 				16C5C3542C9C02ED0092E02F /* ZeticMLange.framework in Frameworks */,
-				16563F5D2CA570F500733DC7 /* libZeticMLangeTorchNative.dylib in Frameworks */,
-				16563F5F2CA570F500733DC7 /* libZeticMLangeFeatureFaceDetectionNative.dylib in Frameworks */,
-				16563F6F2CA570F500733DC7 /* libzetic_common.dylib in Frameworks */,
-				16563F732CA570F500733DC7 /* libZeticMLangeFeatureYoloV8Native.dylib in Frameworks */,
-				16563F752CA570F500733DC7 /* libZeticMLangeFeatureOpenCVNative.dylib in Frameworks */,
-				16563F652CA570F500733DC7 /* libzetic_mlange_feature_face_detection.dylib in Frameworks */,
-				16563F6D2CA570F500733DC7 /* libZeticMLangeFeatureFaceLandmarkNative.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16B84BB72CEB03F30000E3D6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				166DB6572CEB388900EECB35 /* PreviewView.swift */,
+				16B84BB52CEB03F30000E3D6 /* DetectionBoxView.swift */,
+				16B84BB62CEB03F30000E3D6 /* FPSDisplayView.swift */,
+				DCB22A442C77582A0080FB6B /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		16C5C34D2C9C02980092E02F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				16563F562CA570F500733DC7 /* libzetic_common.dylib */,
-				16563F532CA570F500733DC7 /* libzetic_feature_common.dylib */,
-				16563F512CA570F500733DC7 /* libzetic_mlange_feature_face_detection.dylib */,
-				16563F4C2CA570F500733DC7 /* libzetic_mlange_feature_face_emotion_recognition.dylib */,
-				16563F542CA570F500733DC7 /* libzetic_mlange_feature_face_landmark.dylib */,
-				16563F502CA570F500733DC7 /* libzetic_mlange_feature_opencv.dylib */,
-				16563F522CA570F500733DC7 /* libzetic_mlange_feature_yolov8.dylib */,
-				16563F5A2CA570F500733DC7 /* libzetic_mlange_model.dylib */,
-				16563F4E2CA570F500733DC7 /* libZeticMLangeFeatureFaceDetectionNative.dylib */,
-				16563F4F2CA570F500733DC7 /* libZeticMLangeFeatureFaceEmotionRecognitionNative.dylib */,
-				16563F552CA570F500733DC7 /* libZeticMLangeFeatureFaceLandmarkNative.dylib */,
-				16563F592CA570F500733DC7 /* libZeticMLangeFeatureOpenCVNative.dylib */,
-				16563F582CA570F500733DC7 /* libZeticMLangeFeatureYoloV8Native.dylib */,
-				16563F572CA570F500733DC7 /* libZeticMLangeModelNative.dylib */,
-				16563F4D2CA570F500733DC7 /* libZeticMLangeTorchNative.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -171,8 +102,10 @@
 		DCB22A412C77582A0080FB6B /* ZeticMLangeYolov8-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				16B84BB42CEB03F30000E3D6 /* CocoConfig.swift */,
+				16B84BBB2CEB04030000E3D6 /* CameraModel.swift */,
+				16B84BB72CEB03F30000E3D6 /* View */,
 				DCB22A422C77582A0080FB6B /* ZeticMLangeYolov8_iOSApp.swift */,
-				DCB22A442C77582A0080FB6B /* ContentView.swift */,
 				DCB22A462C77582B0080FB6B /* Assets.xcassets */,
 				DCB22A482C77582B0080FB6B /* Preview Content */,
 			);
@@ -259,6 +192,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16B84BB82CEB03F30000E3D6 /* CocoConfig.swift in Sources */,
+				16B84BB92CEB03F30000E3D6 /* FPSDisplayView.swift in Sources */,
+				166DB6582CEB388900EECB35 /* PreviewView.swift in Sources */,
+				16B84BBC2CEB04030000E3D6 /* CameraModel.swift in Sources */,
+				16B84BBA2CEB03F30000E3D6 /* DetectionBoxView.swift in Sources */,
 				DCB22A452C77582A0080FB6B /* ContentView.swift in Sources */,
 				DCB22A432C77582A0080FB6B /* ZeticMLangeYolov8_iOSApp.swift in Sources */,
 			);
@@ -395,7 +333,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "ZeticMLangeYolov8-iOS/Preview\\ Content";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7MFYYTGH2P;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -410,6 +348,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -437,7 +376,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "ZeticMLangeYolov8-iOS/Preview\\ Content";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7MFYYTGH2P;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -452,6 +391,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
