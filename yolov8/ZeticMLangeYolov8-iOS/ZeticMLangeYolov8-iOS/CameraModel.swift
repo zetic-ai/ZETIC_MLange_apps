@@ -141,50 +141,6 @@ class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBuf
         }
     }
     
-    //    private func setupCamera() {
-    //        do {
-    //            session.beginConfiguration()
-    //
-    //            guard let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else {
-    //                return
-    //            }
-    //
-    //            let input = try AVCaptureDeviceInput(device: device)
-    //
-    //            // to lower the resolution, uncomment the code below
-    //            if session.canSetSessionPreset(.hd1280x720) {
-    //                session.sessionPreset = .hd1280x720
-    //            }
-    //
-    //            if session.canAddInput(input) {
-    //                session.addInput(input)
-    //            }
-    //
-    //            if session.canAddOutput(videoOutput) {
-    //                session.addOutput(videoOutput)
-    //            }
-    //
-    //            videoOutput.videoSettings = [
-    //                kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_32BGRA)
-    //            ]
-    //
-    //            videoOutput.setSampleBufferDelegate(self, queue: processingQueue)
-    //
-    //            if let connection = videoOutput.connection(with: .video) {
-    //                connection.videoOrientation = .portrait
-    //                connection.isVideoMirrored = false
-    //            }
-    //
-    //            session.commitConfiguration()
-    //
-    //            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-    //                self?.session.startRunning()
-    //                self?.resolution = .init(width: CGFloat(device.activeFormat.formatDescription.dimensions.width), height: CGFloat(device.activeFormat.formatDescription.dimensions.height))
-    //            }
-    //        } catch {
-    //            print("Camera setup error: \(error)")
-    //        }
-    //    }
     private func setupCamera() {
         do {
             session.beginConfiguration()
