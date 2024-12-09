@@ -26,6 +26,6 @@
     ├── ZeticMLangeYAMNet-Android                               : YAMNet Android Application
     └── ZeticMLangeYAMNet-iOS                                   : YAMNet iOS Application
 └── whisper
-    ├── ZeticMLangeWhisper-Android                               : Whisper Android Application
-    └── ZeticMLangeWhisper-iOS                                   : Whisper iOS Application
+    ├── ZeticMLangeWhisper-Android                              : Whisper Android Application
+    └── ZeticMLangeWhisper-iOS                                  : Whisper iOS Application
 ```
