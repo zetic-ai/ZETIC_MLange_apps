@@ -1241,192 +1241,6 @@
         "moduleName": "ZeticMLange"
       },
       {
-        "kind": "Import",
-        "name": "UIKit",
-        "printedName": "UIKit",
-        "declKind": "Import",
-        "moduleName": "ZeticMLange"
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "ZeticMLangeFeatureFaceDetection",
-        "printedName": "ZeticMLangeFeatureFaceDetection",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "zeticMLangeFeatureFaceDetectionWrapper",
-            "printedName": "zeticMLangeFeatureFaceDetectionWrapper",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "ZeticMLangeFeatureFaceDetectionWrapper",
-                "printedName": "ZeticMLange.ZeticMLangeFeatureFaceDetectionWrapper",
-                "usr": "s:11ZeticMLange0aB27FeatureFaceDetectionWrapperC"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:11ZeticMLange0aB20FeatureFaceDetectionC05zeticbcdE7WrapperAA0abcdeG0Cvp",
-            "mangledName": "$s11ZeticMLange0aB20FeatureFaceDetectionC05zeticbcdE7WrapperAA0abcdeG0Cvp",
-            "moduleName": "ZeticMLange",
-            "declAttributes": [
-              "Final",
-              "HasStorage"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ZeticMLangeFeatureFaceDetectionWrapper",
-                    "printedName": "ZeticMLange.ZeticMLangeFeatureFaceDetectionWrapper",
-                    "usr": "s:11ZeticMLange0aB27FeatureFaceDetectionWrapperC"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:11ZeticMLange0aB20FeatureFaceDetectionC05zeticbcdE7WrapperAA0abcdeG0Cvg",
-                "mangledName": "$s11ZeticMLange0aB20FeatureFaceDetectionC05zeticbcdE7WrapperAA0abcdeG0Cvg",
-                "moduleName": "ZeticMLange",
-                "implicit": true,
-                "declAttributes": [
-                  "Final"
-                ],
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "ZeticMLangeFeatureFaceDetection",
-                "printedName": "ZeticMLange.ZeticMLangeFeatureFaceDetection",
-                "usr": "s:11ZeticMLange0aB20FeatureFaceDetectionC"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:11ZeticMLange0aB20FeatureFaceDetectionCACycfc",
-            "mangledName": "$s11ZeticMLange0aB20FeatureFaceDetectionCACycfc",
-            "moduleName": "ZeticMLange",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Function",
-            "name": "preprocess",
-            "printedName": "preprocess(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Data",
-                "printedName": "Foundation.Data",
-                "usr": "s:10Foundation4DataV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "UIImage",
-                "printedName": "UIKit.UIImage",
-                "usr": "c:objc(cs)UIImage"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:11ZeticMLange0aB20FeatureFaceDetectionC10preprocessy10Foundation4DataVSo7UIImageCF",
-            "mangledName": "$s11ZeticMLange0aB20FeatureFaceDetectionC10preprocessy10Foundation4DataVSo7UIImageCF",
-            "moduleName": "ZeticMLange",
-            "isOpen": true,
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "postprocess",
-            "printedName": "postprocess(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[ZeticMLange.FaceDetectionResult]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "FaceDetectionResult",
-                    "printedName": "ZeticMLange.FaceDetectionResult",
-                    "usr": "s:11ZeticMLange19FaceDetectionResultV"
-                  }
-                ],
-                "usr": "s:Sa"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[Foundation.Data]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Data",
-                    "printedName": "Foundation.Data",
-                    "usr": "s:10Foundation4DataV"
-                  }
-                ],
-                "paramValueOwnership": "InOut",
-                "usr": "s:Sa"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:11ZeticMLange0aB20FeatureFaceDetectionC11postprocessySayAA0dE6ResultVGSay10Foundation4DataVGzF",
-            "mangledName": "$s11ZeticMLange0aB20FeatureFaceDetectionC11postprocessySayAA0dE6ResultVGSay10Foundation4DataVGzF",
-            "moduleName": "ZeticMLange",
-            "isOpen": true,
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Class",
-        "usr": "s:11ZeticMLange0aB20FeatureFaceDetectionC",
-        "mangledName": "$s11ZeticMLange0aB20FeatureFaceDetectionC",
-        "moduleName": "ZeticMLange",
-        "isOpen": true,
-        "declAttributes": [
-          "AccessControl"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          }
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "ZeticMLange"
-      },
-      {
         "kind": "TypeDecl",
         "name": "ZeticMLangeModel",
         "printedName": "ZeticMLangeModel",
@@ -2045,6 +1859,242 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "ZeticMLangeYoloV8Result",
+        "printedName": "ZeticMLangeYoloV8Result",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "classId",
+            "printedName": "classId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11ZeticMLange0aB12YoloV8ResultC7classIds5Int32Vvp",
+            "mangledName": "$s11ZeticMLange0aB12YoloV8ResultC7classIds5Int32Vvp",
+            "moduleName": "ZeticMLange",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ZeticMLange0aB12YoloV8ResultC7classIds5Int32Vvg",
+                "mangledName": "$s11ZeticMLange0aB12YoloV8ResultC7classIds5Int32Vvg",
+                "moduleName": "ZeticMLange",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "confidence",
+            "printedName": "confidence",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Float",
+                "printedName": "Swift.Float",
+                "usr": "s:Sf"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11ZeticMLange0aB12YoloV8ResultC10confidenceSfvp",
+            "mangledName": "$s11ZeticMLange0aB12YoloV8ResultC10confidenceSfvp",
+            "moduleName": "ZeticMLange",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Float",
+                    "printedName": "Swift.Float",
+                    "usr": "s:Sf"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ZeticMLange0aB12YoloV8ResultC10confidenceSfvg",
+                "mangledName": "$s11ZeticMLange0aB12YoloV8ResultC10confidenceSfvg",
+                "moduleName": "ZeticMLange",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "box",
+            "printedName": "box",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.Int32]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11ZeticMLange0aB12YoloV8ResultC3boxSays5Int32VGvp",
+            "mangledName": "$s11ZeticMLange0aB12YoloV8ResultC3boxSays5Int32VGvp",
+            "moduleName": "ZeticMLange",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.Int32]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int32",
+                        "printedName": "Swift.Int32",
+                        "usr": "s:s5Int32V"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ZeticMLange0aB12YoloV8ResultC3boxSays5Int32VGvg",
+                "mangledName": "$s11ZeticMLange0aB12YoloV8ResultC3boxSays5Int32VGvg",
+                "moduleName": "ZeticMLange",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(classId:confidence:box:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ZeticMLangeYoloV8Result",
+                "printedName": "ZeticMLange.ZeticMLangeYoloV8Result",
+                "usr": "s:11ZeticMLange0aB12YoloV8ResultC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Float",
+                "printedName": "Swift.Float",
+                "usr": "s:Sf"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.Int32]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11ZeticMLange0aB12YoloV8ResultC7classId10confidence3boxACs5Int32V_SfSayAHGtcfc",
+            "mangledName": "$s11ZeticMLange0aB12YoloV8ResultC7classId10confidence3boxACs5Int32V_SfSayAHGtcfc",
+            "moduleName": "ZeticMLange",
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:11ZeticMLange0aB12YoloV8ResultC",
+        "mangledName": "$s11ZeticMLange0aB12YoloV8ResultC",
+        "moduleName": "ZeticMLange",
+        "isOpen": true,
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "ZeticMLangeException",
         "printedName": "ZeticMLangeException",
         "children": [
@@ -2220,6 +2270,13 @@
       },
       {
         "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "ZeticMLange"
+      },
+      {
+        "kind": "Import",
         "name": "CoreGraphics",
         "printedName": "CoreGraphics",
         "declKind": "Import",
@@ -2278,6 +2335,119 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "data",
+            "printedName": "data",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Data?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Data",
+                    "printedName": "Foundation.Data",
+                    "usr": "s:10Foundation4DataV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC4data10Foundation4DataVSgvp",
+            "mangledName": "$s11ZeticMLange0aB20FeatureYolov8WrapperC4data10Foundation4DataVSgvp",
+            "moduleName": "ZeticMLange",
+            "isOpen": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.Data?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Data",
+                        "printedName": "Foundation.Data",
+                        "usr": "s:10Foundation4DataV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC4data10Foundation4DataVSgvg",
+                "mangledName": "$s11ZeticMLange0aB20FeatureYolov8WrapperC4data10Foundation4DataVSgvg",
+                "moduleName": "ZeticMLange",
+                "implicit": true,
+                "isOpen": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.Data?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Data",
+                        "printedName": "Foundation.Data",
+                        "usr": "s:10Foundation4DataV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC4data10Foundation4DataVSgvs",
+                "mangledName": "$s11ZeticMLange0aB20FeatureYolov8WrapperC4data10Foundation4DataVSgvs",
+                "moduleName": "ZeticMLange",
+                "implicit": true,
+                "isOpen": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC4data10Foundation4DataVSgvM",
+                "mangledName": "$s11ZeticMLange0aB20FeatureYolov8WrapperC4data10Foundation4DataVSgvM",
+                "moduleName": "ZeticMLange",
+                "implicit": true,
+                "isOpen": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(_:)",
@@ -2304,7 +2474,7 @@
           {
             "kind": "Function",
             "name": "featurePreprocess",
-            "printedName": "featurePreprocess(_:)",
+            "printedName": "featurePreprocess(_:_:_:_:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -2314,14 +2484,32 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "CGImage",
-                "printedName": "CoreGraphics.CGImage",
-                "usr": "c:@T@CGImageRef"
+                "name": "UnsafeMutableRawPointer",
+                "printedName": "Swift.UnsafeMutableRawPointer",
+                "usr": "s:Sv"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC17featurePreprocessy10Foundation4DataVSo10CGImageRefaF",
-            "mangledName": "$s11ZeticMLange0aB20FeatureYolov8WrapperC17featurePreprocessy10Foundation4DataVSo10CGImageRefaF",
+            "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC17featurePreprocessy10Foundation4DataVSv_s5Int32VA2ItF",
+            "mangledName": "$s11ZeticMLange0aB20FeatureYolov8WrapperC17featurePreprocessy10Foundation4DataVSv_s5Int32VA2ItF",
             "moduleName": "ZeticMLange",
             "isOpen": true,
             "funcSelfKind": "NonMutating"
@@ -2329,38 +2517,40 @@
           {
             "kind": "Function",
             "name": "featurePostprocess",
-            "printedName": "featurePostprocess(_:_:)",
+            "printedName": "featurePostprocess(_:)",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "CGImage",
-                "printedName": "CoreGraphics.CGImage",
-                "usr": "c:@T@CGImageRef"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "CGImage",
-                "printedName": "CoreGraphics.CGImage",
-                "usr": "c:@T@CGImageRef"
+                "name": "Array",
+                "printedName": "[ZeticMLange.ZeticMLangeYoloV8Result]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ZeticMLangeYoloV8Result",
+                    "printedName": "ZeticMLange.ZeticMLangeYoloV8Result",
+                    "usr": "s:11ZeticMLange0aB12YoloV8ResultC"
+                  }
+                ],
+                "usr": "s:Sa"
               },
               {
                 "kind": "TypeNominal",
                 "name": "UnsafeMutablePointer",
-                "printedName": "Swift.UnsafeMutablePointer<Swift.Float>",
+                "printedName": "Swift.UnsafeMutablePointer<Swift.UInt8>",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Float",
-                    "printedName": "Swift.Float",
-                    "usr": "s:Sf"
+                    "name": "UInt8",
+                    "printedName": "Swift.UInt8",
+                    "usr": "s:s5UInt8V"
                   }
                 ],
                 "usr": "s:Sp"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC18featurePostprocessySo10CGImageRefaAF_SpySfGtF",
-            "mangledName": "$s11ZeticMLange0aB20FeatureYolov8WrapperC18featurePostprocessySo10CGImageRefaAF_SpySfGtF",
+            "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC18featurePostprocessySayAA0aB12YoloV8ResultCGSpys5UInt8VGF",
+            "mangledName": "$s11ZeticMLange0aB20FeatureYolov8WrapperC18featurePostprocessySayAA0aB12YoloV8ResultCGSpys5UInt8VGF",
             "moduleName": "ZeticMLange",
             "isOpen": true,
             "funcSelfKind": "NonMutating"
@@ -2470,18 +2660,18 @@
           {
             "kind": "Function",
             "name": "nativeFeaturePreprocess",
-            "printedName": "nativeFeaturePreprocess(_:_:_:)",
+            "printedName": "nativeFeaturePreprocess(_:_:_:_:_:_:)",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "UnsafeMutablePointer",
-                "printedName": "Swift.UnsafeMutablePointer<Swift.Float>",
+                "printedName": "Swift.UnsafeMutablePointer<Swift.UInt8>",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Float",
-                    "printedName": "Swift.Float",
-                    "usr": "s:Sf"
+                    "name": "UInt8",
+                    "printedName": "Swift.UInt8",
+                    "usr": "s:s5UInt8V"
                   }
                 ],
                 "usr": "s:Sp"
@@ -2494,9 +2684,27 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "CGImage",
-                "printedName": "CoreGraphics.CGImage",
-                "usr": "c:@T@CGImageRef"
+                "name": "UnsafeMutableRawPointer",
+                "printedName": "Swift.UnsafeMutableRawPointer",
+                "usr": "s:Sv"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
               },
               {
                 "kind": "TypeNominal",
@@ -2514,7 +2722,7 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC06nativeC10PreprocessySpySfGs5Int64V_So10CGImageRefaSpys5Int32VGtFZ",
+            "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC06nativeC10PreprocessySpys5UInt8VGs5Int64V_Svs5Int32VA2KSpyAKGtFZ",
             "mangledName": "nativeFeaturePreprocess",
             "moduleName": "ZeticMLange",
             "static": true,
@@ -2525,15 +2733,401 @@
             "funcSelfKind": "NonMutating"
           },
           {
+            "kind": "TypeDecl",
+            "name": "DLResultC",
+            "printedName": "DLResultC",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "classId",
+                "printedName": "classId",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV7classIds5Int32Vvp",
+                "mangledName": "$s11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV7classIds5Int32Vvp",
+                "moduleName": "ZeticMLange",
+                "declAttributes": [
+                  "HasStorage"
+                ],
+                "fixedbinaryorder": 0,
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int32",
+                        "printedName": "Swift.Int32",
+                        "usr": "s:s5Int32V"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV7classIds5Int32Vvg",
+                    "mangledName": "$s11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV7classIds5Int32Vvg",
+                    "moduleName": "ZeticMLange",
+                    "implicit": true,
+                    "declAttributes": [
+                      "Transparent"
+                    ],
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "confidence",
+                "printedName": "confidence",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Float",
+                    "printedName": "Swift.Float",
+                    "usr": "s:Sf"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV10confidenceSfvp",
+                "mangledName": "$s11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV10confidenceSfvp",
+                "moduleName": "ZeticMLange",
+                "declAttributes": [
+                  "HasStorage"
+                ],
+                "fixedbinaryorder": 1,
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Float",
+                        "printedName": "Swift.Float",
+                        "usr": "s:Sf"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV10confidenceSfvg",
+                    "mangledName": "$s11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV10confidenceSfvg",
+                    "moduleName": "ZeticMLange",
+                    "implicit": true,
+                    "declAttributes": [
+                      "Transparent"
+                    ],
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "x",
+                "printedName": "x",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV1xs5Int32Vvp",
+                "mangledName": "$s11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV1xs5Int32Vvp",
+                "moduleName": "ZeticMLange",
+                "declAttributes": [
+                  "HasStorage"
+                ],
+                "fixedbinaryorder": 2,
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int32",
+                        "printedName": "Swift.Int32",
+                        "usr": "s:s5Int32V"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV1xs5Int32Vvg",
+                    "mangledName": "$s11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV1xs5Int32Vvg",
+                    "moduleName": "ZeticMLange",
+                    "implicit": true,
+                    "declAttributes": [
+                      "Transparent"
+                    ],
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "y",
+                "printedName": "y",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV1ys5Int32Vvp",
+                "mangledName": "$s11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV1ys5Int32Vvp",
+                "moduleName": "ZeticMLange",
+                "declAttributes": [
+                  "HasStorage"
+                ],
+                "fixedbinaryorder": 3,
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int32",
+                        "printedName": "Swift.Int32",
+                        "usr": "s:s5Int32V"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV1ys5Int32Vvg",
+                    "mangledName": "$s11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV1ys5Int32Vvg",
+                    "moduleName": "ZeticMLange",
+                    "implicit": true,
+                    "declAttributes": [
+                      "Transparent"
+                    ],
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "width",
+                "printedName": "width",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV5widths5Int32Vvp",
+                "mangledName": "$s11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV5widths5Int32Vvp",
+                "moduleName": "ZeticMLange",
+                "declAttributes": [
+                  "HasStorage"
+                ],
+                "fixedbinaryorder": 4,
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int32",
+                        "printedName": "Swift.Int32",
+                        "usr": "s:s5Int32V"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV5widths5Int32Vvg",
+                    "mangledName": "$s11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV5widths5Int32Vvg",
+                    "moduleName": "ZeticMLange",
+                    "implicit": true,
+                    "declAttributes": [
+                      "Transparent"
+                    ],
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "height",
+                "printedName": "height",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV6heights5Int32Vvp",
+                "mangledName": "$s11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV6heights5Int32Vvp",
+                "moduleName": "ZeticMLange",
+                "declAttributes": [
+                  "HasStorage"
+                ],
+                "fixedbinaryorder": 5,
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int32",
+                        "printedName": "Swift.Int32",
+                        "usr": "s:s5Int32V"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV6heights5Int32Vvg",
+                    "mangledName": "$s11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV6heights5Int32Vvg",
+                    "moduleName": "ZeticMLange",
+                    "implicit": true,
+                    "declAttributes": [
+                      "Transparent"
+                    ],
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Constructor",
+                "name": "init",
+                "printedName": "init(classId:confidence:x:y:width:height:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DLResultC",
+                    "printedName": "ZeticMLange.ZeticMLangeFeatureYolov8Wrapper.DLResultC",
+                    "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Float",
+                    "printedName": "Swift.Float",
+                    "usr": "s:Sf"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Constructor",
+                "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV7classId10confidence1x1y5width6heightAEs5Int32V_SfA4Mtcfc",
+                "mangledName": "$s11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV7classId10confidence1x1y5width6heightAEs5Int32V_SfA4Mtcfc",
+                "moduleName": "ZeticMLange",
+                "implicit": true,
+                "init_kind": "Designated"
+              }
+            ],
+            "declKind": "Struct",
+            "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV",
+            "mangledName": "$s11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV",
+            "moduleName": "ZeticMLange",
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Sendable",
+                "printedName": "Sendable",
+                "usr": "s:s8SendableP",
+                "mangledName": "$ss8SendableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "BitwiseCopyable",
+                "printedName": "BitwiseCopyable",
+                "usr": "s:s15BitwiseCopyableP",
+                "mangledName": "$ss15BitwiseCopyableP"
+              }
+            ]
+          },
+          {
             "kind": "Function",
             "name": "nativeFeaturePostprocess",
             "printedName": "nativeFeaturePostprocess(_:_:_:)",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "CGImage",
-                "printedName": "CoreGraphics.CGImage",
-                "usr": "c:@T@CGImageRef"
+                "name": "UnsafeMutablePointer",
+                "printedName": "Swift.UnsafeMutablePointer<ZeticMLange.ZeticMLangeFeatureYolov8Wrapper.DLResultC>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DLResultC",
+                    "printedName": "ZeticMLange.ZeticMLangeFeatureYolov8Wrapper.DLResultC",
+                    "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC9DLResultCV"
+                  }
+                ],
+                "usr": "s:Sp"
               },
               {
                 "kind": "TypeNominal",
@@ -2543,27 +3137,35 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "CGImage",
-                "printedName": "CoreGraphics.CGImage",
-                "usr": "c:@T@CGImageRef"
+                "name": "UnsafeMutablePointer",
+                "printedName": "Swift.UnsafeMutablePointer<Swift.UInt8>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt8",
+                    "printedName": "Swift.UInt8",
+                    "usr": "s:s5UInt8V"
+                  }
+                ],
+                "usr": "s:Sp"
               },
               {
                 "kind": "TypeNominal",
                 "name": "UnsafeMutablePointer",
-                "printedName": "Swift.UnsafeMutablePointer<Swift.Float>",
+                "printedName": "Swift.UnsafeMutablePointer<Swift.Int32>",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Float",
-                    "printedName": "Swift.Float",
-                    "usr": "s:Sf"
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
                   }
                 ],
                 "usr": "s:Sp"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC06nativeC11PostprocessySo10CGImageRefas5Int64V_AFSpySfGtFZ",
+            "usr": "s:11ZeticMLange0aB20FeatureYolov8WrapperC06nativeC11PostprocessySpyAC9DLResultCVGs5Int64V_Spys5UInt8VGSpys5Int32VGtFZ",
             "mangledName": "nativeFeaturePostprocess",
             "moduleName": "ZeticMLange",
             "static": true,
@@ -2583,6 +3185,157 @@
           "AccessControl"
         ],
         "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ZeticMLange"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ZeticMLangeFeatureWhisper",
+        "printedName": "ZeticMLangeFeatureWhisper",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ZeticMLangeFeatureWhisper",
+                "printedName": "ZeticMLange.ZeticMLangeFeatureWhisper",
+                "usr": "s:11ZeticMLange0aB14FeatureWhisperC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11ZeticMLange0aB14FeatureWhisperCyACSScfc",
+            "mangledName": "$s11ZeticMLange0aB14FeatureWhisperCyACSScfc",
+            "moduleName": "ZeticMLange",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "process",
+            "printedName": "process(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.Float]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Float",
+                    "printedName": "Swift.Float",
+                    "usr": "s:Sf"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.Float]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Float",
+                    "printedName": "Swift.Float",
+                    "usr": "s:Sf"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ZeticMLange0aB14FeatureWhisperC7processySaySfGAEF",
+            "mangledName": "$s11ZeticMLange0aB14FeatureWhisperC7processySaySfGAEF",
+            "moduleName": "ZeticMLange",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "decodeToken",
+            "printedName": "decodeToken(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.Int32]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ZeticMLange0aB14FeatureWhisperC11decodeTokenySSSays5Int32VG_SbtF",
+            "mangledName": "$s11ZeticMLange0aB14FeatureWhisperC11decodeTokenySSSays5Int32VG_SbtF",
+            "moduleName": "ZeticMLange",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:11ZeticMLange0aB14FeatureWhisperC",
+        "mangledName": "$s11ZeticMLange0aB14FeatureWhisperC",
+        "moduleName": "ZeticMLange",
+        "isOpen": true,
+        "declAttributes": [
+          "AccessControl"
+        ],
         "conformances": [
           {
             "kind": "Conformance",
@@ -2880,7 +3633,7 @@
           {
             "kind": "Function",
             "name": "preprocess",
-            "printedName": "preprocess(_:)",
+            "printedName": "preprocess(_:_:_:_:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -2890,14 +3643,32 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "UIImage",
-                "printedName": "UIKit.UIImage",
-                "usr": "c:objc(cs)UIImage"
+                "name": "UnsafeMutableRawPointer",
+                "printedName": "Swift.UnsafeMutableRawPointer",
+                "usr": "s:Sv"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11ZeticMLange0aB13FeatureYolov8C10preprocessy10Foundation4DataVSo7UIImageCF",
-            "mangledName": "$s11ZeticMLange0aB13FeatureYolov8C10preprocessy10Foundation4DataVSo7UIImageCF",
+            "usr": "s:11ZeticMLange0aB13FeatureYolov8C10preprocessy10Foundation4DataVSv_s5Int32VA2ItF",
+            "mangledName": "$s11ZeticMLange0aB13FeatureYolov8C10preprocessy10Foundation4DataVSv_s5Int32VA2ItF",
             "moduleName": "ZeticMLange",
             "isOpen": true,
             "declAttributes": [
@@ -2908,19 +3679,21 @@
           {
             "kind": "Function",
             "name": "postprocess",
-            "printedName": "postprocess(_:_:)",
+            "printedName": "postprocess(_:)",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "UIImage",
-                "printedName": "UIKit.UIImage",
-                "usr": "c:objc(cs)UIImage"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "UIImage",
-                "printedName": "UIKit.UIImage",
-                "usr": "c:objc(cs)UIImage"
+                "name": "Array",
+                "printedName": "[ZeticMLange.ZeticMLangeYoloV8Result]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ZeticMLangeYoloV8Result",
+                    "printedName": "ZeticMLange.ZeticMLangeYoloV8Result",
+                    "usr": "s:11ZeticMLange0aB12YoloV8ResultC"
+                  }
+                ],
+                "usr": "s:Sa"
               },
               {
                 "kind": "TypeNominal",
@@ -2931,8 +3704,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:11ZeticMLange0aB13FeatureYolov8C11postprocessySo7UIImageCAF_10Foundation4DataVztF",
-            "mangledName": "$s11ZeticMLange0aB13FeatureYolov8C11postprocessySo7UIImageCAF_10Foundation4DataVztF",
+            "usr": "s:11ZeticMLange0aB13FeatureYolov8C11postprocessySayAA0aB12YoloV8ResultCG10Foundation4DataVzF",
+            "mangledName": "$s11ZeticMLange0aB13FeatureYolov8C11postprocessySayAA0aB12YoloV8ResultCG10Foundation4DataVzF",
             "moduleName": "ZeticMLange",
             "isOpen": true,
             "declAttributes": [
@@ -2949,6 +3722,396 @@
         "declAttributes": [
           "AccessControl"
         ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ZeticMLange"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ZeticMLangeFeatureWhisperWrapper",
+        "printedName": "ZeticMLangeFeatureWhisperWrapper",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ZeticMLangeFeatureWhisperWrapper",
+                "printedName": "ZeticMLange.ZeticMLangeFeatureWhisperWrapper",
+                "usr": "s:11ZeticMLange0aB21FeatureWhisperWrapperC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11ZeticMLange0aB21FeatureWhisperWrapperCyACSScfc",
+            "mangledName": "$s11ZeticMLange0aB21FeatureWhisperWrapperCyACSScfc",
+            "moduleName": "ZeticMLange",
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "process",
+            "printedName": "process(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.Float]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Float",
+                    "printedName": "Swift.Float",
+                    "usr": "s:Sf"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.Float]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Float",
+                    "printedName": "Swift.Float",
+                    "usr": "s:Sf"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ZeticMLange0aB21FeatureWhisperWrapperC7processySaySfGAEF",
+            "mangledName": "$s11ZeticMLange0aB21FeatureWhisperWrapperC7processySaySfGAEF",
+            "moduleName": "ZeticMLange",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "decodeToken",
+            "printedName": "decodeToken(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.Int32]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ZeticMLange0aB21FeatureWhisperWrapperC11decodeTokenySSSays5Int32VG_SbtF",
+            "mangledName": "$s11ZeticMLange0aB21FeatureWhisperWrapperC11decodeTokenySSSays5Int32VG_SbtF",
+            "moduleName": "ZeticMLange",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "nativeInit",
+            "printedName": "nativeInit(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UnsafeMutablePointer",
+                "printedName": "Swift.UnsafeMutablePointer<Swift.Int8>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int8",
+                    "printedName": "Swift.Int8",
+                    "usr": "s:s4Int8V"
+                  }
+                ],
+                "usr": "s:Sp"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ZeticMLange0aB21FeatureWhisperWrapperC10nativeInityySpys4Int8VGFZ",
+            "mangledName": "nativeInitWhisper",
+            "moduleName": "ZeticMLange",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "SILGenName"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "nativeDeinit",
+            "printedName": "nativeDeinit()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ZeticMLange0aB21FeatureWhisperWrapperC12nativeDeinityyFZ",
+            "mangledName": "nativeDeinitWhisper",
+            "moduleName": "ZeticMLange",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "SILGenName"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "nativeProcess",
+            "printedName": "nativeProcess(_:_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UnsafeMutablePointer",
+                "printedName": "Swift.UnsafeMutablePointer<Swift.Float>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Float",
+                    "printedName": "Swift.Float",
+                    "usr": "s:Sf"
+                  }
+                ],
+                "usr": "s:Sp"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UnsafeMutablePointer",
+                "printedName": "Swift.UnsafeMutablePointer<Swift.Float>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Float",
+                    "printedName": "Swift.Float",
+                    "usr": "s:Sf"
+                  }
+                ],
+                "usr": "s:Sp"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UnsafeMutablePointer",
+                "printedName": "Swift.UnsafeMutablePointer<Swift.Int32>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "usr": "s:Sp"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ZeticMLange0aB21FeatureWhisperWrapperC13nativeProcessySpySfGAE_SiSpys5Int32VGtFZ",
+            "mangledName": "nativeProcessWhisper",
+            "moduleName": "ZeticMLange",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "SILGenName"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "nativeDecodeToken",
+            "printedName": "nativeDecodeToken(_:_:_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UnsafeMutablePointer",
+                "printedName": "Swift.UnsafeMutablePointer<Swift.Int8>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int8",
+                    "printedName": "Swift.Int8",
+                    "usr": "s:s4Int8V"
+                  }
+                ],
+                "usr": "s:Sp"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UnsafeMutablePointer",
+                "printedName": "Swift.UnsafeMutablePointer<Swift.Int32>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "usr": "s:Sp"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UnsafeMutablePointer",
+                "printedName": "Swift.UnsafeMutablePointer<Swift.Int32>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "usr": "s:Sp"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ZeticMLange0aB21FeatureWhisperWrapperC17nativeDecodeTokenySpys4Int8VGSpys5Int32VG_SiSbAJtFZ",
+            "mangledName": "nativeDecodeTokenWhisper",
+            "moduleName": "ZeticMLange",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "SILGenName"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "safePointerToArray",
+            "printedName": "safePointerToArray(pointer:count:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.Float]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Float",
+                    "printedName": "Swift.Float",
+                    "usr": "s:Sf"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UnsafeMutablePointer",
+                "printedName": "Swift.UnsafeMutablePointer<Swift.Float>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Float",
+                    "printedName": "Swift.Float",
+                    "usr": "s:Sf"
+                  }
+                ],
+                "usr": "s:Sp"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ZeticMLange0aB21FeatureWhisperWrapperC18safePointerToArray7pointer5countSaySfGSpySfG_SitF",
+            "mangledName": "$s11ZeticMLange0aB21FeatureWhisperWrapperC18safePointerToArray7pointer5countSaySfGSpySfG_SitF",
+            "moduleName": "ZeticMLange",
+            "isOpen": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:11ZeticMLange0aB21FeatureWhisperWrapperC",
+        "mangledName": "$s11ZeticMLange0aB21FeatureWhisperWrapperC",
+        "moduleName": "ZeticMLange",
+        "isOpen": true,
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "hasMissingDesignatedInitializers": true,
         "conformances": [
           {
             "kind": "Conformance",
@@ -4144,6 +5307,237 @@
         "moduleName": "ZeticMLange"
       },
       {
+        "kind": "TypeDecl",
+        "name": "ZeticMLangeTargetModel",
+        "printedName": "ZeticMLangeTargetModel",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "isInitialized",
+            "printedName": "isInitialized()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ZeticMLange0aB11TargetModelP13isInitializedSbyF",
+            "mangledName": "$s11ZeticMLange0aB11TargetModelP13isInitializedSbyF",
+            "moduleName": "ZeticMLange",
+            "genericSig": "<τ_0_0 where τ_0_0 : ZeticMLange.ZeticMLangeTargetModel>",
+            "sugared_genericSig": "<Self where Self : ZeticMLange.ZeticMLangeTargetModel>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "run",
+            "printedName": "run(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Foundation.Data]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Data",
+                    "printedName": "Foundation.Data",
+                    "usr": "s:10Foundation4DataV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ZeticMLange0aB11TargetModelP3runyySay10Foundation4DataVGKF",
+            "mangledName": "$s11ZeticMLange0aB11TargetModelP3runyySay10Foundation4DataVGKF",
+            "moduleName": "ZeticMLange",
+            "genericSig": "<τ_0_0 where τ_0_0 : ZeticMLange.ZeticMLangeTargetModel>",
+            "sugared_genericSig": "<Self where Self : ZeticMLange.ZeticMLangeTargetModel>",
+            "protocolReq": true,
+            "throwing": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getOutputDataArray",
+            "printedName": "getOutputDataArray()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Foundation.Data]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Data",
+                    "printedName": "Foundation.Data",
+                    "usr": "s:10Foundation4DataV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ZeticMLange0aB11TargetModelP18getOutputDataArraySay10Foundation0G0VGyF",
+            "mangledName": "$s11ZeticMLange0aB11TargetModelP18getOutputDataArraySay10Foundation0G0VGyF",
+            "moduleName": "ZeticMLange",
+            "genericSig": "<τ_0_0 where τ_0_0 : ZeticMLange.ZeticMLangeTargetModel>",
+            "sugared_genericSig": "<Self where Self : ZeticMLange.ZeticMLangeTargetModel>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "createInputDataArray",
+            "printedName": "createInputDataArray()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Foundation.Data]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Data",
+                    "printedName": "Foundation.Data",
+                    "usr": "s:10Foundation4DataV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ZeticMLange0aB11TargetModelP20createInputDataArraySay10Foundation0G0VGyF",
+            "mangledName": "$s11ZeticMLange0aB11TargetModelP20createInputDataArraySay10Foundation0G0VGyF",
+            "moduleName": "ZeticMLange",
+            "genericSig": "<τ_0_0 where τ_0_0 : ZeticMLange.ZeticMLangeTargetModel>",
+            "sugared_genericSig": "<Self where Self : ZeticMLange.ZeticMLangeTargetModel>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getInputTensorNameHashes",
+            "printedName": "getInputTensorNameHashes()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[[Swift.Int32]]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.Int32]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int32",
+                        "printedName": "Swift.Int32",
+                        "usr": "s:s5Int32V"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ZeticMLange0aB11TargetModelP24getInputTensorNameHashesSaySays5Int32VGGyF",
+            "mangledName": "$s11ZeticMLange0aB11TargetModelP24getInputTensorNameHashesSaySays5Int32VGGyF",
+            "moduleName": "ZeticMLange",
+            "genericSig": "<τ_0_0 where τ_0_0 : ZeticMLange.ZeticMLangeTargetModel>",
+            "sugared_genericSig": "<Self where Self : ZeticMLange.ZeticMLangeTargetModel>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getOutputTensorNameHashes",
+            "printedName": "getOutputTensorNameHashes()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[[Swift.Int32]]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.Int32]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int32",
+                        "printedName": "Swift.Int32",
+                        "usr": "s:s5Int32V"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ZeticMLange0aB11TargetModelP25getOutputTensorNameHashesSaySays5Int32VGGyF",
+            "mangledName": "$s11ZeticMLange0aB11TargetModelP25getOutputTensorNameHashesSaySays5Int32VGGyF",
+            "moduleName": "ZeticMLange",
+            "genericSig": "<τ_0_0 where τ_0_0 : ZeticMLange.ZeticMLangeTargetModel>",
+            "sugared_genericSig": "<Self where Self : ZeticMLange.ZeticMLangeTargetModel>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:11ZeticMLange0aB11TargetModelP",
+        "mangledName": "$s11ZeticMLange0aB11TargetModelP",
+        "moduleName": "ZeticMLange",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ZeticMLange"
+      },
+      {
         "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
@@ -4926,41 +6320,131 @@
         "moduleName": "ZeticMLange"
       },
       {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "ZeticMLange"
+      },
+      {
         "kind": "TypeDecl",
-        "name": "ZeticMLangeTargetModel",
-        "printedName": "ZeticMLangeTargetModel",
+        "name": "ZeticMLangeFeatureFaceDetection",
+        "printedName": "ZeticMLangeFeatureFaceDetection",
         "children": [
           {
-            "kind": "Function",
-            "name": "isInitialized",
-            "printedName": "isInitialized()",
+            "kind": "Var",
+            "name": "zeticMLangeFeatureFaceDetectionWrapper",
+            "printedName": "zeticMLangeFeatureFaceDetectionWrapper",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
+                "name": "ZeticMLangeFeatureFaceDetectionWrapper",
+                "printedName": "ZeticMLange.ZeticMLangeFeatureFaceDetectionWrapper",
+                "usr": "s:11ZeticMLange0aB27FeatureFaceDetectionWrapperC"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11ZeticMLange0aB20FeatureFaceDetectionC05zeticbcdE7WrapperAA0abcdeG0Cvp",
+            "mangledName": "$s11ZeticMLange0aB20FeatureFaceDetectionC05zeticbcdE7WrapperAA0abcdeG0Cvp",
+            "moduleName": "ZeticMLange",
+            "declAttributes": [
+              "Final",
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ZeticMLangeFeatureFaceDetectionWrapper",
+                    "printedName": "ZeticMLange.ZeticMLangeFeatureFaceDetectionWrapper",
+                    "usr": "s:11ZeticMLange0aB27FeatureFaceDetectionWrapperC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ZeticMLange0aB20FeatureFaceDetectionC05zeticbcdE7WrapperAA0abcdeG0Cvg",
+                "mangledName": "$s11ZeticMLange0aB20FeatureFaceDetectionC05zeticbcdE7WrapperAA0abcdeG0Cvg",
+                "moduleName": "ZeticMLange",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ZeticMLangeFeatureFaceDetection",
+                "printedName": "ZeticMLange.ZeticMLangeFeatureFaceDetection",
+                "usr": "s:11ZeticMLange0aB20FeatureFaceDetectionC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11ZeticMLange0aB20FeatureFaceDetectionCACycfc",
+            "mangledName": "$s11ZeticMLange0aB20FeatureFaceDetectionCACycfc",
+            "moduleName": "ZeticMLange",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "preprocess",
+            "printedName": "preprocess(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Data",
+                "printedName": "Foundation.Data",
+                "usr": "s:10Foundation4DataV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIImage",
+                "printedName": "UIKit.UIImage",
+                "usr": "c:objc(cs)UIImage"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11ZeticMLange0aB11TargetModelP13isInitializedSbyF",
-            "mangledName": "$s11ZeticMLange0aB11TargetModelP13isInitializedSbyF",
+            "usr": "s:11ZeticMLange0aB20FeatureFaceDetectionC10preprocessy10Foundation4DataVSo7UIImageCF",
+            "mangledName": "$s11ZeticMLange0aB20FeatureFaceDetectionC10preprocessy10Foundation4DataVSo7UIImageCF",
             "moduleName": "ZeticMLange",
-            "genericSig": "<τ_0_0 where τ_0_0 : ZeticMLange.ZeticMLangeTargetModel>",
-            "sugared_genericSig": "<Self where Self : ZeticMLange.ZeticMLangeTargetModel>",
-            "protocolReq": true,
-            "reqNewWitnessTableEntry": true,
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
             "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Function",
-            "name": "run",
-            "printedName": "run(_:)",
+            "name": "postprocess",
+            "printedName": "postprocess(_:)",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
+                "name": "Array",
+                "printedName": "[ZeticMLange.FaceDetectionResult]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FaceDetectionResult",
+                    "printedName": "ZeticMLange.FaceDetectionResult",
+                    "usr": "s:11ZeticMLange19FaceDetectionResultV"
+                  }
+                ],
+                "usr": "s:Sa"
               },
               {
                 "kind": "TypeNominal",
@@ -4974,178 +6458,43 @@
                     "usr": "s:10Foundation4DataV"
                   }
                 ],
+                "paramValueOwnership": "InOut",
                 "usr": "s:Sa"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11ZeticMLange0aB11TargetModelP3runyySay10Foundation4DataVGKF",
-            "mangledName": "$s11ZeticMLange0aB11TargetModelP3runyySay10Foundation4DataVGKF",
+            "usr": "s:11ZeticMLange0aB20FeatureFaceDetectionC11postprocessySayAA0dE6ResultVGSay10Foundation4DataVGzF",
+            "mangledName": "$s11ZeticMLange0aB20FeatureFaceDetectionC11postprocessySayAA0dE6ResultVGSay10Foundation4DataVGzF",
             "moduleName": "ZeticMLange",
-            "genericSig": "<τ_0_0 where τ_0_0 : ZeticMLange.ZeticMLangeTargetModel>",
-            "sugared_genericSig": "<Self where Self : ZeticMLange.ZeticMLangeTargetModel>",
-            "protocolReq": true,
-            "throwing": true,
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "getOutputDataArray",
-            "printedName": "getOutputDataArray()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[Foundation.Data]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Data",
-                    "printedName": "Foundation.Data",
-                    "usr": "s:10Foundation4DataV"
-                  }
-                ],
-                "usr": "s:Sa"
-              }
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl"
             ],
-            "declKind": "Func",
-            "usr": "s:11ZeticMLange0aB11TargetModelP18getOutputDataArraySay10Foundation0G0VGyF",
-            "mangledName": "$s11ZeticMLange0aB11TargetModelP18getOutputDataArraySay10Foundation0G0VGyF",
-            "moduleName": "ZeticMLange",
-            "genericSig": "<τ_0_0 where τ_0_0 : ZeticMLange.ZeticMLangeTargetModel>",
-            "sugared_genericSig": "<Self where Self : ZeticMLange.ZeticMLangeTargetModel>",
-            "protocolReq": true,
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "createInputDataArray",
-            "printedName": "createInputDataArray()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[Foundation.Data]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Data",
-                    "printedName": "Foundation.Data",
-                    "usr": "s:10Foundation4DataV"
-                  }
-                ],
-                "usr": "s:Sa"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:11ZeticMLange0aB11TargetModelP20createInputDataArraySay10Foundation0G0VGyF",
-            "mangledName": "$s11ZeticMLange0aB11TargetModelP20createInputDataArraySay10Foundation0G0VGyF",
-            "moduleName": "ZeticMLange",
-            "genericSig": "<τ_0_0 where τ_0_0 : ZeticMLange.ZeticMLangeTargetModel>",
-            "sugared_genericSig": "<Self where Self : ZeticMLange.ZeticMLangeTargetModel>",
-            "protocolReq": true,
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "getInputTensorNameHashes",
-            "printedName": "getInputTensorNameHashes()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[[Swift.Int32]]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Array",
-                    "printedName": "[Swift.Int32]",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Int32",
-                        "printedName": "Swift.Int32",
-                        "usr": "s:s5Int32V"
-                      }
-                    ],
-                    "usr": "s:Sa"
-                  }
-                ],
-                "usr": "s:Sa"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:11ZeticMLange0aB11TargetModelP24getInputTensorNameHashesSaySays5Int32VGGyF",
-            "mangledName": "$s11ZeticMLange0aB11TargetModelP24getInputTensorNameHashesSaySays5Int32VGGyF",
-            "moduleName": "ZeticMLange",
-            "genericSig": "<τ_0_0 where τ_0_0 : ZeticMLange.ZeticMLangeTargetModel>",
-            "sugared_genericSig": "<Self where Self : ZeticMLange.ZeticMLangeTargetModel>",
-            "protocolReq": true,
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "getOutputTensorNameHashes",
-            "printedName": "getOutputTensorNameHashes()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[[Swift.Int32]]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Array",
-                    "printedName": "[Swift.Int32]",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Int32",
-                        "printedName": "Swift.Int32",
-                        "usr": "s:s5Int32V"
-                      }
-                    ],
-                    "usr": "s:Sa"
-                  }
-                ],
-                "usr": "s:Sa"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:11ZeticMLange0aB11TargetModelP25getOutputTensorNameHashesSaySays5Int32VGGyF",
-            "mangledName": "$s11ZeticMLange0aB11TargetModelP25getOutputTensorNameHashesSaySays5Int32VGGyF",
-            "moduleName": "ZeticMLange",
-            "genericSig": "<τ_0_0 where τ_0_0 : ZeticMLange.ZeticMLangeTargetModel>",
-            "sugared_genericSig": "<Self where Self : ZeticMLange.ZeticMLangeTargetModel>",
-            "protocolReq": true,
-            "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
           }
         ],
-        "declKind": "Protocol",
-        "usr": "s:11ZeticMLange0aB11TargetModelP",
-        "mangledName": "$s11ZeticMLange0aB11TargetModelP",
+        "declKind": "Class",
+        "usr": "s:11ZeticMLange0aB20FeatureFaceDetectionC",
+        "mangledName": "$s11ZeticMLange0aB20FeatureFaceDetectionC",
         "moduleName": "ZeticMLange",
+        "isOpen": true,
         "declAttributes": [
           "AccessControl"
         ],
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Copyable",
             "printedName": "Copyable",
             "usr": "s:s8CopyableP",
             "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
         ]
       },

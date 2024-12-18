@@ -40,7 +40,7 @@ struct ContentView: View {
                             let path = Path(roundedRect: CGRect(x: Int(x * sizeWidth), y: Int(y * sizeHeight), width: Int(width * sizeWidth), height: Int(height * sizeHeight)), cornerSize: CGSize(width: 1, height: 1))
                             
                             context.stroke(path, with: .color(.green), lineWidth: 2)
-                            context.draw(Text("Conf. \(result.confidence)"), in: CGRect(x: Int(x * sizeWidth), y: Int(y * sizeHeight) - 20, width: Int(width * sizeWidth), height: 5))
+                            context.draw(Text("Conf. \(result.confidence)").foregroundColor(.green), in: CGRect(x: Int(x * sizeWidth), y: Int(y * sizeHeight) - 20, width: Int(width * sizeWidth), height: 5))
                             
                             return Box(xmin: x.clamped(to: 0...1), ymin: y.clamped(to: 0...1), xmax: (x + width).clamped(to: 0...1), ymax: (y + height).clamped(to: 0...1))
                         }
@@ -49,27 +49,27 @@ struct ContentView: View {
                         }
                         let boxWidth = (faceDetectionResults[0].xmax - faceDetectionResults[0].xmin)
                         let boxHeight = (faceDetectionResults[0].ymax - faceDetectionResults[0].ymin)
-                        let faceLandmarkResults = faceLandmark.run(processedImage, faceDetectionResults[0])
-                        let focalLength: Float = 500
-                        if faceLandmarkResults != nil {
-                            for i in 0..<468 {
-                                let x = faceLandmarkResults!.faceLandmark[i].x
-                                let y = faceLandmarkResults!.faceLandmark[i].y
-                                let z = faceLandmarkResults!.faceLandmark[i].z + focalLength
-                                
-                                let x2D = (x / z) * focalLength
-                                let y2D = (y / z) * focalLength
-                                
-                                let path = Path(
-                                    roundedRect: CGRect(x: Int((x2D * boxWidth * sizeWidth) + (faceDetectionResults[0].xmin * sizeWidth)), y: Int((y2D * boxHeight * sizeHeight) + (faceDetectionResults[0].ymin * sizeHeight)), width: 1, height: 1), cornerSize: CGSize(width: 1, height: 1))
-                                
-                                context.stroke(path, with: .color(.green), lineWidth: 1)
-                            }
-                        }
+//                        let faceLandmarkResults = faceLandmark.run(processedImage, faceDetectionResults[0])
+//                        let focalLength: Float = 500
+//                        if faceLandmarkResults != nil {
+//                            for i in 0..<468 {
+//                                let x = faceLandmarkResults!.faceLandmark[i].x
+//                                let y = faceLandmarkResults!.faceLandmark[i].y
+//                                let z = faceLandmarkResults!.faceLandmark[i].z + focalLength
+//                                
+//                                let x2D = (x / z) * focalLength
+//                                let y2D = (y / z) * focalLength
+//                                
+//                                let path = Path(
+//                                    roundedRect: CGRect(x: Int((x2D * boxWidth * sizeWidth) + (faceDetectionResults[0].xmin * sizeWidth)), y: Int((y2D * boxHeight * sizeHeight) + (faceDetectionResults[0].ymin * sizeHeight)), width: 1, height: 1), cornerSize: CGSize(width: 1, height: 1))
+//                                
+//                                context.stroke(path, with: .color(.green), lineWidth: 1)
+//                            }
+//                        }
                         
                         let faceEmotionRecognitionResult = faceEmotionRecognition.run(processedImage, faceDetectionResults[0])
                         if faceEmotionRecognitionResult != nil {
-                            context.draw(Text("Emotion : \(faceEmotionRecognitionResult!.emotion) Conf. : \(faceEmotionRecognitionResult!.confidence)"), in: CGRect(x: Int(faceDetectionResults[0].xmin * sizeWidth), y: Int(faceDetectionResults[0].ymin * sizeHeight) - 40, width: Int(boxWidth * sizeWidth), height: 5))
+                            context.draw(Text("Emotion : \(faceEmotionRecognitionResult!.emotion) Conf. : \(faceEmotionRecognitionResult!.confidence)").foregroundColor(.green), in: CGRect(x: Int(faceDetectionResults[0].xmin * sizeWidth), y: Int(faceDetectionResults[0].ymin * sizeHeight) - 40, width: Int(boxWidth * sizeWidth), height: 5))
                         }
                     }.frame(width: geometry.size.width, height: geometry.size.height)
                         .clipped()

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		166DB6582CEB388900EECB35 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166DB6572CEB388900EECB35 /* PreviewView.swift */; };
+		1692BFCA2CF7229200760818 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1692BFC92CF7229200760818 /* Launch Screen.storyboard */; };
 		16B84BB82CEB03F30000E3D6 /* CocoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B84BB42CEB03F30000E3D6 /* CocoConfig.swift */; };
 		16B84BB92CEB03F30000E3D6 /* FPSDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B84BB62CEB03F30000E3D6 /* FPSDisplayView.swift */; };
 		16B84BBA2CEB03F30000E3D6 /* DetectionBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B84BB52CEB03F30000E3D6 /* DetectionBoxView.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		166DB6572CEB388900EECB35 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		1692BFC92CF7229200760818 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		16B84BB42CEB03F30000E3D6 /* CocoConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoConfig.swift; sourceTree = "<group>"; };
 		16B84BB52CEB03F30000E3D6 /* DetectionBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionBoxView.swift; sourceTree = "<group>"; };
 		16B84BB62CEB03F30000E3D6 /* FPSDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPSDisplayView.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		DCB22A362C77582A0080FB6B = {
 			isa = PBXGroup;
 			children = (
+				1692BFC92CF7229200760818 /* Launch Screen.storyboard */,
 				16C5C3522C9C02EA0092E02F /* ZeticMLange.framework */,
 				DCB22A572C775A5F0080FB6B /* coco.yaml */,
 				DCB22A412C77582A0080FB6B /* ZeticMLangeYolov8-iOS */,
@@ -181,6 +184,7 @@
 			files = (
 				DCB22A582C775A5F0080FB6B /* coco.yaml in Resources */,
 				DCB22A4A2C77582B0080FB6B /* Preview Assets.xcassets in Resources */,
+				1692BFCA2CF7229200760818 /* Launch Screen.storyboard in Resources */,
 				DCB22A472C77582B0080FB6B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,7 +337,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "ZeticMLangeYolov8-iOS/Preview\\ Content";
-				DEVELOPMENT_TEAM = 7MFYYTGH2P;
+				DEVELOPMENT_TEAM = 8WTTXXB63L;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -342,10 +346,13 @@
 					"$(PROJECT_DIR)/ZeticMLangeYolov8-iOS",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_CFBundleDisplayName = ZeticYoloDemo;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires access to the camera to detect and classify objects.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -361,9 +368,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "zetic-ai.ZeticMLangeYolov8-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -376,7 +387,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "ZeticMLangeYolov8-iOS/Preview\\ Content";
-				DEVELOPMENT_TEAM = 7MFYYTGH2P;
+				DEVELOPMENT_TEAM = 8WTTXXB63L;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -385,10 +396,13 @@
 					"$(PROJECT_DIR)/ZeticMLangeYolov8-iOS",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_CFBundleDisplayName = ZeticYoloDemo;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires access to the camera to detect and classify objects.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -404,9 +418,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "zetic-ai.ZeticMLangeYolov8-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

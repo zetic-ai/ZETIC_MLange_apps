@@ -47,12 +47,12 @@ struct ContentView: View {
                     }
                     
             }
-            ZStack {
-                FPSDisplayView(
-                    fps: cameraModel.currentFPS,
-                    modelKey: cameraModel.modelKey
-                )
-            }
+//            ZStack {
+//                FPSDisplayView(
+//                    fps: cameraModel.currentFPS,
+//                    modelKey: cameraModel.modelKey
+//                )
+//            }
         }
         .ignoresSafeArea()
         .onAppear {

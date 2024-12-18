@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0 effective-5.10 (swiftlang-6.0.0.9.10 clang-1600.0.26.2)
+// swift-compiler-version: Apple Swift version 6.0.2 effective-5.10 (swiftlang-6.0.2.1.2 clang-1600.0.26.4)
 // swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -cxx-interoperability-mode=default -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -enable-experimental-feature OpaqueTypeErasure -enable-bare-slash-regex -module-name ZeticMLange
 import CoreGraphics
 import CoreML
@@ -7,6 +7,7 @@ import CryptoKit
 import Darwin
 import Foundation
 import Swift
+import SwiftUI
 import UIKit
 import _Concurrency
 import _StringProcessing
@@ -15,12 +16,6 @@ import _SwiftConcurrencyShims
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class ZeticMLangeModelNativeWrapper {
-  @objc deinit
-}
-public class ZeticMLangeFeatureFaceDetection {
-  public init()
-  public func preprocess(_ image: UIKit.UIImage) -> Foundation.Data
-  public func postprocess(_ output: inout [Foundation.Data]) -> Swift.Array<ZeticMLange.FaceDetectionResult>
   @objc deinit
 }
 public class ZeticMLangeModel {
@@ -33,6 +28,12 @@ public class ZeticMLangeModel {
 @_hasMissingDesignatedInitializers public class ZeticMLangeNativeResult {
   @objc deinit
 }
+@_hasMissingDesignatedInitializers public class ZeticMLangeYoloV8Result {
+  final public let classId: Swift.Int32
+  final public let confidence: Swift.Float
+  final public let box: [Swift.Int32]
+  @objc deinit
+}
 public class ZeticMLangeException : Swift.Error {
   public var description: Swift.String {
     get
@@ -43,6 +44,12 @@ public class ZeticMLangeException : Swift.Error {
 @_hasMissingDesignatedInitializers public class ZeticMLangeFeatureYolov8Wrapper {
   @objc deinit
 }
+public class ZeticMLangeFeatureWhisper {
+  public init(_ vocabularyPath: Swift.String)
+  public func process(_ audio: [Swift.Float]) -> [Swift.Float]
+  public func decodeToken(_ ids: [Swift.Int32], _ skipSpecialToken: Swift.Bool) -> Swift.String
+  @objc deinit
+}
 public class ZeticMLangeFeatureFaceEmotionRecognition {
   public init()
   public func preprocess(_ image: UIKit.UIImage, _ roi: ZeticMLange.Box) -> Foundation.Data
@@ -51,9 +58,14 @@ public class ZeticMLangeFeatureFaceEmotionRecognition {
 }
 public class ZeticMLangeFeatureYolov8 {
   public init(_ cocoFilePath: Swift.String)
-  public func preprocess(_ image: UIKit.UIImage) -> Foundation.Data
-  public func postprocess(_ image: UIKit.UIImage, _ data: inout Foundation.Data) -> UIKit.UIImage
+  public func preprocess(_ baseAddress: Swift.UnsafeMutableRawPointer, _ width: Swift.Int32, _ height: Swift.Int32, _ bytesPerRow: Swift.Int32) -> Foundation.Data
+  public func postprocess(_ data: inout Foundation.Data) -> [ZeticMLange.ZeticMLangeYoloV8Result]
   @objc deinit
+}
+@_hasMissingDesignatedInitializers public class ZeticMLangeFeatureWhisperWrapper {
+  @objc deinit
+  public func process(_ audio: [Swift.Float]) -> [Swift.Float]
+  public func decodeToken(_ ids: [Swift.Int32], _ skipSpecialTokens: Swift.Bool) -> Swift.String
 }
 public enum ZeticMLangeTarget : Swift.Int, Swift.CaseIterable, Swift.Codable {
   case ZETIC_MLANGE_TARGET_TORCH
@@ -91,6 +103,14 @@ public class ZeticMLangeFeatureFaceLandmark {
   public func postprocess(_ output: inout [Foundation.Data]) -> ZeticMLange.FaceLandmarkResult
   @objc deinit
 }
+public protocol ZeticMLangeTargetModel {
+  func isInitialized() -> Swift.Bool
+  func run(_ input: [Foundation.Data]) throws
+  func getOutputDataArray() -> [Foundation.Data]
+  func createInputDataArray() -> [Foundation.Data]
+  func getInputTensorNameHashes() -> [[Swift.Int32]]
+  func getOutputTensorNameHashes() -> [[Swift.Int32]]
+}
 @_hasMissingDesignatedInitializers public class ZeticMLangeFeatureFaceDetectionWrapper {
   @objc deinit
   public func preprocess(_ image: UIKit.UIImage) -> Foundation.Data
@@ -108,13 +128,11 @@ public struct Box {
   public let ymax: Swift.Float
   public init(xmin: Swift.Float, ymin: Swift.Float, xmax: Swift.Float, ymax: Swift.Float)
 }
-public protocol ZeticMLangeTargetModel {
-  func isInitialized() -> Swift.Bool
-  func run(_ input: [Foundation.Data]) throws
-  func getOutputDataArray() -> [Foundation.Data]
-  func createInputDataArray() -> [Foundation.Data]
-  func getInputTensorNameHashes() -> [[Swift.Int32]]
-  func getOutputTensorNameHashes() -> [[Swift.Int32]]
+public class ZeticMLangeFeatureFaceDetection {
+  public init()
+  public func preprocess(_ image: UIKit.UIImage) -> Foundation.Data
+  public func postprocess(_ output: inout [Foundation.Data]) -> Swift.Array<ZeticMLange.FaceDetectionResult>
+  @objc deinit
 }
 @_hasMissingDesignatedInitializers public class ZeticMLangeFeatureFaceEmotionRecognitionWrapper {
   @objc deinit
