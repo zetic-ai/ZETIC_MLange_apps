@@ -5,7 +5,7 @@ import com.zeticai.mlange.core.model.ZeticMLangeModel
 import java.io.File
 import java.io.FileOutputStream
 
-class Yolov8 @JvmOverloads constructor(
+class YOLOv8 @JvmOverloads constructor(
     context: Context,
     modelKey: String,
     private val model: ZeticMLangeModel = ZeticMLangeModel(context, modelKey),

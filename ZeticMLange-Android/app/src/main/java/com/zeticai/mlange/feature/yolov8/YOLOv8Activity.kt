@@ -15,7 +15,7 @@ import com.zeticai.mlange.common.vision.CameraDirection
 import com.zeticai.mlange.common.vision.CameraProcessor
 import com.zeticai.mlange.feature.vision.OpenCVImageUtilsWrapper
 
-class Yolov8Activity : AppCompatActivity() {
+class YOLOv8Activity : AppCompatActivity() {
     private val requestPermissionLauncher =
         registerForActivityResult(RequestPermission()) { isGranted: Boolean ->
             if (isGranted)
@@ -27,7 +27,7 @@ class Yolov8Activity : AppCompatActivity() {
     private val visualizationSurfaceView: VisualizationSurfaceView by lazy { findViewById(R.id.visualizationSurfaceView) }
     private val openCVImageUtilsWrapper: OpenCVImageUtilsWrapper =
         OpenCVImageUtilsWrapper()
-    private val yolov8 by lazy { Yolov8(this, "yolo-v8n-test") }
+    private val yolov8 by lazy { YOLOv8(this, "yolo-v8n-test") }
 
     private val cameraProcessor by lazy {
         CameraProcessor(this,
@@ -42,7 +42,8 @@ class Yolov8Activity : AppCompatActivity() {
             {
                 isCameraInitialized = true
                 turnOffSplashScreen()
-            }, CameraDirection.BACK)
+            }, CameraDirection.BACK
+        )
     }
 
     private var isYoloInitialized: Boolean = false
@@ -82,7 +83,7 @@ class Yolov8Activity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         cameraProcessor.close()
-        yolov8.close()
+//        yolov8.close()
     }
 
     private fun processImage(image: ByteArray) {

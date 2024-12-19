@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".feature.yolov8.Yolov8Activity"
+            android:name=".feature.yolov8.YOLOv8Activity"
             android:exported="true" />
         <activity
             android:name=".feature.facedetection.FaceDetectionActivity"

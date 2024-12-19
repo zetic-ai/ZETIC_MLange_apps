@@ -15,7 +15,7 @@ import com.zeticai.mlange.feature.faceemotionrecognition.FaceEmotionRecognitionA
 import com.zeticai.mlange.feature.facelandmark.FaceLandmarkActivity
 import com.zeticai.mlange.feature.whisper.WhisperActivity
 import com.zeticai.mlange.feature.yamnet.YAMNetActivity
-import com.zeticai.mlange.feature.yolov8.Yolov8Activity
+import com.zeticai.mlange.feature.yolov8.YOLOv8Activity
 import com.zeticai.mlange.view.FeatureItem
 import com.zeticai.mlange.view.FeaturesAdapter
 import com.zeticai.mlange.view.ModelStatus
@@ -27,12 +27,12 @@ class MainActivity : AppCompatActivity() {
     private val featureItems: MutableList<FeatureItem> = mutableListOf(
         FeatureItem(
             "Model Key Error Test Item",
-            Yolov8Activity::class.java,
+            YOLOv8Activity::class.java,
             listOf("error")
         ),
         FeatureItem(
             "Object Detection",
-            Yolov8Activity::class.java,
+            YOLOv8Activity::class.java,
             listOf("yolo-v8n-test")
         ),
         FeatureItem(

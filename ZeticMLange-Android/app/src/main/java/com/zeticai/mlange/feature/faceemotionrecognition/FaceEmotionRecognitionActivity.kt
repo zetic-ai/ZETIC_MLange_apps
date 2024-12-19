@@ -80,8 +80,8 @@ class FaceEmotionRecognitionActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         cameraProcessor.close()
-        faceDetection.close()
-        faceEmotionRecognition.close()
+//        faceDetection.close()
+//        faceEmotionRecognition.close()
     }
 
     private fun processImage(image: ByteArray, width: Int, height: Int) {

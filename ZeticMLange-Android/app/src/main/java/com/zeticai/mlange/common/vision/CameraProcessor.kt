@@ -34,11 +34,8 @@ class CameraProcessor(
         .get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP)
         ?.getOutputSizes(ImageFormat.JPEG)?.get(0) ?: Size(0, 0)
 
-    private val handler = Handler(
-        HandlerThread("camera2").apply {
-            start()
-        }.looper
-    )
+    private var handlerThread: HandlerThread? = null
+    private var handler: Handler? = null
 
     private val imageReader = ImageReader.newInstance(
         640, 640, ImageFormat.JPEG, 2
@@ -107,8 +104,11 @@ class CameraProcessor(
     }
 
     fun startPreview() {
-        visualizationSurfaceView.updateSizeKeepRatio(previewSize)
-        previewSurfaceView.updateSizeKeepRatio(previewSize)
+        handlerThread = HandlerThread("CameraBackground").apply {
+            start()
+            handler = Handler(looper)
+        }
+
         imageReader.setOnImageAvailableListener(
             {
                 val image = it.acquireLatestImage() ?: return@setOnImageAvailableListener
@@ -117,6 +117,8 @@ class CameraProcessor(
             }, handler
         )
 
+        visualizationSurfaceView.updateSizeKeepRatio(previewSize)
+        previewSurfaceView.updateSizeKeepRatio(previewSize)
         previewSurfaceView.holder.addCallback(previewSurfaceHolderCallback)
     }
 
@@ -127,10 +129,23 @@ class CameraProcessor(
         onCameraFrame(array, image.width, image.height)
     }
 
+    private fun closeCamera() {
+        try {
+            captureSession?.close()
+            captureSession = null
+            cameraDevice?.close()
+            cameraDevice = null
+        } catch (e: Exception) {
+            println("Error closing camera: ${e.message}")
+        }
+    }
+
     fun close() {
-        handler.looper.quit()
-        cameraDevice?.close()
-        captureSession?.close()
+        closeCamera()
         imageReader.close()
+        handlerThread?.looper?.quit()
+        handlerThread?.quit()
+        handlerThread = null
+        handler = null
     }
 }

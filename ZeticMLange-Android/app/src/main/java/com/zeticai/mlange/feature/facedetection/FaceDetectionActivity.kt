@@ -66,7 +66,7 @@ class FaceDetectionActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         cameraProcessor.close()
-        faceDetection.close()
+//        faceDetection.close()
     }
 
     private fun processImage(image: ByteArray, width: Int, height: Int) {

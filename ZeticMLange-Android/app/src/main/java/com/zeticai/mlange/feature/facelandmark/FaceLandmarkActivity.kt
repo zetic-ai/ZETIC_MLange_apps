@@ -75,8 +75,8 @@ class FaceLandmarkActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         cameraProcessor.close()
-        faceDetection.close()
-        faceLandmark.close()
+//        faceDetection.close()
+//        faceLandmark.close()
     }
 
     private fun processImage(image: ByteArray) {
