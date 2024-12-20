@@ -83,7 +83,7 @@ class FaceEmotionRecognitionActivity : AppCompatActivity() {
     }
 
     private fun processImage(image: ByteArray) {
-        val imagePtr = openCVImageUtilsWrapper.frame(image)
+        val imagePtr = openCVImageUtilsWrapper.frame(image, CameraProcessor.ROTATE_COUNTER_CLOCKWISE)
 
         val faceDetectionResult = faceDetection.run(imagePtr)
 

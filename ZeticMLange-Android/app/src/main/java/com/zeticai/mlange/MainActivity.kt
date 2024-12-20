@@ -26,11 +26,6 @@ class MainActivity : AppCompatActivity() {
 
     private val featureItems: MutableList<FeatureItem> = mutableListOf(
         FeatureItem(
-            "Model Key Error Test Item",
-            YOLOv8Activity::class.java,
-            listOf("error")
-        ),
-        FeatureItem(
             "Object Detection",
             YOLOv8Activity::class.java,
             listOf("yolo-v8n-test")

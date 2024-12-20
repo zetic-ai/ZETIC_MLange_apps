@@ -86,7 +86,7 @@ class YOLOv8Activity : AppCompatActivity() {
     }
 
     private fun processImage(image: ByteArray) {
-        val imagePtr = openCVImageUtilsWrapper.frame(image)
+        val imagePtr = openCVImageUtilsWrapper.frame(image, CameraProcessor.ROTATE_CLOCKWISE)
 
         val faceDetectionResult = yolov8.run(imagePtr)
 

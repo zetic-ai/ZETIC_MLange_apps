@@ -148,4 +148,9 @@ class CameraProcessor(
         handlerThread = null
         handler = null
     }
+
+    companion object {
+        const val ROTATE_COUNTER_CLOCKWISE = -90
+        const val ROTATE_CLOCKWISE = 90
+    }
 }
