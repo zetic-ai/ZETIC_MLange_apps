@@ -33,7 +33,7 @@ class YOLOv8Activity : AppCompatActivity() {
         CameraProcessor(this,
             findViewById(R.id.surfaceView),
             findViewById(R.id.visualizationSurfaceView),
-            { image, width, height ->
+            { image, _, _ ->
                 processImage(image)
             },
             {
@@ -83,7 +83,6 @@ class YOLOv8Activity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         cameraProcessor.close()
-//        yolov8.close()
     }
 
     private fun processImage(image: ByteArray) {

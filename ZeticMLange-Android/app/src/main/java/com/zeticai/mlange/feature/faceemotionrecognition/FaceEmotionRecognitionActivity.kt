@@ -40,8 +40,8 @@ class FaceEmotionRecognitionActivity : AppCompatActivity() {
         CameraProcessor(this,
             findViewById(R.id.surfaceView),
             findViewById(R.id.visualizationSurfaceView),
-            { image, width, height ->
-                processImage(image, width, height)
+            { image, _, _ ->
+                processImage(image)
             },
             {
                 openCVImageUtilsWrapper.setSurface(it)
@@ -80,11 +80,9 @@ class FaceEmotionRecognitionActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         cameraProcessor.close()
-//        faceDetection.close()
-//        faceEmotionRecognition.close()
     }
 
-    private fun processImage(image: ByteArray, width: Int, height: Int) {
+    private fun processImage(image: ByteArray) {
         val imagePtr = openCVImageUtilsWrapper.frame(image)
 
         val faceDetectionResult = faceDetection.run(imagePtr)
@@ -93,7 +91,7 @@ class FaceEmotionRecognitionActivity : AppCompatActivity() {
             if (faceDetectionResult.faceDetectionResults.isEmpty()) null
             else {
                 val res = faceDetectionResult.faceDetectionResults[0]
-                val resizeFactor = 0.2f
+                val resizeFactor = 0f
                 val roi = Box(
                     clamp(res.bbox.xMin * (1 - resizeFactor), 1f),
                     clamp(res.bbox.yMin * (1 - resizeFactor), 1f),

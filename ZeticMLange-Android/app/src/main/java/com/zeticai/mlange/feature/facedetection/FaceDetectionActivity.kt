@@ -30,8 +30,8 @@ class FaceDetectionActivity : AppCompatActivity() {
         CameraProcessor(this,
             findViewById(R.id.surfaceView),
             findViewById(R.id.visualizationSurfaceView),
-            { image, width, height ->
-                processImage(image, width, height)
+            { image, _, _ ->
+                processImage(image)
             },
             {
                 openCVImageUtilsWrapper.setSurface(it)
@@ -66,10 +66,9 @@ class FaceDetectionActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         cameraProcessor.close()
-//        faceDetection.close()
     }
 
-    private fun processImage(image: ByteArray, width: Int, height: Int) {
+    private fun processImage(image: ByteArray) {
         val imagePtr = openCVImageUtilsWrapper.frame(image)
 
         val faceDetectionResult = faceDetection.run(imagePtr)

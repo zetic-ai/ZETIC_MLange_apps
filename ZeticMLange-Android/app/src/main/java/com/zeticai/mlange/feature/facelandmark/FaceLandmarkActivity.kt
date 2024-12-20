@@ -35,7 +35,7 @@ class FaceLandmarkActivity : AppCompatActivity() {
         CameraProcessor(this,
             findViewById(R.id.surfaceView),
             findViewById(R.id.visualizationSurfaceView),
-            { image, width, height ->
+            { image, _, _ ->
                 processImage(image)
             },
             {
@@ -75,8 +75,6 @@ class FaceLandmarkActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         cameraProcessor.close()
-//        faceDetection.close()
-//        faceLandmark.close()
     }
 
     private fun processImage(image: ByteArray) {
