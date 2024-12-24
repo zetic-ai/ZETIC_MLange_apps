@@ -22,6 +22,9 @@ import _SwiftConcurrencyShims
 }
 public class ZeticMLangeModel {
   public init?(_ modelKey: Swift.String)
+  public init(throws modelKey: Swift.String) throws
+  public init?(_ modelKey: Swift.String, _ target: ZeticMLange.Target)
+  public init?(throws modelKey: Swift.String, _ target: ZeticMLange.Target) throws
   public func run(_ inputs: [Foundation.Data]) throws
   public func getOutputDataArray() -> [Foundation.Data]
   public static func createInstanceOfModelByTarget(_ modelName: Swift.String, _ targetModelPath: Foundation.URL, _ target: ZeticMLange.Target) throws -> any ZeticMLange.TargetModel

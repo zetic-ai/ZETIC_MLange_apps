@@ -6,7 +6,7 @@ class YAMNet: AsyncFeature<YAMNetInput, YAMNetOutput> {
     @Published var scores: Array<AudioClass>?
     
     let audioRecorder = YAMNetAudioRecorder()!
-    let model = ZeticMLangeModel("YAMNet")!
+    let model = ZeticMLangeModel("YAMNet", Target.ZETIC_MLANGE_TARGET_COREML_FP32)!
     
     func startProcessing() {
         audioRecorder.startCapturing { audio in

@@ -6,19 +6,18 @@ struct FaceEmotionRecognitionOverlay: View {
     let roi: Box
     
     var body: some View {
-        Canvas { context, size in
-            let sizeWidth = Float(size.width)
-            let sizeHeight = Float(size.height)
-            
-            context.draw(
-                Text("Emotion : \(result.result.emotion) Conf. : \(result.result.confidence)").foregroundColor(.green),
-                in: CGRect(
-                    x: Int(roi.xmin * sizeWidth),
-                    y: Int(roi.ymin * sizeHeight) - 40,
-                    width: Int(roi.width * sizeWidth),
-                    height: 5
-                )
-            )
+        VStack {
+            Spacer()
+            HStack(alignment: .bottom) {
+                Text("Emotion : \(result.result.emotion)\nConfidence : \(result.result.confidence)")
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundColor(.white)
+                    .padding(8)
+                    .background(Color.black.opacity(0.6))
+                    .cornerRadius(8)
+                    .padding()
+                Spacer()
+            }
         }
     }
 }

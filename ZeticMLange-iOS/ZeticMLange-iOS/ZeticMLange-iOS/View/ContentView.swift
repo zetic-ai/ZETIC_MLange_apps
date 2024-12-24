@@ -12,8 +12,8 @@ struct ContentView: View {
         FeatureItem(name: "Face Detection", modelKeys: ["face_detection_short_range"]),
         FeatureItem(name: "Face Emotion Recognition", modelKeys: ["face_detection_short_range", "face_landmark", "face_emotion_recognition"]),
         FeatureItem(name: "Face Landmark Detection", modelKeys: ["face_detection_short_range", "face_landmark"]),
-        FeatureItem(name: "Automatic Speech Recognition", modelKeys: ["whisper-tiny-encoder", "whisper-tiny-decoder"]),
-        FeatureItem(name: "Sound Classification", modelKeys: ["YAMNet"])
+        FeatureItem(name: "Sound Classification", modelKeys: ["YAMNet"]),
+//        FeatureItem(name: "Automatic Speech Recognition", modelKeys: ["whisper-tiny-encoder", "whisper-tiny-decoder"])
     ]
     
     var body: some View {
@@ -79,9 +79,9 @@ struct ContentView: View {
         case 3:
             return AnyView(FaceLandmarkView())
         case 4:
-            return AnyView(WhisperView())
-        case 5:
             return AnyView(YAMNetView())
+//        case 5:
+//            return AnyView(WhisperView())
         default:
             return AnyView(EmptyView())
         }

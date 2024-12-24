@@ -2,12 +2,12 @@ import Foundation
 import ZeticMLange
 
 class Whisper: AsyncFeature<WhisperInput, WhisperOutput> {
-    
     let encoder: WhisperEncoder = WhisperEncoder("whisper-tiny-encoder")
     let decoder: WhisperDecoder = WhisperDecoder("whisper-tiny-decoder")
     let wrapper: WhisperWrapper = WhisperWrapper(Bundle.main.path(forResource: "vocab", ofType: "json")!)
     
     var audioRecorder: WhisperAudioRecorder = WhisperAudioRecorder()
+    var isProcessing: Bool = false
     
     @Published private(set) var result: String = "Ready to listen."
     
@@ -24,6 +24,10 @@ class Whisper: AsyncFeature<WhisperInput, WhisperOutput> {
     }
     
     func startRecording() {
+        guard !isProcessing else { return }
+        
+        isProcessing = true
+        
         result = "Recording..."
         audioRecorder.startRecording { audio in
             DispatchQueue.main.async {
@@ -31,6 +35,7 @@ class Whisper: AsyncFeature<WhisperInput, WhisperOutput> {
             }
             
             self.run(with: WhisperInput(audio: audio))
+            self.isProcessing = false
         }
     }
     

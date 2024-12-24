@@ -1479,6 +1479,117 @@
             "init_kind": "Designated"
           },
           {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(throws:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ZeticMLangeModel",
+                "printedName": "ZeticMLange.ZeticMLangeModel",
+                "usr": "s:11ZeticMLange0aB5ModelC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11ZeticMLange0aB5ModelC6throwsACSS_tKcfc",
+            "mangledName": "$s11ZeticMLange0aB5ModelC6throwsACSS_tKcfc",
+            "moduleName": "ZeticMLange",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "ZeticMLange.ZeticMLangeModel?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ZeticMLangeModel",
+                    "printedName": "ZeticMLange.ZeticMLangeModel",
+                    "usr": "s:11ZeticMLange0aB5ModelC"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Target",
+                "printedName": "ZeticMLange.Target",
+                "usr": "s:11ZeticMLange6TargetO"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11ZeticMLange0aB5ModelCyACSgSS_AA6TargetOtcfc",
+            "mangledName": "$s11ZeticMLange0aB5ModelCyACSgSS_AA6TargetOtcfc",
+            "moduleName": "ZeticMLange",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(throws:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "ZeticMLange.ZeticMLangeModel?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ZeticMLangeModel",
+                    "printedName": "ZeticMLange.ZeticMLangeModel",
+                    "usr": "s:11ZeticMLange0aB5ModelC"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Target",
+                "printedName": "ZeticMLange.Target",
+                "usr": "s:11ZeticMLange6TargetO"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11ZeticMLange0aB5ModelC6throws_ACSgSS_AA6TargetOtKcfc",
+            "mangledName": "$s11ZeticMLange0aB5ModelC6throws_ACSgSS_AA6TargetOtKcfc",
+            "moduleName": "ZeticMLange",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
             "kind": "Function",
             "name": "run",
             "printedName": "run(_:)",

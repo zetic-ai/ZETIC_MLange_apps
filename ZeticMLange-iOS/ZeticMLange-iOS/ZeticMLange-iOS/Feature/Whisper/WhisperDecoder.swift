@@ -7,7 +7,7 @@ class WhisperDecoder {
     private var model: ZeticMLangeModel
     
     init(_ modelKey: String) {
-        model = ZeticMLangeModel(modelKey)!
+        model = ZeticMLangeModel(modelKey, Target.ZETIC_MLANGE_TARGET_COREML_FP32)!
     }
     
     func process(_ encoderOutput: Data, _ maxLength: Int = 80, temperature: Float = 1.0) -> [Int32] {
