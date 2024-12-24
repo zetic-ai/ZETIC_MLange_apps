@@ -13,6 +13,8 @@ import androidx.core.content.ContextCompat
 import com.zeticai.mlange.R
 import com.zeticai.mlange.common.vision.CameraDirection
 import com.zeticai.mlange.common.vision.CameraProcessor
+import com.zeticai.mlange.core.model.ZeticMLangeModel
+import com.zeticai.mlange.core.model.ZeticMLangeTarget
 import com.zeticai.mlange.feature.vision.OpenCVImageUtilsWrapper
 
 class YOLOv8Activity : AppCompatActivity() {

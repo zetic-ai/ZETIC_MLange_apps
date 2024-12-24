@@ -7,6 +7,8 @@ import android.graphics.PixelFormat
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
+import android.graphics.RectF
+import android.graphics.Typeface
 import android.util.AttributeSet
 import com.zeticai.mlange.common.vision.PreviewSurfaceView
 import com.zeticai.mlange.feature.facedetection.FaceDetectionResults
@@ -20,6 +22,22 @@ class VisualizationSurfaceView(context: Context, attrSet: AttributeSet) :
         color = Color.GREEN
         textSize = 40f
     }
+
+    private val textPaint = Paint().apply {
+        color = Color.WHITE
+        textSize = 60f
+        typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
+        isAntiAlias = true
+    }
+    private val backgroundPaint = Paint().apply {
+        color = Color.BLACK
+        alpha = (255 * 0.6).toInt()
+        isAntiAlias = true
+    }
+
+    private val padding = 24f
+    private val cornerRadius = 24f
+    private val outerPadding = 30f
 
     init {
         setBackgroundColor(Color.TRANSPARENT)
@@ -72,12 +90,35 @@ class VisualizationSurfaceView(context: Context, attrSet: AttributeSet) :
             return
         }
 
-        canvas.drawText(
-            "Emotion : ${faceEmotionRecognitionResult.emotion}    Conf. : ${faceEmotionRecognitionResult.confidence}",
-            (width - (detectionBox.xMax * width)),
-            (detectionBox.yMin * height) - 70f,
-            paint
-        )
+        val text = "Emotion : ${faceEmotionRecognitionResult.emotion}\nConf. : ${faceEmotionRecognitionResult.confidence}"
+
+        val textLines = text.split("\n")
+        val textBounds = Rect()
+        var maxWidth = 0f
+        var totalHeight = 0f
+        val lineHeight = textPaint.fontSpacing
+
+        textLines.forEach { line ->
+            textPaint.getTextBounds(line, 0, line.length, textBounds)
+            maxWidth = maxOf(maxWidth, textBounds.width().toFloat())
+            totalHeight += lineHeight
+        }
+
+        val rectWidth = maxWidth + (padding * 2)
+        val left = width / 2 - rectWidth / 2
+        val right = width / 2 + rectWidth / 2
+        val bottom = height - outerPadding
+        val top = bottom - totalHeight - (padding * 2)
+
+        val backgroundRect = RectF(left, top, right, bottom)
+        canvas.drawRoundRect(backgroundRect, cornerRadius, cornerRadius, backgroundPaint)
+
+        var y = bottom - totalHeight - (padding * 2) - (textPaint.ascent() * 1.5f)
+        textLines.forEach { line ->
+            canvas.drawText(line, left + padding, y, textPaint)
+            y += lineHeight
+        }
+
         holder.unlockCanvasAndPost(canvas)
     }
 }

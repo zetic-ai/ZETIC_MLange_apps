@@ -8,6 +8,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.zeticai.mlange.R
 import com.zeticai.mlange.core.model.ZeticMLangeModel
+import com.zeticai.mlange.core.model.ZeticMLangeTarget
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.nio.ByteBuffer
@@ -28,7 +29,7 @@ class YAMNetActivity : AppCompatActivity() {
             R.id.audio_class_visualizer
         )
     }
-    private val yamnetModel: ZeticMLangeModel by lazy { ZeticMLangeModel(this, "YAMNet") }
+    private val yamnetModel: ZeticMLangeModel by lazy { ZeticMLangeModel(this, "YAMNet", ZeticMLangeTarget.ZETIC_MLANGE_TARGET_ORT) }
     private val audioRecord: AudioSampler by lazy {
         AudioSampler {
             yamnetModel.run(arrayOf(it))

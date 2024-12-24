@@ -2,13 +2,14 @@ package com.zeticai.mlange.feature.yolov8
 
 import android.content.Context
 import com.zeticai.mlange.core.model.ZeticMLangeModel
+import com.zeticai.mlange.core.model.ZeticMLangeTarget
 import java.io.File
 import java.io.FileOutputStream
 
 class YOLOv8 @JvmOverloads constructor(
     context: Context,
     modelKey: String,
-    private val model: ZeticMLangeModel = ZeticMLangeModel(context, modelKey),
+    private val model: ZeticMLangeModel = ZeticMLangeModel(context, modelKey, ZeticMLangeTarget.ZETIC_MLANGE_TARGET_ORT),
 ) {
     private val wrapper: Yolov8Wrapper
 

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.zeticai.mlange.common.NetworkManager
 import com.zeticai.mlange.core.model.ZeticMLangeModel
+import com.zeticai.mlange.core.model.ZeticMLangeTarget
 import com.zeticai.mlange.feature.facedetection.FaceDetectionActivity
 import com.zeticai.mlange.feature.faceemotionrecognition.FaceEmotionRecognitionActivity
 import com.zeticai.mlange.feature.facelandmark.FaceLandmarkActivity
@@ -28,7 +29,8 @@ class MainActivity : AppCompatActivity() {
         FeatureItem(
             "Object Detection",
             YOLOv8Activity::class.java,
-            listOf("yolo-v8n-test")
+            listOf("yolo-v8n-test"),
+            target = ZeticMLangeTarget.ZETIC_MLANGE_TARGET_ORT
         ),
         FeatureItem(
             "Face Detection",
@@ -45,15 +47,16 @@ class MainActivity : AppCompatActivity() {
             FaceLandmarkActivity::class.java,
             listOf("face_detection_short_range", "face_landmark")
         ),
-        FeatureItem(
-            "Automatic Speech Recognition",
-            WhisperActivity::class.java,
-            listOf("whisper-tiny-encoder", "whisper-tiny-decoder")
-        ),
+//        FeatureItem(
+//            "Automatic Speech Recognition",
+//            WhisperActivity::class.java,
+//            listOf("whisper-tiny-encoder", "whisper-tiny-decoder")
+//        ),
         FeatureItem(
             "Sound Classification",
             YAMNetActivity::class.java,
-            listOf("YAMNet")
+            listOf("YAMNet"),
+            target = ZeticMLangeTarget.ZETIC_MLANGE_TARGET_ORT
         ),
     )
 
@@ -105,7 +108,7 @@ class MainActivity : AppCompatActivity() {
                 updateModelStatus(featureItem, ModelStatus.FETCHING)
             }
             featureItem.modelKeys.forEach {
-                ZeticMLangeModel(this, it)
+                ZeticMLangeModel(this, it, featureItem.target)
             }
             runOnUiThread {
                 updateModelStatus(featureItem, ModelStatus.READY)
