@@ -1,0 +1,884 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1602014A2D151996008C35BD /* FaceDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160201492D151996008C35BD /* FaceDetectionView.swift */; };
+		1602014B2D151996008C35BD /* FaceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160201482D151996008C35BD /* FaceDetection.swift */; };
+		1602014D2D151B20008C35BD /* Clamped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1602014C2D151B20008C35BD /* Clamped.swift */; };
+		1602014F2D153149008C35BD /* FeatureItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1602014E2D153147008C35BD /* FeatureItem.swift */; };
+		160201512D153315008C35BD /* FeatureItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160201502D153311008C35BD /* FeatureItemView.swift */; };
+		160201572D154B05008C35BD /* YOLOv8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160201562D154B02008C35BD /* YOLOv8.swift */; };
+		160201592D1553B9008C35BD /* CameraFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160201582D1553B4008C35BD /* CameraFrame.swift */; };
+		160201B22D15777A008C35BD /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160201B12D15777A008C35BD /* CameraPreview.swift */; };
+		160201B72D1925FD008C35BD /* FaceLandmarkOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160201B62D1925FD008C35BD /* FaceLandmarkOverlay.swift */; };
+		160201B92D192691008C35BD /* FaceDetectionOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160201B82D192691008C35BD /* FaceDetectionOverlay.swift */; };
+		160201BB2D1926AC008C35BD /* FaceEmotionRecognitionOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160201BA2D1926AC008C35BD /* FaceEmotionRecognitionOverlay.swift */; };
+		160201BD2D1930D6008C35BD /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160201BC2D1930D6008C35BD /* LazyView.swift */; };
+		160201BF2D193895008C35BD /* CameraMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160201BE2D193890008C35BD /* CameraMode.swift */; };
+		160201C12D195CEF008C35BD /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160201C02D195CEF008C35BD /* NetworkMonitor.swift */; };
+		160201C32D1A435E008C35BD /* AsyncFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160201C22D1A435B008C35BD /* AsyncFeature.swift */; };
+		160201C52D1A5930008C35BD /* Whisper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160201C42D1A592F008C35BD /* Whisper.swift */; };
+		160201C72D1A8464008C35BD /* FaceEmotionRecognitionPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160201C62D1A845E008C35BD /* FaceEmotionRecognitionPipeline.swift */; };
+		160201C92D1A879E008C35BD /* FaceLandmarkPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160201C82D1A8794008C35BD /* FaceLandmarkPipeline.swift */; };
+		162123762D15166E00D7DA4B /* FaceLandmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162123582D15166E00D7DA4B /* FaceLandmark.swift */; };
+		162123772D15166E00D7DA4B /* WhisperEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621235F2D15166E00D7DA4B /* WhisperEncoder.swift */; };
+		162123782D15166E00D7DA4B /* WhisperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621235C2D15166E00D7DA4B /* WhisperView.swift */; };
+		162123792D15166E00D7DA4B /* YAMNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162123622D15166E00D7DA4B /* YAMNet.swift */; };
+		1621237A2D15166E00D7DA4B /* ZeticMLangeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621236E2D15166E00D7DA4B /* ZeticMLangeApp.swift */; };
+		1621237B2D15166E00D7DA4B /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162123522D15166E00D7DA4B /* CameraModel.swift */; };
+		1621237C2D15166E00D7DA4B /* CocoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621236A2D15166E00D7DA4B /* CocoConfig.swift */; };
+		1621237D2D15166E00D7DA4B /* WhisperDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621235E2D15166E00D7DA4B /* WhisperDecoder.swift */; };
+		1621237E2D15166E00D7DA4B /* FaceLandmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162123592D15166E00D7DA4B /* FaceLandmarkView.swift */; };
+		1621237F2D15166E00D7DA4B /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162123672D15166E00D7DA4B /* PreviewView.swift */; };
+		162123802D15166E00D7DA4B /* YOLOv8View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162123682D15166E00D7DA4B /* YOLOv8View.swift */; };
+		162123812D15166E00D7DA4B /* FaceEmotionRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162123552D15166E00D7DA4B /* FaceEmotionRecognition.swift */; };
+		162123822D15166E00D7DA4B /* WhisperAudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621235B2D15166E00D7DA4B /* WhisperAudioRecorder.swift */; };
+		162123832D15166E00D7DA4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621236D2D15166E00D7DA4B /* ContentView.swift */; };
+		162123842D15166E00D7DA4B /* YAMNetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162123632D15166E00D7DA4B /* YAMNetView.swift */; };
+		162123852D15166E00D7DA4B /* DetectionBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162123652D15166E00D7DA4B /* DetectionBoxView.swift */; };
+		162123862D15166E00D7DA4B /* FPSDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162123662D15166E00D7DA4B /* FPSDisplayView.swift */; };
+		162123872D15166E00D7DA4B /* YAMNetAudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162123612D15166E00D7DA4B /* YAMNetAudioRecorder.swift */; };
+		162123882D15166E00D7DA4B /* FaceEmotionRecognitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162123562D15166E00D7DA4B /* FaceEmotionRecognitionView.swift */; };
+		162123892D15166E00D7DA4B /* ProbabilityUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621235D2D15166E00D7DA4B /* ProbabilityUtils.swift */; };
+		1621238A2D15166E00D7DA4B /* vocab.json in Resources */ = {isa = PBXBuildFile; fileRef = 162123732D15166E00D7DA4B /* vocab.json */; };
+		1621238B2D15166E00D7DA4B /* yamnet_class_map.csv in Resources */ = {isa = PBXBuildFile; fileRef = 162123742D15166E00D7DA4B /* yamnet_class_map.csv */; };
+		1621238C2D15166E00D7DA4B /* coco.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 162123712D15166E00D7DA4B /* coco.yaml */; };
+		1621238D2D15166E00D7DA4B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 162123722D15166E00D7DA4B /* Launch Screen.storyboard */; };
+		1621238E2D15166E00D7DA4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 162123702D15166E00D7DA4B /* Assets.xcassets */; };
+		1621239F2D1516A900D7DA4B /* ZeticMLangeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621239C2D1516A900D7DA4B /* ZeticMLangeUITests.swift */; };
+		162123A02D1516A900D7DA4B /* ZeticMLangeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621239D2D1516A900D7DA4B /* ZeticMLangeUITestsLaunchTests.swift */; };
+		162123A32D1516AF00D7DA4B /* ZeticMLangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162123A12D1516AF00D7DA4B /* ZeticMLangeTests.swift */; };
+		162123FB2D15184500D7DA4B /* ZeticMLange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 162123F92D15181B00D7DA4B /* ZeticMLange.framework */; };
+		162123FC2D15184500D7DA4B /* ZeticMLange.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 162123F92D15181B00D7DA4B /* ZeticMLange.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		164D0AED2D1421F300E9FE66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 164D0AD42D1421F200E9FE66 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 164D0ADB2D1421F200E9FE66;
+			remoteInfo = ZeticMLange;
+		};
+		164D0AF72D1421F300E9FE66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 164D0AD42D1421F200E9FE66 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 164D0ADB2D1421F200E9FE66;
+			remoteInfo = ZeticMLange;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		162123FD2D15184500D7DA4B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				162123FC2D15184500D7DA4B /* ZeticMLange.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		160201482D151996008C35BD /* FaceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetection.swift; sourceTree = "<group>"; };
+		160201492D151996008C35BD /* FaceDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectionView.swift; sourceTree = "<group>"; };
+		1602014C2D151B20008C35BD /* Clamped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clamped.swift; sourceTree = "<group>"; };
+		1602014E2D153147008C35BD /* FeatureItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureItem.swift; sourceTree = "<group>"; };
+		160201502D153311008C35BD /* FeatureItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureItemView.swift; sourceTree = "<group>"; };
+		160201562D154B02008C35BD /* YOLOv8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLOv8.swift; sourceTree = "<group>"; };
+		160201582D1553B4008C35BD /* CameraFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFrame.swift; sourceTree = "<group>"; };
+		160201B12D15777A008C35BD /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		160201B62D1925FD008C35BD /* FaceLandmarkOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceLandmarkOverlay.swift; sourceTree = "<group>"; };
+		160201B82D192691008C35BD /* FaceDetectionOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectionOverlay.swift; sourceTree = "<group>"; };
+		160201BA2D1926AC008C35BD /* FaceEmotionRecognitionOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceEmotionRecognitionOverlay.swift; sourceTree = "<group>"; };
+		160201BC2D1930D6008C35BD /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
+		160201BE2D193890008C35BD /* CameraMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMode.swift; sourceTree = "<group>"; };
+		160201C02D195CEF008C35BD /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		160201C22D1A435B008C35BD /* AsyncFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncFeature.swift; sourceTree = "<group>"; };
+		160201C42D1A592F008C35BD /* Whisper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Whisper.swift; sourceTree = "<group>"; };
+		160201C62D1A845E008C35BD /* FaceEmotionRecognitionPipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceEmotionRecognitionPipeline.swift; sourceTree = "<group>"; };
+		160201C82D1A8794008C35BD /* FaceLandmarkPipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceLandmarkPipeline.swift; sourceTree = "<group>"; };
+		162123522D15166E00D7DA4B /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
+		162123552D15166E00D7DA4B /* FaceEmotionRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceEmotionRecognition.swift; sourceTree = "<group>"; };
+		162123562D15166E00D7DA4B /* FaceEmotionRecognitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceEmotionRecognitionView.swift; sourceTree = "<group>"; };
+		162123582D15166E00D7DA4B /* FaceLandmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceLandmark.swift; sourceTree = "<group>"; };
+		162123592D15166E00D7DA4B /* FaceLandmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceLandmarkView.swift; sourceTree = "<group>"; };
+		1621235B2D15166E00D7DA4B /* WhisperAudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhisperAudioRecorder.swift; sourceTree = "<group>"; };
+		1621235C2D15166E00D7DA4B /* WhisperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhisperView.swift; sourceTree = "<group>"; };
+		1621235D2D15166E00D7DA4B /* ProbabilityUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProbabilityUtils.swift; sourceTree = "<group>"; };
+		1621235E2D15166E00D7DA4B /* WhisperDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhisperDecoder.swift; sourceTree = "<group>"; };
+		1621235F2D15166E00D7DA4B /* WhisperEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhisperEncoder.swift; sourceTree = "<group>"; };
+		162123612D15166E00D7DA4B /* YAMNetAudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YAMNetAudioRecorder.swift; sourceTree = "<group>"; };
+		162123622D15166E00D7DA4B /* YAMNet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YAMNet.swift; sourceTree = "<group>"; };
+		162123632D15166E00D7DA4B /* YAMNetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YAMNetView.swift; sourceTree = "<group>"; };
+		162123652D15166E00D7DA4B /* DetectionBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionBoxView.swift; sourceTree = "<group>"; };
+		162123662D15166E00D7DA4B /* FPSDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPSDisplayView.swift; sourceTree = "<group>"; };
+		162123672D15166E00D7DA4B /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		162123682D15166E00D7DA4B /* YOLOv8View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLOv8View.swift; sourceTree = "<group>"; };
+		1621236A2D15166E00D7DA4B /* CocoConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoConfig.swift; sourceTree = "<group>"; };
+		1621236D2D15166E00D7DA4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1621236E2D15166E00D7DA4B /* ZeticMLangeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeticMLangeApp.swift; sourceTree = "<group>"; };
+		162123702D15166E00D7DA4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		162123712D15166E00D7DA4B /* coco.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = coco.yaml; sourceTree = "<group>"; };
+		162123722D15166E00D7DA4B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		162123732D15166E00D7DA4B /* vocab.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = vocab.json; sourceTree = "<group>"; };
+		162123742D15166E00D7DA4B /* yamnet_class_map.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = yamnet_class_map.csv; sourceTree = "<group>"; };
+		1621239C2D1516A900D7DA4B /* ZeticMLangeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeticMLangeUITests.swift; sourceTree = "<group>"; };
+		1621239D2D1516A900D7DA4B /* ZeticMLangeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeticMLangeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		162123A12D1516AF00D7DA4B /* ZeticMLangeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeticMLangeTests.swift; sourceTree = "<group>"; };
+		162123F92D15181B00D7DA4B /* ZeticMLange.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZeticMLange.framework; sourceTree = "<group>"; };
+		164D0ADC2D1421F200E9FE66 /* ZeticMLange-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZeticMLange-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		164D0AEC2D1421F300E9FE66 /* ZeticMLange-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ZeticMLange-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		164D0AF62D1421F300E9FE66 /* ZeticMLange-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ZeticMLange-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		164D0AD92D1421F200E9FE66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				162123FB2D15184500D7DA4B /* ZeticMLange.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		164D0AE92D1421F300E9FE66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		164D0AF32D1421F300E9FE66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		160201B02D155C98008C35BD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				162123652D15166E00D7DA4B /* DetectionBoxView.swift */,
+				162123662D15166E00D7DA4B /* FPSDisplayView.swift */,
+				162123682D15166E00D7DA4B /* YOLOv8View.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		160201B32D157796008C35BD /* Vision */ = {
+			isa = PBXGroup;
+			children = (
+				160201B12D15777A008C35BD /* CameraPreview.swift */,
+				160201582D1553B4008C35BD /* CameraFrame.swift */,
+				162123522D15166E00D7DA4B /* CameraModel.swift */,
+				162123672D15166E00D7DA4B /* PreviewView.swift */,
+			);
+			path = Vision;
+			sourceTree = "<group>";
+		};
+		160201B52D1577C8008C35BD /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				160201C02D195CEF008C35BD /* NetworkMonitor.swift */,
+				1602014C2D151B20008C35BD /* Clamped.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		162123532D15166E00D7DA4B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				160201B52D1577C8008C35BD /* Util */,
+				160201B32D157796008C35BD /* Vision */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		162123542D15166E00D7DA4B /* FaceDetection */ = {
+			isa = PBXGroup;
+			children = (
+				160201B82D192691008C35BD /* FaceDetectionOverlay.swift */,
+				160201482D151996008C35BD /* FaceDetection.swift */,
+				160201492D151996008C35BD /* FaceDetectionView.swift */,
+			);
+			path = FaceDetection;
+			sourceTree = "<group>";
+		};
+		162123572D15166E00D7DA4B /* FaceEmotionRecognition */ = {
+			isa = PBXGroup;
+			children = (
+				160201C62D1A845E008C35BD /* FaceEmotionRecognitionPipeline.swift */,
+				160201BA2D1926AC008C35BD /* FaceEmotionRecognitionOverlay.swift */,
+				162123552D15166E00D7DA4B /* FaceEmotionRecognition.swift */,
+				162123562D15166E00D7DA4B /* FaceEmotionRecognitionView.swift */,
+			);
+			path = FaceEmotionRecognition;
+			sourceTree = "<group>";
+		};
+		1621235A2D15166E00D7DA4B /* FaceLandmark */ = {
+			isa = PBXGroup;
+			children = (
+				160201C82D1A8794008C35BD /* FaceLandmarkPipeline.swift */,
+				160201B62D1925FD008C35BD /* FaceLandmarkOverlay.swift */,
+				162123582D15166E00D7DA4B /* FaceLandmark.swift */,
+				162123592D15166E00D7DA4B /* FaceLandmarkView.swift */,
+			);
+			path = FaceLandmark;
+			sourceTree = "<group>";
+		};
+		162123602D15166E00D7DA4B /* Whisper */ = {
+			isa = PBXGroup;
+			children = (
+				160201C42D1A592F008C35BD /* Whisper.swift */,
+				1621235B2D15166E00D7DA4B /* WhisperAudioRecorder.swift */,
+				1621235C2D15166E00D7DA4B /* WhisperView.swift */,
+				1621235D2D15166E00D7DA4B /* ProbabilityUtils.swift */,
+				1621235E2D15166E00D7DA4B /* WhisperDecoder.swift */,
+				1621235F2D15166E00D7DA4B /* WhisperEncoder.swift */,
+			);
+			path = Whisper;
+			sourceTree = "<group>";
+		};
+		162123642D15166E00D7DA4B /* YAMNet */ = {
+			isa = PBXGroup;
+			children = (
+				162123612D15166E00D7DA4B /* YAMNetAudioRecorder.swift */,
+				162123622D15166E00D7DA4B /* YAMNet.swift */,
+				162123632D15166E00D7DA4B /* YAMNetView.swift */,
+			);
+			path = YAMNet;
+			sourceTree = "<group>";
+		};
+		1621236B2D15166E00D7DA4B /* YOLOv8 */ = {
+			isa = PBXGroup;
+			children = (
+				160201B02D155C98008C35BD /* View */,
+				160201562D154B02008C35BD /* YOLOv8.swift */,
+				1621236A2D15166E00D7DA4B /* CocoConfig.swift */,
+			);
+			path = YOLOv8;
+			sourceTree = "<group>";
+		};
+		1621236C2D15166E00D7DA4B /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				160201C22D1A435B008C35BD /* AsyncFeature.swift */,
+				162123542D15166E00D7DA4B /* FaceDetection */,
+				162123572D15166E00D7DA4B /* FaceEmotionRecognition */,
+				1621235A2D15166E00D7DA4B /* FaceLandmark */,
+				162123602D15166E00D7DA4B /* Whisper */,
+				162123642D15166E00D7DA4B /* YAMNet */,
+				1621236B2D15166E00D7DA4B /* YOLOv8 */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		1621236F2D15166E00D7DA4B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				160201BE2D193890008C35BD /* CameraMode.swift */,
+				160201BC2D1930D6008C35BD /* LazyView.swift */,
+				160201502D153311008C35BD /* FeatureItemView.swift */,
+				1602014E2D153147008C35BD /* FeatureItem.swift */,
+				1621236D2D15166E00D7DA4B /* ContentView.swift */,
+				1621236E2D15166E00D7DA4B /* ZeticMLangeApp.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		162123752D15166E00D7DA4B /* ZeticMLange-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				162123532D15166E00D7DA4B /* Common */,
+				1621236C2D15166E00D7DA4B /* Feature */,
+				1621236F2D15166E00D7DA4B /* View */,
+				162123702D15166E00D7DA4B /* Assets.xcassets */,
+				162123712D15166E00D7DA4B /* coco.yaml */,
+				162123722D15166E00D7DA4B /* Launch Screen.storyboard */,
+				162123732D15166E00D7DA4B /* vocab.json */,
+				162123742D15166E00D7DA4B /* yamnet_class_map.csv */,
+				162123F92D15181B00D7DA4B /* ZeticMLange.framework */,
+			);
+			path = "ZeticMLange-iOS";
+			sourceTree = "<group>";
+		};
+		1621239E2D1516A900D7DA4B /* ZeticMLange-iOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1621239C2D1516A900D7DA4B /* ZeticMLangeUITests.swift */,
+				1621239D2D1516A900D7DA4B /* ZeticMLangeUITestsLaunchTests.swift */,
+			);
+			path = "ZeticMLange-iOSUITests";
+			sourceTree = "<group>";
+		};
+		162123A22D1516AF00D7DA4B /* ZeticMLange-iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				162123A12D1516AF00D7DA4B /* ZeticMLangeTests.swift */,
+			);
+			path = "ZeticMLange-iOSTests";
+			sourceTree = "<group>";
+		};
+		164D0AD32D1421F200E9FE66 = {
+			isa = PBXGroup;
+			children = (
+				162123752D15166E00D7DA4B /* ZeticMLange-iOS */,
+				164D0ADD2D1421F200E9FE66 /* Products */,
+				1621239E2D1516A900D7DA4B /* ZeticMLange-iOSUITests */,
+				162123A22D1516AF00D7DA4B /* ZeticMLange-iOSTests */,
+			);
+			sourceTree = "<group>";
+		};
+		164D0ADD2D1421F200E9FE66 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				164D0ADC2D1421F200E9FE66 /* ZeticMLange-iOS.app */,
+				164D0AEC2D1421F300E9FE66 /* ZeticMLange-iOSTests.xctest */,
+				164D0AF62D1421F300E9FE66 /* ZeticMLange-iOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		164D0ADB2D1421F200E9FE66 /* ZeticMLange-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 164D0B002D1421F300E9FE66 /* Build configuration list for PBXNativeTarget "ZeticMLange-iOS" */;
+			buildPhases = (
+				164D0AD82D1421F200E9FE66 /* Sources */,
+				164D0AD92D1421F200E9FE66 /* Frameworks */,
+				164D0ADA2D1421F200E9FE66 /* Resources */,
+				162123FD2D15184500D7DA4B /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ZeticMLange-iOS";
+			packageProductDependencies = (
+			);
+			productName = ZeticMLange;
+			productReference = 164D0ADC2D1421F200E9FE66 /* ZeticMLange-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		164D0AEB2D1421F300E9FE66 /* ZeticMLange-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 164D0B032D1421F300E9FE66 /* Build configuration list for PBXNativeTarget "ZeticMLange-iOSTests" */;
+			buildPhases = (
+				164D0AE82D1421F300E9FE66 /* Sources */,
+				164D0AE92D1421F300E9FE66 /* Frameworks */,
+				164D0AEA2D1421F300E9FE66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				164D0AEE2D1421F300E9FE66 /* PBXTargetDependency */,
+			);
+			name = "ZeticMLange-iOSTests";
+			packageProductDependencies = (
+			);
+			productName = ZeticMLangeTests;
+			productReference = 164D0AEC2D1421F300E9FE66 /* ZeticMLange-iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		164D0AF52D1421F300E9FE66 /* ZeticMLange-iOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 164D0B062D1421F300E9FE66 /* Build configuration list for PBXNativeTarget "ZeticMLange-iOSUITests" */;
+			buildPhases = (
+				164D0AF22D1421F300E9FE66 /* Sources */,
+				164D0AF32D1421F300E9FE66 /* Frameworks */,
+				164D0AF42D1421F300E9FE66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				164D0AF82D1421F300E9FE66 /* PBXTargetDependency */,
+			);
+			name = "ZeticMLange-iOSUITests";
+			packageProductDependencies = (
+			);
+			productName = ZeticMLangeUITests;
+			productReference = 164D0AF62D1421F300E9FE66 /* ZeticMLange-iOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		164D0AD42D1421F200E9FE66 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					164D0ADB2D1421F200E9FE66 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					164D0AEB2D1421F300E9FE66 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 164D0ADB2D1421F200E9FE66;
+					};
+					164D0AF52D1421F300E9FE66 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 164D0ADB2D1421F200E9FE66;
+					};
+				};
+			};
+			buildConfigurationList = 164D0AD72D1421F200E9FE66 /* Build configuration list for PBXProject "ZeticMLange-iOS" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 164D0AD32D1421F200E9FE66;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 164D0ADD2D1421F200E9FE66 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				164D0ADB2D1421F200E9FE66 /* ZeticMLange-iOS */,
+				164D0AEB2D1421F300E9FE66 /* ZeticMLange-iOSTests */,
+				164D0AF52D1421F300E9FE66 /* ZeticMLange-iOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		164D0ADA2D1421F200E9FE66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1621238A2D15166E00D7DA4B /* vocab.json in Resources */,
+				1621238B2D15166E00D7DA4B /* yamnet_class_map.csv in Resources */,
+				1621238C2D15166E00D7DA4B /* coco.yaml in Resources */,
+				1621238D2D15166E00D7DA4B /* Launch Screen.storyboard in Resources */,
+				1621238E2D15166E00D7DA4B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		164D0AEA2D1421F300E9FE66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		164D0AF42D1421F300E9FE66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		164D0AD82D1421F200E9FE66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				162123762D15166E00D7DA4B /* FaceLandmark.swift in Sources */,
+				160201BF2D193895008C35BD /* CameraMode.swift in Sources */,
+				160201B72D1925FD008C35BD /* FaceLandmarkOverlay.swift in Sources */,
+				162123772D15166E00D7DA4B /* WhisperEncoder.swift in Sources */,
+				160201BB2D1926AC008C35BD /* FaceEmotionRecognitionOverlay.swift in Sources */,
+				162123782D15166E00D7DA4B /* WhisperView.swift in Sources */,
+				160201C32D1A435E008C35BD /* AsyncFeature.swift in Sources */,
+				162123792D15166E00D7DA4B /* YAMNet.swift in Sources */,
+				1621237A2D15166E00D7DA4B /* ZeticMLangeApp.swift in Sources */,
+				1621237B2D15166E00D7DA4B /* CameraModel.swift in Sources */,
+				160201B92D192691008C35BD /* FaceDetectionOverlay.swift in Sources */,
+				1602014D2D151B20008C35BD /* Clamped.swift in Sources */,
+				1621237C2D15166E00D7DA4B /* CocoConfig.swift in Sources */,
+				1621237D2D15166E00D7DA4B /* WhisperDecoder.swift in Sources */,
+				1621237E2D15166E00D7DA4B /* FaceLandmarkView.swift in Sources */,
+				160201572D154B05008C35BD /* YOLOv8.swift in Sources */,
+				1621237F2D15166E00D7DA4B /* PreviewView.swift in Sources */,
+				160201B22D15777A008C35BD /* CameraPreview.swift in Sources */,
+				1602014A2D151996008C35BD /* FaceDetectionView.swift in Sources */,
+				160201BD2D1930D6008C35BD /* LazyView.swift in Sources */,
+				1602014B2D151996008C35BD /* FaceDetection.swift in Sources */,
+				162123802D15166E00D7DA4B /* YOLOv8View.swift in Sources */,
+				160201592D1553B9008C35BD /* CameraFrame.swift in Sources */,
+				162123812D15166E00D7DA4B /* FaceEmotionRecognition.swift in Sources */,
+				162123822D15166E00D7DA4B /* WhisperAudioRecorder.swift in Sources */,
+				162123832D15166E00D7DA4B /* ContentView.swift in Sources */,
+				162123842D15166E00D7DA4B /* YAMNetView.swift in Sources */,
+				160201C12D195CEF008C35BD /* NetworkMonitor.swift in Sources */,
+				162123852D15166E00D7DA4B /* DetectionBoxView.swift in Sources */,
+				162123862D15166E00D7DA4B /* FPSDisplayView.swift in Sources */,
+				160201C92D1A879E008C35BD /* FaceLandmarkPipeline.swift in Sources */,
+				160201C52D1A5930008C35BD /* Whisper.swift in Sources */,
+				162123872D15166E00D7DA4B /* YAMNetAudioRecorder.swift in Sources */,
+				162123882D15166E00D7DA4B /* FaceEmotionRecognitionView.swift in Sources */,
+				162123892D15166E00D7DA4B /* ProbabilityUtils.swift in Sources */,
+				160201512D153315008C35BD /* FeatureItemView.swift in Sources */,
+				1602014F2D153149008C35BD /* FeatureItem.swift in Sources */,
+				160201C72D1A8464008C35BD /* FaceEmotionRecognitionPipeline.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		164D0AE82D1421F300E9FE66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				162123A32D1516AF00D7DA4B /* ZeticMLangeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		164D0AF22D1421F300E9FE66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1621239F2D1516A900D7DA4B /* ZeticMLangeUITests.swift in Sources */,
+				162123A02D1516A900D7DA4B /* ZeticMLangeUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		164D0AEE2D1421F300E9FE66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 164D0ADB2D1421F200E9FE66 /* ZeticMLange-iOS */;
+			targetProxy = 164D0AED2D1421F300E9FE66 /* PBXContainerItemProxy */;
+		};
+		164D0AF82D1421F300E9FE66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 164D0ADB2D1421F200E9FE66 /* ZeticMLange-iOS */;
+			targetProxy = 164D0AF72D1421F300E9FE66 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		164D0AFE2D1421F300E9FE66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		164D0AFF2D1421F300E9FE66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		164D0B012D1421F300E9FE66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8WTTXXB63L;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/ZeticMLange-iOS",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app require camera access to demonstrate On-Device AI Model.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app require microphone access to demonstrate On-Device AI Model.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zeticai.ZeticMLange;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		164D0B022D1421F300E9FE66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8WTTXXB63L;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/ZeticMLange-iOS",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app require camera access to demonstrate On-Device AI Model.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app require microphone access to demonstrate On-Device AI Model.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zeticai.ZeticMLange;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		164D0B042D1421F300E9FE66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8WTTXXB63L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zeticai.ZeticMLangeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZeticMLange-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ZeticMLange-iOS";
+			};
+			name = Debug;
+		};
+		164D0B052D1421F300E9FE66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8WTTXXB63L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zeticai.ZeticMLangeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZeticMLange-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ZeticMLange-iOS";
+			};
+			name = Release;
+		};
+		164D0B072D1421F300E9FE66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8WTTXXB63L;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zeticai.ZeticMLangeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ZeticMLange;
+			};
+			name = Debug;
+		};
+		164D0B082D1421F300E9FE66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8WTTXXB63L;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zeticai.ZeticMLangeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ZeticMLange;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		164D0AD72D1421F200E9FE66 /* Build configuration list for PBXProject "ZeticMLange-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				164D0AFE2D1421F300E9FE66 /* Debug */,
+				164D0AFF2D1421F300E9FE66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		164D0B002D1421F300E9FE66 /* Build configuration list for PBXNativeTarget "ZeticMLange-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				164D0B012D1421F300E9FE66 /* Debug */,
+				164D0B022D1421F300E9FE66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		164D0B032D1421F300E9FE66 /* Build configuration list for PBXNativeTarget "ZeticMLange-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				164D0B042D1421F300E9FE66 /* Debug */,
+				164D0B052D1421F300E9FE66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		164D0B062D1421F300E9FE66 /* Build configuration list for PBXNativeTarget "ZeticMLange-iOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				164D0B072D1421F300E9FE66 /* Debug */,
+				164D0B082D1421F300E9FE66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 164D0AD42D1421F200E9FE66 /* Project object */;
+}
