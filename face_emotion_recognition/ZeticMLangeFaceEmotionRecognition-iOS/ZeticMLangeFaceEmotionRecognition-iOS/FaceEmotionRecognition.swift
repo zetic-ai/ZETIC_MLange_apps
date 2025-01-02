@@ -2,28 +2,47 @@ import Foundation
 import UIKit
 import ZeticMLange
 
-class FaceEmotionRecognition {
-    private let model: ZeticMLangeModel
-    private let featureModel: ZeticMLangeFeatureFaceEmotionRecognition
+class FaceEmotionRecognition: AsyncFeature<FaceEmotionRecognitionInput, FaceEmotionRecognitionOutput> {
+    @Published var result: FaceEmotionRecognitionResult = FaceEmotionRecognitionResult(emotion: "", confidence: 0)
     
-    init (_ modelKey: String) {
-        model = ZeticMLangeModel(modelKey)!
-        featureModel = ZeticMLangeFeatureFaceEmotionRecognition()
-    }
+    private let model = ZeticMLangeModel("face_emotion_recognition")!
+    private let wrapper = FaceEmotionRecognitionWrapper()
     
-    func run(_ image: UIImage, _ roi: Box) -> FaceEmotionRecognitionResult? {
+    override func process(input: FaceEmotionRecognitionInput) -> FaceEmotionRecognitionOutput {
         do {
-            let preprocess = featureModel.preprocess(image, roi)
+            let preprocess = wrapper.preprocess(input.image, input.roi)
             if (preprocess.isEmpty) {
-                return nil
+                throw ZeticMLangeError("preprocess failed")
             }
             try model.run([preprocess])
             var modelOutput = model.getOutputDataArray()
-            let result = featureModel.postprocess(&modelOutput)
-            return result
+            let result = wrapper.postprocess(&modelOutput)
+            return FaceEmotionRecognitionOutput(result: result)
         } catch {
             print(error)
-            return nil
         }
+        return FaceEmotionRecognitionOutput(result: FaceEmotionRecognitionResult(emotion: "", confidence: 0))
+    }
+    
+    override func handleOutput(_ output: FaceEmotionRecognitionOutput) {
+        self.result = output.result
+    }
+    
+    func run(_ image: UIImage, _ roi: Box) {
+        let input = FaceEmotionRecognitionInput(image: image, roi: roi)
+        run(with: input)
+    }
+}
+
+struct FaceEmotionRecognitionInput: AsyncFeatureInput {
+    let image: UIImage
+    let roi: Box
+}
+
+struct FaceEmotionRecognitionOutput: AsyncFeatureOutput {
+    let result: FaceEmotionRecognitionResult
+    
+    init(result: FaceEmotionRecognitionResult = FaceEmotionRecognitionResult(emotion: "", confidence: 0)) {
+        self.result = result
     }
 }
