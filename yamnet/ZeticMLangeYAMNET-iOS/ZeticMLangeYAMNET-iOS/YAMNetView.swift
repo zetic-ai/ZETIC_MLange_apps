@@ -2,7 +2,7 @@ import SwiftUI
 
 struct YAMNetView: View {
     private let classes = readCSVFromBundle()
-    @StateObject private var yamnet = YAMNet(label: "yamnet")
+    @StateObject private var yamnet = YAMNet()
     
     var body: some View {
         GeometryReader { geometry in
@@ -23,9 +23,7 @@ struct YAMNetView: View {
             yamnet.startProcessing()
         }
         .onDisappear {
-            yamnet.waitForPendingOperations {
-                yamnet.stopProcessing()
-            }
+            yamnet.stopProcessing()
         }
     }
     

@@ -2,57 +2,69 @@ import AVFoundation
 import ZeticMLange
 import AVFoundation
 
-class YAMNet: AsyncFeature<YAMNetInput, YAMNetOutput> {
+class YAMNet: ObservableObject {
     @Published var scores: Array<AudioClass>?
     
     let audioRecorder = YAMNetAudioRecorder()!
     let model = ZeticMLangeModel("YAMNet", Target.ZETIC_MLANGE_TARGET_COREML_FP32)!
     
+    private var isProcessing = false
+    
     func startProcessing() {
         audioRecorder.startCapturing { audio in
-            self.run(with: YAMNetInput(audio: audio))
+            self.process(input: YAMNetInput(audio: audio))
         }
     }
     
     func stopProcessing() {
         audioRecorder.stopCapturing()
     }
-    override func process(input: YAMNetInput) -> YAMNetOutput {
-        do {
-            try model.run([input.audio])
-            let outputs = model.getOutputDataArray()
-            
-            let floats = outputs[2].withUnsafeBytes { ptr -> [[Float]] in
-                
-                let rowCount = 6
-                let columnCount = 521
-                let totalCount = rowCount * columnCount
-                let expectedByteCount = totalCount * MemoryLayout<Float>.size
-                guard ptr.count == expectedByteCount else {
-                    print("Error: Data Size Not Matching. Input Data : \(ptr.count), ExpectedByteCount : \(expectedByteCount).")
-                    return []
-                }
-                let baseAddress = ptr.baseAddress!.assumingMemoryBound(to: Float.self)
-                var result = [[Float]]()
-                
-                for i in 0..<rowCount {
-                    let startIndex = i * columnCount + (i * rowCount + i)
-                    let rowPointer = baseAddress.advanced(by: startIndex)
-                    let row = Array(UnsafeBufferPointer(start: rowPointer, count: columnCount))
-                    result.append(row)
-                }
-                return result
-            }
-            
-            return YAMNetOutput(audioClasses: self.getTopClassIndices(scores: floats, topN: 5))
-        }
-        catch {
-            return YAMNetOutput(audioClasses: [])
-        }
-    }
     
-    override func handleOutput(_ output: YAMNetOutput) {
-        self.scores = output.audioClasses
+    func process(input: YAMNetInput) {
+        if isProcessing {
+            return
+        }
+        isProcessing = true
+        
+        DispatchQueue.global(qos: .userInitiated).async { [self] in
+            
+            do {
+                try model.run([input.audio])
+                let outputs = model.getOutputDataArray()
+                
+                let floats = outputs[2].withUnsafeBytes { ptr -> [[Float]] in
+                    
+                    let rowCount = 6
+                    let columnCount = 521
+                    let totalCount = rowCount * columnCount
+                    let expectedByteCount = totalCount * MemoryLayout<Float>.size
+                    guard ptr.count == expectedByteCount else {
+                        print("Error: Data Size Not Matching. Input Data : \(ptr.count), ExpectedByteCount : \(expectedByteCount).")
+                        return []
+                    }
+                    let baseAddress = ptr.baseAddress!.assumingMemoryBound(to: Float.self)
+                    var result = [[Float]]()
+                    
+                    for i in 0..<rowCount {
+                        let startIndex = i * columnCount + (i * rowCount + i)
+                        let rowPointer = baseAddress.advanced(by: startIndex)
+                        let row = Array(UnsafeBufferPointer(start: rowPointer, count: columnCount))
+                        result.append(row)
+                    }
+                    return result
+                }
+                
+                let output = YAMNetOutput(audioClasses: self.getTopClassIndices(scores: floats, topN: 5))
+                DispatchQueue.main.async {
+                    
+                    self.scores = output.audioClasses
+                    self.isProcessing = false
+                }
+            }
+            catch {
+                isProcessing = false
+            }
+        }
     }
     
     private func getTopClassIndices(scores: [[Float]], topN: Int) -> Array<AudioClass> {
