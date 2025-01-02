@@ -5,7 +5,7 @@ import Vision
 import ZeticMLange
 
 struct WhisperView: View {
-    @StateObject private var whisper = Whisper(label: "whisper")
+    @StateObject private var whisper = Whisper()
     
     var body: some View {
         ZStack {
@@ -29,9 +29,7 @@ struct WhisperView: View {
         .onAppear {
         }
         .onDisappear {
-            whisper.waitForPendingOperations {
-                whisper.stopRecording()
-            }
+            whisper.stopRecording()
         }
     }
 }
