@@ -7,7 +7,7 @@ import ZeticMLange
 struct FaceLandmarkView: View {
     @StateObject private var cameraModel: CameraModel = CameraModel(.front, .image)
     
-    @StateObject private var faceLandmarkPipeline: FaceLandmarkPipeline = FaceLandmarkPipeline(label: "face_landmark_pipeline")
+    @StateObject private var faceLandmarkPipeline: FaceLandmarkPipeline = FaceLandmarkPipeline()
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -16,7 +16,7 @@ struct FaceLandmarkView: View {
                 
                 ZStack {
                     if cameraModel.image != nil {
-                        let _ = faceLandmarkPipeline.run(cameraModel.image!)
+                        let _ = faceLandmarkPipeline.process(input: FaceDetectionInput(image: cameraModel.image!))
                     }
                     
                     FaceDetectionOverlay(
@@ -42,9 +42,7 @@ struct FaceLandmarkView: View {
         }
         .onDisappear() {
             cameraModel.close()
-            faceLandmarkPipeline.waitForPendingOperations {
-                faceLandmarkPipeline.close()
-            }
+            faceLandmarkPipeline.close()
         }
     }
 }

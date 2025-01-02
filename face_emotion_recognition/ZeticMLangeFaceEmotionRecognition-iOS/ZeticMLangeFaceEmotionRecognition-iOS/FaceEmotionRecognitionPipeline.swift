@@ -17,6 +17,7 @@ class FaceEmotionRecognitionPipeline: ObservableObject {
         DispatchQueue.global(qos: .userInitiated).async {
             let faceDetectionOutput = self.faceDetection.process(input: input)
             if faceDetectionOutput.faces.isEmpty {
+                self.isProcessing = false
                 return
             }
             let faceEmotionRecognitionInput = FaceEmotionRecognitionInput(image: input.image, roi: faceDetectionOutput.faces[0].toBox(input.image.size))

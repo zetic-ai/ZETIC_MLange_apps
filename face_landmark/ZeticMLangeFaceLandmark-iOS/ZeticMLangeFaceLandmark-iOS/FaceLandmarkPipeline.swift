@@ -2,34 +2,37 @@ import Foundation
 import ZeticMLange
 import UIKit
 
-class FaceLandmarkPipeline: AsyncFeature<FaceDetectionInput, FaceLandmarkPipelineOutput> {
+class FaceLandmarkPipeline: ObservableObject {
     private let faceDetection = FaceDetection(label: "fl_facedetection")
     private let faceLandmark = FaceLandmark(label: "fl_facelandmark")
     
+    private var isProcessing = false
+    
     @Published var result: FaceLandmarkPipelineOutput = FaceLandmarkPipelineOutput()
     
-    override func process(input: FaceDetectionInput) -> FaceLandmarkPipelineOutput {
-        let faceDetectionOutput = faceDetection.process(input: input)
-        if faceDetectionOutput.faces.isEmpty {
-            return FaceLandmarkPipelineOutput()
+    func process(input: FaceDetectionInput) {
+        if isProcessing {
+            return
         }
-        let faceLandmarkInput = FaceLandmarkInput(image: input.image, roi: faceDetectionOutput.faces[0].toBox(input.image.size))
-        return FaceLandmarkPipelineOutput(faceDetectionOutput: faceDetectionOutput, faceLandmarkOutput: faceLandmark.process(input: faceLandmarkInput))
+        isProcessing = true
+        
+        DispatchQueue.global(qos: .userInitiated).async { [self] in
+            let faceDetectionOutput = faceDetection.process(input: input)
+            if faceDetectionOutput.faces.isEmpty {
+                self.isProcessing = false
+                return
+            }
+            let faceLandmarkInput = FaceLandmarkInput(image: input.image, roi: faceDetectionOutput.faces[0].toBox(input.image.size))
+            let output = FaceLandmarkPipelineOutput(faceDetectionOutput: faceDetectionOutput, faceLandmarkOutput: faceLandmark.process(input: faceLandmarkInput))
+            DispatchQueue.main.async {
+                self.result = output
+                self.isProcessing = false
+            }
+        }
     }
-    
-    override func handleOutput(_ output: FaceLandmarkPipelineOutput) {
-        self.result = output
-    }
-    
-    func run(_ image: UIImage) {
-        let input = FaceDetectionInput(image: image)
-        run(with: input)
-    }
-    
-    override func close() {
+    func close() {
         faceDetection.close()
         faceLandmark.close()
-        super.close()
     }
 }
 
@@ -38,7 +41,7 @@ struct FaceLandmarkPipelineOutput: AsyncFeatureOutput {
     let faceLandmarkOutput: FaceLandmarkOutput
     
     init(faceDetectionOutput: FaceDetectionOutput = FaceDetectionOutput(),
-        faceLandmarkOutput: FaceLandmarkOutput = FaceLandmarkOutput()) {
+         faceLandmarkOutput: FaceLandmarkOutput = FaceLandmarkOutput()) {
         self.faceDetectionOutput = faceDetectionOutput
         self.faceLandmarkOutput = faceLandmarkOutput
     }
