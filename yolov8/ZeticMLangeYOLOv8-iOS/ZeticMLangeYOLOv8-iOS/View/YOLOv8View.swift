@@ -18,7 +18,7 @@ struct YOLOv8View: View {
             }
             ZStack {
                 if cameraModel.frame != nil && cameraModel.timestamp != nil {
-                    let _ = yolov8.run(cameraModel.frame!, cameraModel.timestamp!)
+                    let _ = yolov8.process(input: YOLOv8Input(frame: cameraModel.frame!, timestamp: cameraModel.timestamp!))
                 }
                 ForEach(Array(zip(yolov8.detectionResults.indices, yolov8.detectionResults)), id: \.0) { index, result in
                     let color = getClassColor(classId: result.classId)
@@ -40,10 +40,8 @@ struct YOLOv8View: View {
         .onAppear {
             cameraModel.checkCameraPermission()
         }.onDisappear {
-            yolov8.waitForPendingOperations {
-                yolov8.close()
-                cameraModel.close()
-            }
+            yolov8.close()
+            cameraModel.close()
         }
     }
     
