@@ -7,36 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		16563F892CA5717300733DC7 /* libzetic_mlange_feature_opencv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F7A2CA5717300733DC7 /* libzetic_mlange_feature_opencv.dylib */; };
-		16563F8A2CA5717300733DC7 /* libzetic_mlange_feature_opencv.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F7A2CA5717300733DC7 /* libzetic_mlange_feature_opencv.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F8B2CA5717300733DC7 /* libZeticMLangeFeatureOpenCVNative.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F7B2CA5717300733DC7 /* libZeticMLangeFeatureOpenCVNative.dylib */; };
-		16563F8C2CA5717300733DC7 /* libZeticMLangeFeatureOpenCVNative.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F7B2CA5717300733DC7 /* libZeticMLangeFeatureOpenCVNative.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F8D2CA5717300733DC7 /* libZeticMLangeFeatureFaceLandmarkNative.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F7C2CA5717300733DC7 /* libZeticMLangeFeatureFaceLandmarkNative.dylib */; };
-		16563F8E2CA5717300733DC7 /* libZeticMLangeFeatureFaceLandmarkNative.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F7C2CA5717300733DC7 /* libZeticMLangeFeatureFaceLandmarkNative.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F8F2CA5717300733DC7 /* libZeticMLangeFeatureFaceDetectionNative.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F7D2CA5717300733DC7 /* libZeticMLangeFeatureFaceDetectionNative.dylib */; };
-		16563F902CA5717300733DC7 /* libZeticMLangeFeatureFaceDetectionNative.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F7D2CA5717300733DC7 /* libZeticMLangeFeatureFaceDetectionNative.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F912CA5717300733DC7 /* libzetic_mlange_feature_yolov8.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F7E2CA5717300733DC7 /* libzetic_mlange_feature_yolov8.dylib */; };
-		16563F922CA5717300733DC7 /* libzetic_mlange_feature_yolov8.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F7E2CA5717300733DC7 /* libzetic_mlange_feature_yolov8.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F932CA5717300733DC7 /* libZeticMLangeTorchNative.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F7F2CA5717300733DC7 /* libZeticMLangeTorchNative.dylib */; };
-		16563F942CA5717300733DC7 /* libZeticMLangeTorchNative.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F7F2CA5717300733DC7 /* libZeticMLangeTorchNative.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F952CA5717300733DC7 /* libzetic_mlange_feature_face_detection.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F802CA5717300733DC7 /* libzetic_mlange_feature_face_detection.dylib */; };
-		16563F962CA5717300733DC7 /* libzetic_mlange_feature_face_detection.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F802CA5717300733DC7 /* libzetic_mlange_feature_face_detection.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F972CA5717300733DC7 /* libzetic_mlange_feature_face_landmark.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F812CA5717300733DC7 /* libzetic_mlange_feature_face_landmark.dylib */; };
-		16563F982CA5717300733DC7 /* libzetic_mlange_feature_face_landmark.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F812CA5717300733DC7 /* libzetic_mlange_feature_face_landmark.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F992CA5717300733DC7 /* libZeticMLangeModelNative.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F822CA5717300733DC7 /* libZeticMLangeModelNative.dylib */; };
-		16563F9A2CA5717300733DC7 /* libZeticMLangeModelNative.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F822CA5717300733DC7 /* libZeticMLangeModelNative.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F9B2CA5717300733DC7 /* libzetic_feature_common.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F832CA5717300733DC7 /* libzetic_feature_common.dylib */; };
-		16563F9C2CA5717300733DC7 /* libzetic_feature_common.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F832CA5717300733DC7 /* libzetic_feature_common.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F9D2CA5717300733DC7 /* libzetic_mlange_feature_face_emotion_recognition.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F842CA5717300733DC7 /* libzetic_mlange_feature_face_emotion_recognition.dylib */; };
-		16563F9E2CA5717300733DC7 /* libzetic_mlange_feature_face_emotion_recognition.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F842CA5717300733DC7 /* libzetic_mlange_feature_face_emotion_recognition.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563F9F2CA5717300733DC7 /* libzetic_mlange_model.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F852CA5717300733DC7 /* libzetic_mlange_model.dylib */; };
-		16563FA02CA5717300733DC7 /* libzetic_mlange_model.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F852CA5717300733DC7 /* libzetic_mlange_model.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563FA12CA5717300733DC7 /* libZeticMLangeFeatureYoloV8Native.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F862CA5717300733DC7 /* libZeticMLangeFeatureYoloV8Native.dylib */; };
-		16563FA22CA5717300733DC7 /* libZeticMLangeFeatureYoloV8Native.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F862CA5717300733DC7 /* libZeticMLangeFeatureYoloV8Native.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563FA32CA5717300733DC7 /* libZeticMLangeFeatureFaceEmotionRecognitionNative.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F872CA5717300733DC7 /* libZeticMLangeFeatureFaceEmotionRecognitionNative.dylib */; };
-		16563FA42CA5717300733DC7 /* libZeticMLangeFeatureFaceEmotionRecognitionNative.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F872CA5717300733DC7 /* libZeticMLangeFeatureFaceEmotionRecognitionNative.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		16563FA52CA5717300733DC7 /* libzetic_common.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F882CA5717300733DC7 /* libzetic_common.dylib */; };
-		16563FA62CA5717300733DC7 /* libzetic_common.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16563F882CA5717300733DC7 /* libzetic_common.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		166FA5F62C9D448300504C63 /* ZeticMLange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FA5F42C9D447D00504C63 /* ZeticMLange.framework */; };
 		166FA5F72C9D448300504C63 /* ZeticMLange.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 166FA5F42C9D447D00504C63 /* ZeticMLange.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -65,22 +35,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				16563F902CA5717300733DC7 /* libZeticMLangeFeatureFaceDetectionNative.dylib in Embed Frameworks */,
-				16563FA42CA5717300733DC7 /* libZeticMLangeFeatureFaceEmotionRecognitionNative.dylib in Embed Frameworks */,
-				16563F8C2CA5717300733DC7 /* libZeticMLangeFeatureOpenCVNative.dylib in Embed Frameworks */,
-				16563F8E2CA5717300733DC7 /* libZeticMLangeFeatureFaceLandmarkNative.dylib in Embed Frameworks */,
-				16563F9A2CA5717300733DC7 /* libZeticMLangeModelNative.dylib in Embed Frameworks */,
-				16563FA62CA5717300733DC7 /* libzetic_common.dylib in Embed Frameworks */,
-				16563F8A2CA5717300733DC7 /* libzetic_mlange_feature_opencv.dylib in Embed Frameworks */,
-				16563FA02CA5717300733DC7 /* libzetic_mlange_model.dylib in Embed Frameworks */,
-				16563F922CA5717300733DC7 /* libzetic_mlange_feature_yolov8.dylib in Embed Frameworks */,
-				16563F9C2CA5717300733DC7 /* libzetic_feature_common.dylib in Embed Frameworks */,
 				166FA5F72C9D448300504C63 /* ZeticMLange.framework in Embed Frameworks */,
-				16563F9E2CA5717300733DC7 /* libzetic_mlange_feature_face_emotion_recognition.dylib in Embed Frameworks */,
-				16563F982CA5717300733DC7 /* libzetic_mlange_feature_face_landmark.dylib in Embed Frameworks */,
-				16563FA22CA5717300733DC7 /* libZeticMLangeFeatureYoloV8Native.dylib in Embed Frameworks */,
-				16563F962CA5717300733DC7 /* libzetic_mlange_feature_face_detection.dylib in Embed Frameworks */,
-				16563F942CA5717300733DC7 /* libZeticMLangeTorchNative.dylib in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,22 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16563F8F2CA5717300733DC7 /* libZeticMLangeFeatureFaceDetectionNative.dylib in Frameworks */,
-				16563FA32CA5717300733DC7 /* libZeticMLangeFeatureFaceEmotionRecognitionNative.dylib in Frameworks */,
-				16563F8B2CA5717300733DC7 /* libZeticMLangeFeatureOpenCVNative.dylib in Frameworks */,
-				16563F8D2CA5717300733DC7 /* libZeticMLangeFeatureFaceLandmarkNative.dylib in Frameworks */,
-				16563F992CA5717300733DC7 /* libZeticMLangeModelNative.dylib in Frameworks */,
-				16563FA52CA5717300733DC7 /* libzetic_common.dylib in Frameworks */,
-				16563F892CA5717300733DC7 /* libzetic_mlange_feature_opencv.dylib in Frameworks */,
-				16563F9F2CA5717300733DC7 /* libzetic_mlange_model.dylib in Frameworks */,
-				16563F912CA5717300733DC7 /* libzetic_mlange_feature_yolov8.dylib in Frameworks */,
-				16563F9B2CA5717300733DC7 /* libzetic_feature_common.dylib in Frameworks */,
 				166FA5F62C9D448300504C63 /* ZeticMLange.framework in Frameworks */,
-				16563F9D2CA5717300733DC7 /* libzetic_mlange_feature_face_emotion_recognition.dylib in Frameworks */,
-				16563F972CA5717300733DC7 /* libzetic_mlange_feature_face_landmark.dylib in Frameworks */,
-				16563FA12CA5717300733DC7 /* libZeticMLangeFeatureYoloV8Native.dylib in Frameworks */,
-				16563F952CA5717300733DC7 /* libzetic_mlange_feature_face_detection.dylib in Frameworks */,
-				16563F932CA5717300733DC7 /* libZeticMLangeTorchNative.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,7 +457,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ZeticMLangeFaceLandmark-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8WTTXXB63L;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -539,7 +479,7 @@
 					"$(PROJECT_DIR)/ZeticMLange.framework/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zetic.ZeticMLangeFaceLandmark-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zeticai.FaceLandmark;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -555,7 +495,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ZeticMLangeFaceLandmark-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8WTTXXB63L;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -577,7 +517,7 @@
 					"$(PROJECT_DIR)/ZeticMLange.framework/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zetic.ZeticMLangeFaceLandmark-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zeticai.FaceLandmark;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
