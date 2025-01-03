@@ -2,13 +2,11 @@ import Foundation
 import UIKit
 import ZeticMLange
 
-class FaceDetection: AsyncFeature<FaceDetectionInput, FaceDetectionOutput> {
-    @Published var faces: Array<FaceDetectionResult> = []
-    
+class FaceDetection {
     private let model = ZeticMLangeModel("face_detection_short_range")!
     private let wrapper = FaceDetectionWrapper()
     
-    override func process(input: FaceDetectionInput) -> FaceDetectionOutput {
+    func process(input: FaceDetectionInput) -> FaceDetectionOutput {
         do {
             let preprocess = wrapper.preprocess(input.image)
             try model.run([preprocess])
@@ -19,14 +17,6 @@ class FaceDetection: AsyncFeature<FaceDetectionInput, FaceDetectionOutput> {
             print(error)
         }
         return FaceDetectionOutput(faces: [])
-    }
-    
-    override func handleOutput(_ output: FaceDetectionOutput) {
-        self.faces = output.faces
-    }
-    
-    func run(_ image: UIImage) {
-        run(with: FaceDetectionInput(image: image))
     }
 }
 

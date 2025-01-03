@@ -42,7 +42,6 @@ struct FaceEmotionRecognitionView: View {
         }
         .onDisappear {
             cameraModel.close()
-            faceEmotionRecognitionPipeline.close()
         }
     }
 }

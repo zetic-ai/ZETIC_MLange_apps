@@ -2,13 +2,11 @@ import Foundation
 import UIKit
 import ZeticMLange
 
-class FaceEmotionRecognition: AsyncFeature<FaceEmotionRecognitionInput, FaceEmotionRecognitionOutput> {
-    @Published var result: FaceEmotionRecognitionResult = FaceEmotionRecognitionResult(emotion: "", confidence: 0)
-    
+class FaceEmotionRecognition {
     private let model = ZeticMLangeModel("face_emotion_recognition")!
     private let wrapper = FaceEmotionRecognitionWrapper()
     
-    override func process(input: FaceEmotionRecognitionInput) -> FaceEmotionRecognitionOutput {
+    func process(input: FaceEmotionRecognitionInput) -> FaceEmotionRecognitionOutput {
         do {
             let preprocess = wrapper.preprocess(input.image, input.roi)
             if (preprocess.isEmpty) {
@@ -22,15 +20,6 @@ class FaceEmotionRecognition: AsyncFeature<FaceEmotionRecognitionInput, FaceEmot
             print(error)
         }
         return FaceEmotionRecognitionOutput(result: FaceEmotionRecognitionResult(emotion: "", confidence: 0))
-    }
-    
-    override func handleOutput(_ output: FaceEmotionRecognitionOutput) {
-        self.result = output.result
-    }
-    
-    func run(_ image: UIImage, _ roi: Box) {
-        let input = FaceEmotionRecognitionInput(image: image, roi: roi)
-        run(with: input)
     }
 }
 

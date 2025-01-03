@@ -42,7 +42,6 @@ struct FaceLandmarkView: View {
         }
         .onDisappear() {
             cameraModel.close()
-            faceLandmarkPipeline.close()
         }
     }
 }

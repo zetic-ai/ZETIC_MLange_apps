@@ -3,8 +3,8 @@ import ZeticMLange
 import UIKit
 
 class FaceLandmarkPipeline: ObservableObject {
-    private let faceDetection = FaceDetection(label: "fl_facedetection")
-    private let faceLandmark = FaceLandmark(label: "fl_facelandmark")
+    private let faceDetection = FaceDetection()
+    private let faceLandmark = FaceLandmark()
     
     private var isProcessing = false
     
@@ -29,10 +29,6 @@ class FaceLandmarkPipeline: ObservableObject {
                 self.isProcessing = false
             }
         }
-    }
-    func close() {
-        faceDetection.close()
-        faceLandmark.close()
     }
 }
 

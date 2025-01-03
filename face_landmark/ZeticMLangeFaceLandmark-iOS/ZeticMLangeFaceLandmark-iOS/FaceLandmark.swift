@@ -2,13 +2,11 @@ import Foundation
 import UIKit
 import ZeticMLange
 
-class FaceLandmark: AsyncFeature<FaceLandmarkInput, FaceLandmarkOutput> {
-    @Published var result: FaceLandmarkResult = FaceLandmarkResult(faceLandmark: [], confidence: 0)
-    
+class FaceLandmark {
     private let model = ZeticMLangeModel("face_landmark")!
     private let wrapper = FaceLandmarkWrapper()
     
-    override func process(input: FaceLandmarkInput) -> FaceLandmarkOutput {
+    func process(input: FaceLandmarkInput) -> FaceLandmarkOutput {
         do {
             let preprocess = wrapper.preprocess(input.image, input.roi)
             if (preprocess.isEmpty) {
@@ -22,14 +20,6 @@ class FaceLandmark: AsyncFeature<FaceLandmarkInput, FaceLandmarkOutput> {
             print(error)
         }
         return FaceLandmarkOutput()
-    }
-    
-    override func handleOutput(_ output: FaceLandmarkOutput) {
-        result = output.result
-    }
-    
-    func run(_ image: UIImage, _ roi: Box) {
-        run(with: FaceLandmarkInput(image: image, roi: roi))
     }
 }
 

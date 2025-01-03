@@ -3,8 +3,8 @@ import ZeticMLange
 import UIKit
 
 class FaceEmotionRecognitionPipeline: ObservableObject {
-    private let faceDetection = FaceDetection(label: "fer_facedetection")
-    private let faceEmotionRecognition = FaceEmotionRecognition(label: "fer_emotionrecognition")
+    private let faceDetection = FaceDetection()
+    private let faceEmotionRecognition = FaceEmotionRecognition()
     private var isProcessing = false
     
     @Published var result: FaceEmotionRecognitionPipelineOutput = FaceEmotionRecognitionPipelineOutput()
@@ -27,11 +27,6 @@ class FaceEmotionRecognitionPipeline: ObservableObject {
                 self.isProcessing = false
             }
         }
-    }
-    
-    func close() {
-        faceDetection.close()
-        faceEmotionRecognition.close()
     }
 }
 
