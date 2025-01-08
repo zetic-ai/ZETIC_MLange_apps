@@ -3,30 +3,35 @@ import UIKit
 import ZeticMLange
 
 class FaceLandmark {
-    private let model: ZeticMLangeModel
-    private let featureModel: ZeticMLangeFeatureFaceLandmark
+    private let model = ZeticMLangeModel("face_landmark")!
+    private let wrapper = FaceLandmarkWrapper()
     
-    init (_ modelKey: String) {
-        model = ZeticMLangeModel(modelKey)!
-        featureModel = ZeticMLangeFeatureFaceLandmark()
-    }
-    
-    func run(_ image: UIImage, _ roi: Box) -> FaceLandmarkResult? {
+    func process(input: FaceLandmarkInput) -> FaceLandmarkOutput {
         do {
-            let preprocess = featureModel.preprocess(image, roi)
+            let preprocess = wrapper.preprocess(input.image, input.roi)
             if (preprocess.isEmpty) {
-                return nil
+                throw ZeticMLangeError("preprocess failed")
             }
             try model.run([preprocess])
             var modelOutput = model.getOutputDataArray()
-            let result = featureModel.postprocess(&modelOutput)
-            if result.faceLandmark.isEmpty {
-                return nil
-            }
-            return result
+            let result = wrapper.postprocess(&modelOutput)
+            return FaceLandmarkOutput(result: result)
         } catch {
             print(error)
-            return nil
         }
+        return FaceLandmarkOutput()
+    }
+}
+
+struct FaceLandmarkInput: AsyncFeatureInput {
+    let image: UIImage
+    let roi: Box
+}
+
+struct FaceLandmarkOutput: AsyncFeatureOutput {
+    let result: FaceLandmarkResult
+    
+    init(result: FaceLandmarkResult = FaceLandmarkResult(faceLandmark: [], confidence: 0)) {
+        self.result = result
     }
 }

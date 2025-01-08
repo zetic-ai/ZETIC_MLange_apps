@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		168D4E4C2D02E14500F68C01 /* ZeticMLange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168D4E4A2D02E14000F68C01 /* ZeticMLange.framework */; };
-		168D4E4D2D02E14500F68C01 /* ZeticMLange.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 168D4E4A2D02E14000F68C01 /* ZeticMLange.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		16704F072D2669E4002A975A /* ZeticMLange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16704F062D2669E4002A975A /* ZeticMLange.framework */; };
 		168D4E502D02E4CD00F68C01 /* vocab.json in Resources */ = {isa = PBXBuildFile; fileRef = 168D4E4F2D02E4CD00F68C01 /* vocab.json */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +35,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				168D4E4D2D02E14500F68C01 /* ZeticMLange.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -44,10 +42,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		16704F062D2669E4002A975A /* ZeticMLange.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZeticMLange.framework; sourceTree = "<group>"; };
 		168D4E132D02E09C00F68C01 /* ZeticMLangeWhisper-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZeticMLangeWhisper-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		168D4E232D02E09E00F68C01 /* ZeticMLangeWhisper-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ZeticMLangeWhisper-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		168D4E2D2D02E09E00F68C01 /* ZeticMLangeWhisper-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ZeticMLangeWhisper-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		168D4E4A2D02E14000F68C01 /* ZeticMLange.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZeticMLange.framework; sourceTree = "<group>"; };
 		168D4E4F2D02E4CD00F68C01 /* vocab.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = vocab.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,7 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				168D4E4C2D02E14500F68C01 /* ZeticMLange.framework in Frameworks */,
+				16704F072D2669E4002A975A /* ZeticMLange.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,8 +100,8 @@
 				168D4E262D02E09E00F68C01 /* ZeticMLangeWhisper-iOSTests */,
 				168D4E302D02E09E00F68C01 /* ZeticMLangeWhisper-iOSUITests */,
 				168D4E142D02E09C00F68C01 /* Products */,
-				168D4E4A2D02E14000F68C01 /* ZeticMLange.framework */,
 				168D4E4F2D02E4CD00F68C01 /* vocab.json */,
+				16704F062D2669E4002A975A /* ZeticMLange.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -423,7 +421,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ZeticMLangeWhisper-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = 7MFYYTGH2P;
+				DEVELOPMENT_TEAM = 8WTTXXB63L;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -443,7 +441,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zetic.ZeticMLangeWhisper-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zeticai.Whisper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -463,7 +461,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ZeticMLangeWhisper-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = 7MFYYTGH2P;
+				DEVELOPMENT_TEAM = 8WTTXXB63L;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -483,7 +481,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zetic.ZeticMLangeWhisper-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zeticai.Whisper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
