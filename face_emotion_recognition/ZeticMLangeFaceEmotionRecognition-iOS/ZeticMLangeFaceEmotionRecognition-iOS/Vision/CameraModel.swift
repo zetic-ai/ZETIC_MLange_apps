@@ -163,7 +163,7 @@ class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBuf
                 let configuredFPS = Double(device.activeVideoMaxFrameDuration.timescale) / Double(device.activeVideoMaxFrameDuration.value)
                 print("Configured FPS: \(configuredFPS)")
             } else {
-                print("Error: 240fps not supported on this device at the desired resolution.")
+                print("Error: camera configuration failed. cannot select format.")
                 session.commitConfiguration()
                 return
             }
