@@ -10,8 +10,9 @@ struct FaceLandmarkOverlay: View {
             let sizeWidth = Float(size.width)
             let sizeHeight = Float(size.height)
             let focalLength: Float = 500
+            let landmarkCount: Int = 468
             
-            for i in 0..<result.result.faceLandmark.count.clamped(to: 0...468) {
+            for i in 0..<result.result.faceLandmark.count.clamped(to: 0...landmarkCount) {
                 let landmark = result.result.faceLandmark[i]
                 let x = landmark.x
                 let y = landmark.y
