@@ -6,7 +6,7 @@ On-device AI Applications with ZETIC.MLange
 
 This repository contains On-device AI applications using ZETIC.MLange
 
-There are 5 demos available.
+There are 6 demos available.
 
 - [Object Detection (YOLOv8)](https://docs.zetic.ai/examples/yolov8.html)
 - [Face Detection](https://docs.zetic.ai/examples/face_detection.html)
@@ -44,4 +44,4 @@ There are 5 demos available.
 
 ## Roadmap
 
-- add LLM Demos
+- LLM Demo Application.
