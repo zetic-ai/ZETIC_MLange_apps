@@ -10,15 +10,15 @@
 		</data>
 		<key>Modules/ZeticMLange.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		vXTWGAgzmgVW/jrMBmQAj78pzRo=
+		Yx9qROwg4t2nHW2aAmGOZUJ+/hw=
 		</data>
 		<key>Modules/ZeticMLange.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		j34ilDGYMAtIZLD97aB9Kg3dEPw=
+		m+/8KqqIhOhcgjDLkPbvsWshUHA=
 		</data>
 		<key>Modules/ZeticMLange.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		3a/AXBUmZ5eTjqBWY6P+ZTksUcM=
+		yBqU2glONRezCSe2qgWMHGwtU2A=
 		</data>
 		<key>Modules/ZeticMLange.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -26,11 +26,11 @@
 		</data>
 		<key>Modules/ZeticMLange.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		3a/AXBUmZ5eTjqBWY6P+ZTksUcM=
+		yBqU2glONRezCSe2qgWMHGwtU2A=
 		</data>
 		<key>Modules/ZeticMLange.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		vLlB06bW5Q31Aw1B6xmJ6b5X9QY=
+		aR9u8sJq4YLB04xczqa8dh0TXAI=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -39,33 +39,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			vXTWGAgzmgVW/jrMBmQAj78pzRo=
+			Yx9qROwg4t2nHW2aAmGOZUJ+/hw=
 			</data>
 			<key>hash2</key>
 			<data>
-			KstZ+mc96UONGkJM5sp5X31JPlcmgk+ClNNmqgXzkZA=
+			ha2B9xccjMlW5TNJuf8fzOdmHOdHl/cEh7Vu2oWcgHI=
 			</data>
 		</dict>
 		<key>Modules/ZeticMLange.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			j34ilDGYMAtIZLD97aB9Kg3dEPw=
+			m+/8KqqIhOhcgjDLkPbvsWshUHA=
 			</data>
 			<key>hash2</key>
 			<data>
-			LqMuz8W3gFGpI0Eg7gmDE/JCpt3SRNTpWEYN2Mv2yZE=
+			kZe+em0UQLiO/gFeVL0qGF5DaYWvCXSyxlxQvLCFgTA=
 			</data>
 		</dict>
 		<key>Modules/ZeticMLange.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3a/AXBUmZ5eTjqBWY6P+ZTksUcM=
+			yBqU2glONRezCSe2qgWMHGwtU2A=
 			</data>
 			<key>hash2</key>
 			<data>
-			yhEhEq7N/84jkKZVo5cFkVpz6opdE7lydNgMYbvH3A8=
+			q6MCtjgsncRoJR+uGjsUtih7mFRZ0C440ud29iPDbYU=
 			</data>
 		</dict>
 		<key>Modules/ZeticMLange.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -83,22 +83,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			3a/AXBUmZ5eTjqBWY6P+ZTksUcM=
+			yBqU2glONRezCSe2qgWMHGwtU2A=
 			</data>
 			<key>hash2</key>
 			<data>
-			yhEhEq7N/84jkKZVo5cFkVpz6opdE7lydNgMYbvH3A8=
+			q6MCtjgsncRoJR+uGjsUtih7mFRZ0C440ud29iPDbYU=
 			</data>
 		</dict>
 		<key>Modules/ZeticMLange.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			vLlB06bW5Q31Aw1B6xmJ6b5X9QY=
+			aR9u8sJq4YLB04xczqa8dh0TXAI=
 			</data>
 			<key>hash2</key>
 			<data>
-			4/uzSnC/jkRcNpDfsBP+OocGwaDMPCYs4zUmu95aUIY=
+			HpDmqrA/yvfFPsH++OOgnYkApOL2RRXLwZMGY+AhYwY=
 			</data>
 		</dict>
 	</dict>

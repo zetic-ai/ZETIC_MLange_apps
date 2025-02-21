@@ -2766,8 +2766,8 @@
           },
           {
             "kind": "Function",
-            "name": "benchmarkAsync",
-            "printedName": "benchmarkAsync(_:onResult:)",
+            "name": "benchmarkAll",
+            "printedName": "benchmarkAll(_:onResult:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -2803,8 +2803,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:11ZeticMLange14BenchmarkModelC14benchmarkAsync_8onResultySS_yAA0cH0CXEtKF",
-            "mangledName": "$s11ZeticMLange14BenchmarkModelC14benchmarkAsync_8onResultySS_yAA0cH0CXEtKF",
+            "usr": "s:11ZeticMLange14BenchmarkModelC12benchmarkAll_8onResultySS_yAA0cH0CXEtKF",
+            "mangledName": "$s11ZeticMLange14BenchmarkModelC12benchmarkAll_8onResultySS_yAA0cH0CXEtKF",
             "moduleName": "ZeticMLange",
             "isOpen": true,
             "declAttributes": [
@@ -10950,21 +10950,21 @@
     {
       "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/Core\/Benchmark\/BenchmarkModel.swift",
       "kind": "Array",
-      "offset": 1373,
+      "offset": 1380,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/Core\/Benchmark\/BenchmarkModel.swift",
       "kind": "Array",
-      "offset": 1808,
+      "offset": 1815,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/Core\/Benchmark\/BenchmarkModel.swift",
       "kind": "Array",
-      "offset": 1843,
+      "offset": 1850,
       "length": 2,
       "value": "[]"
     },

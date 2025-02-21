@@ -22,7 +22,7 @@ class BenchmarkViewModel: ObservableObject {
         
         Task.detached { [weak self] in
             do {
-                try benchmarkModel.benchmarkAsync(key) { result in
+                try benchmarkModel.benchmarkAll(key) { result in
                     Task { @MainActor in
                         self?.results.append(result)
                     }

@@ -50,7 +50,7 @@ public class ZeticMLangeModel {
 public class BenchmarkModel {
   public init()
   public func benchmark(_ modelName: Swift.String, _ target: ZeticMLange.Target, _ path: Foundation.URL, _ inputs: [Foundation.Data] = [], _ originalOutputs: [[Swift.Float]] = []) -> ZeticMLange.BenchmarkResult?
-  public func benchmarkAsync(_ modelKey: Swift.String, onResult: (ZeticMLange.BenchmarkResult) -> Swift.Void) throws
+  public func benchmarkAll(_ modelKey: Swift.String, onResult: (ZeticMLange.BenchmarkResult) -> Swift.Void) throws
   @objc deinit
 }
 public class BenchmarkResults : Swift.Codable {
