@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
             benchmarkResults.clear()
 
             Thread {
-                benchmarkModel.benchmarkAsync(this@MainActivity, modelKey) {
+                benchmarkModel.benchmarkAll(this@MainActivity, modelKey) {
                     benchmarkResults.add(it)
                     runOnUiThread {
                         benchmarkAdapter.notifyDataSetChanged()
