@@ -24,7 +24,8 @@ class BenchmarkViewModel: ObservableObject {
             do {
                 try benchmarkModel.benchmarkAll(key) { result in
                     Task { @MainActor in
-                        self?.results.append(result)
+                        let result = self?.convertAPType(result)
+                        self?.updateResult(result!)
                     }
                 }
             } catch {
@@ -36,6 +37,39 @@ class BenchmarkViewModel: ObservableObject {
             Task { @MainActor in
                 self?.isLoading = false
             }
+        }
+    }
+    
+    func convertAPType(_ result: BenchmarkResult) -> BenchmarkResult {
+        let apType =  switch result.target {
+        case .ZETIC_MLANGE_TARGET_COREML:
+            APType.CPU_GPU
+        case .ZETIC_MLANGE_TARGET_COREML_FP32:
+            APType.NPU
+        default:
+            APType.NA
+        }
+        
+        return BenchmarkResult(path: result.path, target: result.target, targetModelBenchmarkResult: TargetModelBenchmarkResult(latency: result.targetModelBenchmarkResult.latency, snrs: [], apType: apType))
+    }
+    
+    func updateResult(_ result: BenchmarkResult) {
+        let resultNotExists = !results.contains {
+            $0.targetModelBenchmarkResult.apType == result.targetModelBenchmarkResult.apType
+        }
+        
+        let indicesToRemove = results.indices.filter {
+            results[$0].targetModelBenchmarkResult.apType == result.targetModelBenchmarkResult.apType &&
+            results[$0].targetModelBenchmarkResult.latency > result.targetModelBenchmarkResult.latency
+        }
+        
+        let hadSlowerResults = !indicesToRemove.isEmpty
+        for index in indicesToRemove.reversed() {
+            results.remove(at: index)
+        }
+        
+        if resultNotExists || hadSlowerResults {
+            results.append(result)
         }
     }
 }

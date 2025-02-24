@@ -3691,9 +3691,57 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "apType",
+            "printedName": "apType",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "APType",
+                "printedName": "ZeticMLange.APType",
+                "usr": "s:11ZeticMLange6APTypeO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11ZeticMLange26TargetModelBenchmarkResultC6apTypeAA6APTypeOvp",
+            "mangledName": "$s11ZeticMLange26TargetModelBenchmarkResultC6apTypeAA6APTypeOvp",
+            "moduleName": "ZeticMLange",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "APType",
+                    "printedName": "ZeticMLange.APType",
+                    "usr": "s:11ZeticMLange6APTypeO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ZeticMLange26TargetModelBenchmarkResultC6apTypeAA6APTypeOvg",
+                "mangledName": "$s11ZeticMLange26TargetModelBenchmarkResultC6apTypeAA6APTypeOvg",
+                "moduleName": "ZeticMLange",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(latency:snrs:)",
+            "printedName": "init(latency:snrs:apType:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -3720,11 +3768,17 @@
                   }
                 ],
                 "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "APType",
+                "printedName": "ZeticMLange.APType",
+                "usr": "s:11ZeticMLange6APTypeO"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:11ZeticMLange26TargetModelBenchmarkResultC7latency4snrsACSf_SaySfGtcfc",
-            "mangledName": "$s11ZeticMLange26TargetModelBenchmarkResultC7latency4snrsACSf_SaySfGtcfc",
+            "usr": "s:11ZeticMLange26TargetModelBenchmarkResultC7latency4snrs6apTypeACSf_SaySfGAA6APTypeOtcfc",
+            "mangledName": "$s11ZeticMLange26TargetModelBenchmarkResultC7latency4snrs6apTypeACSf_SaySfGAA6APTypeOtcfc",
             "moduleName": "ZeticMLange",
             "declAttributes": [
               "AccessControl"
@@ -6769,6 +6823,434 @@
             "printedName": "Escapable",
             "usr": "s:s9EscapableP",
             "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "APType",
+        "printedName": "APType",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "CPU",
+            "printedName": "CPU",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZeticMLange.APType.Type) -> ZeticMLange.APType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "APType",
+                    "printedName": "ZeticMLange.APType",
+                    "usr": "s:11ZeticMLange6APTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZeticMLange.APType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "APType",
+                        "printedName": "ZeticMLange.APType",
+                        "usr": "s:11ZeticMLange6APTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:11ZeticMLange6APTypeO3CPUyA2CmF",
+            "mangledName": "$s11ZeticMLange6APTypeO3CPUyA2CmF",
+            "moduleName": "ZeticMLange"
+          },
+          {
+            "kind": "Var",
+            "name": "GPU",
+            "printedName": "GPU",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZeticMLange.APType.Type) -> ZeticMLange.APType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "APType",
+                    "printedName": "ZeticMLange.APType",
+                    "usr": "s:11ZeticMLange6APTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZeticMLange.APType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "APType",
+                        "printedName": "ZeticMLange.APType",
+                        "usr": "s:11ZeticMLange6APTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:11ZeticMLange6APTypeO3GPUyA2CmF",
+            "mangledName": "$s11ZeticMLange6APTypeO3GPUyA2CmF",
+            "moduleName": "ZeticMLange"
+          },
+          {
+            "kind": "Var",
+            "name": "NPU",
+            "printedName": "NPU",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZeticMLange.APType.Type) -> ZeticMLange.APType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "APType",
+                    "printedName": "ZeticMLange.APType",
+                    "usr": "s:11ZeticMLange6APTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZeticMLange.APType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "APType",
+                        "printedName": "ZeticMLange.APType",
+                        "usr": "s:11ZeticMLange6APTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:11ZeticMLange6APTypeO3NPUyA2CmF",
+            "mangledName": "$s11ZeticMLange6APTypeO3NPUyA2CmF",
+            "moduleName": "ZeticMLange"
+          },
+          {
+            "kind": "Var",
+            "name": "CPU_GPU",
+            "printedName": "CPU_GPU",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZeticMLange.APType.Type) -> ZeticMLange.APType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "APType",
+                    "printedName": "ZeticMLange.APType",
+                    "usr": "s:11ZeticMLange6APTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZeticMLange.APType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "APType",
+                        "printedName": "ZeticMLange.APType",
+                        "usr": "s:11ZeticMLange6APTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:11ZeticMLange6APTypeO7CPU_GPUyA2CmF",
+            "mangledName": "$s11ZeticMLange6APTypeO7CPU_GPUyA2CmF",
+            "moduleName": "ZeticMLange"
+          },
+          {
+            "kind": "Var",
+            "name": "NA",
+            "printedName": "NA",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZeticMLange.APType.Type) -> ZeticMLange.APType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "APType",
+                    "printedName": "ZeticMLange.APType",
+                    "usr": "s:11ZeticMLange6APTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZeticMLange.APType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "APType",
+                        "printedName": "ZeticMLange.APType",
+                        "usr": "s:11ZeticMLange6APTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:11ZeticMLange6APTypeO2NAyA2CmF",
+            "mangledName": "$s11ZeticMLange6APTypeO2NAyA2CmF",
+            "moduleName": "ZeticMLange"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "ZeticMLange.APType?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "APType",
+                    "printedName": "ZeticMLange.APType",
+                    "usr": "s:11ZeticMLange6APTypeO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11ZeticMLange6APTypeO8rawValueACSgSi_tcfc",
+            "mangledName": "$s11ZeticMLange6APTypeO8rawValueACSgSi_tcfc",
+            "moduleName": "ZeticMLange",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11ZeticMLange6APTypeO8rawValueSivp",
+            "mangledName": "$s11ZeticMLange6APTypeO8rawValueSivp",
+            "moduleName": "ZeticMLange",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ZeticMLange6APTypeO8rawValueSivg",
+                "mangledName": "$s11ZeticMLange6APTypeO8rawValueSivg",
+                "moduleName": "ZeticMLange",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ZeticMLange.APType]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "APType",
+                    "printedName": "ZeticMLange.APType",
+                    "usr": "s:11ZeticMLange6APTypeO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11ZeticMLange6APTypeO8allCasesSayACGvpZ",
+            "mangledName": "$s11ZeticMLange6APTypeO8allCasesSayACGvpZ",
+            "moduleName": "ZeticMLange",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Nonisolated"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ZeticMLange.APType]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "APType",
+                        "printedName": "ZeticMLange.APType",
+                        "usr": "s:11ZeticMLange6APTypeO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ZeticMLange6APTypeO8allCasesSayACGvgZ",
+                "mangledName": "$s11ZeticMLange6APTypeO8allCasesSayACGvgZ",
+                "moduleName": "ZeticMLange",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:11ZeticMLange6APTypeO",
+        "mangledName": "$s11ZeticMLange6APTypeO",
+        "moduleName": "ZeticMLange",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ZeticMLange.APType]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "APType",
+                        "printedName": "ZeticMLange.APType",
+                        "usr": "s:11ZeticMLange6APTypeO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
           }
         ]
       },
@@ -10950,21 +11432,21 @@
     {
       "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/Core\/Benchmark\/BenchmarkModel.swift",
       "kind": "Array",
-      "offset": 1380,
+      "offset": 1419,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/Core\/Benchmark\/BenchmarkModel.swift",
       "kind": "Array",
-      "offset": 1815,
+      "offset": 1898,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/Core\/Benchmark\/BenchmarkModel.swift",
       "kind": "Array",
-      "offset": 1850,
+      "offset": 1933,
       "length": 2,
       "value": "[]"
     },
@@ -11009,6 +11491,41 @@
       "offset": 238,
       "length": 1,
       "value": "3"
+    },
+    {
+      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/Core\/Common\/APType.swift",
+      "kind": "IntegerLiteral",
+      "offset": 64,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/Core\/Common\/APType.swift",
+      "kind": "IntegerLiteral",
+      "offset": 81,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/Core\/Common\/APType.swift",
+      "kind": "IntegerLiteral",
+      "offset": 98,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/Core\/Common\/APType.swift",
+      "kind": "IntegerLiteral",
+      "offset": 119,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/Core\/Common\/APType.swift",
+      "kind": "IntegerLiteral",
+      "offset": 135,
+      "length": 1,
+      "value": "4"
     },
     {
       "filePath": "\/Users\/gimdoyeob\/workspace\/zetic_mlange_ios\/ZeticMLange\/ZeticMLange\/Core\/Model\/Target.swift",

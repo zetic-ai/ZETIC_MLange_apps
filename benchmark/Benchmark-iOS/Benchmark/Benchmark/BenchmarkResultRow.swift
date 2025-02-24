@@ -6,7 +6,7 @@ struct BenchmarkResultRow: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(String(describing: result.target))
+            Text(String(describing: String(describing: result.targetModelBenchmarkResult.apType)))
                 .font(.headline)
             
             HStack {

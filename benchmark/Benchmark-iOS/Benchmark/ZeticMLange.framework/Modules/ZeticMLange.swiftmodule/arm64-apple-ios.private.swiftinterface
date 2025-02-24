@@ -74,7 +74,8 @@ public class BenchmarkResult : Swift.Codable {
 public class TargetModelBenchmarkResult : Swift.Codable {
   final public let latency: Swift.Float
   final public let snrs: [Swift.Float]
-  public init(latency: Swift.Float, snrs: [Swift.Float])
+  final public let apType: ZeticMLange.APType
+  public init(latency: Swift.Float, snrs: [Swift.Float], apType: ZeticMLange.APType)
   @objc deinit
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
@@ -134,6 +135,22 @@ public class WhisperWrapper {
   @objc deinit
   public func process(_ audio: [Swift.Float]) -> [Swift.Float]
   public func decodeToken(_ ids: [Swift.Int32], _ skipSpecialTokens: Swift.Bool) -> Swift.String
+}
+public enum APType : Swift.Int, Swift.CaseIterable, Swift.Codable {
+  case CPU
+  case GPU
+  case NPU
+  case CPU_GPU
+  case NA
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [ZeticMLange.APType]
+  public typealias RawValue = Swift.Int
+  nonisolated public static var allCases: [ZeticMLange.APType] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
 }
 @_hasMissingDesignatedInitializers public class DataUtils {
   public static func dataToFloatArray(_ data: Foundation.Data) -> [Swift.Float]
@@ -225,6 +242,9 @@ public class FaceLandmarkWrapper {
   public func preprocess(_ image: UIKit.UIImage, _ roi: ZeticMLange.Box) -> Foundation.Data
   public func postprocess(_ outputData: inout [Foundation.Data]) -> ZeticMLange.FaceLandmarkResult
 }
+extension ZeticMLange.APType : Swift.Equatable {}
+extension ZeticMLange.APType : Swift.Hashable {}
+extension ZeticMLange.APType : Swift.RawRepresentable {}
 extension ZeticMLange.Target : Swift.Equatable {}
 extension ZeticMLange.Target : Swift.Hashable {}
 extension ZeticMLange.Target : Swift.RawRepresentable {}

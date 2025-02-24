@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		16EC50BF2D671A29006F99C9 /* ZeticMLange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16EC50BE2D671A29006F99C9 /* ZeticMLange.framework */; };
+		16EC532E2D6C70AB006F99C9 /* ZeticMLange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16EC50BE2D671A29006F99C9 /* ZeticMLange.framework */; };
+		16EC532F2D6C70AB006F99C9 /* ZeticMLange.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16EC50BE2D671A29006F99C9 /* ZeticMLange.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +27,20 @@
 			remoteInfo = Benchmark;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		16EC53302D6C70AB006F99C9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				16EC532F2D6C70AB006F99C9 /* ZeticMLange.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		16EC4FDC2D66FB54006F99C9 /* Benchmark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Benchmark.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,7 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16EC50BF2D671A29006F99C9 /* ZeticMLange.framework in Frameworks */,
+				16EC532E2D6C70AB006F99C9 /* ZeticMLange.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +124,7 @@
 				16EC4FD82D66FB54006F99C9 /* Sources */,
 				16EC4FD92D66FB54006F99C9 /* Frameworks */,
 				16EC4FDA2D66FB54006F99C9 /* Resources */,
+				16EC53302D6C70AB006F99C9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
