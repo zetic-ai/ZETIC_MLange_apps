@@ -1,5 +1,6 @@
 package com.zeticai.benchmark
 
+import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -8,11 +9,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.zeticai.benchmark.databinding.ActivityMainBinding
 import com.zeticai.mlange.core.benchmark.BenchmarkModel
 import com.zeticai.mlange.core.benchmark.BenchmarkResult
+import com.zeticai.mlange.core.benchmark.TargetModelBenchmarkResult
+import com.zeticai.mlange.core.model.APType
+import com.zeticai.mlange.core.model.ZeticMLangeModelInfo
+import com.zeticai.mlange.core.model.ZeticMLangeTarget
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var benchmarkAdapter: BenchmarkResultAdapter
-    private val benchmarkResults = mutableListOf<BenchmarkResult>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
-        benchmarkAdapter = BenchmarkResultAdapter(benchmarkResults)
+        benchmarkAdapter = BenchmarkResultAdapter()
         binding.resultsRecyclerView.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
             adapter = benchmarkAdapter
@@ -52,13 +56,14 @@ class MainActivity : AppCompatActivity() {
         runCatching {
             val benchmarkModel = BenchmarkModel()
             binding.runBenchmarkButton.isEnabled = false
-            benchmarkResults.clear()
 
             Thread {
                 benchmarkModel.benchmarkAll(this@MainActivity, modelKey) {
-                    benchmarkResults.add(it)
+                    val aptype =
+                        convertAPType(Build.MODEL, it.target, it.targetModelBenchmarkResult.apType)
+                    val result = BenchmarkResult(it.path, it.target, TargetModelBenchmarkResult(it.targetModelBenchmarkResult.latency, emptyList(), aptype))
                     runOnUiThread {
-                        benchmarkAdapter.notifyDataSetChanged()
+                        benchmarkAdapter.addResult(result)
                     }
                 }
             }.start()
@@ -70,5 +75,24 @@ class MainActivity : AppCompatActivity() {
 
     private fun showError(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun convertAPType(apVendor: String, target: ZeticMLangeTarget, apType: APType): APType {
+        return when (target) {
+            ZeticMLangeTarget.ZETIC_MLANGE_TARGET_TORCH,
+            ZeticMLangeTarget.ZETIC_MLANGE_TARGET_ORT -> APType.CPU
+
+            ZeticMLangeTarget.ZETIC_MLANGE_TARGET_ORT_NNAPI -> {
+                if (apVendor.lowercase().contains("mediatek")) APType.NPU
+                else APType.CPU
+            }
+
+            ZeticMLangeTarget.ZETIC_MLANGE_TARGET_TFLITE_FP16,
+            ZeticMLangeTarget.ZETIC_MLANGE_TARGET_TFLITE_FP32,
+            ZeticMLangeTarget.ZETIC_MLANGE_TARGET_QNN -> apType
+
+            ZeticMLangeTarget.ZETIC_MLANGE_TARGET_QNN_QUANT -> APType.NPU
+            else -> APType.NA
+        }
     }
 }
