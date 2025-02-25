@@ -1,9 +1,21 @@
-# On-device AI Applications with ZETIC.MLange
+# ZETIC_MLANGE_APPS
 
- This repository contains On-device AI applications using ZETIC.MLange
-(Details are going to be updated soon.)
+On-device AI Applications with ZETIC.MLange
 
-## Structure
+## Description
+
+This repository contains On-device AI applications using ZETIC.MLange
+
+There are 6 demos available.
+
+- [Object Detection (YOLOv8)](https://docs.zetic.ai/examples/yolov8.html)
+- [Face Detection](https://docs.zetic.ai/examples/face_detection.html)
+- [Face Emotion Recognition (EMO-AffectNet)](https://docs.zetic.ai/examples/face_emotion_recognition.html)
+- [Face Landmark](https://docs.zetic.ai/examples/face_landmark.html)
+- [Sound Classification (YAMNet)](https://docs.zetic.ai/examples/yamnet.html)
+- [Automatic Speech Recognition (Whisper)](https://docs.zetic.ai/examples/whisper.html)
+
+## Directory Structure
 
 ```
 └── yolov8                                      
@@ -29,3 +41,7 @@
     ├── ZeticMLangeWhisper-Android                              : Whisper Android Application
     └── ZeticMLangeWhisper-iOS                                  : Whisper iOS Application
 ```
+
+## Roadmap
+
+- LLM Demo Application.
