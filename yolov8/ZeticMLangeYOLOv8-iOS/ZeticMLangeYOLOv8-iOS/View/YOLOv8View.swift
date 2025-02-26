@@ -5,7 +5,7 @@ import Vision
 import ZeticMLange
 
 struct YOLOv8View: View {
-    @StateObject private var yolov8: YOLOv8 = YOLOv8(key: "yolo-v8n-test")
+    @StateObject private var yolov8: YOLOv8 = YOLOv8(key: "yolo-v11n-test")
     @StateObject private var cameraModel: CameraModel = CameraModel(.back, .frame)
     private let classes = CocoConfig.readClasses()
     

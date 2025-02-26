@@ -8,7 +8,7 @@ import androidx.activity.result.contract.ActivityResultContracts.RequestPermissi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.zetic.ZeticMLangeFeature.ZeticMLangeFeatureCameraController
+import com.zeticai.mlange.feature.vision.OpenCVImageUtilsWrapper
 import com.zeticai.zeticmlangeyolov8androidjava.feature.YoloV8
 
 class MainActivity : AppCompatActivity() {
@@ -19,9 +19,9 @@ class MainActivity : AppCompatActivity() {
         }
 
     private val visualizationSurfaceView: VisualizationSurfaceView by lazy { findViewById(R.id.visualizationSurfaceView) }
-    private val zeticMLangeFeatureCameraController: ZeticMLangeFeatureCameraController =
-        ZeticMLangeFeatureCameraController()
-    private val yolov8 by lazy { YoloV8(this, "yolo-v8n-test") }
+    private val openCVImageUtilsWrapper: OpenCVImageUtilsWrapper =
+        OpenCVImageUtilsWrapper()
+    private val yolov8 by lazy { YoloV8(this, "yolo-v11n-test") }
 
     private val cameraController by lazy {
         CameraController(this,
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
                 processImage(image)
             },
             {
-                zeticMLangeFeatureCameraController.setSurface(it)
+                openCVImageUtilsWrapper.setSurface(it)
             })
     }
 
@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun processImage(image: ByteArray) {
-        val imagePtr = zeticMLangeFeatureCameraController.frame(image)
+        val imagePtr = openCVImageUtilsWrapper.frame(image, 90)
 
         val faceDetectionResult = yolov8.run(imagePtr)
 

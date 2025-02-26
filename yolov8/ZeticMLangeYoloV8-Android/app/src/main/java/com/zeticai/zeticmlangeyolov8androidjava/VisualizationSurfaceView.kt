@@ -8,7 +8,7 @@ import android.graphics.PorterDuff
 import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
 import android.util.AttributeSet
-import com.zetic.ZeticMLangeFeature.type.YoloResult
+import com.zeticai.mlange.feature.yolov8.YoloResult
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
