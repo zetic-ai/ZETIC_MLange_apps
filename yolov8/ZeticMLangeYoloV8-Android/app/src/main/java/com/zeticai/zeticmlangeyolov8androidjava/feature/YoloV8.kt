@@ -1,9 +1,9 @@
 package com.zeticai.zeticmlangeyolov8androidjava.feature
 
 import android.content.Context
-import com.zetic.ZeticMLange.ZeticMLangeModel
-import com.zetic.ZeticMLangeFeature.ZeticMLangeFeatureYolov8
-import com.zetic.ZeticMLangeFeature.type.YoloResult
+import com.zeticai.mlange.core.model.ZeticMLangeModel
+import com.zeticai.mlange.feature.yolov8.Yolov8Wrapper
+import com.zeticai.mlange.feature.yolov8.YoloResult
 import java.io.File
 import java.io.FileOutputStream
 
@@ -12,25 +12,25 @@ class YoloV8 @JvmOverloads constructor(
     modelKey: String,
     private val model: ZeticMLangeModel = ZeticMLangeModel(context, modelKey),
 ) {
-    private val featureModel: ZeticMLangeFeatureYolov8
+    private val yolov8Wrapper: Yolov8Wrapper
 
     init {
         val cocoYamlSamplePath = "coco.yaml"
         copyFileFromAssetsToData(context, cocoYamlSamplePath)
         val cocoYamlFile = File(context.filesDir, cocoYamlSamplePath)
         val cocoYamlPath = cocoYamlFile.absolutePath
-        featureModel = ZeticMLangeFeatureYolov8(cocoYamlPath)
+        yolov8Wrapper = Yolov8Wrapper(cocoYamlPath)
     }
 
     fun run(imagePtr: Long): YoloResult {
-        val preprocess = featureModel.preprocess(imagePtr)
+        val preprocess = yolov8Wrapper.preprocess(imagePtr)
         model.run(arrayOf(preprocess))
-        return featureModel.postprocess(model.outputBuffers[0].array())
+        return yolov8Wrapper.postprocess(model.outputBuffers[0].array())
     }
 
     fun close() {
         model.deinit()
-        featureModel.deinit()
+        yolov8Wrapper.deinit()
     }
 
     private fun copyFileFromAssetsToData(context: Context, fileName: String) {
