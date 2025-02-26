@@ -6,19 +6,19 @@
 	<dict>
 		<key>Info.plist</key>
 		<data>
-		l9sxFkguH+6N2IhPSbwXrgeuFro=
+		GLVfLk7+4ndFIzacWo7TOgSzo4o=
 		</data>
 		<key>Modules/ZeticMLange.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		2BBPsdyARoMIIRjZAQianN7spHI=
+		TrWGU4ruLpndzaB7tibUrny5WgE=
 		</data>
 		<key>Modules/ZeticMLange.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		42MF3M9bhzKPN/3xJkX0EMnkCAE=
+		ifnz3YGRyl5aZGeupu1H3+KQmb4=
 		</data>
 		<key>Modules/ZeticMLange.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		PNtZ0Ch2IVHfl1wV+lvr8X8zGQM=
+		FZ/AvkfDd0sQyE1T5d4Z6ZaAFMo=
 		</data>
 		<key>Modules/ZeticMLange.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -26,11 +26,11 @@
 		</data>
 		<key>Modules/ZeticMLange.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		PNtZ0Ch2IVHfl1wV+lvr8X8zGQM=
+		FZ/AvkfDd0sQyE1T5d4Z6ZaAFMo=
 		</data>
 		<key>Modules/ZeticMLange.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		V9w0JZdwB0/aQNlGQH8wC9NCzXA=
+		eSQ4PszdZeXDgU75TsP/9GUxMwE=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -39,33 +39,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2BBPsdyARoMIIRjZAQianN7spHI=
+			TrWGU4ruLpndzaB7tibUrny5WgE=
 			</data>
 			<key>hash2</key>
 			<data>
-			3CY6Za8hZQyCiNMdibJwFWiNl0nI6uDlLEadFqphnFQ=
+			jarQfoWiL/Gv16BGtOd91izT1D6zGZv5eKOdFJdZVlo=
 			</data>
 		</dict>
 		<key>Modules/ZeticMLange.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			42MF3M9bhzKPN/3xJkX0EMnkCAE=
+			ifnz3YGRyl5aZGeupu1H3+KQmb4=
 			</data>
 			<key>hash2</key>
 			<data>
-			NhfyCiQCxMBsD1LUx+3cgDE5l5A3rGp4EHS1QQqloeI=
+			PgfNn3yaLQCYzN4scQE28DHUMumrb+G15GbYgNCJUwA=
 			</data>
 		</dict>
 		<key>Modules/ZeticMLange.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			PNtZ0Ch2IVHfl1wV+lvr8X8zGQM=
+			FZ/AvkfDd0sQyE1T5d4Z6ZaAFMo=
 			</data>
 			<key>hash2</key>
 			<data>
-			eUJF0F4YispGrblZ0O8QIJ+KMj5PoL1IHsvTaA7rU/w=
+			0icNJ43D5Q/1+vrba6UtJbURnc8JJbTmbine70Ojcpc=
 			</data>
 		</dict>
 		<key>Modules/ZeticMLange.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -83,22 +83,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			PNtZ0Ch2IVHfl1wV+lvr8X8zGQM=
+			FZ/AvkfDd0sQyE1T5d4Z6ZaAFMo=
 			</data>
 			<key>hash2</key>
 			<data>
-			eUJF0F4YispGrblZ0O8QIJ+KMj5PoL1IHsvTaA7rU/w=
+			0icNJ43D5Q/1+vrba6UtJbURnc8JJbTmbine70Ojcpc=
 			</data>
 		</dict>
 		<key>Modules/ZeticMLange.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			V9w0JZdwB0/aQNlGQH8wC9NCzXA=
+			eSQ4PszdZeXDgU75TsP/9GUxMwE=
 			</data>
 			<key>hash2</key>
 			<data>
-			DGndV2QAFryCzaH7TpRk4nezLhiJyhxfvFnjFihRm8s=
+			MzTD2d6eoQT3Qjixx57tpC+38q73yPQ3sHjMrj4XUmA=
 			</data>
 		</dict>
 	</dict>
