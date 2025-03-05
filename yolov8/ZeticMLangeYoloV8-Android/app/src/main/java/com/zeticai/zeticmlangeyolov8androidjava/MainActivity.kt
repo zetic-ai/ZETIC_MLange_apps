@@ -21,7 +21,8 @@ class MainActivity : AppCompatActivity() {
     private val visualizationSurfaceView: VisualizationSurfaceView by lazy { findViewById(R.id.visualizationSurfaceView) }
     private val openCVImageUtilsWrapper: OpenCVImageUtilsWrapper =
         OpenCVImageUtilsWrapper()
-    private val yolov8 by lazy { YoloV8(this, "yolo-v11n-test") }
+
+    private val yolov8 by lazy { YoloV8(this, PERSONAL_KEY, YOLOV11_MODEL_KEY) }
 
     private val cameraController by lazy {
         CameraController(this,
@@ -78,5 +79,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         const val TAG = "Main Activity"
+        private const val PERSONAL_KEY = BuildConfig.PERSONAL_KEY
+        private const val YOLOV11_MODEL_KEY = BuildConfig.YOLOV11_MODEL_KEY
     }
 }

@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -17,8 +20,26 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    val localProperties = Properties()
+    localProperties.load(FileInputStream(project.file("local.properties")))
+
+    buildFeatures {
+        buildConfig = true
+    }
+
     buildTypes {
+        debug {
+            val personalKey = localProperties.getProperty("token.personal_key") ?: ""
+            val yolov11ModelKey = localProperties.getProperty("token.yolov11_model_key") ?: ""
+            buildConfigField("String", "PERSONAL_KEY", "\"$personalKey\"")
+            buildConfigField("String", "YOLOV11_MODEL_KEY", "\"$yolov11ModelKey\"")
+        }
         release {
+            val personalKey = localProperties.getProperty("token.personal_key") ?: ""
+            val yolov11ModelKey = localProperties.getProperty("token.yolov11_model_key") ?: ""
+            buildConfigField("String", "PERSONAL_KEY", "\"$personalKey\"")
+            buildConfigField("String", "YOLOV11_MODEL_KEY", "\"$yolov11ModelKey\"")
+
             isMinifyEnabled = false
             proguardFiles(
                     getDefaultProguardFile("proguard-android-optimize.txt"),
