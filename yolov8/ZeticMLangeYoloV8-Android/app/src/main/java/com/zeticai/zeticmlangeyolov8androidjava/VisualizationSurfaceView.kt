@@ -56,12 +56,28 @@ class VisualizationSurfaceView(
         val canvas = holder.lockCanvas()
         canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR)
 
+        val yoloInputSizePair = if (!isRotated) {
+            yoloInputSize.width to yoloInputSize.height
+        } else {
+            yoloInputSize.height to yoloInputSize.width
+        }
+        val targetSizePair = (layoutParams.width to layoutParams.height)
+
+        val (yoloWidth, yoloHeight) = if (!isRotated) {
+            yoloInputSize.width to yoloInputSize.height
+        } else {
+            yoloInputSize.height to yoloInputSize.width
+        }
+
         yoloResult.value.forEach {
+            val convertedMin = transformCoordToTargetCoord(Pair(it.box.xMin, it.box.yMin), yoloInputSizePair, targetSizePair)
+            val convertedMax = transformCoordToTargetCoord(Pair(it.box.xMax, it.box.yMax), yoloInputSizePair, targetSizePair)
+
             val rect = Rect(
-                ((it.box.xMin / 480) * layoutParams.width).toInt(),
-                ((it.box.yMin / 640) * layoutParams.height).toInt(),
-                ((it.box.xMax / 480) * layoutParams.width).toInt(),
-                ((it.box.yMax / 640) * layoutParams.height).toInt(),
+                convertedMin.first,
+                convertedMin.second,
+                convertedMax.first,
+                convertedMax.second,
             )
             canvas.drawRect(rect, paint)
             canvas.drawText(
@@ -72,5 +88,26 @@ class VisualizationSurfaceView(
             )
         }
         holder.unlockCanvasAndPost(canvas)
+    }
+
+    private fun transformCoordToTargetCoord(coord: Pair<Float, Float>, originalSize: Pair<Int, Int>, targetSize: Pair<Int, Int>): Pair<Int, Int> {
+        val originalWidth = originalSize.first
+        val originalHeight = originalSize.second
+        val originalCenterX = originalWidth / 2
+        val originalCenterY = originalHeight / 2
+
+        val targetWidth = targetSize.first
+        val targetHeight = targetSize.second
+        val targetCenterX = targetWidth / 2
+        val targetCenterY = targetHeight / 2
+
+        val widthRatio = targetWidth.toFloat() / originalWidth.toFloat()
+        val heightRatio = targetHeight.toFloat() / originalHeight.toFloat()
+
+        val resizeFactor = min(widthRatio, heightRatio)
+        val retX = ((coord.first - originalCenterX) * resizeFactor + targetCenterX).toInt()
+        val retY = ((coord.second - originalCenterY) * resizeFactor + targetCenterY).toInt()
+
+        return Pair(retX, retY)
     }
 }
