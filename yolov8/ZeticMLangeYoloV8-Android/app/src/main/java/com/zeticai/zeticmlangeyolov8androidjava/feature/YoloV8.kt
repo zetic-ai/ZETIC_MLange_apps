@@ -9,8 +9,9 @@ import java.io.FileOutputStream
 
 class YoloV8 @JvmOverloads constructor(
     context: Context,
+    personalKey: String,
     modelKey: String,
-    private val model: ZeticMLangeModel = ZeticMLangeModel(context, modelKey),
+    private val model: ZeticMLangeModel = ZeticMLangeModel(context, personalKey, modelKey),
 ) {
     private val yolov8Wrapper: Yolov8Wrapper
 
