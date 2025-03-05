@@ -12,13 +12,25 @@ open class PreviewSurfaceView(context: Context, attrSet: AttributeSet) :
 
     fun updateSizeKeepRatio(size: Size) {
         val metrics = resources.displayMetrics
-        val screenSize = Size(metrics.heightPixels, metrics.widthPixels)
-        updateSize(
-            Size(
-                (screenSize.width * if (size.width < size.height) (size.width / size.height.toFloat()) else (size.height / size.width.toFloat())).toInt(),
-                screenSize.width
-            )
-        )
+        val screenSize = Size(metrics.widthPixels, metrics.heightPixels)
+
+        val rotatedSize = Size(size.height, size.width)
+
+        val imageRatio = rotatedSize.width.toFloat() / rotatedSize.height.toFloat()
+        val screenRatio = screenSize.width.toFloat() / screenSize.height.toFloat()
+
+        var newWidth: Int
+        var newHeight: Int
+
+        if (imageRatio > screenRatio) {
+            newWidth = screenSize.width
+            newHeight = (newWidth / imageRatio).toInt()
+        } else {
+            newHeight = screenSize.height
+            newWidth = (newHeight * imageRatio).toInt()
+        }
+
+        updateSize(Size(newWidth, newHeight))
     }
 
     private fun updateSize(size: Size) {
