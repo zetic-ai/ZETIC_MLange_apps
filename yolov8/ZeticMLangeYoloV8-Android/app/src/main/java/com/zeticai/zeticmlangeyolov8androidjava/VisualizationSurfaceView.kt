@@ -11,6 +11,8 @@ import android.util.AttributeSet
 import com.zeticai.mlange.feature.yolov8.YoloResult
 import java.io.BufferedReader
 import java.io.InputStreamReader
+import android.util.Size
+import kotlin.math.min
 
 class VisualizationSurfaceView(
     context: Context,
@@ -41,7 +43,7 @@ class VisualizationSurfaceView(
     }
 
     fun visualize(
-        yoloResult: YoloResult?
+        yoloResult: YoloResult?, yoloInputSize: Size, isRotated: Boolean
     ) {
         if (!holder.surface.isValid) return
 

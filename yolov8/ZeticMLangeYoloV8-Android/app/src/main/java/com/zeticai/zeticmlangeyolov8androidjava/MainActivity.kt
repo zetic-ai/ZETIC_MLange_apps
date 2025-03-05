@@ -3,6 +3,7 @@ package com.zeticai.zeticmlangeyolov8androidjava
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Size
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts.RequestPermission
 import androidx.appcompat.app.AppCompatActivity
@@ -28,8 +29,8 @@ class MainActivity : AppCompatActivity() {
         CameraController(this,
             findViewById(R.id.surfaceView),
             findViewById(R.id.visualizationSurfaceView),
-            { image, width, height ->
-                processImage(image)
+            { image, yoloInputSize ->
+                processImage(image, yoloInputSize)
             },
             {
                 openCVImageUtilsWrapper.setSurface(it)
@@ -67,13 +68,13 @@ class MainActivity : AppCompatActivity() {
         yolov8.close()
     }
 
-    private fun processImage(image: ByteArray) {
+    private fun processImage(image: ByteArray, yoloInputSize: Size) {
         val imagePtr = openCVImageUtilsWrapper.frame(image, 90)
 
         val faceDetectionResult = yolov8.run(imagePtr)
 
         visualizationSurfaceView.visualize(
-            faceDetectionResult
+            faceDetectionResult, yoloInputSize, true
         )
     }
 

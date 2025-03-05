@@ -22,7 +22,7 @@ class CameraController @JvmOverloads constructor(
     context: Context,
     private val previewSurfaceView: PreviewSurfaceView,
     private val visualizationSurfaceView: VisualizationSurfaceView,
-    private val onCameraFrame: (ByteArray, Int, Int) -> Unit,
+    private val onCameraFrame: (ByteArray, Size) -> Unit,
     private val onSurface: (Surface) -> Unit,
     manager: CameraManager = context.getSystemService(Context.CAMERA_SERVICE) as CameraManager,
     private val cameraId: String = manager.cameraIdList[0],
@@ -37,8 +37,9 @@ class CameraController @JvmOverloads constructor(
         }.looper
     )
 
+    private val yoloInputSize: Size = getSizeForMinResolution(context, 640)
     private val imageReader = ImageReader.newInstance(
-        640, 640, ImageFormat.JPEG, 2
+        yoloInputSize.width, yoloInputSize.height, ImageFormat.JPEG, 2
     )
 
     private var cameraDevice: CameraDevice? = null
@@ -119,7 +120,30 @@ class CameraController @JvmOverloads constructor(
         val buffer = image.planes[0].buffer
         val array = ByteArray(buffer.remaining())
         buffer.get(array)
-        onCameraFrame(array, image.width, image.height)
+
+        onCameraFrame(array, yoloInputSize)
+    }
+
+    private fun getSizeForMinResolution(context: Context , minDimension: Int): Size {
+        val manager: CameraManager = context.getSystemService(Context.CAMERA_SERVICE) as CameraManager
+        val cameraId: String = manager.cameraIdList[0]
+        val characteristics: CameraCharacteristics = manager.getCameraCharacteristics(cameraId)
+
+        val sizes = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP)
+            ?.getOutputSizes(ImageFormat.JPEG)
+
+        if (sizes.isNullOrEmpty()) {
+            throw Exception("No camera found")
+        }
+
+        for (i in sizes.size - 1 downTo 0) {
+            val size = sizes[i]
+            if (size.width >= minDimension && size.height >= minDimension) {
+                return size
+            }
+        }
+
+        throw Exception("No size found")
     }
 
     fun close() {
