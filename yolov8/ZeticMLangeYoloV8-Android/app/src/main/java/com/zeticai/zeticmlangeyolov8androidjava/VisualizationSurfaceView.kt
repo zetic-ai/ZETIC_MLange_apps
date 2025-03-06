@@ -61,13 +61,7 @@ class VisualizationSurfaceView(
         } else {
             yoloInputSize.height to yoloInputSize.width
         }
-        val targetSizePair = (layoutParams.width to layoutParams.height)
-
-        val (yoloWidth, yoloHeight) = if (!isRotated) {
-            yoloInputSize.width to yoloInputSize.height
-        } else {
-            yoloInputSize.height to yoloInputSize.width
-        }
+        val targetSizePair = (holder.surfaceFrame.width() to holder.surfaceFrame.height())
 
         yoloResult.value.forEach {
             val convertedMin = transformCoordToTargetCoord(Pair(it.box.xMin, it.box.yMin), yoloInputSizePair, targetSizePair)

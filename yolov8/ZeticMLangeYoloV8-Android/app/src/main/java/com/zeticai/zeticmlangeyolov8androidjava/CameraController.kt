@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.ImageFormat
+import android.graphics.SurfaceTexture
 import android.hardware.camera2.CameraCaptureSession
 import android.hardware.camera2.CameraCharacteristics
 import android.hardware.camera2.CameraDevice
@@ -28,7 +29,8 @@ class CameraController @JvmOverloads constructor(
     private val cameraId: String = manager.cameraIdList[0],
     characteristics: CameraCharacteristics = manager.getCameraCharacteristics(cameraId),
     private val previewSize: Size = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP)
-        ?.getOutputSizes(ImageFormat.JPEG)?.get(0) ?: Size(0, 0),
+        ?.getOutputSizes(SurfaceTexture::class.java)?.maxByOrNull { it.width * it.height } ?: Size(0, 0),
+
     val rotation: Int = (context as? Activity)?.windowManager?.defaultDisplay?.rotation ?: 0
 ) {
     private val handler = Handler(

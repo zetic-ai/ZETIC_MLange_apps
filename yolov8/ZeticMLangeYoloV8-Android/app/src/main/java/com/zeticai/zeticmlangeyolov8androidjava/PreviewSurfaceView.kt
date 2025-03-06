@@ -15,6 +15,7 @@ open class PreviewSurfaceView(context: Context, attrSet: AttributeSet) :
         val screenSize = Size(metrics.widthPixels, metrics.heightPixels)
 
         val rotatedSize = Size(size.height, size.width)
+        holder.setFixedSize(rotatedSize.width, rotatedSize.height)
 
         val imageRatio = rotatedSize.width.toFloat() / rotatedSize.height.toFloat()
         val screenRatio = screenSize.width.toFloat() / screenSize.height.toFloat()
