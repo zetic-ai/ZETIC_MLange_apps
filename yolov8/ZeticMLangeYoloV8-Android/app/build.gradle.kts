@@ -62,7 +62,7 @@ android {
 }
 
 dependencies {
-    implementation(files("libs/zeticlibs/zeticMLange.aar"))
+    implementation("com.zeticai.mlange:mlange:1.0.1")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
