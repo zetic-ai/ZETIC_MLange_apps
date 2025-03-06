@@ -27,11 +27,6 @@ class CameraController @JvmOverloads constructor(
     private val onSurface: (Surface) -> Unit,
     manager: CameraManager = context.getSystemService(Context.CAMERA_SERVICE) as CameraManager,
     private val cameraId: String = manager.cameraIdList[0],
-    characteristics: CameraCharacteristics = manager.getCameraCharacteristics(cameraId),
-    private val previewSize: Size = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP)
-        ?.getOutputSizes(SurfaceTexture::class.java)?.maxByOrNull { it.width * it.height } ?: Size(0, 0),
-
-    val rotation: Int = (context as? Activity)?.windowManager?.defaultDisplay?.rotation ?: 0
 ) {
     private val handler = Handler(
         HandlerThread("camera2").apply {
@@ -105,8 +100,8 @@ class CameraController @JvmOverloads constructor(
     }
 
     fun startPreview() {
-        visualizationSurfaceView.updateSizeKeepRatio(previewSize)
-        previewSurfaceView.updateSizeKeepRatio(previewSize)
+        visualizationSurfaceView.updateSizeKeepRatio(yoloInputSize)
+        previewSurfaceView.updateSizeKeepRatio(yoloInputSize)
         imageReader.setOnImageAvailableListener(
             {
                 val image = it.acquireLatestImage() ?: return@setOnImageAvailableListener
