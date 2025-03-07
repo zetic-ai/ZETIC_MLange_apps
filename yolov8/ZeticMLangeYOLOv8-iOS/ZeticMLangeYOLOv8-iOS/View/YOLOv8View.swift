@@ -9,7 +9,8 @@ struct YOLOv8View: View {
     @StateObject private var cameraModel: CameraModel = CameraModel(.back, .frame)
     private let classes = CocoConfig.readClasses()
     
-    @State private var aspectRatio: CGFloat = 16.0 / 9.0 // Changed when resolution set
+    // Changed when resolution set
+    @State private var aspectRatio: CGFloat = 16.0 / 9.0
     
     var body: some View {
         let cameraResolution = cameraModel.resolution
@@ -25,12 +26,15 @@ struct YOLOv8View: View {
                 CameraPreview(session: cameraModel.session)
                     .customFrame(targetWidth: targetWidth, targetHeight: targetHeight,
                                  geometryWidth: width, geometryHeight: height)
-                
             }
+            
             ZStack {
-                if cameraModel.frame != nil && cameraModel.timestamp != nil {
-                    let _ = yolov8.process(input: YOLOv8Input(frame: cameraModel.frame!, timestamp: cameraModel.timestamp!))
+                // Unwrapping frame and timestamp into separate variables
+                if let frame = cameraModel.frame, let timestamp = cameraModel.timestamp {
+                    let input = YOLOv8Input(frame: frame, timestamp: timestamp)
+                    let _ = yolov8.process(input: input)
                 }
+                
                 ForEach(Array(zip(yolov8.detectionResults.indices, yolov8.detectionResults)), id: \.0) { index, result in
                     let color = getClassColor(classId: result.classId)
                     let confidence = String(format: "%.2f", result.confidence)
@@ -41,9 +45,6 @@ struct YOLOv8View: View {
                     let targetWidth = width
                     let targetHeight = targetWidth * aspectRatio
                     
-                    let box = calculateBox(for: result, in: geometry, cameraResolution)
-                    
-                    
                     let box = calculateBox(for: result, in: CGSize(width: targetWidth, height: targetHeight), cameraResolution)
                     
                     DetectionBoxView(
@@ -51,10 +52,9 @@ struct YOLOv8View: View {
                         color: color,
                         label: label,
                         box: box)
-                            .customFrame(targetWidth: targetWidth, targetHeight: targetHeight,
-                                         geometryWidth: width, geometryHeight: height)
+                        .customFrame(targetWidth: targetWidth, targetHeight: targetHeight,
+                                     geometryWidth: width, geometryHeight: height)
                 }
-                
             }
         }
         .ignoresSafeArea()
