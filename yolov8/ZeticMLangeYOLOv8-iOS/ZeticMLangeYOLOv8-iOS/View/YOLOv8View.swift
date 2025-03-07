@@ -76,7 +76,6 @@ struct YOLOv8View: View {
     }
     
     private func calculateBox(for result: YOLOv8Result, in targetSize: CGSize, _ cameraResolution: CGSize) -> [CGFloat] {
-        print(targetSize)
         let ret = [
             CGFloat(result.box[0]) * (targetSize.width / cameraResolution.height),
             CGFloat(result.box[1]) * (targetSize.height / cameraResolution.width),
