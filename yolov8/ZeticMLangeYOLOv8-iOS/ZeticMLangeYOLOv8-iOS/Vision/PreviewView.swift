@@ -18,8 +18,8 @@ class PreviewView: UIView {
     private func setupLayer() {
         let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         previewLayer.videoGravity = .resizeAspectFill
-        layer.addSublayer(previewLayer)
         previewLayer.frame = self.layer.bounds
+        layer.addSublayer(previewLayer)
     }
     
     override func layoutSubviews() {
