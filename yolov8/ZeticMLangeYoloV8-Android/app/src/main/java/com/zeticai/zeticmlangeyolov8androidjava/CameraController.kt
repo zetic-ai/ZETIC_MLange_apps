@@ -81,17 +81,17 @@ class CameraController @JvmOverloads constructor(
     }
     private val previewSurfaceHolderCallback = object : SurfaceHolder.Callback {
         override fun surfaceCreated(holder: SurfaceHolder) {
+        }
+
+        override fun surfaceChanged(
+            holder: SurfaceHolder, format: Int, width: Int, height: Int
+        ) {
             onSurface(holder.surface)
             if (ActivityCompat.checkSelfPermission(
                     context, Manifest.permission.CAMERA
                 ) != PackageManager.PERMISSION_GRANTED
             ) throw IllegalArgumentException()
             manager.openCamera(cameraId, cameraDeviceStateCallback, handler)
-        }
-
-        override fun surfaceChanged(
-            holder: SurfaceHolder, format: Int, width: Int, height: Int
-        ) {
         }
 
         override fun surfaceDestroyed(holder: SurfaceHolder) {
