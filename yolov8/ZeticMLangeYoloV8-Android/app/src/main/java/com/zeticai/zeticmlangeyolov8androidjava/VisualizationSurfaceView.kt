@@ -8,9 +8,11 @@ import android.graphics.PorterDuff
 import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
 import android.util.AttributeSet
-import com.zetic.ZeticMLangeFeature.type.YoloResult
+import com.zeticai.mlange.feature.yolov8.YoloResult
 import java.io.BufferedReader
 import java.io.InputStreamReader
+import android.util.Size
+import kotlin.math.min
 
 class VisualizationSurfaceView(
     context: Context,
@@ -41,7 +43,7 @@ class VisualizationSurfaceView(
     }
 
     fun visualize(
-        yoloResult: YoloResult?
+        yoloResult: YoloResult?, yoloInputSize: Size, isRotated: Boolean
     ) {
         if (!holder.surface.isValid) return
 
@@ -54,12 +56,22 @@ class VisualizationSurfaceView(
         val canvas = holder.lockCanvas()
         canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR)
 
+        val yoloInputSizePair = if (!isRotated) {
+            yoloInputSize.width to yoloInputSize.height
+        } else {
+            yoloInputSize.height to yoloInputSize.width
+        }
+        val targetSizePair = (holder.surfaceFrame.width() to holder.surfaceFrame.height())
+
         yoloResult.value.forEach {
+            val convertedMin = transformCoordToTargetCoord(Pair(it.box.xMin, it.box.yMin), yoloInputSizePair, targetSizePair)
+            val convertedMax = transformCoordToTargetCoord(Pair(it.box.xMax, it.box.yMax), yoloInputSizePair, targetSizePair)
+
             val rect = Rect(
-                ((it.box.xMin / 480) * layoutParams.width).toInt(),
-                ((it.box.yMin / 640) * layoutParams.height).toInt(),
-                ((it.box.xMax / 480) * layoutParams.width).toInt(),
-                ((it.box.yMax / 640) * layoutParams.height).toInt(),
+                convertedMin.first,
+                convertedMin.second,
+                convertedMax.first,
+                convertedMax.second,
             )
             canvas.drawRect(rect, paint)
             canvas.drawText(
@@ -70,5 +82,26 @@ class VisualizationSurfaceView(
             )
         }
         holder.unlockCanvasAndPost(canvas)
+    }
+
+    private fun transformCoordToTargetCoord(coord: Pair<Float, Float>, originalSize: Pair<Int, Int>, targetSize: Pair<Int, Int>): Pair<Int, Int> {
+        val originalWidth = originalSize.first
+        val originalHeight = originalSize.second
+        val originalCenterX = originalWidth / 2
+        val originalCenterY = originalHeight / 2
+
+        val targetWidth = targetSize.first
+        val targetHeight = targetSize.second
+        val targetCenterX = targetWidth / 2
+        val targetCenterY = targetHeight / 2
+
+        val widthRatio = targetWidth.toFloat() / originalWidth.toFloat()
+        val heightRatio = targetHeight.toFloat() / originalHeight.toFloat()
+
+        val resizeFactor = min(widthRatio, heightRatio)
+        val retX = ((coord.first - originalCenterX) * resizeFactor + targetCenterX).toInt()
+        val retY = ((coord.second - originalCenterY) * resizeFactor + targetCenterY).toInt()
+
+        return Pair(retX, retY)
     }
 }

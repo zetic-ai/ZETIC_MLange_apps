@@ -5,35 +5,56 @@ import Vision
 import ZeticMLange
 
 struct YOLOv8View: View {
-    @StateObject private var yolov8: YOLOv8 = YOLOv8(key: "yolo-v8n-test")
+    @StateObject private var yolov8: YOLOv8 = YOLOv8(key: "yolo-v11n-test")
     @StateObject private var cameraModel: CameraModel = CameraModel(.back, .frame)
     private let classes = CocoConfig.readClasses()
+    
+    // Changed when resolution set
+    @State private var aspectRatio: CGFloat = 16.0 / 9.0
     
     var body: some View {
         let cameraResolution = cameraModel.resolution
         GeometryReader { geometry in
             ZStack {
+                Color.black.edgesIgnoringSafeArea(.all)
+                
+                let width = geometry.size.width
+                let height = geometry.size.height
+                let targetWidth = width
+                let targetHeight = targetWidth * aspectRatio
+                
                 CameraPreview(session: cameraModel.session)
-                    .ignoresSafeArea()
+                    .customFrame(targetWidth: targetWidth, targetHeight: targetHeight,
+                                 geometryWidth: width, geometryHeight: height)
             }
+            
             ZStack {
-                if cameraModel.frame != nil && cameraModel.timestamp != nil {
-                    let _ = yolov8.process(input: YOLOv8Input(frame: cameraModel.frame!, timestamp: cameraModel.timestamp!))
+                // Unwrapping frame and timestamp into separate variables
+                if let frame = cameraModel.frame, let timestamp = cameraModel.timestamp {
+                    let input = YOLOv8Input(frame: frame, timestamp: timestamp)
+                    let _ = yolov8.process(input: input)
                 }
+                
                 ForEach(Array(zip(yolov8.detectionResults.indices, yolov8.detectionResults)), id: \.0) { index, result in
                     let color = getClassColor(classId: result.classId)
                     let confidence = String(format: "%.2f", result.confidence)
                     let label = "\(classes[Int(result.classId)]) \(confidence)"
-                    let box = calculateBox(for: result, in: geometry, cameraResolution)
+                    
+                    let width = geometry.size.width
+                    let height = geometry.size.height
+                    let targetWidth = width
+                    let targetHeight = targetWidth * aspectRatio
+                    
+                    let box = calculateBox(for: result, in: CGSize(width: targetWidth, height: targetHeight), cameraResolution)
                     
                     DetectionBoxView(
                         result: result,
                         color: color,
                         label: label,
-                        box: box
-                    )
+                        box: box)
+                        .customFrame(targetWidth: targetWidth, targetHeight: targetHeight,
+                                     geometryWidth: width, geometryHeight: height)
                 }
-                
             }
         }
         .ignoresSafeArea()
@@ -42,6 +63,8 @@ struct YOLOv8View: View {
         }.onDisappear {
             yolov8.close()
             cameraModel.close()
+        }.onChange(of: cameraModel.resolution) { newResolution in
+            self.aspectRatio = newResolution.width / newResolution.height
         }
     }
     
@@ -52,13 +75,14 @@ struct YOLOv8View: View {
         return Color(red: r, green: g, blue: b)
     }
     
-    private func calculateBox(for result: YOLOv8Result, in geometry: GeometryProxy, _ cameraResolution: CGSize) -> [CGFloat] {
-        [
-            CGFloat(result.box[0]) * (geometry.size.width / cameraResolution.height),
-            CGFloat(result.box[1]) * (geometry.size.height / cameraResolution.width),
-            CGFloat(result.box[2]) * (geometry.size.width / cameraResolution.height),
-            CGFloat(result.box[3]) * (geometry.size.height / cameraResolution.width)
+    private func calculateBox(for result: YOLOv8Result, in targetSize: CGSize, _ cameraResolution: CGSize) -> [CGFloat] {
+        let ret = [
+            CGFloat(result.box[0]) * (targetSize.width / cameraResolution.height),
+            CGFloat(result.box[1]) * (targetSize.height / cameraResolution.width),
+            CGFloat(result.box[2]) * (targetSize.width / cameraResolution.height),
+            CGFloat(result.box[3]) * (targetSize.height / cameraResolution.width)
         ]
+        return ret
     }
     
 }

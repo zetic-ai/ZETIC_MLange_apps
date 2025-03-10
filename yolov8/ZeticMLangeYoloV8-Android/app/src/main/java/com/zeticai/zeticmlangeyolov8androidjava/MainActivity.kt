@@ -3,12 +3,13 @@ package com.zeticai.zeticmlangeyolov8androidjava
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Size
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts.RequestPermission
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.zetic.ZeticMLangeFeature.ZeticMLangeFeatureCameraController
+import com.zeticai.mlange.feature.vision.OpenCVImageUtilsWrapper
 import com.zeticai.zeticmlangeyolov8androidjava.feature.YoloV8
 
 class MainActivity : AppCompatActivity() {
@@ -19,19 +20,20 @@ class MainActivity : AppCompatActivity() {
         }
 
     private val visualizationSurfaceView: VisualizationSurfaceView by lazy { findViewById(R.id.visualizationSurfaceView) }
-    private val zeticMLangeFeatureCameraController: ZeticMLangeFeatureCameraController =
-        ZeticMLangeFeatureCameraController()
-    private val yolov8 by lazy { YoloV8(this, "yolo-v8n-test") }
+    private val openCVImageUtilsWrapper: OpenCVImageUtilsWrapper =
+        OpenCVImageUtilsWrapper()
+
+    private val yolov8 by lazy { YoloV8(this, PERSONAL_KEY, YOLOV11_MODEL_KEY) }
 
     private val cameraController by lazy {
         CameraController(this,
             findViewById(R.id.surfaceView),
             findViewById(R.id.visualizationSurfaceView),
-            { image, width, height ->
-                processImage(image)
+            { image, yoloInputSize ->
+                processImage(image, yoloInputSize)
             },
             {
-                zeticMLangeFeatureCameraController.setSurface(it)
+                openCVImageUtilsWrapper.setSurface(it)
             })
     }
 
@@ -66,17 +68,19 @@ class MainActivity : AppCompatActivity() {
         yolov8.close()
     }
 
-    private fun processImage(image: ByteArray) {
-        val imagePtr = zeticMLangeFeatureCameraController.frame(image)
+    private fun processImage(image: ByteArray, yoloInputSize: Size) {
+        val imagePtr = openCVImageUtilsWrapper.frame(image, 90)
 
         val faceDetectionResult = yolov8.run(imagePtr)
 
         visualizationSurfaceView.visualize(
-            faceDetectionResult
+            faceDetectionResult, yoloInputSize, true
         )
     }
 
     companion object {
         const val TAG = "Main Activity"
+        private const val PERSONAL_KEY = BuildConfig.PERSONAL_KEY
+        private const val YOLOV11_MODEL_KEY = BuildConfig.YOLOV11_MODEL_KEY
     }
 }
