@@ -13,55 +13,57 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-public class LLaMACppTargetModelWrapper {
-  public init(_ modelPath: Swift.String)
-  @objc deinit
-}
-public class LLaMACppTargetModel : ZeticMLange.LLMTargetModel {
-  public init(_ modelPath: Swift.String)
-  public func run(_ text: Swift.String) throws
-  public func waitForNextToken() -> Swift.String
-  @objc deinit
-}
-open class AsyncFeature<Input, Output> : Foundation.ObservableObject where Input : ZeticMLange.AsyncFeatureInput, Output : ZeticMLange.AsyncFeatureOutput {
-  public init(label: Swift.String)
-  open func process(input: Input) -> Output
-  open func handleOutput(_ output: Output)
-  public func run(with input: Input)
-  public func waitForPendingOperations(completion: @escaping () -> Swift.Void)
-  open func close()
-  public func resume()
-  public func pause()
-  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
-  @objc deinit
-}
-public protocol AsyncFeatureInput {
-}
-public protocol AsyncFeatureOutput {
-}
-public class ZeticMLangeLLMModel {
-  public init?(key: Swift.String)
-  public func run(_ text: Swift.String) throws
-  public func waitForNextToken() -> Swift.String
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers public class FeatureUtils {
-  public static func dataToMutableFloatPointer(data: inout Foundation.Data) -> Swift.UnsafeMutablePointer<Swift.Float>?
-  public static func dataToMutableBytePointer(data: inout Foundation.Data) -> Swift.UnsafeMutablePointer<Swift.UInt8>?
-  @objc deinit
-}
 @_hasMissingDesignatedInitializers public class ZeticMLangeModelWrapper {
   @objc deinit
 }
 public class ZeticMLangeModel {
-  public init?(_ modelKey: Swift.String)
-  public init(throws modelKey: Swift.String) throws
-  public init?(_ modelKey: Swift.String, _ target: ZeticMLange.Target)
-  public init?(throws modelKey: Swift.String, _ target: ZeticMLange.Target) throws
+  public init?(_ tokenKey: Swift.String, _ modelKey: Swift.String)
+  public init(throws tokenKey: Swift.String, throws modelKey: Swift.String) throws
+  public init?(_ tokenKey: Swift.String, _ modelKey: Swift.String, _ target: ZeticMLange.Target)
+  public init?(throws tokenKey: Swift.String, throws modelKey: Swift.String, _ target: ZeticMLange.Target) throws
   public func run(_ inputs: [Foundation.Data]) throws
   public func getOutputDataArray() -> [Foundation.Data]
-  public static func createInstanceOfModelByTarget(_ modelName: Swift.String, _ targetModelPath: Foundation.URL, _ target: ZeticMLange.Target) throws -> any ZeticMLange.TargetModel
+  public static func createInstanceOfModelByTarget(_ modelName: Swift.String, _ targetModelPath: Foundation.URL, _ target: ZeticMLange.Target, _ apType: ZeticMLange.APType = APType.NA) throws -> any ZeticMLange.TargetModel
   @objc deinit
+}
+public class BenchmarkModel {
+  public static let LOG_TAG: Swift.String
+  public static let ERROR_TAG: Swift.String
+  public static let RESULT_TAG: Swift.String
+  public init()
+  public func benchmark(_ modelName: Swift.String, _ target: ZeticMLange.Target, _ path: Foundation.URL, _ inputs: [Foundation.Data] = [], _ originalOutputs: [[Swift.Float]] = []) -> [ZeticMLange.BenchmarkResult?]
+  public func benchmarkAll(_ tokenKey: Swift.String, _ modelKey: Swift.String, onResult: (ZeticMLange.BenchmarkResult) -> Swift.Void) throws
+  @objc deinit
+}
+public class BenchmarkResults : Swift.Codable {
+  public var hardware: Swift.String
+  public var device: Swift.String
+  public var results: [ZeticMLange.BenchmarkResult]
+  public init(_ results: Swift.Array<ZeticMLange.BenchmarkResult> = [])
+  public func toJsonData() -> [Swift.String : Any]
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+}
+public class BenchmarkResult : Swift.Codable {
+  final public let path: Swift.String
+  final public let target: ZeticMLange.Target
+  final public let targetModelBenchmarkResult: ZeticMLange.TargetModelBenchmarkResult
+  public init(path: Swift.String, target: ZeticMLange.Target, targetModelBenchmarkResult: ZeticMLange.TargetModelBenchmarkResult)
+  public func toJsonData() -> [Swift.String : Any]
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+}
+public class TargetModelBenchmarkResult : Swift.Codable {
+  final public let latency: Swift.Float
+  final public let snr: [Swift.Float]
+  final public let apType: ZeticMLange.APType
+  public init(latency: Swift.Float, snrs: [Swift.Float], apType: ZeticMLange.APType)
+  public func toJsonData() -> [Swift.String : Any]
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class NativeResult {
   @objc deinit
@@ -73,6 +75,12 @@ public class YOLOv8Result {
   public init(classId: Swift.Int32, confidence: Swift.Float, box: [Swift.Int32])
   @objc deinit
 }
+public class ZeticMLangeModelInfo {
+  public init(_ tokenKey: Swift.String, _ modelKey: Swift.String) throws
+  public func getInputSize() -> [Swift.Int]
+  public func createTargetModel(_ target: ZeticMLange.Target, _ apType: ZeticMLange.APType) throws -> any ZeticMLange.TargetModel
+  @objc deinit
+}
 public class ZeticMLangeError : Swift.Error {
   public var description: Swift.String {
     get
@@ -80,46 +88,18 @@ public class ZeticMLangeError : Swift.Error {
   public init(_ message: Swift.String)
   @objc deinit
 }
-public struct FaceDetectionResult {
-  public let bbox: ZeticMLange.Box
-  public let confidence: Swift.Float
-  public init(bbox: ZeticMLange.Box, confidence: Swift.Float)
-}
-public class YOLOv8Wrapper {
-  public init(_ cocoFilePath: Swift.String)
-  @objc deinit
-  public func featurePreprocess(_ baseAddress: Swift.UnsafeMutableRawPointer, _ width: Swift.Int32, _ height: Swift.Int32, _ bytesPerRow: Swift.Int32) -> Foundation.Data
-  public func featurePostprocess(_ outputFloatArray: Swift.UnsafeMutablePointer<Swift.UInt8>) -> [ZeticMLange.YOLOv8Result]
-}
-public struct Landmark {
-  public let x: Swift.Float
-  public let y: Swift.Float
-  public let z: Swift.Float
-  public init(x: Swift.Float, y: Swift.Float, z: Swift.Float)
-}
-public struct FaceEmotionRecognitionResult {
-  public let emotion: Swift.String
-  public let confidence: Swift.Float
-  public init(emotion: Swift.String, confidence: Swift.Float)
-}
-public struct FaceLandmarkResult {
-  public let faceLandmark: [ZeticMLange.Landmark]
-  public let confidence: Swift.Float
-  public init(faceLandmark: [ZeticMLange.Landmark], confidence: Swift.Float)
-}
-public class WhisperWrapper {
-  public init(_ vocabularyPath: Swift.String)
-  @objc deinit
-  public func process(_ audio: [Swift.Float]) -> [Swift.Float]
-  public func decodeToken(_ ids: [Swift.Int32], _ skipSpecialTokens: Swift.Bool) -> Swift.String
-}
-@_hasMissingDesignatedInitializers public class DataUtils {
-  public static func dataToFloatArray(_ data: Foundation.Data) -> [Swift.Float]
-  @objc deinit
+public protocol TargetModel {
+  func isInitialized() -> Swift.Bool
+  func run(_ input: [Foundation.Data]) throws
+  func getOutputDataArray() -> [Foundation.Data]
+  func createInputDataArray() -> [Foundation.Data]
+  func getInputTensorNameHashes() -> [[Swift.Int32]]
+  func getOutputTensorNameHashes() -> [[Swift.Int32]]
 }
 public enum Target : Swift.Int, Swift.CaseIterable, Swift.Codable {
   case ZETIC_MLANGE_TARGET_TORCH
-  case ZETIC_MLANGE_TARGET_TFLITE
+  case ZETIC_MLANGE_TARGET_TFLITE_FP32
+  case ZETIC_MLANGE_TARGET_TFLITE_FP16
   case ZETIC_MLANGE_TARGET_ORT
   case ZETIC_MLANGE_TARGET_ORT_NNAPI
   case ZETIC_MLANGE_TARGET_QNN
@@ -147,36 +127,56 @@ public enum Target : Swift.Int, Swift.CaseIterable, Swift.Codable {
     get
   }
 }
-public protocol TargetModel {
-  func isInitialized() -> Swift.Bool
-  func run(_ input: [Foundation.Data]) throws
-  func getOutputDataArray() -> [Foundation.Data]
-  func createInputDataArray() -> [Foundation.Data]
-  func getInputTensorNameHashes() -> [[Swift.Int32]]
-  func getOutputTensorNameHashes() -> [[Swift.Int32]]
-}
-public class FaceDetectionWrapper {
-  public init()
+public class ZeticMLangeLLMModel {
+  public init?(tokenKey: Swift.String, modelKey: Swift.String)
+  public init?(path: Swift.String, target: ZeticMLange.LLMTarget)
+  public func run(_ text: Swift.String) throws
+  public func waitForNextToken() -> Swift.String
+  public func forceDeinit()
   @objc deinit
-  public func preprocess(_ image: UIKit.UIImage) -> Foundation.Data
-  public func postprocess(_ outputData: inout [Foundation.Data]) -> Swift.Array<ZeticMLange.FaceDetectionResult>
-}
-public struct Box {
-  public let xmin: Swift.Float
-  public let ymin: Swift.Float
-  public let xmax: Swift.Float
-  public let ymax: Swift.Float
-  public init(xmin: Swift.Float, ymin: Swift.Float, xmax: Swift.Float, ymax: Swift.Float)
-}
-public class FaceEmotionRecognitionWrapper {
-  public init()
-  @objc deinit
-  public func preprocess(_ image: UIKit.UIImage, _ roi: ZeticMLange.Box) -> Foundation.Data
-  public func postprocess(_ outputData: inout [Foundation.Data]) -> ZeticMLange.FaceEmotionRecognitionResult
 }
 public protocol LLMTargetModel {
   func run(_ text: Swift.String) throws
   func waitForNextToken() -> Swift.String
+  func forceDeinit()
+}
+public enum LLMTarget : Swift.Int, Swift.CaseIterable, Swift.Codable {
+  case LLAMA_CPP
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [ZeticMLange.LLMTarget]
+  public typealias RawValue = Swift.Int
+  nonisolated public static var allCases: [ZeticMLange.LLMTarget] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public class LLaMACppTargetModel : ZeticMLange.LLMTargetModel {
+  public init(_ modelPath: Swift.String)
+  public func run(_ text: Swift.String) throws
+  public func forceDeinit()
+  public func waitForNextToken() -> Swift.String
+  @objc deinit
+}
+public class LLaMACppTargetModelWrapper {
+  public init(_ modelPath: Swift.String)
+  @objc deinit
+}
+public class TFLiteTargetModel : ZeticMLange.TargetModel {
+  public init(_ modelKey: Swift.String, _ modelPath: Foundation.URL, _ enableGpu: Swift.Bool)
+  public func run(_ input: [Foundation.Data]) throws
+  public func getOutputDataArray() -> [Foundation.Data]
+  public func createInputDataArray() -> [Foundation.Data]
+  public func createOutputDataArray() -> [Foundation.Data]
+  public func isInitialized() -> Swift.Bool
+  public func getInputTensorNameHashes() -> [[Swift.Int32]]
+  public func getOutputTensorNameHashes() -> [[Swift.Int32]]
+  @objc deinit
+}
+public class TFLiteTargetModelWrapper {
+  public init(_ modelFilePath: Swift.String, _ enableGpu: Swift.Bool)
+  @objc deinit
 }
 public class ZeticMLangeCoreMLModel : ZeticMLange.TargetModel {
   public init(_ key: Swift.String, _ targetModelPath: Foundation.URL)
@@ -194,12 +194,72 @@ public class CoreMLFeatureProvider : CoreML.MLFeatureProvider {
   @objc public func featureValue(for featureName: Swift.String) -> CoreML.MLFeatureValue?
   @objc deinit
 }
-@_hasMissingDesignatedInitializers public class FileUtils {
-  public static func fetchTargetModel(modelKey: Swift.String, target: ZeticMLange.Target) throws -> Foundation.URL
-  public static func fetchModel(modelKey: Swift.String, ext: Swift.String) throws -> Foundation.URL
-  public static func fetchResponse(from url: Foundation.URL, authorization: Swift.String) throws -> [Swift.String : Any]
-  public static func downloadFileSync(from url: Foundation.URL, localPath: Swift.String) throws -> Foundation.URL
+open class AsyncFeature<Input, Output> : Foundation.ObservableObject where Input : ZeticMLange.AsyncFeatureInput, Output : ZeticMLange.AsyncFeatureOutput {
+  public init(label: Swift.String)
+  open func process(input: Input) -> Output
+  open func handleOutput(_ output: Output)
+  public func run(with input: Input)
+  public func waitForPendingOperations(completion: @escaping () -> Swift.Void)
+  open func close()
+  public func resume()
+  public func pause()
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
   @objc deinit
+}
+public protocol AsyncFeatureInput {
+}
+public protocol AsyncFeatureOutput {
+}
+@_hasMissingDesignatedInitializers public class FeatureUtils {
+  public static func dataToMutableFloatPointer(data: inout Foundation.Data) -> Swift.UnsafeMutablePointer<Swift.Float>?
+  public static func dataToMutableBytePointer(data: inout Foundation.Data) -> Swift.UnsafeMutablePointer<Swift.UInt8>?
+  @objc deinit
+}
+public struct Landmark {
+  public let x: Swift.Float
+  public let y: Swift.Float
+  public let z: Swift.Float
+  public init(x: Swift.Float, y: Swift.Float, z: Swift.Float)
+}
+public struct Box {
+  public let xmin: Swift.Float
+  public let ymin: Swift.Float
+  public let xmax: Swift.Float
+  public let ymax: Swift.Float
+  public init(xmin: Swift.Float, ymin: Swift.Float, xmax: Swift.Float, ymax: Swift.Float)
+}
+public struct FaceDetectionResult {
+  public let bbox: ZeticMLange.Box
+  public let confidence: Swift.Float
+  public init(bbox: ZeticMLange.Box, confidence: Swift.Float)
+}
+public class FaceDetectionWrapper {
+  public init()
+  @objc deinit
+  public func preprocess(_ image: UIKit.UIImage) -> Foundation.Data
+  public func postprocess(_ outputData: inout [Foundation.Data]) -> Swift.Array<ZeticMLange.FaceDetectionResult>
+}
+public class YOLOv8Wrapper {
+  public init(_ cocoFilePath: Swift.String)
+  @objc deinit
+  public func featurePreprocess(_ baseAddress: Swift.UnsafeMutableRawPointer, _ width: Swift.Int32, _ height: Swift.Int32, _ bytesPerRow: Swift.Int32) -> Foundation.Data
+  public func featurePostprocess(_ outputFloatArray: Swift.UnsafeMutablePointer<Swift.UInt8>) -> [ZeticMLange.YOLOv8Result]
+}
+public struct FaceEmotionRecognitionResult {
+  public let emotion: Swift.String
+  public let confidence: Swift.Float
+  public init(emotion: Swift.String, confidence: Swift.Float)
+}
+public class FaceEmotionRecognitionWrapper {
+  public init()
+  @objc deinit
+  public func preprocess(_ image: UIKit.UIImage, _ roi: ZeticMLange.Box) -> Foundation.Data
+  public func postprocess(_ outputData: inout [Foundation.Data]) -> ZeticMLange.FaceEmotionRecognitionResult
+}
+public struct FaceLandmarkResult {
+  public let faceLandmark: [ZeticMLange.Landmark]
+  public let confidence: Swift.Float
+  public init(faceLandmark: [ZeticMLange.Landmark], confidence: Swift.Float)
 }
 public class FaceLandmarkWrapper {
   public init()
@@ -207,6 +267,44 @@ public class FaceLandmarkWrapper {
   public func preprocess(_ image: UIKit.UIImage, _ roi: ZeticMLange.Box) -> Foundation.Data
   public func postprocess(_ outputData: inout [Foundation.Data]) -> ZeticMLange.FaceLandmarkResult
 }
+public class WhisperWrapper {
+  public init(_ vocabularyPath: Swift.String)
+  @objc deinit
+  public func process(_ audio: [Swift.Float]) -> [Swift.Float]
+  public func decodeToken(_ ids: [Swift.Int32], _ skipSpecialTokens: Swift.Bool) -> Swift.String
+}
+public enum APType : Swift.Int, Swift.CaseIterable, Swift.Codable {
+  case CPU
+  case GPU
+  case NPU
+  case NA
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [ZeticMLange.APType]
+  public typealias RawValue = Swift.Int
+  nonisolated public static var allCases: [ZeticMLange.APType] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class DataUtils {
+  public static func dataToFloatArray(_ data: Foundation.Data) -> [Swift.Float]
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class FileUtils {
+  public static func fetchTargetModel(tokenKey: Swift.String, modelKey: Swift.String, target: ZeticMLange.Target, progress: ((Swift.Float) -> Swift.Void)? = nil) throws -> Foundation.URL
+  public static func fetchModel(tokenKey: Swift.String, modelKey: Swift.String, ext: Swift.String, progress: ((Swift.Float) -> Swift.Void)? = nil) throws -> Foundation.URL
+  public static func fileExists(localPath: Swift.String) -> Swift.Bool
+  public static func downloadFileSync(from url: Foundation.URL, localPath: Swift.String, progress: ((Swift.Float) -> Swift.Void)? = nil) throws -> Foundation.URL
+  @objc deinit
+}
 extension ZeticMLange.Target : Swift.Equatable {}
 extension ZeticMLange.Target : Swift.Hashable {}
 extension ZeticMLange.Target : Swift.RawRepresentable {}
+extension ZeticMLange.LLMTarget : Swift.Equatable {}
+extension ZeticMLange.LLMTarget : Swift.Hashable {}
+extension ZeticMLange.LLMTarget : Swift.RawRepresentable {}
+extension ZeticMLange.APType : Swift.Equatable {}
+extension ZeticMLange.APType : Swift.Hashable {}
+extension ZeticMLange.APType : Swift.RawRepresentable {}

@@ -1,0 +1,4 @@
+ZeticLLMApps/ZeticLLMApp-iOS/ZeticMLange.framework/Info.plist filter=lfs diff=lfs merge=lfs -text
+ZeticLLMApps/ZeticLLMApp-iOS/ZeticMLange.framework/Modules filter=lfs diff=lfs merge=lfs -text
+ZeticLLMApps/ZeticLLMApp-iOS/ZeticMLange.framework/ZeticMLange filter=lfs diff=lfs merge=lfs -text
+ZeticLLMApps/ZeticLLMApp-iOS/ZeticMLange.framework/_CodeSignature filter=lfs diff=lfs merge=lfs -text
