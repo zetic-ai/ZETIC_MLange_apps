@@ -52,19 +52,8 @@ class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBuf
         autoreleasepool {
             let currentTimestamp = CMSampleBufferGetPresentationTimeStamp(sampleBuffer)
             
-            guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
-                return
-            }
-            
-            CVPixelBufferLockBaseAddress(pixelBuffer, .readOnly)
-            defer {
-                CVPixelBufferUnlockBaseAddress(pixelBuffer, .readOnly)
-            }
-            
-            let frame = processPixelBuffer(pixelBuffer)!
-            
             DispatchQueue.main.async {
-                self.frame =  frame
+                self.frame = CameraFrame(from: sampleBuffer)
                 self.timestamp = currentTimestamp
             }
         }
@@ -93,27 +82,6 @@ class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBuf
                 self.image = uiImage
             }
         }
-    }
-    
-    private func processPixelBuffer(_ pixelBuffer: CVPixelBuffer) -> CameraFrame? {
-        let width = CVPixelBufferGetWidth(pixelBuffer)
-        let height = CVPixelBufferGetHeight(pixelBuffer)
-        let bytesPerRow = CVPixelBufferGetBytesPerRow(pixelBuffer)
-        let pixelFormat = CVPixelBufferGetPixelFormatType(pixelBuffer)
-        
-        guard let baseAddress = CVPixelBufferGetBaseAddress(pixelBuffer) else {
-            print("Failed to get base address of pixel buffer")
-            CVPixelBufferUnlockBaseAddress(pixelBuffer, .readOnly)
-            return nil
-        }
-        
-        guard pixelFormat == kCVPixelFormatType_32BGRA else {
-            print("Unsupported pixel format")
-            CVPixelBufferUnlockBaseAddress(pixelBuffer, .readOnly)
-            return nil
-        }
-        
-        return CameraFrame(baseAddress, Int32(width), Int32(height), Int32(bytesPerRow))
     }
     
     private func setupCamera() {
