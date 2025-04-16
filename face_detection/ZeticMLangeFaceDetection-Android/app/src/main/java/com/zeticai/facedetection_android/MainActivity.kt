@@ -3,15 +3,14 @@ package com.zeticai.facedetection_android
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Size
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts.RequestPermission
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.zetic.ZeticMLangeFeature.ZeticMLangeFeatureCameraController
 import com.zeticai.facedetection_android.feature.FaceDetection
-import kotlin.math.min
-import kotlin.math.max
+import com.zeticai.mlange.feature.vision.OpenCVImageUtilsWrapper
 
 class MainActivity : AppCompatActivity() {
     private val requestPermissionLauncher =
@@ -23,23 +22,20 @@ class MainActivity : AppCompatActivity() {
         }
 
     private val visualizationSurfaceView: VisualizationSurfaceView by lazy { findViewById(R.id.visualizationSurfaceView) }
-    private val zeticMLangeFeatureCameraController: ZeticMLangeFeatureCameraController = ZeticMLangeFeatureCameraController()
-    private val faceDetection by lazy { FaceDetection(this, "face_detection_short_range") }
+    private val openCVImageUtilsWrapper: OpenCVImageUtilsWrapper = OpenCVImageUtilsWrapper()
+    private val faceDetection by lazy { FaceDetection(this) }
 
     private val cameraController by lazy {
         CameraController(this,
             findViewById(R.id.surfaceView),
             findViewById(R.id.visualizationSurfaceView),
-            { image, width, height ->
-                processImage(image, width, height)
+            { image, inputSize ->
+                processImage(image, inputSize)
             },
             {
-                zeticMLangeFeatureCameraController.setSurface(it)
-            })
-    }
-
-    private fun clamp(a: Float, b: Float): Float {
-        return max(0f, min(a, b))
+                openCVImageUtilsWrapper.setSurface(it)
+            }, CameraDirection.FRONT
+        )
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,9 +46,17 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        if (ContextCompat.checkSelfPermission( this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.CAMERA
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
             cameraController.startPreview()
-        } else if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
+        } else if (ActivityCompat.shouldShowRequestPermissionRationale(
+                this,
+                Manifest.permission.CAMERA
+            )
+        ) {
             Toast.makeText(this, "Camera Permission Not Granted!", Toast.LENGTH_SHORT).show()
         } else {
             requestPermissionLauncher.launch(Manifest.permission.CAMERA)
@@ -62,19 +66,16 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         cameraController.close()
-        faceDetection.close()
     }
 
-    private fun processImage(image: ByteArray, width: Int, height: Int) {
-        val imagePtr = zeticMLangeFeatureCameraController.frame(image)
+    private fun processImage(image: ByteArray, inputSize: Size) {
+        val imagePtr =
+            openCVImageUtilsWrapper.frame(image, CameraController.ROTATE_COUNTER_CLOCKWISE)
 
         val faceDetectionResult = faceDetection.run(imagePtr)
 
         visualizationSurfaceView.visualize(
-            faceDetectionResult)
-    }
-
-    companion object {
-        const val TAG = "Main Activity"
+            faceDetectionResult, inputSize, true
+        )
     }
 }
