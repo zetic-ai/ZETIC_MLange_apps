@@ -1,21 +1,21 @@
 package com.zeticai.faceemotionrecognition.feature
 
 import android.content.Context
-import com.zetic.ZeticMLange.ZeticMLangeModel
-import com.zetic.ZeticMLangeFeature.ZeticMLangeFeatureFaceDetection
-import com.zetic.ZeticMLangeFeature.type.FaceDetectionResult
+import com.zeticai.mlange.core.model.ZeticMLangeModel
+import com.zeticai.mlange.feature.facedetection.FaceDetectionResults
+import com.zeticai.mlange.feature.facedetection.FaceDetectionWrapper
 
-class FaceDetection @JvmOverloads constructor(
+class FaceDetection(
     context: Context,
-    modelKey: String,
-    private val model: ZeticMLangeModel = ZeticMLangeModel(context, modelKey),
-    private val featureModel: ZeticMLangeFeatureFaceDetection = ZeticMLangeFeatureFaceDetection()
 ) {
-    fun run(imagePtr: Long): FaceDetectionResult {
-        val preprocess = featureModel.preprocess(imagePtr)
+    private val model: ZeticMLangeModel = ZeticMLangeModel(context, "debug_cb6cb12939644316888f333523e42622", modelKey)
+    private val wrapper: FaceDetectionWrapper = FaceDetectionWrapper()
+
+    fun run(imagePtr: Long): FaceDetectionResults {
+        val preprocess = wrapper.preprocess(imagePtr)
         model.run(arrayOf(preprocess))
         val modelOutput = model.outputBuffers
-        return featureModel.postprocess(modelOutput.map {
+        return wrapper.postprocess(modelOutput.map {
             val byteArray = ByteArray(it.remaining())
             it.get(byteArray)
             return@map byteArray
@@ -24,6 +24,10 @@ class FaceDetection @JvmOverloads constructor(
 
     fun close() {
         model.deinit()
-        featureModel.deinit()
+        wrapper.deinit()
+    }
+
+    companion object {
+        val modelKey: String = "9e9431d8e3874ab2aa9530be711e8575"
     }
 }
