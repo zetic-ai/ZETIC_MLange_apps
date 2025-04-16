@@ -7,11 +7,11 @@ import android.graphics.PixelFormat
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
+import android.graphics.RectF
 import android.util.AttributeSet
-import com.zetic.ZeticMLangeFeature.type.Box
-import com.zetic.ZeticMLangeFeature.type.FaceDetectionResult
-import com.zetic.ZeticMLangeFeature.type.FaceEmotionRecognitionResult
-import com.zetic.ZeticMLangeFeature.type.FaceLandmarkResult
+import android.util.Size
+import com.zeticai.mlange.feature.facedetection.FaceDetectionResults
+import com.zeticai.mlange.feature.facelandmark.FaceLandmarkResult
 
 class VisualizationSurfaceView(context: Context, attrSet: AttributeSet) :
     PreviewSurfaceView(context, attrSet) {
@@ -30,59 +30,69 @@ class VisualizationSurfaceView(context: Context, attrSet: AttributeSet) :
     }
 
     fun visualize(
-        faceDetectionResult: FaceDetectionResult?,
-        faceLandmarkResult: FaceLandmarkResult?
+        faceDetectionResult: FaceDetectionResults?,
+        faceLandmarkResult: FaceLandmarkResult?,
+        inputSize: Size,
+        isRotated: Boolean
     ) {
         if (!holder.surface.isValid)
             return
 
+        if (faceDetectionResult == null)
+            return
+        if (faceDetectionResult.faceDetectionResults.isEmpty())
+            return
+
+        val inputRect = if (!isRotated) {
+            Rect(0, 0, inputSize.width, inputSize.height)
+        } else {
+            Rect(0, 0, inputSize.height, inputSize.width)
+        }
+        val targetRect = Rect(
+            0, 0, holder.surfaceFrame.width(), holder.surfaceFrame.height()
+        )
+
         val canvas = holder.lockCanvas()
         canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR)
 
-        faceDetectionResult?.faceDetections?.forEach {
-            canvas.drawRect(
-                Rect(
-                    (width - (it.bbox.xMin * width)).toInt(),
-                    (it.bbox.yMin * height).toInt(),
-                    (width - (it.bbox.xMax * width)).toInt(),
-                    (it.bbox.yMax * height).toInt(),
-                ),
-                paint
+        val detectionRect = faceDetectionResult.faceDetectionResults.map {
+            val convertedMin = transformCoordToTargetCoord(
+                Pair(
+                    (1 - it.bbox.xMin) * inputRect.width(),
+                    it.bbox.yMin * inputRect.height()
+                ), inputRect, targetRect
+            )
+            val convertedMax = transformCoordToTargetCoord(
+                Pair(
+                    (1 - it.bbox.xMax) * inputRect.width(),
+                    it.bbox.yMax * inputRect.height()
+                ), inputRect, targetRect
             )
 
-            canvas.drawText(
-                "Face Detection Conf. : ${it.score}",
-                (width - (it.bbox.xMax * width)),
-                (it.bbox.yMin * height) - 10f,
-                paint
+            RectF(
+                convertedMin.first,
+                convertedMin.second,
+                convertedMax.first,
+                convertedMax.second,
             )
+        }.also {
+            it.zip(faceDetectionResult.faceDetectionResults).forEach { result ->
+                canvas.drawRect(result.first, paint)
+                canvas.drawText(
+                    "Conf. : ${result.second.score}",
+                    result.first.right,
+                    result.first.top - 10f,
+                    paint
+                )
+            }
         }
 
-        if ((faceDetectionResult?.faceDetections?.size ?: 0) <= 0) {
-            holder.unlockCanvasAndPost(canvas)
-            return
-        }
-
-        val detectionBox = faceDetectionResult?.faceDetections?.get(0)?.bbox
-        if (detectionBox == null) {
-            holder.unlockCanvasAndPost(canvas)
-            return
-        }
-
-        val resizeFactor = 0.2f
-        val scaledDetectionBox = Box(
-            detectionBox.xMin * width * (1 - resizeFactor),
-            detectionBox.yMin * height * (1 - resizeFactor),
-            detectionBox.xMax * width * (1 + resizeFactor),
-            detectionBox.yMax * height * (1 + resizeFactor)
-        )
-        val detectionBoxWidth = (scaledDetectionBox.xMax - scaledDetectionBox.xMin)
-        val detectionBoxHeight = (scaledDetectionBox.yMax - scaledDetectionBox.yMin)
-
+        val scaleFactor = 1.2f
+        val detectionBox = detectionRect[0]
         faceLandmarkResult?.landmarks?.forEach {
             canvas.drawCircle(
-                width - (scaledDetectionBox.xMin + (it.x * detectionBoxWidth)),
-                scaledDetectionBox.yMin + (it.y * detectionBoxHeight),
+                detectionBox.left + (it.x * detectionBox.width() * scaleFactor),
+                (detectionBox.top / scaleFactor) + (it.y * detectionBox.height() * scaleFactor),
                 1f,
                 paint
             )
