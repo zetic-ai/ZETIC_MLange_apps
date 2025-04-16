@@ -12,9 +12,7 @@ import kotlinx.coroutines.launch
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 
-class AudioSampler(
-    private val processAudioData: (ByteBuffer) -> Unit
-) {
+class AudioSampler {
     private var audioRecord: AudioRecord? = null
     private var recordingJob: Job? = null
     private val ringBuffer = FloatArray(TOTAL_SAMPLES)
@@ -22,7 +20,7 @@ class AudioSampler(
     private var readIndex = 0
 
     @SuppressLint("MissingPermission")
-    fun startRecording() {
+    fun startRecording(processAudioData: (ByteBuffer) -> Unit) {
         val bufferSize = AudioRecord.getMinBufferSize(SAMPLE_RATE, CHANNEL_CONFIG, AUDIO_FORMAT)
         audioRecord = AudioRecord(
             MediaRecorder.AudioSource.MIC,
