@@ -7,10 +7,12 @@ import android.graphics.PixelFormat
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
+import android.graphics.RectF
 import android.util.AttributeSet
-import com.zetic.ZeticMLangeFeature.type.YoloResult
+import com.zeticai.mlange.feature.yolov8.YoloResult
 import java.io.BufferedReader
 import java.io.InputStreamReader
+import android.util.Size
 
 class VisualizationSurfaceView(
     context: Context,
@@ -41,7 +43,7 @@ class VisualizationSurfaceView(
     }
 
     fun visualize(
-        yoloResult: YoloResult?
+        yoloResult: YoloResult?, inputSize: Size, isRotated: Boolean
     ) {
         if (!holder.surface.isValid) return
 
@@ -54,17 +56,29 @@ class VisualizationSurfaceView(
         val canvas = holder.lockCanvas()
         canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR)
 
+        val inputRect = if (!isRotated) {
+            Rect(0, 0, inputSize.width, inputSize.height)
+        } else {
+            Rect(0, 0, inputSize.height, inputSize.width)
+        }
+        val targetRect = Rect(
+            0, 0, holder.surfaceFrame.width(), holder.surfaceFrame.height()
+        )
+
         yoloResult.value.forEach {
-            val rect = Rect(
-                ((it.box.xMin / 480) * layoutParams.width).toInt(),
-                ((it.box.yMin / 640) * layoutParams.height).toInt(),
-                ((it.box.xMax / 480) * layoutParams.width).toInt(),
-                ((it.box.yMax / 640) * layoutParams.height).toInt(),
+            val convertedMin = transformCoordToTargetCoord(Pair(it.box.xMin, it.box.yMin), inputRect, targetRect)
+            val convertedMax = transformCoordToTargetCoord(Pair(it.box.xMax, it.box.yMax), inputRect, targetRect)
+
+            val rect = RectF(
+                convertedMin.first,
+                convertedMin.second,
+                convertedMax.first,
+                convertedMax.second,
             )
             canvas.drawRect(rect, paint)
             canvas.drawText(
                 "${yoloClasses[it.classId]} : ${it.confidence}",
-                rect.left.toFloat(),
+                rect.left,
                 rect.top - 10f,
                 paint
             )
