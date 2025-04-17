@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		166FA5F62C9D448300504C63 /* ZeticMLange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FA5F42C9D447D00504C63 /* ZeticMLange.framework */; };
-		166FA5F72C9D448300504C63 /* ZeticMLange.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 166FA5F42C9D447D00504C63 /* ZeticMLange.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		16317D502DB091AF009E53C2 /* ZeticMLange in Frameworks */ = {isa = PBXBuildFile; productRef = 16317D4F2DB091AF009E53C2 /* ZeticMLange */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +34,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				166FA5F72C9D448300504C63 /* ZeticMLange.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,7 +59,6 @@
 		16563F862CA5717300733DC7 /* libZeticMLangeFeatureYoloV8Native.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libZeticMLangeFeatureYoloV8Native.dylib; path = ZeticMLange.framework/Frameworks/libZeticMLangeFeatureYoloV8Native.dylib; sourceTree = "<group>"; };
 		16563F872CA5717300733DC7 /* libZeticMLangeFeatureFaceEmotionRecognitionNative.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libZeticMLangeFeatureFaceEmotionRecognitionNative.dylib; path = ZeticMLange.framework/Frameworks/libZeticMLangeFeatureFaceEmotionRecognitionNative.dylib; sourceTree = "<group>"; };
 		16563F882CA5717300733DC7 /* libzetic_common.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libzetic_common.dylib; path = ZeticMLange.framework/Frameworks/libzetic_common.dylib; sourceTree = "<group>"; };
-		166FA5F42C9D447D00504C63 /* ZeticMLange.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZeticMLange.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -87,7 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				166FA5F62C9D448300504C63 /* ZeticMLange.framework in Frameworks */,
+				16317D502DB091AF009E53C2 /* ZeticMLange in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,7 +112,6 @@
 				162251EE2C9D438100327F48 /* ZeticMLangeFaceLandmark-iOSTests */,
 				162251F82C9D438100327F48 /* ZeticMLangeFaceLandmark-iOSUITests */,
 				162251DC2C9D438000327F48 /* Products */,
-				166FA5F42C9D447D00504C63 /* ZeticMLange.framework */,
 				16563F792CA5717300733DC7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -173,6 +169,7 @@
 			);
 			name = "ZeticMLangeFaceLandmark-iOS";
 			packageProductDependencies = (
+				16317D4F2DB091AF009E53C2 /* ZeticMLange */,
 			);
 			productName = "ZeticMLangeFaceLandmark-iOS";
 			productReference = 162251DB2C9D438000327F48 /* ZeticMLangeFaceLandmark-iOS.app */;
@@ -256,6 +253,9 @@
 			);
 			mainGroup = 162251D22C9D438000327F48;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				16317D4E2DB091AF009E53C2 /* XCRemoteSwiftPackageReference "ZeticMLangeiOS" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 162251DC2C9D438000327F48 /* Products */;
 			projectDirPath = "";
@@ -637,6 +637,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		16317D4E2DB091AF009E53C2 /* XCRemoteSwiftPackageReference "ZeticMLangeiOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/zetic-ai/ZeticMLangeiOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		16317D4F2DB091AF009E53C2 /* ZeticMLange */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16317D4E2DB091AF009E53C2 /* XCRemoteSwiftPackageReference "ZeticMLangeiOS" */;
+			productName = ZeticMLange;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 162251D32C9D438000327F48 /* Project object */;
 }
