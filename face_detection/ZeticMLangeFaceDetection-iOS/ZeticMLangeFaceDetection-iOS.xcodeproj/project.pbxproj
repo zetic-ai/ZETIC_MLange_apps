@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		162E0ED02D26868600FE0703 /* ZeticMLange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 162E0ECF2D26868600FE0703 /* ZeticMLange.framework */; };
+		16317D0A2DAFB6CF009E53C2 /* ZeticMLange in Frameworks */ = {isa = PBXBuildFile; productRef = 16317D092DAFB6CF009E53C2 /* ZeticMLange */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +28,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		162E0ECF2D26868600FE0703 /* ZeticMLange.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZeticMLange.framework; sourceTree = "<group>"; };
 		166EEFFD2C9D4AE900E3DFCA /* ZeticMLangeFaceDetection-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZeticMLangeFaceDetection-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		166EF00D2C9D4AEA00E3DFCA /* ZeticMLangeFaceDetection-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ZeticMLangeFaceDetection-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		166EF0172C9D4AEA00E3DFCA /* ZeticMLangeFaceDetection-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ZeticMLangeFaceDetection-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				162E0ED02D26868600FE0703 /* ZeticMLange.framework in Frameworks */,
+				16317D0A2DAFB6CF009E53C2 /* ZeticMLange in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +87,6 @@
 		166EEFF42C9D4AE900E3DFCA = {
 			isa = PBXGroup;
 			children = (
-				162E0ECF2D26868600FE0703 /* ZeticMLange.framework */,
 				166EEFFF2C9D4AE900E3DFCA /* ZeticMLangeFaceDetection-iOS */,
 				166EF0102C9D4AEA00E3DFCA /* ZeticMLangeFaceDetection-iOSTests */,
 				166EF01A2C9D4AEA00E3DFCA /* ZeticMLangeFaceDetection-iOSUITests */,
@@ -127,6 +125,7 @@
 			);
 			name = "ZeticMLangeFaceDetection-iOS";
 			packageProductDependencies = (
+				16317D092DAFB6CF009E53C2 /* ZeticMLange */,
 			);
 			productName = "ZeticMLangeFaceDetection-iOS";
 			productReference = 166EEFFD2C9D4AE900E3DFCA /* ZeticMLangeFaceDetection-iOS.app */;
@@ -210,6 +209,9 @@
 			);
 			mainGroup = 166EEFF42C9D4AE900E3DFCA;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				16317D082DAFB6CF009E53C2 /* XCRemoteSwiftPackageReference "ZeticMLangeiOS" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 166EEFFE2C9D4AE900E3DFCA /* Products */;
 			projectDirPath = "";
@@ -595,6 +597,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		16317D082DAFB6CF009E53C2 /* XCRemoteSwiftPackageReference "ZeticMLangeiOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/zetic-ai/ZeticMLangeiOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		16317D092DAFB6CF009E53C2 /* ZeticMLange */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16317D082DAFB6CF009E53C2 /* XCRemoteSwiftPackageReference "ZeticMLangeiOS" */;
+			productName = ZeticMLange;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 166EEFF52C9D4AE900E3DFCA /* Project object */;
 }

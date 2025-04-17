@@ -5,31 +5,21 @@ import ZeticMLange
 class FaceDetection: ObservableObject {
     @Published var faces: Array<FaceDetectionResult> = []
     
-    private var isProcessing = false
-    
-    private let model = ZeticMLangeModel("face_detection_short_range")!
+    public static let modelKey = "9e9431d8e3874ab2aa9530be711e8575"
+    private let model = (try? ZeticMLangeModel("debug_cb6cb12939644316888f333523e42622", modelKey))!
     private let wrapper = FaceDetectionWrapper()
     
     func process(input: FaceDetectionInput) {
-        if isProcessing {
-            return
-        }
-        isProcessing = true
-        
-        DispatchQueue.global().async { [self] in
+        do {
             let preprocess = wrapper.preprocess(input.image)
-            do {
-                try model.run([preprocess])
-            } catch {
-                
-            }
+            try model.run([preprocess])
             var modelOutput = model.getOutputDataArray()
             let faces = wrapper.postprocess(&modelOutput)
-            let output =  FaceDetectionOutput(faces: faces)
             DispatchQueue.main.async {
-                self.faces = output.faces
-                self.isProcessing = false
+                self.faces = faces
             }
+        } catch {
+            print(error)
         }
     }
 }
