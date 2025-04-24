@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		16C0D77B2D266700006FA602 /* ZeticMLange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C5C3522C9C02EA0092E02F /* ZeticMLange.framework */; };
-		16C0D77C2D266700006FA602 /* ZeticMLange.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16C5C3522C9C02EA0092E02F /* ZeticMLange.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1675F4812DAFAF00005B6715 /* ZeticMLange in Frameworks */ = {isa = PBXBuildFile; productRef = 1675F4802DAFAF00005B6715 /* ZeticMLange */; };
+		1675F4852DAFB041005B6715 /* CustomFrameModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1675F4842DAFB041005B6715 /* CustomFrameModifier.swift */; };
 		16C370F32D265A9E00E3842F /* YOLOv8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C370F22D265A9E00E3842F /* YOLOv8.swift */; };
 		16C370F42D265A9E00E3842F /* DetectionBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C370EE2D265A9E00E3842F /* DetectionBoxView.swift */; };
 		16C370F52D265A9E00E3842F /* CocoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C370ED2D265A9E00E3842F /* CocoConfig.swift */; };
@@ -32,7 +32,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				16C0D77C2D266700006FA602 /* ZeticMLange.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -40,6 +39,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1675F4842DAFB041005B6715 /* CustomFrameModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFrameModifier.swift; sourceTree = "<group>"; };
 		16C370ED2D265A9E00E3842F /* CocoConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoConfig.swift; sourceTree = "<group>"; };
 		16C370EE2D265A9E00E3842F /* DetectionBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionBoxView.swift; sourceTree = "<group>"; };
 		16C370EF2D265A9E00E3842F /* FPSDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPSDisplayView.swift; sourceTree = "<group>"; };
@@ -50,7 +50,6 @@
 		16C370FA2D265AC100E3842F /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		16C370FB2D265AC100E3842F /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		16C371012D265ADC00E3842F /* CameraMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMode.swift; sourceTree = "<group>"; };
-		16C5C3522C9C02EA0092E02F /* ZeticMLange.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZeticMLange.framework; path = "ZeticMLangeYolov8-iOS/ZeticMLange.framework"; sourceTree = "<group>"; };
 		DCB22A3F2C77582A0080FB6B /* ZeticMLangeYOLOv8-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZeticMLangeYOLOv8-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB22A422C77582A0080FB6B /* ZeticMLangeYOLOv8_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeticMLangeYOLOv8_iOSApp.swift; sourceTree = "<group>"; };
 		DCB22A462C77582B0080FB6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16C0D77B2D266700006FA602 /* ZeticMLange.framework in Frameworks */,
+				1675F4812DAFAF00005B6715 /* ZeticMLange in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +82,7 @@
 		16C370FC2D265AC100E3842F /* Vision */ = {
 			isa = PBXGroup;
 			children = (
+				1675F4842DAFB041005B6715 /* CustomFrameModifier.swift */,
 				16C370F82D265AC100E3842F /* CameraFrame.swift */,
 				16C370F92D265AC100E3842F /* CameraModel.swift */,
 				16C370FA2D265AC100E3842F /* CameraPreview.swift */,
@@ -102,7 +102,6 @@
 		DCB22A362C77582A0080FB6B = {
 			isa = PBXGroup;
 			children = (
-				16C5C3522C9C02EA0092E02F /* ZeticMLange.framework */,
 				DCB22A572C775A5F0080FB6B /* coco.yaml */,
 				DCB22A412C77582A0080FB6B /* ZeticMLangeYOLOv8-iOS */,
 				16C5C34D2C9C02980092E02F /* Frameworks */,
@@ -185,6 +184,9 @@
 				Base,
 			);
 			mainGroup = DCB22A362C77582A0080FB6B;
+			packageReferences = (
+				1675F47F2DAFAF00005B6715 /* XCRemoteSwiftPackageReference "ZeticMLangeiOS" */,
+			);
 			productRefGroup = DCB22A402C77582A0080FB6B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -213,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCB22A432C77582A0080FB6B /* ZeticMLangeYOLOv8_iOSApp.swift in Sources */,
+				1675F4852DAFB041005B6715 /* CustomFrameModifier.swift in Sources */,
 				16C370F32D265A9E00E3842F /* YOLOv8.swift in Sources */,
 				16C370F42D265A9E00E3842F /* DetectionBoxView.swift in Sources */,
 				16C370F52D265A9E00E3842F /* CocoConfig.swift in Sources */,
@@ -369,7 +372,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -409,7 +412,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -450,6 +453,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1675F47F2DAFAF00005B6715 /* XCRemoteSwiftPackageReference "ZeticMLangeiOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/zetic-ai/ZeticMLangeiOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1675F4802DAFAF00005B6715 /* ZeticMLange */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1675F47F2DAFAF00005B6715 /* XCRemoteSwiftPackageReference "ZeticMLangeiOS" */;
+			productName = ZeticMLange;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DCB22A372C77582A0080FB6B /* Project object */;
 }

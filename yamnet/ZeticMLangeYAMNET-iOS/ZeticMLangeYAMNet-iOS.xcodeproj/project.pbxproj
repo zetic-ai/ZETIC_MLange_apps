@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16317D782DB0975F009E53C2 /* ZeticMLange in Frameworks */ = {isa = PBXBuildFile; productRef = 16317D772DB0975F009E53C2 /* ZeticMLange */; };
 		166274C02CB4C29500075307 /* yamnet_class_map.csv in Resources */ = {isa = PBXBuildFile; fileRef = 166274BF2CB4C29500075307 /* yamnet_class_map.csv */; };
-		16C0D7922D266898006FA602 /* ZeticMLange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C0D7912D266898006FA602 /* ZeticMLange.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +46,6 @@
 		1662749C2CB4C25E00075307 /* ZeticMLangeYAMNet-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ZeticMLangeYAMNet-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		166274A62CB4C25E00075307 /* ZeticMLangeYAMNet-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ZeticMLangeYAMNet-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		166274BF2CB4C29500075307 /* yamnet_class_map.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = yamnet_class_map.csv; sourceTree = "<group>"; };
-		16C0D7912D266898006FA602 /* ZeticMLange.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZeticMLange.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -85,7 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16C0D7922D266898006FA602 /* ZeticMLange.framework in Frameworks */,
+				16317D782DB0975F009E53C2 /* ZeticMLange in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,7 +113,6 @@
 				166274A92CB4C25E00075307 /* ZeticMLangeYAMNet-iOSUITests */,
 				1662748D2CB4C25D00075307 /* Products */,
 				166274BF2CB4C29500075307 /* yamnet_class_map.csv */,
-				16C0D7912D266898006FA602 /* ZeticMLange.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,6 +147,7 @@
 			);
 			name = "ZeticMLangeYAMNet-iOS";
 			packageProductDependencies = (
+				16317D772DB0975F009E53C2 /* ZeticMLange */,
 			);
 			productName = "ZeticMLangeYAMNet-iOS";
 			productReference = 1662748C2CB4C25D00075307 /* ZeticMLangeYAMNet-iOS.app */;
@@ -232,6 +231,9 @@
 			);
 			mainGroup = 166274832CB4C25D00075307;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				16317D762DB0975F009E53C2 /* XCRemoteSwiftPackageReference "ZeticMLangeiOS" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1662748D2CB4C25D00075307 /* Products */;
 			projectDirPath = "";
@@ -610,6 +612,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		16317D762DB0975F009E53C2 /* XCRemoteSwiftPackageReference "ZeticMLangeiOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/zetic-ai/ZeticMLangeiOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		16317D772DB0975F009E53C2 /* ZeticMLange */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16317D762DB0975F009E53C2 /* XCRemoteSwiftPackageReference "ZeticMLangeiOS" */;
+			productName = ZeticMLange;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 166274842CB4C25D00075307 /* Project object */;
 }

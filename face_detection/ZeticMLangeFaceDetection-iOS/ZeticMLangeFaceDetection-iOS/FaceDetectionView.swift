@@ -8,6 +8,7 @@ struct FaceDetectionView: View {
     @StateObject private var cameraModel: CameraModel = CameraModel(.front, .image)
     
     @StateObject private var faceDetection: FaceDetection = FaceDetection()
+    @Environment(\.scenePhase) private var scenePhase
     
     var body: some View {
         GeometryReader { geometry in
@@ -17,7 +18,8 @@ struct FaceDetectionView: View {
                 
                 ZStack {
                     if cameraModel.image != nil {
-                        let _ = faceDetection.process(input: FaceDetectionInput(image: cameraModel.image!))
+                        let input = FaceDetectionInput(image: cameraModel.image!)
+                        let _ = faceDetection.process(input: input)
                         FaceDetectionOverlay(results: faceDetection.faces)
                     }
                 }
@@ -31,6 +33,19 @@ struct FaceDetectionView: View {
         }
         .onDisappear {
             cameraModel.close()
+        }
+        .onChange(of: scenePhase) { newPhase in
+            switch newPhase {
+            case .background:
+                cameraModel.close()
+            case .inactive:
+                break
+            case .active:
+                cameraModel.checkCameraPermission()
+                break
+            @unknown default:
+                break
+            }
         }
     }
 }

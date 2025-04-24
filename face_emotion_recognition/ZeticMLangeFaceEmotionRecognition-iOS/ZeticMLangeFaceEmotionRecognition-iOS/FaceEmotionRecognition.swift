@@ -3,14 +3,14 @@ import UIKit
 import ZeticMLange
 
 class FaceEmotionRecognition {
-    private let model = ZeticMLangeModel("face_emotion_recognition")!
+    private let model = (try? ZeticMLangeModel("debug_cb6cb12939644316888f333523e42622", "223fed6191c848df8b2b707b76707baa"))!
     private let wrapper = FaceEmotionRecognitionWrapper()
     
     func process(input: FaceEmotionRecognitionInput) -> FaceEmotionRecognitionOutput {
         do {
             let preprocess = wrapper.preprocess(input.image, input.roi)
             if (preprocess.isEmpty) {
-                throw ZeticMLangeError("preprocess failed")
+                throw ZeticMLangeError("FaceEmotionRecognition", "preprocess failed")
             }
             try model.run([preprocess])
             var modelOutput = model.getOutputDataArray()

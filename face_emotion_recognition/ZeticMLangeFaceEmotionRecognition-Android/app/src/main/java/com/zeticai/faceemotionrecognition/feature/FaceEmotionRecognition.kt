@@ -1,22 +1,22 @@
 package com.zeticai.faceemotionrecognition.feature
 
 import android.content.Context
-import com.zetic.ZeticMLange.ZeticMLangeModel
-import com.zetic.ZeticMLangeFeature.ZeticMLangeFeatureFaceEmotionRecognition
-import com.zetic.ZeticMLangeFeature.type.Box
-import com.zetic.ZeticMLangeFeature.type.FaceEmotionRecognitionResult
+import com.zeticai.mlange.core.model.ZeticMLangeModel
+import com.zeticai.mlange.feature.entity.Box
+import com.zeticai.mlange.feature.faceemotionrecognition.FaceEmotionRecognitionResult
+import com.zeticai.mlange.feature.faceemotionrecognition.FaceEmotionRecognitionWrapper
 
-class FaceEmotionRecognition @JvmOverloads constructor(
+class FaceEmotionRecognition(
     context: Context,
-    modelKey: String,
-    private val model: ZeticMLangeModel = ZeticMLangeModel(context, modelKey),
-    private val featureModel: ZeticMLangeFeatureFaceEmotionRecognition = ZeticMLangeFeatureFaceEmotionRecognition()
 ) {
+    private val model: ZeticMLangeModel = ZeticMLangeModel(context, "debug_cb6cb12939644316888f333523e42622", modelKey)
+    private val wrapper: FaceEmotionRecognitionWrapper = FaceEmotionRecognitionWrapper()
+
     fun run(imagePtr: Long, roi: Box): FaceEmotionRecognitionResult {
-        val preprocess = featureModel.preprocess(imagePtr, roi)
+        val preprocess = wrapper.preprocess(imagePtr, roi)
         model.run(arrayOf(preprocess))
         val modelOutput = model.outputBuffers
-        return featureModel.postprocess(modelOutput.map {
+        return wrapper.postprocess(modelOutput.map {
             val byteArray = ByteArray(it.remaining())
             it.get(byteArray)
             return@map byteArray
@@ -25,6 +25,10 @@ class FaceEmotionRecognition @JvmOverloads constructor(
 
     fun close() {
         model.deinit()
-        featureModel.deinit()
+        wrapper.deinit()
+    }
+
+    companion object {
+        val modelKey: String = "223fed6191c848df8b2b707b76707baa"
     }
 }

@@ -6,34 +6,32 @@ class YOLOv8: ObservableObject {
     @Published private(set) var currentFPS: Double = 0
     @Published private(set) var detectionResults: [YOLOv8Result] = []
     
-    private var isProcessing = false
+    public static let modelKey = "b9f5d74e6f644288a32c50174ded828e"
+    
+    private let model = (try? ZeticMLangeModel("debug_cb6cb12939644316888f333523e42622", modelKey))!
     
     private var fpsCounter = 0
     private var processPerSecond = 0
     private var lastTimestamp = CMTime.zero
     
-    private let model: ZeticMLangeModel
     private let wrapper: YOLOv8Wrapper
     
-    init(key: String) {
+    init() {
         let yamlURL = Bundle.main.url(forResource: "coco", withExtension: "yaml")!
-        self.model = ZeticMLangeModel(key)!
         self.wrapper = YOLOv8Wrapper(yamlURL.absoluteString)
     }
     
     func process(input: YOLOv8Input) {
-        if isProcessing {
-            return
-        }
-        isProcessing = true
+        let frame = input.frame
+        let totalTimeBegin = CACurrentMediaTime()
         
-        DispatchQueue.global(qos: .userInitiated).async { [self] in
-            
-            let frame = input.frame
-            
-            let totalTimeBegin = CACurrentMediaTime()
-            
-            let yoloProcessedData = wrapper.featurePreprocess(frame.imageAddress, frame.width, frame.height, frame.bytesPerRow)
+        let output = frame.withUnsafeBytes { frameBytes in
+            let yoloProcessedData = wrapper.featurePreprocess(
+                frameBytes.baseAddress!,
+                frame.width,
+                frame.height,
+                frame.bytesPerRow
+            )
             let yoloModelInput = [yoloProcessedData]
             
             do {
@@ -41,25 +39,23 @@ class YOLOv8: ObservableObject {
                 var outputs = model.getOutputDataArray()
                 processPerSecond += 1
                 
-                let pointer = FeatureUtils.dataToMutableBytePointer(data: &outputs[0])!
-                
-                let detectionResults = wrapper.featurePostprocess(pointer)
-                let totalElapsedTime = CACurrentMediaTime() - totalTimeBegin
-                
-                let output = YOLOv8Output(results: detectionResults, fps: Double(1/totalElapsedTime))
-                
-                DispatchQueue.main.async {
-                    self.detectionResults = output.results
-                    self.currentFPS = output.fps
-                    self.isProcessing = false
+                return outputs[0].withUnsafeMutableBytes { bufferPtr in
+                    let pointer = bufferPtr.baseAddress!.assumingMemoryBound(to: UInt8.self)
+                    let detectionResults = wrapper.featurePostprocess(pointer)
+                    let totalElapsedTime = CACurrentMediaTime() - totalTimeBegin
+                    
+                    return YOLOv8Output(results: detectionResults, fps: Double(1/totalElapsedTime))
                 }
             } catch {
                 print("YOLO processing error: \(error)")
-                isProcessing = false
+                return YOLOv8Output(results: [], fps: 0)
             }
         }
-        
+        DispatchQueue.main.async {
+            self.detectionResults = output.results
+        }
     }
+    
     func close() {
         detectionResults = []
     }

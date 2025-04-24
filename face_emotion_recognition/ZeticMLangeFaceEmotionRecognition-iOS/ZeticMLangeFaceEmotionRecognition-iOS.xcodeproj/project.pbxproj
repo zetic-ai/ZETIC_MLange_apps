@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,15 +13,9 @@
 		162E0E8C2D266D2600FE0703 /* FaceEmotionRecognitionPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162E0E872D266D2600FE0703 /* FaceEmotionRecognitionPipeline.swift */; };
 		162E0E932D266D3F00FE0703 /* FaceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162E0E912D266D3F00FE0703 /* FaceDetection.swift */; };
 		162E0E942D266D3F00FE0703 /* FaceDetectionOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162E0E922D266D3F00FE0703 /* FaceDetectionOverlay.swift */; };
-		162E0E9B2D266D4900FE0703 /* CameraFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162E0E952D266D4900FE0703 /* CameraFrame.swift */; };
-		162E0E9C2D266D4900FE0703 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162E0E982D266D4900FE0703 /* CameraPreview.swift */; };
-		162E0E9D2D266D4900FE0703 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162E0E972D266D4900FE0703 /* CameraModel.swift */; };
-		162E0E9E2D266D4900FE0703 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162E0E992D266D4900FE0703 /* PreviewView.swift */; };
-		162E0E9F2D266D4900FE0703 /* CameraMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162E0E962D266D4900FE0703 /* CameraMode.swift */; };
 		162E0EA32D266D5500FE0703 /* Clamped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162E0EA02D266D5500FE0703 /* Clamped.swift */; };
 		162E0EA62D266DC900FE0703 /* ZeticMLangeFaceEmotionRecognition_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162E0EA52D266DC900FE0703 /* ZeticMLangeFaceEmotionRecognition_iOSApp.swift */; };
-		163A8D452C93D9E5009CFF49 /* ZeticMLange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 163A8D432C93D9E2009CFF49 /* ZeticMLange.framework */; };
-		163A8D462C93D9E5009CFF49 /* ZeticMLange.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 163A8D432C93D9E2009CFF49 /* ZeticMLange.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		16317D532DB0946B009E53C2 /* ZeticMLange in Frameworks */ = {isa = PBXBuildFile; productRef = 16317D522DB0946B009E53C2 /* ZeticMLange */; };
 		168E352B2C93D7E300F6ACD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 168E352A2C93D7E300F6ACD9 /* Assets.xcassets */; };
 		168E352E2C93D7E300F6ACD9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 168E352D2C93D7E300F6ACD9 /* Preview Assets.xcassets */; };
 		168E35382C93D7E300F6ACD9 /* ZeticMLangeFaceEmotionRecognition_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168E35372C93D7E300F6ACD9 /* ZeticMLangeFaceEmotionRecognition_iOSTests.swift */; };
@@ -53,7 +47,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				163A8D462C93D9E5009CFF49 /* ZeticMLange.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,14 +60,8 @@
 		162E0E882D266D2600FE0703 /* FaceEmotionRecognitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceEmotionRecognitionView.swift; sourceTree = "<group>"; };
 		162E0E912D266D3F00FE0703 /* FaceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetection.swift; sourceTree = "<group>"; };
 		162E0E922D266D3F00FE0703 /* FaceDetectionOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectionOverlay.swift; sourceTree = "<group>"; };
-		162E0E952D266D4900FE0703 /* CameraFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFrame.swift; sourceTree = "<group>"; };
-		162E0E962D266D4900FE0703 /* CameraMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMode.swift; sourceTree = "<group>"; };
-		162E0E972D266D4900FE0703 /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
-		162E0E982D266D4900FE0703 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
-		162E0E992D266D4900FE0703 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		162E0EA02D266D5500FE0703 /* Clamped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clamped.swift; sourceTree = "<group>"; };
 		162E0EA52D266DC900FE0703 /* ZeticMLangeFaceEmotionRecognition_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeticMLangeFaceEmotionRecognition_iOSApp.swift; sourceTree = "<group>"; };
-		163A8D432C93D9E2009CFF49 /* ZeticMLange.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZeticMLange.framework; sourceTree = "<group>"; };
 		168E35232C93D7E200F6ACD9 /* ZeticMLangeFaceEmotionRecognition-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZeticMLangeFaceEmotionRecognition-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		168E352A2C93D7E300F6ACD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		168E352D2C93D7E300F6ACD9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -85,12 +72,16 @@
 		168E35432C93D7E300F6ACD9 /* ZeticMLangeFaceEmotionRecognition_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeticMLangeFaceEmotionRecognition_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		16317D5A2DB0950C009E53C2 /* Vision */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Vision; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		168E35202C93D7E200F6ACD9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				163A8D452C93D9E5009CFF49 /* ZeticMLange.framework in Frameworks */,
+				16317D532DB0946B009E53C2 /* ZeticMLange in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,18 +102,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		162E0E9A2D266D4900FE0703 /* Vision */ = {
-			isa = PBXGroup;
-			children = (
-				162E0E952D266D4900FE0703 /* CameraFrame.swift */,
-				162E0E962D266D4900FE0703 /* CameraMode.swift */,
-				162E0E972D266D4900FE0703 /* CameraModel.swift */,
-				162E0E982D266D4900FE0703 /* CameraPreview.swift */,
-				162E0E992D266D4900FE0703 /* PreviewView.swift */,
-			);
-			path = Vision;
-			sourceTree = "<group>";
-		};
 		162E0EA22D266D5500FE0703 /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,7 +120,6 @@
 		168E351A2C93D7E200F6ACD9 = {
 			isa = PBXGroup;
 			children = (
-				163A8D432C93D9E2009CFF49 /* ZeticMLange.framework */,
 				168E35252C93D7E200F6ACD9 /* ZeticMLangeFaceEmotionRecognition-iOS */,
 				168E35362C93D7E300F6ACD9 /* ZeticMLangeFaceEmotionRecognition-iOSTests */,
 				168E35402C93D7E300F6ACD9 /* ZeticMLangeFaceEmotionRecognition-iOSUITests */,
@@ -163,9 +141,9 @@
 		168E35252C93D7E200F6ACD9 /* ZeticMLangeFaceEmotionRecognition-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				16317D5A2DB0950C009E53C2 /* Vision */,
 				162E0EA52D266DC900FE0703 /* ZeticMLangeFaceEmotionRecognition_iOSApp.swift */,
 				162E0EA22D266D5500FE0703 /* Util */,
-				162E0E9A2D266D4900FE0703 /* Vision */,
 				162E0E912D266D3F00FE0703 /* FaceDetection.swift */,
 				162E0E922D266D3F00FE0703 /* FaceDetectionOverlay.swift */,
 				162E0E852D266D2600FE0703 /* FaceEmotionRecognition.swift */,
@@ -218,6 +196,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				16317D5A2DB0950C009E53C2 /* Vision */,
 			);
 			name = "ZeticMLangeFaceEmotionRecognition-iOS";
 			productName = "ZeticMLangeFaceEmotionRecognition-iOS";
@@ -293,6 +274,9 @@
 				Base,
 			);
 			mainGroup = 168E351A2C93D7E200F6ACD9;
+			packageReferences = (
+				16317D512DB0946B009E53C2 /* XCRemoteSwiftPackageReference "ZeticMLangeiOS" */,
+			);
 			productRefGroup = 168E35242C93D7E200F6ACD9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -336,12 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				162E0E892D266D2600FE0703 /* FaceEmotionRecognitionOverlay.swift in Sources */,
-				162E0E9B2D266D4900FE0703 /* CameraFrame.swift in Sources */,
-				162E0E9C2D266D4900FE0703 /* CameraPreview.swift in Sources */,
-				162E0E9D2D266D4900FE0703 /* CameraModel.swift in Sources */,
-				162E0E9E2D266D4900FE0703 /* PreviewView.swift in Sources */,
 				162E0EA62D266DC900FE0703 /* ZeticMLangeFaceEmotionRecognition_iOSApp.swift in Sources */,
-				162E0E9F2D266D4900FE0703 /* CameraMode.swift in Sources */,
 				162E0E8A2D266D2600FE0703 /* FaceEmotionRecognitionView.swift in Sources */,
 				162E0E8B2D266D2600FE0703 /* FaceEmotionRecognition.swift in Sources */,
 				162E0E932D266D3F00FE0703 /* FaceDetection.swift in Sources */,
@@ -700,6 +679,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		16317D512DB0946B009E53C2 /* XCRemoteSwiftPackageReference "ZeticMLangeiOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/zetic-ai/ZeticMLangeiOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		16317D522DB0946B009E53C2 /* ZeticMLange */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16317D512DB0946B009E53C2 /* XCRemoteSwiftPackageReference "ZeticMLangeiOS" */;
+			productName = ZeticMLange;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 168E351B2C93D7E200F6ACD9 /* Project object */;
 }

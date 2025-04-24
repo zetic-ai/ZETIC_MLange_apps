@@ -6,11 +6,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.zetic.ZeticMLange.ZeticMLangeModel
 import java.io.BufferedReader
 import java.io.InputStreamReader
-import java.nio.ByteBuffer
-import java.nio.ByteOrder
 
 class MainActivity : AppCompatActivity() {
     private val audioClasses: List<String> by lazy {
@@ -22,61 +19,20 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
     private val audioClassVisualizationSurfaceView: AudioClassVisualizationSurfaceView by lazy {
-        findViewById(
-            R.id.audio_class_visualizer
-        )
-    }
-    private val yamnetModel: ZeticMLangeModel by lazy { ZeticMLangeModel(this, "YAMNet") }
-    private val audioRecord: AudioSampler by lazy {
-        AudioSampler {
-            yamnetModel.run(arrayOf(it))
-            val output = yamnetModel.outputBuffers[1]
-            val outputs = postprocess(output)
-            audioClassVisualizationSurfaceView.visualize(
-                outputs.first.map {
-                    AudioClass(audioClasses[it], outputs.second[it])
-                }
-            )
-        }
+        findViewById(R.id.audio_class_visualizer)
     }
 
-    private fun postprocess(
-        outputBuffer: ByteBuffer
-    ): Pair<IntArray, FloatArray> {
-        val row = 6
-        val column = 521
-        val topN = 5
-
-        outputBuffer.order(ByteOrder.nativeOrder())
-        outputBuffer.rewind()
-        val floatBuffer = outputBuffer.asFloatBuffer()
-        val floatArray = FloatArray(outputBuffer.remaining() / Float.SIZE_BYTES)
-        floatBuffer.get(floatArray)
-
-        val scores = Array(row) { FloatArray(column) }
-        for (i in 0 until row) {
-            System.arraycopy(floatArray, i * column, scores[i], 0, column)
-        }
-
-        val meanScores = FloatArray(column) { index ->
-            scores.map { it[index] }.average().toFloat()
-        }
-
-        val topClassIndices = meanScores.withIndex()
-            .sortedByDescending { it.value }
-            .take(topN)
-            .map { it.index }
-            .toIntArray()
-
-        return Pair(topClassIndices, meanScores)
-    }
+    private val yamnet: YAMNet by lazy { YAMNet( this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         if (checkPermission()) {
-            audioRecord.startRecording()
+            Thread {
+                yamnet.startRecording(::visualize)
+            }.start()
         } else {
             requestPermission()
         }
@@ -102,13 +58,23 @@ class MainActivity : AppCompatActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == PERMISSION_REQUEST_CODE && grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            audioRecord.startRecording()
+            yamnet.startRecording(::visualize)
+        }
+    }
+
+    private fun visualize(outputs: Pair<IntArray, FloatArray>) {
+        runOnUiThread {
+            audioClassVisualizationSurfaceView.visualize(
+                outputs.first.map {
+                    AudioClass(audioClasses[it], outputs.second[it])
+                }
+            )
         }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        audioRecord.stopRecording()
+        yamnet.deinit()
     }
 
     companion object {

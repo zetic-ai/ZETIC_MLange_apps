@@ -6,7 +6,7 @@ class YAMNet: ObservableObject {
     @Published var scores: Array<AudioClass>?
     
     let audioRecorder = YAMNetAudioRecorder()!
-    let model = ZeticMLangeModel("YAMNet", Target.ZETIC_MLANGE_TARGET_COREML_FP32)!
+    let model = (try? ZeticMLangeModel("debug_cb6cb12939644316888f333523e42622", "0578064c31cf45669c5b1aadc23ed991", .ZETIC_MLANGE_TARGET_COREML_FP32))!
     
     private var isProcessing = false
     
@@ -32,7 +32,7 @@ class YAMNet: ObservableObject {
                 try model.run([input.audio])
                 let outputs = model.getOutputDataArray()
                 
-                let floats = outputs[2].withUnsafeBytes { ptr -> [[Float]] in
+                let floats = outputs[1].withUnsafeBytes { ptr -> [[Float]] in
                     
                     let rowCount = 6
                     let columnCount = 521

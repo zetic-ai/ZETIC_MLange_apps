@@ -1,36 +1,41 @@
 package com.zeticai.zeticmlangeyolov8androidjava.feature
 
 import android.content.Context
-import com.zetic.ZeticMLange.ZeticMLangeModel
-import com.zetic.ZeticMLangeFeature.ZeticMLangeFeatureYolov8
-import com.zetic.ZeticMLangeFeature.type.YoloResult
+import com.zeticai.mlange.core.model.ZeticMLangeModel
+import com.zeticai.mlange.core.model.ZeticMLangeTarget
+import com.zeticai.mlange.feature.yolov8.YoloResult
+import com.zeticai.mlange.feature.yolov8.Yolov8Wrapper
 import java.io.File
 import java.io.FileOutputStream
 
-class YoloV8 @JvmOverloads constructor(
+class YOLOv8(
     context: Context,
-    modelKey: String,
-    private val model: ZeticMLangeModel = ZeticMLangeModel(context, modelKey),
 ) {
-    private val featureModel: ZeticMLangeFeatureYolov8
+    private val model: ZeticMLangeModel = ZeticMLangeModel(
+        context,
+        "debug_cb6cb12939644316888f333523e42622",
+        MODEL_KEY,
+        ZeticMLangeTarget.ZETIC_MLANGE_TARGET_ORT
+    )
+    private val wrapper: Yolov8Wrapper
 
     init {
         val cocoYamlSamplePath = "coco.yaml"
         copyFileFromAssetsToData(context, cocoYamlSamplePath)
         val cocoYamlFile = File(context.filesDir, cocoYamlSamplePath)
         val cocoYamlPath = cocoYamlFile.absolutePath
-        featureModel = ZeticMLangeFeatureYolov8(cocoYamlPath)
+        wrapper = Yolov8Wrapper(cocoYamlPath)
     }
 
     fun run(imagePtr: Long): YoloResult {
-        val preprocess = featureModel.preprocess(imagePtr)
+        val preprocess = wrapper.preprocess(imagePtr)
         model.run(arrayOf(preprocess))
-        return featureModel.postprocess(model.outputBuffers[0].array())
+        return wrapper.postprocess(model.outputBuffers[0].array())
     }
 
     fun close() {
         model.deinit()
-        featureModel.deinit()
+        wrapper.deinit()
     }
 
     private fun copyFileFromAssetsToData(context: Context, fileName: String) {
@@ -48,5 +53,9 @@ class YoloV8 @JvmOverloads constructor(
         file.close()
         out.flush()
         out.close()
+    }
+
+    companion object {
+        const val MODEL_KEY: String = "b9f5d74e6f644288a32c50174ded828e"
     }
 }

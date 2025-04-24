@@ -1,23 +1,23 @@
 package com.zeticai.facelandmark.feature
 
 import android.content.Context
-import com.zetic.ZeticMLange.ZeticMLangeModel
-import com.zetic.ZeticMLangeFeature.ZeticMLangeFeatureFaceLandmark
-import com.zetic.ZeticMLangeFeature.type.Box
-import com.zetic.ZeticMLangeFeature.type.FaceLandmarkResult
+import com.zeticai.mlange.core.model.ZeticMLangeModel
+import com.zeticai.mlange.feature.entity.Box
+import com.zeticai.mlange.feature.facelandmark.FaceLandmarkResult
+import com.zeticai.mlange.feature.facelandmark.FaceLandmarkWrapper
 
-class FaceLandmark @JvmOverloads constructor(
+class FaceLandmark(
     context: Context,
-    modelKey: String,
-    private val model: ZeticMLangeModel = ZeticMLangeModel(context, modelKey),
-    private val featureModel: ZeticMLangeFeatureFaceLandmark = ZeticMLangeFeatureFaceLandmark()
 ) {
+    private val model: ZeticMLangeModel = ZeticMLangeModel(context, "debug_cb6cb12939644316888f333523e42622", modelKey)
+    private val wrapper: FaceLandmarkWrapper = FaceLandmarkWrapper()
+
     fun run(imagePtr: Long, roi: Box): FaceLandmarkResult {
         return runCatching {
-            val preprocess = featureModel.preprocess(imagePtr, roi)
+            val preprocess = wrapper.preprocess(imagePtr, roi)
             model.run(arrayOf(preprocess))
             val modelOutput = model.outputBuffers
-            return featureModel.postprocess(modelOutput.map {
+            return wrapper.postprocess(modelOutput.map {
                 val byteArray = ByteArray(it.remaining())
                 it.get(byteArray)
                 return@map byteArray
@@ -31,6 +31,10 @@ class FaceLandmark @JvmOverloads constructor(
 
     fun close() {
         model.deinit()
-        featureModel.deinit()
+        wrapper.deinit()
+    }
+
+    companion object {
+        val modelKey: String = "c6a4ff77eee74c42bfc04e5afcbd712a"
     }
 }
