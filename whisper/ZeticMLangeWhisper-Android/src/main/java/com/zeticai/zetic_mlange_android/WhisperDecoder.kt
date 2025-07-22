@@ -20,7 +20,7 @@ class WhisperDecoder(
     private val model: ZeticMLangeModel =
         ZeticMLangeModel(
             context,
-            "ztp_68b79702a2524522a4ac799dedaf7854", modelKey, Target.QNN, APType.NPU
+            "{INPUT YOUR TOKEN}", modelKey
         )
 ) {
 
@@ -29,7 +29,6 @@ class WhisperDecoder(
         maxLength: Int = 448
     ): List<Int> {
 
-        /* 0) 토큰 버퍼 (최대 maxLength) */
         val decoderTokenIds = IntArray(maxLength) { 50256 }
         decoderTokenIds[0] = startToken
 
@@ -68,7 +67,6 @@ class WhisperDecoder(
 
     fun close() = model.deinit()
 
-    // 버퍼 크기를 Int.SIZE_BYTES로 변경
     private val idsSliceBuffer: ByteBuffer = ByteBuffer
         .allocate(448 * Int.SIZE_BYTES)
         .order(ByteOrder.LITTLE_ENDIAN)
@@ -86,7 +84,6 @@ class WhisperDecoder(
         idsSliceBuffer.clear()
         attentionMaskBuffer.clear()
 
-        // IntBuffer로 변경하여 IntArray를 채움
         idsSliceBuffer.asIntBuffer().put(idsSlice)
         attentionMaskBuffer.asIntBuffer().put(decoderAttentionMask)
 

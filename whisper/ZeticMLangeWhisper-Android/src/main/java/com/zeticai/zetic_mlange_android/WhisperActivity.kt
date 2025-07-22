@@ -48,7 +48,7 @@ class WhisperActivity : AppCompatActivity() {
     }
 
     private val encoder by lazy {
-        WhisperEncoder(this, "313d31795c9b4d0494deb4d3c6666bb0")
+        WhisperEncoder(this, "{INPUT YOUR MODEL KEY}")
     }
 
     private val decoder by lazy {
@@ -59,8 +59,7 @@ class WhisperActivity : AppCompatActivity() {
             50359,
             50257,
             this,
-//            "dc5f58d792f848e9a3af146d6d5b5d7e",
-            "24e8af927886472cbc3244bfaecde84f"
+            "{INPUT YOUR MODEL KEY}"
         )
     }
 
@@ -105,56 +104,7 @@ class WhisperActivity : AppCompatActivity() {
                 audioSampler.startRecording()
             }.start()
         }
-//        findViewById<Button>(R.id.audio_button).setOnClickListener {
-//            audioText.text = "loading wav…"
-//            Thread {
-//                val wavPath = copyAssetToInternalStorage(this, "output_whisper.wav")
-//
-//                val bufferFloat = WavUtils.loadMono16kPcm(wavPath)
-//
-//                runWhisper(bufferFloat)
-//            }.start()
-//        }
-
     }
-
-
-    private fun runWhisper(bufferFloat: FloatArray) {
-        runOnUiThread { audioText.text = "processing…" }
-
-        val inputStream = assets.open("float_data.bin")
-        val bytes = inputStream.readBytes()
-        val buffer = ByteBuffer.wrap(bytes).order(ByteOrder.LITTLE_ENDIAN)
-        val floatBuffer = buffer.asFloatBuffer()
-        val size = floatBuffer.limit()  // 전체 float 개수
-        val floatArray = FloatArray(size)
-
-        // 현재 position부터 읽으므로 꼭 rewind() 또는 position(0) 해줘야 함
-        floatBuffer.rewind()  // 또는 floatBuffer.position(0)
-        floatBuffer.get(floatArray)
-
-        val sampleCnt = bufferFloat.size
-        val (_, mask1500Buf) = MaskUtils.buildMasks(sampleCnt)
-
-        val features = whisper.process(bufferFloat)          // Mel 80×3000
-        val encOut = encoder.process(features)             // Encoder 출력
-
-
-        val path = copyAssetToInternalStorage(this, "encoded_features.bin")
-
-
-        val bytes2 = File(path).readBytes()
-        val dest = ByteBuffer.wrap(bytes2)
-        dest.order(ByteOrder.LITTLE_ENDIAN)
-        dest.put(bytes2)
-        dumpFloatBuffer("EncOut", dest, 20)  // 앞 20개 찍기
-
-        val ids = decoder.generateTokens(dest)
-        val text = whisper.decodeToken(ids.toIntArray(), true)
-
-        runOnUiThread { audioText.text = text }
-    }
-
 
     override fun onDestroy() {
         super.onDestroy()

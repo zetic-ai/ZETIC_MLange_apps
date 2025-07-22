@@ -12,7 +12,7 @@ class WhisperEncoder(
     modelKey: String,
     private val model: ZeticMLangeModel = ZeticMLangeModel(
         context,
-        "ztp_68b79702a2524522a4ac799dedaf7854",
+        "{INPUT YOUR TOKEN}",
         modelKey
     )
 ) {
