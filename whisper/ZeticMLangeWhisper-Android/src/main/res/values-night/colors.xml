@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#121212</color>
+    <color name="surface">@color/surface_dark</color>
+    <color name="list_item">@color/list_item_dark</color>
+    <color name="separator">@color/separator_dark</color>
+    <color name="text_primary">@color/text_primary_dark</color>
+    <color name="primary">@color/background_dark</color>
+    <color name="text_secondary">@color/text_secondary_dark</color>
+</resources>
