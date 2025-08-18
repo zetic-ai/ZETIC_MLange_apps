@@ -1,4 +1,4 @@
-package com.example.whisper_demo_app
+package com.zeticai.whisper
 
 import android.annotation.SuppressLint
 import android.media.AudioFormat

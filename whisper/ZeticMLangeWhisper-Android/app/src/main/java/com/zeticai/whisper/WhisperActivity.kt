@@ -1,4 +1,4 @@
-package com.example.whisper_demo_app
+package com.zeticai.whisper
 
 import android.Manifest
 import android.annotation.SuppressLint

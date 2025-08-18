@@ -9,7 +9,7 @@ val localProperties = Properties().also {
     it.load(FileInputStream(project.file("local.properties")))
 }
 android {
-    namespace = "com.example.whisper_demo_app"
+    namespace = "com.zeticai.whisper"
     compileSdk = 36
 
     packaging {
@@ -20,7 +20,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.whisper_demo_app"
+        applicationId = "com.zeticai.whisper"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

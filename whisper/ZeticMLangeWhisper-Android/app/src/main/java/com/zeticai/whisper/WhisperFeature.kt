@@ -1,4 +1,4 @@
-package com.example.whisper_demo_app
+package com.zeticai.whisper
 
 import android.content.Context
 import com.zeticai.mlange.feature.automaticspeechrecognition.whisper.WhisperWrapper
