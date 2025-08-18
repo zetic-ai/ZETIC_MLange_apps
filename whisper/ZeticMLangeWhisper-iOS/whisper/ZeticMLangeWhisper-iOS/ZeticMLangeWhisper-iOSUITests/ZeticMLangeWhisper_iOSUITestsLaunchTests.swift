@@ -1,10 +1,3 @@
-//
-//  ZeticMLangeWhisper_iOSUITestsLaunchTests.swift
-//  ZeticMLangeWhisper-iOSUITests
-//
-//  Created by 김필모 on 8/18/25.
-//
-
 import XCTest
 
 final class ZeticMLangeWhisper_iOSUITestsLaunchTests: XCTestCase {

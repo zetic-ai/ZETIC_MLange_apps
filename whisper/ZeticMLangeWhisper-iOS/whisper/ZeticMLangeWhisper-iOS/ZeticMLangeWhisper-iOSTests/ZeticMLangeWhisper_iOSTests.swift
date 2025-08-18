@@ -1,10 +1,3 @@
-//
-//  ZeticMLangeWhisper_iOSTests.swift
-//  ZeticMLangeWhisper-iOSTests
-//
-//  Created by 김필모 on 8/18/25.
-//
-
 import Testing
 @testable import ZeticMLangeWhisper_iOS
 
