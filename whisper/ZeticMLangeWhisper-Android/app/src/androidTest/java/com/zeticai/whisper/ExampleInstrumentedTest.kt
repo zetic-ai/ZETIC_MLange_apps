@@ -1,4 +1,4 @@
-package com.example.whisper_demo_app
+package com.zeticai.whisper
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
