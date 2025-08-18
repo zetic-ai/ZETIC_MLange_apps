@@ -61,6 +61,7 @@ android {
 }
 
 dependencies {
+    implementation("com.zeticai.ext:ext:0.0.1")
     implementation("com.zeticai.mlange:mlange:1.3.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
