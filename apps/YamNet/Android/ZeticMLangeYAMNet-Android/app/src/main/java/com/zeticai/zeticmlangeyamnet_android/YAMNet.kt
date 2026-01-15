@@ -9,7 +9,7 @@ import java.nio.ByteOrder
 class YAMNet(
     context: Context,
 ) {
-    private val model: ZeticMLangeModel = ZeticMLangeModel(context, "debug_cb6cb12939644316888f333523e42622", modelKey, ZeticMLangeTarget.ZETIC_MLANGE_TARGET_ORT)
+    private val model: ZeticMLangeModel = ZeticMLangeModel(context, "YOUR_PERSONAL_KEY", "YOUR_PROJECT_NAME")
     private val audioRecord: AudioSampler by lazy {
         AudioSampler()
     }

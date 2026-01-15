@@ -3,7 +3,7 @@ import UIKit
 import ZeticMLange
 
 class FaceDetection {
-    private let model = (try? ZeticMLangeModel("debug_cb6cb12939644316888f333523e42622", "9e9431d8e3874ab2aa9530be711e8575"))!
+    private let model = (try? ZeticMLangeModel(personalKey: "YOUR_PERSONAL_KEY", name: "YOUR_PROJECT_NAME", version: 1))!
     private let wrapper = FaceDetectionWrapper()
     
     func process(input: FaceDetectionInput) -> FaceDetectionOutput {

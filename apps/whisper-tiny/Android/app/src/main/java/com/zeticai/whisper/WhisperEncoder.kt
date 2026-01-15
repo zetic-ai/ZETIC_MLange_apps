@@ -8,11 +8,7 @@ import java.nio.ByteBuffer
 class WhisperEncoder(
     context: Context,
     modelKey: String,
-    private val model: ZeticMLangeModel = ZeticMLangeModel(
-        context,
-        BuildConfig.PERSONAL_KEY,
-        modelKey
-    )
+    private val model: ZeticMLangeModel = ZeticMLangeModel(context, "YOUR_PERSONAL_KEY", "YOUR_PROJECT_NAME")
 ) {
 
     fun process(audioData: FloatArray): ByteBuffer {

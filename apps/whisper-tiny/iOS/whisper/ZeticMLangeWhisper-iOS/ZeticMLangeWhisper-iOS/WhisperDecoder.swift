@@ -9,7 +9,7 @@ class WhisperDecoder {
     public static let modelKey = "OpenAI/whisper-tiny-decoder"
     
     init() {
-        model = (try? ZeticMLangeModel(tokenKey: PrivateValues.personalKey, name: WhisperDecoder.modelKey))!
+        model = (try? ZeticMLangeModel(personalKey: "YOUR_PERSONAL_KEY", name: "YOUR_PROJECT_NAME", version: 1))!
     }
     func process(_ encoderOutput: Data, _ maxLength: Int = 448, temperature: Float = 1.0) -> [Int32] {
         var decoderTokenIds = Array(repeating: Int32(100), count: maxLength)
