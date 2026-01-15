@@ -1,0 +1,3 @@
+[submodule "zetic_mlange_ext"]
+	path = zetic_mlange_ext
+	url = git@github.com:zetic-ai/zetic_mlange_ext.git
