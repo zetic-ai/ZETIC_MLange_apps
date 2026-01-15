@@ -5,7 +5,6 @@
 <a href="https://zetic.ai"><img alt="ZETIC.ai Homepage" src="https://img.shields.io/badge/Website-zetic.ai-brightgreen"></a>
 <a href="https://docs.zetic.ai"><img alt="MLange Documentation" src="https://img.shields.io/badge/Document-online-yellow"></a>
 <a href="https://mlange.zetic.ai"><img alt="MLange Dashboard" src="https://img.shields.io/badge/MLange Dashboard-web-hotpink"></a>
-<a href="https://github.com/zetic-ai/ZETIC_MLange_apps"><img alt="GitHub Release" src="https://img.shields.io/badge/Demo-MLange Apps-red"></a>
 <a href="https://play.google.com/store/apps/details?id=com.zeticai.zeticapp"><img alt="ZeticApp Play Store" src="https://img.shields.io/badge/ZeticApp-Play Store-darkgreen"></a>
 <a href="https://apps.apple.com/app/zeticapp/id6739862746"><img alt="ZeticApp App Store" src="https://img.shields.io/badge/ZeticApp-App Store-lightblue"></a>
 <a href="https://discord.com/invite/gVFX6myuMx"><img alt="Discord" src="https://img.shields.io/badge/Discord-Join%20Us-7289da"></a>
@@ -87,6 +86,15 @@ We are constantly expanding our library. Here is what's coming next in very soon
   <strong>Finding it difficult?</strong><br/>
   <a href="https://discord.com/invite/gVFX6myuMx"><strong>Join our Discord</strong></a> and request it! we are here to help.
 </p>
+
+<br/>
+
+## Repository Structure
+
+- **`apps/`**: Source code for various On-Device AI applications.
+  - Each app contains Android/iOS projects and a `prepare/` folder for model setup.
+- **`extension/`**: [ZETIC.MLange Extension Library](https://github.com/zetic-ai/zetic_mlange_ext) submodule.
+  - Provides helper extensions and additional functional blocks.
 
 <br/>
 
