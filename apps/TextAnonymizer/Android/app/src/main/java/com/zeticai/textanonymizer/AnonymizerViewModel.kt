@@ -46,6 +46,7 @@ class AnonymizerViewModel(private val context: Context) : ViewModel() {
     private val modelMaxLength = 128
     private var lastInputBytes: ByteArray = ByteArray(0)
     private var lastInputByteCount: Int = 0
+    private var lastInputIsByteBased: Boolean = false
     
     private val classLabels = listOf(
         "O",
@@ -186,9 +187,9 @@ class AnonymizerViewModel(private val context: Context) : ViewModel() {
                     _isProcessing.value = false
                     
                     if (outputs != null && outputs.isNotEmpty()) {
-                        val result = extractStringFromTensor(outputs[0])
-                        if (result != null) {
-                            _anonymizedText.value = result
+                        val masked = maskFromModelOutputs(outputs[0], text)
+                        if (masked != null && masked.isNotEmpty()) {
+                            _anonymizedText.value = masked
                         } else {
                             // Fallback: regex-based masking
                             _anonymizedText.value = maskSensitiveText(text)
@@ -219,6 +220,7 @@ class AnonymizerViewModel(private val context: Context) : ViewModel() {
             if (index < rawBytes.size) rawBytes[index] else 0
         }
         lastInputByteCount = minOf(rawBytes.size, maxLength)
+        lastInputIsByteBased = dataType == "uint8" || dataType == "int8"
         
         return when (dataType) {
             "uint8", "int8" -> {
@@ -319,7 +321,12 @@ class AnonymizerViewModel(private val context: Context) : ViewModel() {
         } catch (e: Exception) {
             val errorText = e.message ?: ""
             // Some models only expect a single input_ids tensor
-            if ((errorText.contains("input_ids") || errorText.contains("expected: 1")) && inputs.size > 1) {
+            if ((errorText.contains("input_ids")
+                    || errorText.contains("expected: 1")
+                    || errorText.contains("numInput")
+                    || errorText.contains("Given (2)"))
+                && inputs.size > 1
+            ) {
                 println("⚠️ Model reported missing input_ids. Retrying with input_ids only.")
                 model.run(arrayOf(inputs[0]))
             } else if (errorText.contains("attention_mask") && inputs.size == 1) {
@@ -331,26 +338,109 @@ class AnonymizerViewModel(private val context: Context) : ViewModel() {
         }
     }
     
-    private fun extractStringFromTensor(tensor: Tensor): String? {
-        println("📤 Extracting string from output tensor...")
+    private fun maskFromModelOutputs(tensor: Tensor, originalText: String): String? {
+        if (!lastInputIsByteBased || lastInputByteCount <= 0) {
+            println("⚠️ Output masking skipped: non-byte input or empty input bytes.")
+            return null
+        }
         
+        val floats = tensorToFloatArray(tensor) ?: return null
+        val classCount = classLabels.size
+        if (floats.size < classCount) {
+            println("⚠️ Output tensor too small to parse.")
+            return null
+        }
+        
+        val seqLen = floats.size / classCount
+        if (seqLen <= 0) return null
+        
+        val tokenCount = minOf(seqLen, lastInputByteCount)
+        val spans = extractSpansFromLogits(floats, tokenCount, classCount)
+        if (spans.isEmpty()) {
+            println("⚠️ No sensitive spans detected by model.")
+            return null
+        }
+        
+        return applyPlaceholders(originalText, spans)
+    }
+    
+    private fun tensorToFloatArray(tensor: Tensor): FloatArray? {
         val buffer = try {
             tensor.data
         } catch (e: Exception) {
             println("⚠️ Could not access tensor.data: ${e.message}")
             return null
         }
-
-        val bytes = ByteArray(buffer.remaining())
-        buffer.duplicate().get(bytes)
-
-        val stringValue = String(bytes, Charsets.UTF_8).trim()
-        if (stringValue.isNotEmpty()) {
-            return stringValue
+        
+        val floatCount = buffer.remaining() / 4
+        if (floatCount <= 0) return null
+        
+        val floatBuffer = buffer.asFloatBuffer()
+        val floats = FloatArray(floatCount)
+        floatBuffer.get(floats)
+        return floats
+    }
+    
+    private fun extractSpansFromLogits(
+        floats: FloatArray,
+        seqLen: Int,
+        classCount: Int
+    ): List<Span> {
+        val spans = mutableListOf<Span>()
+        var currentLabel: String? = null
+        var currentStart = 0
+        var currentScore = 0f
+        
+        fun closeSpan(end: Int) {
+            val label = currentLabel
+            if (label != null && placeholderByLabel.containsKey(label) && end > currentStart) {
+                spans.add(Span(currentStart, end, label, currentScore))
+            }
+            currentLabel = null
+            currentScore = 0f
         }
-
-        println("⚠️ Tensor output was empty or not UTF-8. Falling back to regex masking.")
-        return null
+        
+        for (pos in 0 until seqLen) {
+            val offset = pos * classCount
+            if (offset + classCount > floats.size) break
+            
+            var maxIdx = 0
+            var maxScore = floats[offset]
+            for (i in 1 until classCount) {
+                val score = floats[offset + i]
+                if (score > maxScore) {
+                    maxScore = score
+                    maxIdx = i
+                }
+            }
+            
+            val label = classLabels.getOrNull(maxIdx) ?: "O"
+            if (label == "O") {
+                if (currentLabel != null) {
+                    closeSpan(pos)
+                }
+                continue
+            }
+            
+            if (currentLabel == null) {
+                currentLabel = label
+                currentStart = pos
+                currentScore = maxScore
+            } else if (currentLabel == label) {
+                currentScore = maxOf(currentScore, maxScore)
+            } else {
+                closeSpan(pos)
+                currentLabel = label
+                currentStart = pos
+                currentScore = maxScore
+            }
+        }
+        
+        if (currentLabel != null) {
+            closeSpan(seqLen)
+        }
+        
+        return spans
     }
     
     private fun applyPlaceholders(text: String, spans: List<Span>): String {

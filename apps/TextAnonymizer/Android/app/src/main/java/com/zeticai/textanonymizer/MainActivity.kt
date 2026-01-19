@@ -10,6 +10,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
@@ -36,6 +37,8 @@ class MainActivity : AppCompatActivity() {
         
         setupObservers()
         setupClickListeners()
+        setupTextWatcher()
+        updateAnonymizeButtonState()
     }
     
     private fun setupObservers() {
@@ -124,6 +127,12 @@ class MainActivity : AppCompatActivity() {
                 }
                 startActivity(Intent.createChooser(shareIntent, "Share anonymized text"))
             }
+        }
+    }
+
+    private fun setupTextWatcher() {
+        binding.editTextInput.doAfterTextChanged {
+            updateAnonymizeButtonState()
         }
     }
     
