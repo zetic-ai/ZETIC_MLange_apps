@@ -88,6 +88,7 @@ class ImageUtils {
 // MARK: - YOLOv26Model
 class YOLOv26Model: ObservableObject {
     private var model: ZeticMLangeModel?
+    @Published var isModelLoaded: Bool = false
     
     // Config
     private let targetSize = CGSize(width: 640, height: 640)
@@ -97,14 +98,22 @@ class YOLOv26Model: ObservableObject {
     private let totalOutput = 8400 
     
     init() {
-        do {
-            self.model = try ZeticMLangeModel(tokenKey: "dev_d786c1fd7f2848acb9b0bf8060aa10b2", name: "Team_ZETIC/YOLOv26", version: 3)
-        } catch {
-            print("Failed to load ZeticMLangeModel: \(error)")
+        self.isModelLoaded = false
+        // Async loading to prevent freezing UI
+        DispatchQueue.global(qos: .userInitiated).async {
+            do {
+                self.model = try ZeticMLangeModel(tokenKey: "dev_d786c1fd7f2848acb9b0bf8060aa10b2", name: "Team_ZETIC/YOLOv26", version: 3)
+                DispatchQueue.main.async {
+                    self.isModelLoaded = true
+                }
+            } catch {
+                print("Failed to load ZeticMLangeModel: \(error)")
+            }
         }
     }
     
     @Published var debugText: String = ""
+    @Published var boxes: [BoundingBox] = []
     
     func detect(image: UIImage, completion: @escaping ([BoundingBox], Double) -> Void) {
         guard let model = model else {
@@ -117,7 +126,10 @@ class YOLOv26Model: ObservableObject {
             let startTime = CFAbsoluteTimeGetCurrent()
             
             guard let inputData = ImageUtils.prepareInput(image: image, targetSize: self.targetSize) else {
-                DispatchQueue.main.async { completion([], 0) }
+                DispatchQueue.main.async { 
+                    self.boxes = []
+                    completion([], 0) 
+                }
                 return
             }
             
@@ -132,7 +144,7 @@ class YOLOv26Model: ObservableObject {
                 sumVal += v
             }
             let avgVal = sumVal / Float(count)
-            print("DEBUG: Input Check - Count: \(count), Min: \(minVal), Max: \(maxVal), Avg: \(avgVal)")
+            // print("DEBUG: Input Check - Count: \(count), Min: \(minVal), Max: \(maxVal), Avg: \(avgVal)")
             
             do {
                 let inputDataBytes = inputData.withUnsafeBufferPointer { Data(buffer: $0) }
@@ -142,7 +154,10 @@ class YOLOv26Model: ObservableObject {
                 let outputs = try model.run(inputs: inputs)
                 
                 guard let outputTensor = outputs.first else {
-                    DispatchQueue.main.async { completion([], 0) }
+                    DispatchQueue.main.async { 
+                        self.boxes = []
+                        completion([], 0) 
+                    }
                     return
                 }
                 
@@ -180,16 +195,18 @@ class YOLOv26Model: ObservableObject {
                 }
                 
                 let duration = CFAbsoluteTimeGetCurrent() - startTime
-                print("DEBUG: \(debugInfo)")
+                // print("DEBUG: \(debugInfo)")
                 
                 DispatchQueue.main.async {
                     self.debugText = debugInfo
+                    self.boxes = results
                     completion(results, duration)
                 }
             } catch {
                 print("Inference failed: \(error)")
                 DispatchQueue.main.async {
                     self.debugText = "Error: \(error.localizedDescription)"
+                    self.boxes = []
                     completion([], 0)
                 }
             }

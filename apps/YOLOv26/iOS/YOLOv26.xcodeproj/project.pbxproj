@@ -6,6 +6,7 @@
 	objectVersion = 56;
 	objects = {
 
+		DEADBEEF0000000000000002 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEADBEEF0000000000000001 /* CameraViewController.swift */; };
 /* Begin PBXBuildFile section */
 		1675F4812DAFAF00005B6715 /* ZeticMLange in Frameworks */ = {isa = PBXBuildFile; productRef = 1675F4802DAFAF00005B6715 /* ZeticMLange */; };
 		1675F4852DAFB041005B6715 /* CustomFrameModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1675F4842DAFB041005B6715 /* CustomFrameModifier.swift */; };
@@ -38,6 +39,7 @@
 		};
 /* End PBXCopyFilesBuildPhase section */
 
+		DEADBEEF0000000000000001 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 /* Begin PBXFileReference section */
 		1675F4842DAFB041005B6715 /* CustomFrameModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFrameModifier.swift; sourceTree = "<group>"; };
 		16C370ED2D265A9E00E3842F /* CocoConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoConfig.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 		16C370F12D265A9E00E3842F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DEADBEEF0000000000000001 /* CameraViewController.swift */,
 				16C370EE2D265A9E00E3842F /* DetectionBoxView.swift */,
 				16C370EF2D265A9E00E3842F /* FPSDisplayView.swift */,
 				16C370F02D265A9E00E3842F /* YOLOv26View.swift */,
@@ -214,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEADBEEF0000000000000002 /* CameraViewController.swift in Sources */,
 				DCB22A432C77582A0080FB6B /* YOLOv26_iOSApp.swift in Sources */,
 				1675F4852DAFB041005B6715 /* CustomFrameModifier.swift in Sources */,
 				16C370F32D265A9E00E3842F /* YOLOv26.swift in Sources */,
