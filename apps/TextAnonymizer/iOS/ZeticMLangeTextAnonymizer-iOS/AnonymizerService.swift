@@ -308,7 +308,7 @@ class AnonymizerViewModel: ObservableObject {
     }
 
     private func createTensor(from data: Data, dataType: BuiltinDataType, shape: [Int], label: String) throws -> Tensor {
-        let tensor = try Tensor(data: data, dataType: dataType, shape: shape)
+        let tensor = Tensor(data: data, dataType: dataType, shape: shape)
         print("✅ Created Tensor for \(label) with dataType: \(dataType.rawValue)")
         return tensor
     }
