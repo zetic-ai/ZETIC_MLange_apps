@@ -51,6 +51,21 @@
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "ZETIC_MODEL_VERSION"
+            value = "2"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "ZETIC_ACCESS_TOKEN"
+            value = "ztp_3b1e7682a2e14ac2b9b90f1244fb0018"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "ZETIC_MODEL_NAME"
+            value = "jathin-zetic/tanaos-text-anonymizer"
+            isEnabled = "YES">
+         </EnvironmentVariable>
       </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction

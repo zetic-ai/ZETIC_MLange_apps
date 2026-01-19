@@ -35,11 +35,17 @@ class AnonymizerViewModel: ObservableObject {
         "OTHER"
     ]
     private let placeholderByLabel: [String: String] = [
+        "O": "[Text]",
         "EMAIL": "[Email]",
         "PHONE_NUMBER": "[Phone number]",
         "CREDIT_CARD_NUMBER": "[Credit card]",
         "SSN": "[SSN]",
-        "NRP": "[NRP]"
+        "NRP": "[NRP]",
+        "PERSON": "[Person]",
+        "ADDRESS": "[Address]",
+        "LOCATION": "[Location]",
+        "DATE": "[Date]",
+        "OTHER": "[Sensitive]"
     ]
     
     private let modelName: String
@@ -394,6 +400,24 @@ class AnonymizerViewModel: ObservableObject {
             if let regex = try? NSRegularExpression(pattern: pattern, options: [.caseInsensitive]) {
                 let range = NSRange(result.startIndex..., in: result)
                 result = regex.stringByReplacingMatches(in: result, options: [], range: range, withTemplate: placeholder)
+            }
+        }
+
+        // Try to mask names mentioned explicitly (e.g., "my name is jack") to cover cases where the model doesn't tag PERSON.
+        let namePatterns: [(pattern: String, placeholder: String)] = [
+            (#"\b(?:my name is|name is|i am|i'm|this is)\s+([A-Za-z]{2,})\b"#, "[Person]"),
+            (#"\b(?:call me|i go by)\s+([A-Za-z]{2,})\b"#, "[Person]")
+        ]
+
+        for (pattern, placeholder) in namePatterns {
+            if let regex = try? NSRegularExpression(pattern: pattern, options: [.caseInsensitive]) {
+                let matches = regex.matches(in: result, range: NSRange(result.startIndex..., in: result))
+                for match in matches.reversed() {
+                    guard match.numberOfRanges >= 2 else { continue }
+                    let nameRange = match.range(at: 1)
+                    guard let textRange = Range(nameRange, in: result) else { continue }
+                    result.replaceSubrange(textRange, with: placeholder)
+                }
             }
         }
 
