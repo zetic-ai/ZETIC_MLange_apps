@@ -24,6 +24,7 @@ import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
 import com.zeticai.yolov26.ui.BoundingBoxOverlay
 import com.zeticai.yolov26.ui.CameraScreen
+import com.zeticai.yolov26.ui.VideoScreen
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
@@ -44,7 +45,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainScreen(model: YOLOv26Model) {
     var selectedTab by remember { mutableStateOf(0) }
-    val tabs = listOf("Photo", "Camera")
+    val tabs = listOf("Photo", "Video", "Camera")
     
     val isModelLoaded by model.isModelLoaded.collectAsState()
     
@@ -61,13 +62,28 @@ fun MainScreen(model: YOLOv26Model) {
 
     Scaffold(
         topBar = {
-            TabRow(selectedTabIndex = selectedTab) {
-                tabs.forEachIndexed { index, title ->
-                    Tab(
-                        text = { Text(title) },
-                        selected = selectedTab == index,
-                        onClick = { selectedTab = index }
+            Column {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(MaterialTheme.colorScheme.primaryContainer)
+                        .padding(vertical = 4.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = "(Powered by MLange)",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onPrimaryContainer
                     )
+                }
+                TabRow(selectedTabIndex = selectedTab) {
+                    tabs.forEachIndexed { index, title ->
+                        Tab(
+                            text = { Text(title) },
+                            selected = selectedTab == index,
+                            onClick = { selectedTab = index }
+                        )
+                    }
                 }
             }
         }
@@ -75,7 +91,8 @@ fun MainScreen(model: YOLOv26Model) {
         Box(modifier = Modifier.padding(paddingValues).fillMaxSize()) {
             when (selectedTab) {
                 0 -> PhotoScreen(model)
-                1 -> {
+                1 -> VideoScreen(model)
+                2 -> {
                     // Camera Permission
                     val cameraPermissionState = rememberPermissionState(Manifest.permission.CAMERA)
                     if (cameraPermissionState.status.isGranted) {
@@ -145,7 +162,14 @@ fun PhotoScreen(model: YOLOv26Model) {
              // For strict correctness we need to know rendered size vs bitmap size.
              // We'll trust AspectFit logic of Compose vs BoundingBoxOverlay
              
-             BoundingBoxOverlay(boxes = boxes)
+             val sourceSize by model.sourceImageSize.collectAsState()
+             
+             BoundingBoxOverlay(
+                boxes = boxes,
+                sourceWidth = sourceSize.first,
+                sourceHeight = sourceSize.second,
+                isFill = false
+             )
              
         } else {
             Text("Select an image", modifier = Modifier.align(Alignment.Center))
