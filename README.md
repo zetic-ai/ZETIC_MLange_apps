@@ -66,6 +66,7 @@ This repository showcases <strong>deployable On-Device AI applications</strong> 
 
 | Feature | Model | Description | MLange Page |
 | :---: | :---: | :--- | :---: |
+| **Object Detection** | [**YOLOv26**](apps/YOLOv26) | Next-generation NMS-free object detection. | [**View**](https://mlange.zetic.ai/p/Team_ZETIC/YOLOv26?from=use-cases) |
 | **Object Detection** | [**YOLOv8 Nano**](apps/YOLOv8) | Real-time object detection and tracking in milliseconds. | [**View**](https://mlange.zetic.ai/p/Ultralytics/YOLOv8n?from=use-cases) |
 | **Speech Recognition** | [**Whisper Tiny**](apps/whisper-tiny) | High-accuracy automatic speech recognition (ASR) completely offline. | [**View**](https://mlange.zetic.ai/p/OpenAI/whisper-tiny-decoder?from=use-cases) |
 | **Face Detection** | [**MediaPipe BlazeFace**](apps/MediaPipe-Face-Detection) | Ultra-fast face detection optimized for short-range selfie cameras. | [**View**](https://mlange.zetic.ai/p/google/MediaPipe-Face-Detection?from=use-cases) |
@@ -82,7 +83,6 @@ We are constantly expanding our library. Here is what's coming next in very soon
 | Use Case | Model | Description |
 | :---: | :---: | :--- |
 | **Privacy / Anonymization** | [**tanaos-text-anonymizer-v1**](https://huggingface.co/tanaos/tanaos-text-anonymizer-v1) | Automatic rejection of PII (names, dates, locations) for secure data processing. |
-| **Object Detection** | [**YOLOv26**](https://docs.ultralytics.com/models/yolo26/) | Next-generation NMS-free object detection optimized for edge devices. |
 | **Healthcare / VQA** | [**MedGemma-1.5-4b-it**](https://huggingface.co/google/medgemma-1.5-4b-it) | Multimodal medical question answering and image understanding. |
 
 <br/>
@@ -109,36 +109,71 @@ We are constantly expanding our library. Here is what's coming next in very soon
 
 ---
 
-## Integration Overview
+## Getting Started
 
-Once you have chosen a feature, integrating it is as simple as adding the ZETIC.MLange dependency and loading the model. This guide shows just how little code is needed.
+Follow these steps to run the applications in this repository on your own device.
 
 > [!NOTE]
-> You can get your **Personal Key** by signing up at [MLange Dashboard](https://mlange.zetic.ai).
+> You must have a **Personal Key** to run MLange models. <br/>
+> Get your key for free by signing up at the [MLange Dashboard](https://mlange.zetic.ai).
 
-### Android
-Add dependency in `build.gradle`:
-```gradle
-dependencies { implementation 'com.zeticai.mlange:mlange:+' }
-```
-Run inference:
-```kotlin
-val model = ZeticMLangeModel(CONTEXT, PERSONAL_KEY, PROJECT_NAME)
-val outputs = model.run(inputs)
+### 1. Setup Your Key
+To run the example apps, you need to apply your ZETIC.MLange Key to the source code. We provide a helper script to do this automatically.
+
+```bash
+# Run the key adaptation script
+./adapt_mlange_key.sh
 ```
 
-### iOS
-Add package via SPM: `https://github.com/zetic-ai/ZeticMLangeiOS.git`
-
-Run inference:
-```swift
-let model = try ZeticMLangeModel(personalKey: KEY, name: NAME, version: VER)
-let outputs = try model.run(inputs)
-```
+### 2. Run the App
+- **Android**: Open the `apps/<ModelName>/Android` project in **Android Studio**.
+- **iOS**: Open the `apps/<ModelName>/iOS` project in **Xcode**.
 
 <br/>
 
 ---
+
+## SDK Integration
+
+Want to add ZETIC.MLange to your own existing application? It takes just a few lines of code.
+
+### Android Integration
+
+**1. Add Dependency**
+In your module-level `build.gradle.kts`:
+```kotlin
+dependencies {
+    implementation("com.zeticai.mlange:mlange:latest.release")
+}
+```
+
+**2. Run Inference**
+```kotlin
+import com.zeticai.mlange.core.model.ZeticMLangeModel
+
+// Initialize
+val model = ZeticMLangeModel(context, "YOUR_KEY", "YOUR_PROJECT_NAME")
+
+// Run
+val outputs = model.run(inputs)
+```
+
+### iOS Integration
+
+**1. Add Package**
+Add the SDK via Swift Package Manager (SPM):
+- URL: `https://github.com/zetic-ai/ZeticMLangeiOS.git`
+
+**2. Run Inference**
+```swift
+import ZeticMLange
+
+// Initialize
+let model = try ZeticMLangeModel(personalKey: "YOUR_KEY", name: "YOUR_PROJECT_NAME")
+
+// Run
+let outputs = try model.run(inputs)
+```
 
 ## How to Contribute
 
