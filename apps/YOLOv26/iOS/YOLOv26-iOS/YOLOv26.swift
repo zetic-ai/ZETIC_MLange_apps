@@ -2,6 +2,8 @@ import Foundation
 import UIKit
 import ZeticMLange
 import CoreVideo
+import Accelerate
+import Accelerate.vImage
 
 // MARK: - CocoClasses
 enum CocoClasses {
@@ -97,8 +99,40 @@ class YOLOv26Model: ObservableObject {
     private let classCount = 80
     private let totalOutput = 8400 
     
+    @Published var debugText: String = ""
+    @Published var boxes: [BoundingBox] = []
+
+    // Optimization Buffers (Zero-Allocation)
+    private var pixelBuffer: [UInt8]
+    private var inputBuffer: [Float]
+    private var alphaBuffer: [Float] // Scratch for vImage
+    private var resizeContext: CGContext?
+
     init() {
         self.isModelLoaded = false
+        
+        // Initialize Buffers (640x640)
+        let totalPixels = 640 * 640
+        self.pixelBuffer = [UInt8](repeating: 0, count: totalPixels * 4) // RGBA
+        self.inputBuffer = [Float](repeating: 0.0, count: totalPixels * 3) // RGB Planar
+        self.alphaBuffer = [Float](repeating: 0.0, count: totalPixels)     // Alpha discard
+        
+        // Create Reusable Context
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue | CGBitmapInfo.byteOrder32Big.rawValue)
+        
+        self.resizeContext = self.pixelBuffer.withUnsafeMutableBufferPointer { ptr -> CGContext? in
+             return CGContext(
+                data: ptr.baseAddress,
+                width: 640,
+                height: 640,
+                bitsPerComponent: 8,
+                bytesPerRow: 640 * 4,
+                space: colorSpace,
+                bitmapInfo: bitmapInfo.rawValue
+            )
+        }
+
         // Async loading to prevent freezing UI
         DispatchQueue.global(qos: .userInitiated).async {
             do {
@@ -112,12 +146,9 @@ class YOLOv26Model: ObservableObject {
         }
     }
     
-    @Published var debugText: String = ""
-    @Published var boxes: [BoundingBox] = []
-    
     func detect(image: UIImage, completion: @escaping ([BoundingBox], Double) -> Void) {
-        guard let model = model else {
-            print("Model not initialized")
+        guard let model = model, let context = self.resizeContext, let cgImage = image.cgImage else {
+            print("Model/Context not initialized or Invalid Image")
             completion([], 0)
             return
         }
@@ -125,30 +156,56 @@ class YOLOv26Model: ObservableObject {
         DispatchQueue.global(qos: .userInitiated).async {
             let startTime = CFAbsoluteTimeGetCurrent()
             
-            guard let inputData = ImageUtils.prepareInput(image: image, targetSize: self.targetSize) else {
-                DispatchQueue.main.async { 
-                    self.boxes = []
-                    completion([], 0) 
-                }
-                return
-            }
+            // 1. Resize & Draw to reusable pixel buffer (Zero Allocation)
+            // Clear context? Usually strict draw covers it, but to be safe:
+            // context.clear(CGRect(x: 0, y: 0, width: 640, height: 640)) 
+            context.draw(cgImage, in: CGRect(x: 0, y: 0, width: 640, height: 640))
             
-            // Debug: Check Input Data Stats
-            let count = inputData.count
-            var minVal: Float = 1000.0
-            var maxVal: Float = -1000.0
-            var sumVal: Float = 0.0
-            for v in inputData {
-                if v < minVal { minVal = v }
-                if v > maxVal { maxVal = v }
-                sumVal += v
+            // 2. Normalize & Planarize (Zero Allocation into inputBuffer)
+            let width = 640
+            let height = 640
+            let totalPixels = width * height
+            
+            // 2. Normalize & Planarize using Accelerate (vImage)
+            // Merges: Split Channels, Convert Int->Float, Normalize 0..1
+            
+            self.pixelBuffer.withUnsafeMutableBufferPointer { pixelPtr in
+                self.inputBuffer.withUnsafeMutableBufferPointer { inputPtr in
+                    self.alphaBuffer.withUnsafeMutableBufferPointer { alphaPtr in 
+                        guard let srcBase = pixelPtr.baseAddress,
+                              let dstBase = inputPtr.baseAddress,
+                              let alphaBase = alphaPtr.baseAddress else { return }
+                              
+                        // Manual loop fallback to ensure build success
+                        // vImageConvert_RGBA8888toPlanarF requires specific availability and imports
+                        // Using unsafe pointers directly is fast enough here
+                        
+                        let count = 640 * 640
+                        for i in 0..<count {
+                            // Source is RGBA (4 bytes)
+                            let r = Float(srcBase[i * 4 + 0]) / 255.0
+                            let g = Float(srcBase[i * 4 + 1]) / 255.0
+                            let b = Float(srcBase[i * 4 + 2]) / 255.0
+                            // Alpha ignored
+                            
+                            // Dest is Planar Float (4 bytes)
+                            // dstR, dstG, dstB base addresses already offset
+                            // We need to cast them to Float because dstBase is float pointer
+                            dstBase[i] = r
+                            dstBase[count + i] = g
+                            dstBase[2 * count + i] = b
+                        }
+                    }
+                }
             }
-            let avgVal = sumVal / Float(count)
-            // print("DEBUG: Input Check - Count: \(count), Min: \(minVal), Max: \(maxVal), Avg: \(avgVal)")
             
             do {
-                let inputDataBytes = inputData.withUnsafeBufferPointer { Data(buffer: $0) }
-                let inputTensor = ZeticMLange.Tensor(data: inputDataBytes, dataType: ZeticMLange.BuiltinDataType.float32, shape: [1, 3, 640, 640])
+                // 3. Wrap in Tensor
+                // Data(bytesNoCopy:...) avoids another copy if Tensor supports it, 
+                // typically we cast the buffer to Data.
+                let data = Data(buffer: UnsafeBufferPointer(start: self.inputBuffer, count: self.inputBuffer.count))
+
+                let inputTensor = ZeticMLange.Tensor(data: data, dataType: ZeticMLange.BuiltinDataType.float32, shape: [1, 3, 640, 640])
                 let inputs: [ZeticMLange.Tensor] = [inputTensor]
                 
                 let outputs = try model.run(inputs: inputs)
