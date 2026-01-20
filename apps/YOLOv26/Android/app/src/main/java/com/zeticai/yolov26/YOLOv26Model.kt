@@ -3,8 +3,9 @@ package com.zeticai.yolov26
 import android.content.Context
 import android.graphics.Bitmap
 import android.util.Log
-import com.zeticai.mlange.tensor.Tensor
-import com.zeticai.mlange.model.ZeticMLangeModel
+import com.zeticai.mlange.core.model.ZeticMLangeModel
+import com.zeticai.mlange.core.tensor.Tensor
+import com.zeticai.mlange.core.tensor.DataType
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -24,6 +25,10 @@ class YOLOv26Model(context: Context) {
     
     private val _inferenceTime = MutableStateFlow(0L)
     val inferenceTime = _inferenceTime.asStateFlow()
+    
+    // UI needs source size to calculate aspect ratio scaling (Fit vs Fill)
+    private val _sourceImageSize = MutableStateFlow(Pair(1, 1))
+    val sourceImageSize = _sourceImageSize.asStateFlow()
 
     init {
         // Load Model Asynchronously
@@ -38,6 +43,8 @@ class YOLOv26Model(context: Context) {
             try {
                 // Using version 3 as per iOS config
                 model = ZeticMLangeModel(context, "dev_d786c1fd7f2848acb9b0bf8060aa10b2", "Team_ZETIC/YOLOv26", 3)
+                // Simulate loading
+                // Thread.sleep(1000)
                 _isModelLoaded.value = true
                 Log.d("YOLOv26", "Model Loaded Successfully")
             } catch (e: Exception) {
@@ -46,19 +53,62 @@ class YOLOv26Model(context: Context) {
         }.start()
     }
 
+    // Reusable buffers for Zero-Allocation pipeline
+    private val inputBuffer = FloatArray(3 * 640 * 640)
+    // ByteBuffer for model input (size * 4 bytes for Float)
+    private val inputByteBuffer: ByteBuffer = ByteBuffer.allocateDirect(3 * 640 * 640 * 4).apply {
+        order(ByteOrder.nativeOrder())
+    }
+    
+    private val pixelBuffer = IntArray(640 * 640)
+    private val resizedBitmap = Bitmap.createBitmap(640, 640, Bitmap.Config.ARGB_8888)
+    private val canvas = android.graphics.Canvas(resizedBitmap)
+    private val matrix = android.graphics.Matrix()
+    private val paint = android.graphics.Paint(android.graphics.Paint.FILTER_BITMAP_FLAG)
+
     suspend fun detect(bitmap: Bitmap) = withContext(Dispatchers.Default) {
-        if (model == null) return@withContext
+        if (!_isModelLoaded.value) return@withContext
 
         val startTime = System.currentTimeMillis()
         
-        // 1. Prepare Input
-        val inputData = ImageUtils.prepareInput(bitmap)
+        // Update source size for UI
+        _sourceImageSize.value = Pair(bitmap.width, bitmap.height)
         
-        // 2. Wrap in Tensor
-        // [1, 3, 640, 640]
+        // 1. Resize & Draw directly to pre-allocated bitmap (Minimizing Copy)
+        // Calculate scale manually to fit 640x640
+        matrix.reset()
+        val scaleX = 640f / bitmap.width
+        val scaleY = 640f / bitmap.height
+        matrix.setScale(scaleX, scaleY)
+        
+        // "Merge" resize operation into a single draw call on reused storage
+        canvas.drawColor(android.graphics.Color.TRANSPARENT, android.graphics.PorterDuff.Mode.CLEAR) // generic clear if needed, though we overwrite
+        canvas.drawBitmap(bitmap, matrix, paint)
+        
+        // 2. Extract Pixels to pre-allocated buffer
+        resizedBitmap.getPixels(pixelBuffer, 0, 640, 0, 0, 640, 640)
+        
+        // 3. Convert to CHW Float Planar (The only heavy CPU loop)
+        // Combined iteration (Normalization + Layout extraction)
+        // Standard Java loop is often as fast as it gets for this specific rearrangement without JNI
+        val area = 640 * 640
+        for (i in 0 until area) {
+            val pixel = pixelBuffer[i]
+            
+            // operations merged: bit extraction + normalization
+            inputBuffer[i] = ((pixel shr 16) and 0xFF) / 255.0f         // R
+            inputBuffer[area + i] = ((pixel shr 8) and 0xFF) / 255.0f   // G
+            inputBuffer[area * 2 + i] = (pixel and 0xFF) / 255.0f       // B
+        }
+        
+        // 2. Wrap in Tensor using ByteBuffer
+        inputByteBuffer.rewind()
+        inputByteBuffer.asFloatBuffer().put(inputBuffer)
+        
         val inputTensor = Tensor(
-            inputData, 
-            longArrayOf(1, 3, 640, 640)
+            inputByteBuffer,
+            DataType.Float32,
+            intArrayOf(1, 3, 640, 640)
         )
         val inputs = arrayOf(inputTensor)
         
@@ -69,13 +119,37 @@ class YOLOv26Model(context: Context) {
             val outputTensor = outputs?.firstOrNull() ?: return@withContext
             
             // 4. Post Process
-            val shape = outputTensor.shape
-            // Expected [1, 300, 6]
-            val rows = if (shape.size > 1) shape[1].toInt() else 0
-            val cols = if (shape.size > 2) shape[2].toInt() else 0
+            // data property returns ByteBuffer
+            val outputBuffer = outputTensor.data
+            outputBuffer.rewind()
+            
+            // Infer shape from size since 'shape' property is private
+            // Float32 = 4 bytes
+            val floats = outputBuffer.remaining() / 4
+            val outputData = FloatArray(floats)
+            outputBuffer.asFloatBuffer().get(outputData)
+            
+            val rows: Int
+            val cols: Int
+            
+            // Heuristic shape inference
+            if (floats == 1800) { 
+                // [1, 300, 6] -> NMS output
+                rows = 300
+                cols = 6
+            } else if (floats == 705600) {
+                // [1, 84, 8400] -> Raw output
+                 rows = 84
+                 cols = 8400
+            } else {
+                 // Fallback or attempt to guess NMS output size
+                 // Just try treating as NMS if small
+                 rows = floats / 6
+                 cols = 6
+            }
             
             val results = PostProcess.process(
-                outputTensor.data, 
+                outputData, 
                 rows, 
                 cols, 
                 bitmap.width.toFloat(), 

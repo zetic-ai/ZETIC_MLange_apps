@@ -65,27 +65,22 @@ object PostProcess {
                    val x2 = outputData[offset + 2]
                    val y2 = outputData[offset + 3]
                    
-                   // Normalize to 0-1 (Assuming data is 0-640)
+                   // Normalize to 0-1 (Assuming model output is 0-640 absolute)
                    val nx1 = x1 / 640f
                    val ny1 = y1 / 640f
                    val nx2 = x2 / 640f
                    val ny2 = y2 / 640f
                    
-                   // Denormalize to Image Size
-                   val finalX1 = nx1 * imgWidth
-                   val finalY1 = ny1 * imgHeight
-                   val finalX2 = nx2 * imgWidth
-                   val finalY2 = ny2 * imgHeight
-                   
-                   val w = finalX2 - finalX1
-                   val h = finalY2 - finalY1
-                   val cx = finalX1 + w / 2
-                   val cy = finalY1 + h / 2
+                   // Calculate dimensions in normalized space
+                   val w = nx2 - nx1
+                   val h = ny2 - ny1
+                   val cx = nx1 + w / 2
+                   val cy = ny1 + h / 2
                    
                    val label = if (classIdx in CLASSES.indices) CLASSES[classIdx] else "Class $classIdx"
                    
                    boxes.add(BoundingBox(
-                       finalX1, finalY1, finalX2, finalY2,
+                       nx1, ny1, nx2, ny2,
                        cx, cy, w, h,
                        score, classIdx, label
                    ))
