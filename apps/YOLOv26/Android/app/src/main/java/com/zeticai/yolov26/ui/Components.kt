@@ -18,32 +18,102 @@ import com.zeticai.yolov26.BoundingBox
 @Composable
 fun BoundingBoxOverlay(
     boxes: List<BoundingBox>,
-    scaleX: Float = 1f,
-    scaleY: Float = 1f
+    sourceWidth: Int,
+    sourceHeight: Int,
+    isFill: Boolean = false, // true = Crop/Zoom (Camera), false = Fit/Letterbox (Photo)
+    alignmentTopStart: Boolean = false // Special case for Camera FILL_START
 ) {
     Canvas(modifier = Modifier.fillMaxSize()) {
+        val screenWidth = size.width
+        val screenHeight = size.height
+        
+        // Calculate Scale Factor
+        val scale: Float
+        val offsetX: Float
+        val offsetY: Float
+        
+        val srcRatio = sourceWidth.toFloat() / sourceHeight.toFloat()
+        val screenRatio = screenWidth / screenHeight
+        
+
+        
+        if (isFill) {
+            // SCALE_TYPE_FILL (Crop)
+            // Scale to cover the entire screen
+            // If screen is wider than source, scale by width
+            // If screen is taller than source, scale by height
+            // Logic: max(scaleX, scaleY)
+            val scaleX = screenWidth / sourceWidth
+            val scaleY = screenHeight / sourceHeight
+            scale = kotlin.math.max(scaleX, scaleY)
+            
+            val renderedWidth = sourceWidth * scale
+            val renderedHeight = sourceHeight * scale
+            
+            if (alignmentTopStart) {
+                // FILL_START
+                offsetX = 0f
+                offsetY = 0f
+            } else {
+                // FILL_CENTER (Standard)
+                offsetX = (screenWidth - renderedWidth) / 2f
+                offsetY = (screenHeight - renderedHeight) / 2f
+            }
+        } else {
+            // SCALE_TYPE_FIT (Letterbox)
+            // Scale to fit within the screen
+            // min(scaleX, scaleY)
+            val scaleX = screenWidth / sourceWidth
+            val scaleY = screenHeight / sourceHeight
+            scale = kotlin.math.min(scaleX, scaleY)
+            
+            val renderedWidth = sourceWidth * scale
+            val renderedHeight = sourceHeight * scale
+            
+            // Usually FIT_CENTER
+            offsetX = (screenWidth - renderedWidth) / 2f
+            offsetY = (screenHeight - renderedHeight) / 2f
+        }
+        
         for (box in boxes) {
-            drawBox(box, scaleX, scaleY)
+            drawBox(box, scale, offsetX, offsetY, sourceWidth, sourceHeight)
         }
     }
 }
 
-fun DrawScope.drawBox(box: BoundingBox, scaleX: Float, scaleY: Float) {
+fun DrawScope.drawBox(
+    box: BoundingBox, 
+    scaleReference: Float, 
+    offsetX: Float, 
+    offsetY: Float,
+    sourceW: Int,
+    sourceH: Int
+) {
     val colors = listOf(
         Color.Red, Color.Green, Color.Blue, Color.Cyan, Color.Magenta, Color.Yellow
     )
     val color = colors[box.classIndex % colors.size]
 
-    val left = box.x1 * scaleX
-    val top = box.y1 * scaleY
-    val width = box.w * scaleX
-    val height = box.h * scaleY
+    // Normalize coordinates mapped to Source Image Size first
+    // Then Scale and Offset to Screen
+    val x1 = box.x1 * sourceW * scaleReference + offsetX
+    val y1 = box.y1 * sourceH * scaleReference + offsetY
+    val w = box.w * sourceW * scaleReference
+    val h = box.h * sourceH * scaleReference
+    
+    /* 
+       Optimization: simpler math using normalized coordinates directly
+       x1_pixel = box.x1 * renderedWidth + offsetX
+       renderedWidth = sourceW * scale
+       -> x1_pixel = box.x1 * (sourceW * scale) + offsetX
+       This matches logic above.
+    */
     
     // Draw Rect
     drawRect(
         color = color,
-        topLeft = Offset(left, top),
-        size = Size(width, height),
+        topLeft = Offset(x1, y1),
+        size = Size(w, h),
         style = Stroke(width = 5f)
     )
     
@@ -56,19 +126,19 @@ fun DrawScope.drawBox(box: BoundingBox, scaleX: Float, scaleY: Float) {
     
     val text = "${box.label} ${String.format("%.2f", box.score)}"
     val textWidth = paint.measureText(text)
-    val textHeight = 50f 
+    val textHeight = 50f
     
     drawRect(
         color = color,
-        topLeft = Offset(left, top - textHeight),
+        topLeft = Offset(x1, y1 - textHeight),
         size = Size(textWidth + 20f, textHeight)
     )
     
     // Draw Text
     drawContext.canvas.nativeCanvas.drawText(
         text,
-        left + 10f,
-        top - 10f,
+        x1 + 10f,
+        y1 - 10f,
         paint
     )
 }

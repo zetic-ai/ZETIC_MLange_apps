@@ -57,7 +57,15 @@ fun CameraScreen(model: YOLOv26Model) {
             modifier = Modifier.fillMaxSize()
         )
         
-        BoundingBoxOverlay(boxes = boxes)
+        val sourceSize by model.sourceImageSize.collectAsState()
+        
+        BoundingBoxOverlay(
+            boxes = boxes,
+            sourceWidth = sourceSize.first,
+            sourceHeight = sourceSize.second,
+            isFill = true,
+            alignmentTopStart = true // Matches PreviewView ScaleType.FILL_START
+        )
     }
 }
 
