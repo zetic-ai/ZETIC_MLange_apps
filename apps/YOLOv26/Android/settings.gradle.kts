@@ -10,7 +10,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url = java.net.URI("https://github.com/zetic-ai/ZeticMLange/raw/main/android/") }
+
     }
 }
 
