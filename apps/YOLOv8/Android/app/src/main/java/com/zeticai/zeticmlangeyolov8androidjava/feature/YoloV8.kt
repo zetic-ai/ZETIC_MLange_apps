@@ -13,7 +13,7 @@ class YOLOv8(
 ) {
     private val model: ZeticMLangeModel = ZeticMLangeModel(
         context,
-        "YOUR_PERSONAL_KEY",
+        "YOUR_MLANGE_KEY",
         "YOUR_PROJECT_NAME"
     )
     private val wrapper: Yolov8Wrapper

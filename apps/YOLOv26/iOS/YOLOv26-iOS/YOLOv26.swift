@@ -136,7 +136,7 @@ class YOLOv26Model: ObservableObject {
         // Async loading to prevent freezing UI
         DispatchQueue.global(qos: .userInitiated).async {
             do {
-                self.model = try ZeticMLangeModel(tokenKey: "dev_d786c1fd7f2848acb9b0bf8060aa10b2", name: "Team_ZETIC/YOLOv26", version: 3)
+                self.model = try ZeticMLangeModel(tokenKey: "YOUR_MLANGE_KEY", name: "Team_ZETIC/YOLOv26", version: 3)
                 DispatchQueue.main.async {
                     self.isModelLoaded = true
                 }

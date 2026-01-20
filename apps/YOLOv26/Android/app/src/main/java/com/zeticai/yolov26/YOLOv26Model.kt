@@ -42,7 +42,7 @@ class YOLOv26Model(context: Context) {
         Thread {
             try {
                 // Using version 3 as per iOS config
-                model = ZeticMLangeModel(context, "dev_d786c1fd7f2848acb9b0bf8060aa10b2", "Team_ZETIC/YOLOv26", 3)
+                model = ZeticMLangeModel(context, "YOUR_MLANGE_KEY", "Team_ZETIC/YOLOv26", 3)
                 // Simulate loading
                 // Thread.sleep(1000)
                 _isModelLoaded.value = true

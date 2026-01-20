@@ -12,7 +12,7 @@ class WhisperDecoder(
     context: Context,
     modelKey: String,
     private val model: ZeticMLangeModel =
-        ZeticMLangeModel(context, "YOUR_PERSONAL_KEY", "YOUR_PROJECT_NAME")
+        ZeticMLangeModel(context, "YOUR_MLANGE_KEY", "YOUR_PROJECT_NAME")
 ) {
 
     fun generateTokens(

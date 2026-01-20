@@ -9,7 +9,7 @@ import com.zeticai.mlange.feature.facelandmark.FaceLandmarkWrapper
 class FaceLandmark(
     context: Context,
 ) {
-    private val model: ZeticMLangeModel = ZeticMLangeModel(context, "YOUR_PERSONAL_KEY", "YOUR_PROJECT_NAME")
+    private val model: ZeticMLangeModel = ZeticMLangeModel(context, "YOUR_MLANGE_KEY", "YOUR_PROJECT_NAME")
     private val wrapper: FaceLandmarkWrapper = FaceLandmarkWrapper()
 
     fun run(imagePtr: Long, roi: Box): FaceLandmarkResult {
