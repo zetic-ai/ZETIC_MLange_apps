@@ -12,23 +12,33 @@
 <br/>
 <br/>
 
-<h1>Infuse Your App with AI. Instantly.</h1>
+<h1>Production-Ready On-Device AI Apps</h1>
 
-<h3>Add state-of-the-art AI features to your mobile applications using <strong>ZETIC.MLange</strong>.</h3>
+<h3>
+Real mobile AI applications built with <strong>MLange</strong>.
+Clone, run, and adapt them for your own use cases.
+</h3>
+
 
 </div>
 
 <br/>
 
-<h2 align="center">What is ZETIC.MLange?</h2>
+<h2 align="center">What is MLange?</h2>
 
 <p>
-  <strong>ZETIC.MLange</strong> is an <strong>Open, NPU-Native</strong> software stack for On-Device AI.<br/>
-  While others limit you to a closed garden of proprietary models, ZETIC.MLange is designed for <strong>Universal NPU Utilization</strong>.<br/>
-  Bring <strong>ANY</strong> model from HuggingFace, upload it to our <strong>MLange Dashboard</strong>, and you will receive<br/>
-  an <strong>NPU-runnable SDK</strong> (including source code & benchmark stats) ready for immediate deployment.
+  <strong>MLange</strong> is an <strong>NPU-native software stack</strong> for building
+  <strong>production-ready On-Device AI applications</strong>.
 </p>
 
+<p>
+  In this repository, you will find <strong>real, runnable mobile apps</strong>
+  showcasing how MLange is used to deploy AI models efficiently on actual devices.
+</p>
+<p>
+  For advanced workflows such as benchmarking, device coverage, and deployment at scale, MLange provides a dedicated dashboard.
+</p>
+<br/>
 <p>
   🚀 <strong>Fully Automated NPU Utilization</strong><br/>
   Auto-mapping to specific NPU architectures.
@@ -39,7 +49,7 @@
 </p>
 <p>
   🛠️ <strong>Rapid Deployment</strong><br/>
-  From HuggingFace model to deployable mobile SDK in hours.
+  From model to apps in hours.
 </p>
 
 <br/>
@@ -51,7 +61,7 @@
 This repository showcases <strong>deployable On-Device AI applications</strong> ready for immediate use.<br/>
   Pick a capability below and see it running on your device.<br/>
   <br/>
-  <i>checks</i> <strong>MLange Page</strong>: Access the <strong>Generated SDK Source Code</strong> and <strong>NPU Performance Benchmarks</strong>.
+  Check our <strong>MLange dashboard</strong>: Access the <strong>Generated SDK Source Code</strong> and <strong>NPU Performance Benchmarks</strong>.
 </p>
 
 | Feature | Model | Description | MLange Page |
@@ -77,14 +87,13 @@ We are constantly expanding our library. Here is what's coming next in very soon
 
 <br/>
 
-<h3 align="center">Build It Yourself</h3>
+<h3>Build It Yourself</h3>
 
-<p align="center">
-  You can build these applications <strong>right now</strong>.<br/>
-  Simply upload your model to the <a href="https://mlange.zetic.ai"><strong>MLange Dashboard</strong></a> and generate your SDK.<br/>
+<p>
+  You can build these applications <strong>today</strong>. Simply use the provided source code. <br/>
+  Or, upload your own model files to the <a href="https://mlange.zetic.ai"><strong>MLange Dashboard</strong></a> and generate your own SDK.<br/>
   <br/>
-  <strong>Finding it difficult?</strong><br/>
-  <a href="https://discord.com/invite/gVFX6myuMx"><strong>Join our Discord</strong></a> and request it! we are here to help.
+  <strong>If you get stuck:</strong> <a href="https://discord.com/invite/gVFX6myuMx"><strong>Join our Discord</strong></a> and ask. We actively support builders.
 </p>
 
 <br/>
@@ -133,9 +142,9 @@ let outputs = try model.run(inputs)
 
 ## How to Contribute
 
-We welcome contributions! If you have built an exciting on-device AI application using ZETIC.MLange, share it with the community.
+We welcome contributions! If you have built an exciting on-device AI application using MLange, share it with the community.
 
-1. **Generate your SDK**: Use the [MLange Dashboard](https://mlange.zetic.ai) to convert your HuggingFace or custom model into an NPU-optimized SDK.
+1. **Generate your SDK**: Use the [MLange Dashboard](https://mlange.zetic.ai) to convert your custom model into an NPU-optimized SDK.
 2. **Build your App**: Implement your application on Android or iOS using the generated SDK.
 3. **Submit**: Open a Pull Request with your new application directory under `apps/<Your_Model_Name>/`.
 
