@@ -1,4 +1,4 @@
-# Team ZETIC YOLOv26 (Nano)
+# Ultralytics YOLOv26 (Nano)
 
 > [!TIP]
 > **View on MLange Dashboard**: [Team_ZETIC/YOLOv26](https://mlange.zetic.ai/p/Team_ZETIC/YOLOv26?tab=summary&version=3) - Contains generated source code & benchmark reports.
