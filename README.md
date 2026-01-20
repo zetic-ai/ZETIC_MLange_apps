@@ -15,7 +15,7 @@
 <h1>Production-Ready On-Device AI Apps</h1>
 
 <h3>
-Real mobile AI applications built with <strong>MLange</strong>.
+Real mobile AI applications built with <strong>MLange</strong>. <br/>
 Clone, run, and adapt them for your own use cases.
 </h3>
 
@@ -24,10 +24,10 @@ Clone, run, and adapt them for your own use cases.
 
 <br/>
 
-<h2 align="center">What is MLange?</h2>
+<h2 align="center">What is MLange (by ZETIC.ai)?</h2>
 
 <p>
-  <strong>MLange</strong> is an <strong>NPU-native software stack</strong> for building
+  <strong>MLange</strong>, pronounced <i>Mélange</i>, is an <strong>NPU-native software stack</strong> for building
   <strong>production-ready On-Device AI applications</strong>.
 </p>
 
