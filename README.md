@@ -60,7 +60,6 @@ Clone, run, and adapt them for your own use cases.
 This repository showcases <strong>deployable On-Device AI applications</strong> ready for immediate use.<br/>
   Pick a capability below and see it running on your device.<br/>
   <br/>
-  Check our <strong>MLange dashboard</strong>: Access the <strong>Generated SDK Source Code</strong> and <strong>NPU Performance Benchmarks</strong>.
 </p>
 
 | Feature | Model | Description | MLange Page |
