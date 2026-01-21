@@ -9,6 +9,7 @@ import androidx.camera.core.ImageProxy
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
+import androidx.camera.core.AspectRatio // Added for correct ratio
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
@@ -51,7 +52,7 @@ fun CameraScreen(model: YOLOv26Model) {
                         ViewGroup.LayoutParams.MATCH_PARENT,
                         ViewGroup.LayoutParams.MATCH_PARENT
                     )
-                    scaleType = PreviewView.ScaleType.FILL_START
+                    scaleType = PreviewView.ScaleType.FIT_CENTER
                 }
             },
             modifier = Modifier.fillMaxSize()
@@ -63,8 +64,8 @@ fun CameraScreen(model: YOLOv26Model) {
             boxes = boxes,
             sourceWidth = sourceSize.first,
             sourceHeight = sourceSize.second,
-            isFill = true,
-            alignmentTopStart = true // Matches PreviewView ScaleType.FILL_START
+            isFill = false, // Match FIT_CENTER (Letterbox)
+            alignmentTopStart = false
         )
     }
 }
@@ -81,13 +82,20 @@ private fun setupCamera(
     cameraProviderFuture.addListener({
         val cameraProvider = cameraProviderFuture.get()
         
+        // Correct Rotation
+        val rotation = previewView.display.rotation
+        
         val preview = Preview.Builder()
+            .setTargetAspectRatio(AspectRatio.RATIO_4_3)
+            .setTargetRotation(rotation)
             .build()
             .also {
                 it.setSurfaceProvider(previewView.surfaceProvider)
             }
             
         val imageAnalysis = ImageAnalysis.Builder()
+            .setTargetAspectRatio(AspectRatio.RATIO_4_3) 
+            .setTargetRotation(rotation)
              .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
             .build()
             
@@ -119,8 +127,20 @@ private fun processImageProxy(
     isBusy: AtomicBoolean
 ) {
     if (isBusy.compareAndSet(false, true)) {
-        // Fast Path: Convert to Bitmap and Close Proxy immediately
-        val bitmap = imageProxy.toBitmap()
+        // Fast Path: Convert to Bitmap
+        val rawBitmap = imageProxy.toBitmap()
+        var bitmap = rawBitmap
+        
+        // Manual Rotation Fix if needed (Some devices/versions of CameraX behave differently with targetRotation)
+        val rotation = imageProxy.imageInfo.rotationDegrees
+        if (rotation != 0) {
+            val matrix = android.graphics.Matrix()
+            matrix.postRotate(rotation.toFloat())
+            bitmap = android.graphics.Bitmap.createBitmap(
+                rawBitmap, 0, 0, rawBitmap.width, rawBitmap.height, matrix, true
+            )
+        }
+        
         imageProxy.close()
         
         CoroutineScope(Dispatchers.Default).launch {
