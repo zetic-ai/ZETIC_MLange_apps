@@ -115,7 +115,7 @@ fun MainScreen(model: YOLOv26Model) {
             // Debug Info
             val inferenceTime by model.inferenceTime.collectAsState()
             Text(
-                text = "Time: ${inferenceTime}ms",
+                text = "Total process time: ${inferenceTime}ms",
                 color = Color.Red,
                 modifier = Modifier.align(Alignment.BottomStart).padding(16.dp)
             )
