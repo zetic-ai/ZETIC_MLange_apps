@@ -66,11 +66,15 @@ class YOLOv26Model(context: Context) {
     private val matrix = android.graphics.Matrix()
     private val paint = android.graphics.Paint(android.graphics.Paint.FILTER_BITMAP_FLAG)
 
+    // Cached View to avoid allocation per frame
+    private val inputFloatBuffer = inputByteBuffer.asFloatBuffer()
+
     suspend fun detect(bitmap: Bitmap) = withContext(Dispatchers.Default) {
         if (!_isModelLoaded.value) return@withContext
 
         val startTime = System.currentTimeMillis()
         
+        // ... (lines 74-90 same as original)
         // Update source size for UI
         _sourceImageSize.value = Pair(bitmap.width, bitmap.height)
         
@@ -88,22 +92,25 @@ class YOLOv26Model(context: Context) {
         // 2. Extract Pixels to pre-allocated buffer
         resizedBitmap.getPixels(pixelBuffer, 0, 640, 0, 0, 640, 640)
         
-        // 3. Convert to CHW Float Planar (The only heavy CPU loop)
-        // Combined iteration (Normalization + Layout extraction)
-        // Standard Java loop is often as fast as it gets for this specific rearrangement without JNI
+        // 3. Convert to CHW Float Planar
+        // Optimization: Use multiplication and pre-calculated offsets
         val area = 640 * 640
+        val offsetG = area
+        val offsetB = area * 2
+        val norm = 1.0f / 255.0f
+        
         for (i in 0 until area) {
             val pixel = pixelBuffer[i]
             
-            // operations merged: bit extraction + normalization
-            inputBuffer[i] = ((pixel shr 16) and 0xFF) / 255.0f         // R
-            inputBuffer[area + i] = ((pixel shr 8) and 0xFF) / 255.0f   // G
-            inputBuffer[area * 2 + i] = (pixel and 0xFF) / 255.0f       // B
+            // Optimized: bit extraction + multiplication
+            inputBuffer[i]           = ((pixel shr 16) and 0xFF) * norm // R
+            inputBuffer[offsetG + i] = ((pixel shr 8) and 0xFF) * norm  // G
+            inputBuffer[offsetB + i] = (pixel and 0xFF) * norm          // B
         }
         
         // 2. Wrap in Tensor using ByteBuffer
-        inputByteBuffer.rewind()
-        inputByteBuffer.asFloatBuffer().put(inputBuffer)
+        inputFloatBuffer.clear()
+        inputFloatBuffer.put(inputBuffer)
         
         val inputTensor = Tensor(
             inputByteBuffer,
