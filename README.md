@@ -10,7 +10,6 @@
 <a href="https://discord.com/invite/gVFX6myuMx"><img alt="Discord" src="https://img.shields.io/badge/Discord-Join%20Us-7289da"></a>
 
 <br/>
-<br/>
 
 <h1>Production-Ready On-Device AI Apps</h1>
 
