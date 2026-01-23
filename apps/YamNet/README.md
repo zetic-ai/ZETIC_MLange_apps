@@ -43,7 +43,7 @@ Get up and running in minutes:
   - Real-time audio processing
   - NPU-accelerated inference via MLange
 
-This application showcases the **Qualcomm YamNet** model using **ZETIC.MLange**. YamNet provides audio event classification and sound recognition capabilities, optimized for mobile devices with NPU acceleration.
+This application showcases the **Qualcomm YamNet** model using **MLange**. YamNet provides audio event classification and sound recognition capabilities, optimized for mobile devices with NPU acceleration.
 
 ## 📁 Directory Structure
 

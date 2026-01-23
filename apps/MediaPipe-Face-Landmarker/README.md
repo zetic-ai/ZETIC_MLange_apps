@@ -43,7 +43,7 @@ Get up and running in minutes:
   - Real-time landmark detection
   - NPU-accelerated via MLange
 
-This application showcases **Google MediaPipe Face Landmarker** using **ZETIC.MLange**. This model provides high-fidelity 468-point face mesh and landmark tracking, optimized for mobile devices with NPU acceleration.
+This application showcases **Google MediaPipe Face Landmarker** using **MLange**. This model provides high-fidelity 468-point face mesh and landmark tracking, optimized for mobile devices with NPU acceleration.
 
 ## 📁 Directory Structure
 

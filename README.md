@@ -1,14 +1,13 @@
 <div align="center">
 
-# ZETIC.MLange Applications
+# MLange Applications
 
 **Production-Ready Mobile Apps Built with MLange**
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20iOS-lightgrey.svg)](.)
-[![MLange](https://img.shields.io/badge/Powered%20by-MLange-orange.svg)](https://mlange.zetic.ai)
+[![ZETIC.ai](https://img.shields.io/badge/Powered%20by-ZETIC.ai-orange.svg)](https://zetic.ai)
 
-<a href="https://zetic.ai"><img alt="ZETIC.ai Homepage" src="https://img.shields.io/badge/Website-zetic.ai-brightgreen"></a>
 <a href="https://docs.zetic.ai"><img alt="MLange Documentation" src="https://img.shields.io/badge/Document-online-yellow"></a>
 <a href="https://mlange.zetic.ai"><img alt="MLange Dashboard" src="https://img.shields.io/badge/MLange%20Dashboard-web-hotpink"></a>
 <a href="https://play.google.com/store/apps/details?id=com.zeticai.zeticapp"><img alt="ZeticApp Play Store" src="https://img.shields.io/badge/ZeticApp-Play%20Store-darkgreen"></a>
@@ -33,7 +32,7 @@ Clone, run, and start building.
 
 ## 📖 About This Repository
 
-Here you'll find **open-source, production-ready mobile apps** built with [**ZETIC.MLange**](https://mlange.zetic.ai). These are real apps you can run right now. They show how easy it is to deploy AI models on mobile devices with NPU acceleration. What used to take months now takes just hours.
+Here you'll find **open-source, production-ready mobile apps** built with [**MLange**](https://mlange.zetic.ai). These are real apps you can run right now. They show how easy it is to deploy AI models on mobile devices with NPU acceleration. What used to take months now takes just hours.
 
 ### What is MLange?
 
@@ -146,7 +145,7 @@ ZETIC_MLange_apps/
 │   ├── whisper-tiny/             # Speech recognition app
 │   ├── TextAnonymizer/           # PII detection and masking
 │   └── ...                       # More apps
-├── extension/                    # ZETIC.MLange Extension Library (submodule)
+├── extension/                    # MLange Extension Library (submodule)
 │   └── Helper extensions and utilities
 ├── adapt_mlange_key.sh           # Script to configure API keys
 └── LICENSE                       # Apache 2.0 License
@@ -297,7 +296,7 @@ This project is licensed under the **Apache License 2.0** - check out the [LICEN
 
 ## 🙏 Acknowledgments
 
-- Built with [**ZETIC.MLange**](https://mlange.zetic.ai) - The NPU-native platform that makes mobile AI deployment a breeze
+- Built with [**MLange**](https://mlange.zetic.ai) - The NPU-native platform that makes mobile AI deployment a breeze
 - Big thanks to all our [contributors](https://github.com/zetic-ai/ZETIC_MLange_apps/graphs/contributors) who keep making this project better
 - Shoutout to the model providers and the amazing open-source AI community
 

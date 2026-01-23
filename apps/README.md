@@ -1,4 +1,4 @@
-# ZETIC.MLange Application Structure
+# MLange Application Structure
 
 Every app in this `apps/` folder follows the same structure, making it easy to navigate and understand how each one works.
 

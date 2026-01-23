@@ -43,7 +43,7 @@ Get up and running in minutes:
   - Optimized for mobile and edge devices
   - NPU-accelerated via MLange
 
-This application showcases the **YOLOv8 Nano** model using **ZETIC.MLange**. YOLOv8 Nano provides real-time object detection and tracking capabilities optimized for mobile devices with NPU acceleration.
+This application showcases the **YOLOv8 Nano** model using **MLange**. YOLOv8 Nano provides real-time object detection and tracking capabilities optimized for mobile devices with NPU acceleration.
 
 ## 📁 Directory Structure
 

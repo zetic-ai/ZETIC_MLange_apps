@@ -43,7 +43,7 @@ Get up and running in minutes:
   - Completely offline processing
   - Real-time inference with NPU acceleration via MLange
 
-This application showcases the **OpenAI Whisper Tiny** model using **ZETIC.MLange**. Whisper Tiny provides high-accuracy automatic speech recognition (ASR) completely offline, with NPU acceleration for real-time performance.
+This application showcases the **OpenAI Whisper Tiny** model using **MLange**. Whisper Tiny provides high-accuracy automatic speech recognition (ASR) completely offline, with NPU acceleration for real-time performance.
 
 ## 📁 Directory Structure
 

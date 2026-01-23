@@ -43,7 +43,7 @@ Get up and running in minutes:
   - Lightweight architecture for mobile devices
   - NPU-accelerated via MLange
 
-This application showcases **Google MediaPipe BlazeFace** using **ZETIC.MLange**. BlazeFace is a lightweight and highly optimized face detection architecture specifically designed for mobile and edge devices, with NPU acceleration for ultra-fast performance.
+This application showcases **Google MediaPipe BlazeFace** using **MLange**. BlazeFace is a lightweight and highly optimized face detection architecture specifically designed for mobile and edge devices, with NPU acceleration for ultra-fast performance.
 
 ## 📁 Directory Structure
 

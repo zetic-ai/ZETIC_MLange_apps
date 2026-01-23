@@ -45,7 +45,7 @@ Get up and running in minutes:
   - Real-time performance on mobile devices
   - NPU-optimized via MLange
 
-This application showcases the **YOLOv26 Nano** model using **ZETIC.MLange**. YOLOv26 is a next-generation object detection model that eliminates the need for Non-Maximum Suppression (NMS), making it highly efficient for edge devices with NPU acceleration.
+This application showcases the **YOLOv26 Nano** model using **MLange**. YOLOv26 is a next-generation object detection model that eliminates the need for Non-Maximum Suppression (NMS), making it highly efficient for edge devices with NPU acceleration.
 
 ## 📁 Directory Structure
 

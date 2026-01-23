@@ -37,7 +37,7 @@ Get up and running in minutes:
 
 ## Overview
 
-The **Text Anonymizer** application provides automatic detection and masking of Personally Identifiable Information (PII) in text using the **tanaos-text-anonymizer-v1** model powered by **ZETIC.MLange**. This on-device solution ensures that sensitive information such as names, email addresses, phone numbers, credit card numbers, SSNs, locations, and dates are automatically identified and replaced with safe placeholders before sharing or processing.
+The **Text Anonymizer** application provides automatic detection and masking of Personally Identifiable Information (PII) in text using the **tanaos-text-anonymizer-v1** model powered by **MLange**. This on-device solution ensures that sensitive information such as names, email addresses, phone numbers, credit card numbers, SSNs, locations, and dates are automatically identified and replaced with safe placeholders before sharing or processing.
 
 ### Key Features
 

@@ -43,7 +43,7 @@ Get up and running in minutes:
   - Multiple emotion categories
   - NPU-accelerated inference via MLange
 
-This application showcases the **Emo-AffectNet** model using **ZETIC.MLange**. Emo-AffectNet is designed for real-time emotion recognition from facial expressions, optimized for mobile devices with NPU acceleration.
+This application showcases the **Emo-AffectNet** model using **MLange**. Emo-AffectNet is designed for real-time emotion recognition from facial expressions, optimized for mobile devices with NPU acceleration.
 
 ## 📁 Directory Structure
 
