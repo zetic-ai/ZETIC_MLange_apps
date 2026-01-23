@@ -20,7 +20,7 @@
 <h1>Build Production AI Apps with MLange</h1>
 
 <h3>
-Real mobile apps built with <strong>MLange</strong> — the NPU-native platform<br/>
+Real mobile apps built with <strong>MLange</strong> - the NPU-native platform<br/>
 that turns any AI model into a production-ready mobile app in under 6 hours.<br/>
 Clone, run, and start building.
 </h3>
@@ -33,11 +33,11 @@ Clone, run, and start building.
 
 ## 📖 About This Repository
 
-Here you'll find **open-source, production-ready mobile apps** built with [**ZETIC.MLange**](https://mlange.zetic.ai). These are real apps you can run right now—they show how easy it is to deploy AI models on mobile devices with NPU acceleration. What used to take months now takes just hours.
+Here you'll find **open-source, production-ready mobile apps** built with [**ZETIC.MLange**](https://mlange.zetic.ai). These are real apps you can run right now. They show how easy it is to deploy AI models on mobile devices with NPU acceleration. What used to take months now takes just hours.
 
 ### What is MLange?
 
-**MLange** (pronounced *Mélange*) is an **NPU-native platform** that takes your AI model and turns it into a production-ready mobile app—automatically. As [ZETIC.ai](https://zetic.ai) puts it, MLange makes AI **Faster, Cheaper, Safer, and Independent**.
+**MLange** (pronounced *Mélange*) is an **NPU-native platform** that takes your AI model and turns it into a production-ready mobile app automatically. As [ZETIC.ai](https://zetic.ai) puts it, MLange makes AI **Faster, Cheaper, Safer, and Independent**.
 
 #### Why MLange?
 
@@ -45,7 +45,7 @@ Here's what makes MLange special:
 
 - 🚀 **Up to 60x Faster** - Full NPU acceleration that's way faster than CPU
 - ⏱️ **Deploy in 1+ Hours** - Go from raw model files to production-ready mobile SDKs in hours, not months
-- 🔄 **Fully Automated** - No need to manually optimize or tune NPUs—we handle that for you
+- 🔄 **Fully Automated** - No need to manually optimize or tune NPUs. We handle that for you.
 - 🔀 **Hybrid Acceleration** - Smart orchestration of CPU + GPU + NPU for the best performance
 - 📱 **200+ Devices Tested** - We benchmark on 200+ real devices so you know it works
 - 💻 **3 Lines of Code** - That's all you need to integrate with our unified Android/iOS API
@@ -68,7 +68,7 @@ We've put together real, working examples to help you build with **MLange**:
 - ✅ **Complete Examples** - See exactly how to use the MLange SDK in real projects
 - ✅ **Best Practices** - Learn the patterns and tricks that work best
 - ✅ **Multiple Use Cases** - Computer vision, NLP, audio processing, and more
-- ✅ **Open Source** - Apache 2.0 licensed—use it however you want
+- ✅ **Open Source** - Apache 2.0 licensed. Use it however you want.
 
 <br/>
 
@@ -98,7 +98,7 @@ cd ZETIC_MLange_apps
 > 2. Navigate to **Settings** → **Personal Access Token**
 > 3. Generate your token and use it with the setup script
 > 
-> MLange automatically handles model optimization, NPU acceleration, and deployment—no manual configuration required!
+> MLange automatically handles model optimization, NPU acceleration, and deployment. No manual configuration required!
 
 <br/>
 
@@ -162,7 +162,7 @@ Each app includes:
 
 ## 💻 Using MLange in Your App
 
-Want to add MLange to your own app? It's super simple—just a few lines of code. We handle all the tricky stuff like NPU optimization, quantization, and hardware orchestration behind the scenes.
+Want to add MLange to your own app? It's super simple - just a few lines of code. We handle all the tricky stuff like NPU optimization, quantization, and hardware orchestration behind the scenes.
 
 ### Android
 
