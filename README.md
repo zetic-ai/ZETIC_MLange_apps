@@ -2,7 +2,7 @@
 
 # MLange Applications
 
-**Production-Ready Mobile Apps Built with MLange**
+**Open-Source Mobile AI Apps**
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20iOS-lightgrey.svg)](.)
@@ -19,9 +19,8 @@
 <h1>Build Production AI Apps with MLange</h1>
 
 <h3>
-Real mobile apps built with <strong>MLange</strong> - the NPU-native platform<br/>
-that turns any AI model into a production-ready mobile app in under 6 hours.<br/>
-Clone, run, and start building.
+Production-ready NPU apps you can clone and run. <br>
+Go from model to mobile in hours, not weeks.
 </h3>
 
 [Quick Start](#-quick-start) • [Available Models](#-available-models) • [Documentation](https://docs.zetic.ai) • [Contribute](#-contributing)
@@ -36,7 +35,7 @@ Here you'll find **open-source, production-ready mobile apps** built with [**MLa
 
 ### What is MLange?
 
-**MLange** (pronounced *Mélange*) is an **NPU-native platform** that takes your AI model and turns it into a production-ready mobile app automatically. As [ZETIC.ai](https://zetic.ai) puts it, MLange makes AI **Faster, Cheaper, Safer, and Independent**.
+**MLange** (pronounced *Mélange*) is an **NPU-native platform** that takes your AI model and turns it into a production-ready mobile app automatically. At [ZETIC.ai](https://zetic.ai) we built MLange to make AI **Faster, Cheaper, Safer, and Independent**.
 
 #### Why MLange?
 
@@ -48,7 +47,7 @@ Here's what makes MLange special:
 - 🔀 **Hybrid Acceleration** - Smart orchestration of CPU + GPU + NPU for the best performance
 - 📱 **200+ Devices Tested** - We benchmark on 200+ real devices so you know it works
 - 💻 **3 Lines of Code** - That's all you need to integrate with our unified Android/iOS API
-- 📚 **Multiple Model Sources** - Upload your own models, paste a Hugging Face link, or pick from our library
+- 📚 **Multiple Model Sources** - Support for custom model uploads, Hugging Face links, and our curated library
 
 #### What You Get with MLange
 
@@ -159,9 +158,9 @@ Each app includes:
 
 <br/>
 
-## 💻 Using MLange in Your App
+## 💻 Deploying Models in Your App
 
-Want to add MLange to your own app? It's super simple - just a few lines of code. We handle all the tricky stuff like NPU optimization, quantization, and hardware orchestration behind the scenes.
+Want to use these NPU capabilities in your own app? The MLange SDK makes it simple. You don't need to write complex hardware code, just initialize the SDK and start running inference instantly.
 
 ### Android
 
@@ -227,32 +226,26 @@ let outputs = try model.run(inputs: inputs)
 - **[MLange Documentation](https://docs.zetic.ai)** - Full API reference and step-by-step guides
 - **[ZETIC.ai](https://zetic.ai)** - Everything you need to know about MLange
 
-## 🤝 Contributing
+## 🤝 Contributing New Examples
 
-We'd love your help! This is an open-source project, and every contribution makes a difference.
+We love seeing what developers build! This repository is an open-source collection of demo apps, and we welcome new additions to the gallery.
 
 ### How to Contribute
 
 1. **Fork the repo** and create a branch (`git checkout -b feature/amazing-app`)
-2. **Build your app with MLange**:
-   - Head to the [MLange Dashboard](https://mlange.zetic.ai) to upload your model and get an NPU-optimized SDK
-   - Build your app using the MLange SDK (check out the existing apps for reference)
-   - Make sure to include both Android and iOS versions
-   - Write up a README.md that explains your app and how it uses MLange
-3. **Test it out** - Make sure everything works on real devices
-4. **Open a Pull Request** with:
-   - A clear description of what your app does
-   - Screenshots or a quick demo video
-   - Link to your model on the MLange Dashboard
-   - Any extra setup steps needed
-
-### Guidelines
-
-- Keep the code structure and style consistent with existing apps
-- Write clear documentation
-- Test on both Android and iOS
-- Follow platform best practices
-- Don't forget to add your app to the main README table
+2. **Build your app**:
+   - Option A: Use one of the pre-optimized models available on the [MLange Dashboard](https://mlange.zetic.ai)
+   - Option B: Have a custom model you want to showcase? [Join our Discord](https://discord.com/invite/gVFX6myuMx) and let us know, we'd love to help you get it running.
+3. **Follow the Standards**
+   - Keep code structure consistent with existing apps.
+   - Include both Android and iOS versions if possible.
+4. **Document It**
+   - Add a README.md inside your app folder explaining what it does.
+   - Don't forget: Add your app to the main table in the root README.md.
+5. **Test it**: Verify it works on real devices (not just simulators).
+6. **Open a Pull Request**:
+   - Include a clear description, screenshots, or a demo video.
+   - Mention which MLange model you used.
 
 ### Need Help?
 
@@ -267,7 +260,7 @@ We'd love your help! This is an open-source project, and every contribution make
 ### Official Links
 
 - **Website**: [zetic.ai](https://zetic.ai)
-- **MLange Dashboard**: [mlange.zetic.ai](https://mlange.zetic.ai) - Upload models, generate SDKs, see performance benchmarks
+- **MLange Dashboard**: [mlange.zetic.ai](https://mlange.zetic.ai) - Get NPU-optimized SDKs, view benchmarks, and upload custom models
 - **Documentation**: [docs.zetic.ai](https://docs.zetic.ai) - Full API reference and guides
 - **Discord**: [Join our Discord](https://discord.com/invite/gVFX6myuMx) - Get help, share what you're building, meet other developers
 
@@ -279,12 +272,13 @@ We'd love your help! This is an open-source project, and every contribution make
 
 ## 📄 License
 
-This project is licensed under the **Apache License 2.0** - check out the [LICENSE](LICENSE) file for the full details.
+This repository (the source code and example apps) is licensed under the Apache License 2.0.
+
+**⚠️ Note**: The MLange SDK (com.zeticai.mlange) is a proprietary library subject to the ZETIC.ai [Terms of Service](https://zetic.ai/terms).
 
 **You can:**
 - ✅ Use it commercially
-- ✅ Modify and share it
-- ✅ Use it in patents
+- ✅ Modify and share the example apps
 - ✅ Use it privately
 
 **Just remember to:**
@@ -296,7 +290,6 @@ This project is licensed under the **Apache License 2.0** - check out the [LICEN
 
 ## 🙏 Acknowledgments
 
-- Built with [**MLange**](https://mlange.zetic.ai) - The NPU-native platform that makes mobile AI deployment a breeze
 - Big thanks to all our [contributors](https://github.com/zetic-ai/ZETIC_MLange_apps/graphs/contributors) who keep making this project better
 - Shoutout to the model providers and the amazing open-source AI community
 
@@ -304,7 +297,7 @@ This project is licensed under the **Apache License 2.0** - check out the [LICEN
 
 <div align="center">
 
-**Made with ❤️ by the ZETIC.ai team**
+**By ZETIC.ai**
 
 [⭐ Star us on GitHub](https://github.com/zetic-ai/ZETIC_MLange_apps) • [🐛 Report Bug](https://github.com/zetic-ai/ZETIC_MLange_apps/issues) • [💡 Request Feature](https://github.com/zetic-ai/ZETIC_MLange_apps/issues) • [🚀 Try MLange](https://mlange.zetic.ai) • [📖 Documentation](https://docs.zetic.ai)
 
