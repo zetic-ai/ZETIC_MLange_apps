@@ -1,4 +1,5 @@
 iOS/*.mlpackage
 prepare/model/
 prepare/input/
+*.pt
 .DS_Store
