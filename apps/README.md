@@ -1,36 +1,39 @@
-# ZETIC.MLange Application Structure
+# MLange Application Structure
 
-Each model directory in this `apps/` folder follows a standardized structure to ensure consistency and ease of use.
+Every app in this `apps/` folder follows the same structure, making it easy to navigate and understand how each one works.
 
-## Common Directory Layout
+## Directory Structure
 
-Every model directory (e.g., `apps/<ModelName>/`) contains the following subdirectories:
+Each app directory (e.g., `apps/<ModelName>/`) has this structure:
 
 ```
 .
-├── prepare/      # Python scripts to download/export the model and prepare sample inputs.
-├── Android/      # Native Android application source code.
-├── iOS/          # Native iOS application source code.
-├── Flutter/      # Flutter plugin/application code (Coming Soon).
-└── ReactNative/  # React Native module/application code (Coming Soon).
+├── prepare/      # Scripts to prepare models and sample inputs
+├── Android/      # Android app (Kotlin)
+├── iOS/          # iOS app (Swift)
+├── Flutter/      # Flutter implementation (Coming Soon)
+└── ReactNative/  # React Native implementation (Coming Soon)
 ```
 
 ## Prepare Directory
-The `prepare/` directory is the starting point. It typically contains:
-- `prepare_model.py`: A script to download the model from HuggingFace, converting it if necessary, and preparing sample input data for testing.
+
+The `prepare/` folder contains scripts to get your model ready for MLange. Usually you'll find:
+- `prepare_model.py` or similar scripts to download models from HuggingFace, convert them if needed, and create sample inputs for testing
 
 ### Model Preparation Guide
-Before using a model with ZETIC.MLange, you need to prepare the model file and sample inputs.
-For full details, refer to the [official documentation](https://docs.zetic.ai/prepare-model).
+
+Before you can use a model with **MLange**, you'll need to prepare the model file and sample inputs. For the full guide, check out the [official documentation](https://docs.zetic.ai/prepare-model).
 
 #### 1. Supported Formats
-ZETIC.MLange supports the following model formats:
-- **PyTorch Exported Program (`.pt2`)** (Recommended)
+
+MLange supports these model formats:
+- **PyTorch Exported Program (`.pt2`)** ⭐ Recommended
 - **ONNX (`.onnx`)**
-- **TorchScript (`.pt`)** (Deprecated)
+- **TorchScript (`.pt`)** ⚠️ Deprecated
 
 #### 2. Saving Model & Inputs
-You must save your model in one of the supported formats and your sample inputs as NumPy arrays (`.npy`).
+
+Save your model in one of the supported formats above, and save your sample inputs as NumPy arrays (`.npy`).
 
 **Example: PyTorch Exported Program (.pt2)**
 ```python
@@ -60,9 +63,13 @@ np.save("input.npy", dummy_input.detach().numpy())
 ```
 
 #### 3. Verify Inputs
-ZETIC.MLange compiles models into a static hardware graph. **Input Order** and **Input Shapes** must be consistent and fixed. Always verify your `.onnx` or `.pt2` model structure using tools like [Netron](https://netron.app/).
+
+MLange compiles models into a static hardware graph, so **input order** and **input shapes** need to be consistent and fixed. Always double-check your `.onnx` or `.pt2` model structure using tools like [Netron](https://netron.app/).
 
 ## Platform Directories
-- **Android**: Gradle-based Android project.
-- **iOS**: Xcode project or Swift Package.
-- **Flutter / ReactNative**: Cross-platform implementations.
+
+- **Android/** - Full Gradle-based Android project ready to open in Android Studio
+- **iOS/** - Complete Xcode project ready to build and run
+- **Flutter/** / **ReactNative/** - Cross-platform implementations (coming soon)
+
+Each platform directory contains a complete, runnable app that uses the MLange SDK to run the model with NPU acceleration.

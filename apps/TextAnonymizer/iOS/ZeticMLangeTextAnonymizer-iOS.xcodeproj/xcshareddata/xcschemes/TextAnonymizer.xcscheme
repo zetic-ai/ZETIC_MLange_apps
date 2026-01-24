@@ -58,7 +58,7 @@
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "ZETIC_ACCESS_TOKEN"
-            value = "ztp_3b1e7682a2e14ac2b9b90f1244fb0018"
+            value = "YOUR_PERSONAL_ACCESS_TOKEN"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
