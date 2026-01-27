@@ -8,7 +8,7 @@ class YOLOv8: ObservableObject {
     
     public static let modelKey = "b9f5d74e6f644288a32c50174ded828e"
     
-    private let model = (try? ZeticMLangeModel(personalKey: "YOUR_MLANGE_KEY", name: "YOUR_PROJECT_NAME", version: 1))!
+    private let model = (try? ZeticMLangeModel(tokenKey: "YOUR_MLANGE_KEY", name: Self.modelKey, version: 1))!
     
     private var fpsCounter = 0
     private var processPerSecond = 0

@@ -136,12 +136,141 @@ class YOLOv26Model: ObservableObject {
         // Async loading to prevent freezing UI
         DispatchQueue.global(qos: .userInitiated).async {
             do {
-                self.model = try ZeticMLangeModel(tokenKey: "YOUR_MLANGE_KEY", name: "Team_ZETIC/YOLOv26", version: 3)
+                self.model = try ZeticMLangeModel(tokenKey: "YOUR_MLANGE_KEY", name: "Team_ZETIC/YOLOv26", version: 1)
                 DispatchQueue.main.async {
                     self.isModelLoaded = true
                 }
             } catch {
                 print("Failed to load ZeticMLangeModel: \(error)")
+            }
+        }
+    }
+    
+    func detect(pixelBuffer: CVPixelBuffer, completion: @escaping ([BoundingBox], Double) -> Void) {
+        guard let model = model else {
+            completion([], 0)
+            return
+        }
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            let startTime = CFAbsoluteTimeGetCurrent()
+            
+            // 1. Resize directly using vImage (skip CoreImage/UIKit)
+            CVPixelBufferLockBaseAddress(pixelBuffer, .readOnly)
+            defer { CVPixelBufferUnlockBaseAddress(pixelBuffer, .readOnly) }
+            
+            guard let srcBase = CVPixelBufferGetBaseAddress(pixelBuffer) else { return }
+            let srcWidth = CVPixelBufferGetWidth(pixelBuffer)
+            let srcHeight = CVPixelBufferGetHeight(pixelBuffer)
+            let srcBytesPerRow = CVPixelBufferGetBytesPerRow(pixelBuffer)
+            
+            var srcBuffer = vImage_Buffer(
+                data: srcBase,
+                height: vImagePixelCount(srcHeight),
+                width: vImagePixelCount(srcWidth),
+                rowBytes: srcBytesPerRow
+            )
+            
+            // Target Buffer (Reusable self.pixelBuffer)
+            let dstWidth = 640
+            let dstHeight = 640
+            
+            self.pixelBuffer.withUnsafeMutableBufferPointer { dstPtr in
+                guard let dstBase = dstPtr.baseAddress else { return }
+                
+                var dstBuffer = vImage_Buffer(
+                    data: dstBase,
+                    height: vImagePixelCount(dstHeight),
+                    width: vImagePixelCount(dstWidth),
+                    rowBytes: dstWidth * 4 // RGBA
+                )
+                
+                // Scale (Fast, High Quality)
+                // Note: Input is usually BGRA (Camera), Output is RGBA (Model expectation?) or BGRA?
+                // Model usually expects RGB.
+                // vImage can scale. We handle channel swap in the next step (Planarization).
+                vImageScale_ARGB8888(&srcBuffer, &dstBuffer, nil, vImage_Flags(kvImageNoFlags))
+            }
+            
+            // 2. Normalize & Planarize (Zero Allocation into inputBuffer)
+            // Existing logic modified to handle BGRA -> RGB swap if needed
+            // CoreVideo Camera default is kCVPixelFormatType_32BGRA
+            
+            self.pixelBuffer.withUnsafeMutableBufferPointer { pixelPtr in
+                self.inputBuffer.withUnsafeMutableBufferPointer { inputPtr in
+                     guard let srcBase = pixelPtr.baseAddress,
+                           let dstBase = inputPtr.baseAddress else { return }
+                     
+                     let count = 640 * 640
+                     for i in 0..<count {
+                         // Input resized buffer is BGRA (from Camera)
+                         // We need RGB Planar
+                         
+                         let offset = i * 4
+                         let b = Float(srcBase[offset + 0]) / 255.0
+                         let g = Float(srcBase[offset + 1]) / 255.0
+                         let r = Float(srcBase[offset + 2]) / 255.0
+                         // Alpha at +3 ignored
+                         
+                         // Planar destinations
+                         dstBase[i] = r
+                         dstBase[count + i] = g
+                         dstBase[2 * count + i] = b
+                     }
+                }
+            }
+            
+            // 3. Inference
+            do {
+                let data = Data(buffer: UnsafeBufferPointer(start: self.inputBuffer, count: self.inputBuffer.count))
+
+                let inputTensor = ZeticMLange.Tensor(data: data, dataType: ZeticMLange.BuiltinDataType.float32, shape: [1, 3, 640, 640])
+                let inputs: [ZeticMLange.Tensor] = [inputTensor]
+                
+                let outputs = try model.run(inputs: inputs)
+                
+                guard let outputTensor = outputs.first else {
+                    DispatchQueue.main.async { 
+                        self.boxes = []
+                        completion([], 0) 
+                    }
+                    return
+                }
+                
+                // Inspect Shape
+                let shape = outputTensor.shape
+                let dim1 = shape.count > 1 ? shape[1] : 0
+                let dim2 = shape.count > 2 ? shape[2] : 0
+                
+                var results: [BoundingBox] = []
+                var debugInfo = ""
+                
+                if dim1 == 300 && dim2 == 6 {
+                    results = self.postprocessNMS(output: outputTensor, originalSize: CGSize(width: srcWidth, height: srcHeight)) // Use actual src size
+                    debugInfo = "Standard Export"
+                } else {
+                    // Raw logic... (simplified for brevity match)
+                     var detectedClassCount = 80
+                     var outputAnchors = 8400
+                     if dim2 > dim1 { detectedClassCount = dim1 - 4; outputAnchors = dim2 }
+                     else { detectedClassCount = dim2 - 4; outputAnchors = dim1 }
+                     results = self.postprocess(output: outputTensor, originalSize: CGSize(width: srcWidth, height: srcHeight), classCount: detectedClassCount, outputAnchors: outputAnchors)
+                     debugInfo = "Raw Output"
+                }
+                
+                let duration = CFAbsoluteTimeGetCurrent() - startTime
+                
+                DispatchQueue.main.async {
+                    self.debugText = debugInfo
+                    self.boxes = results
+                    completion(results, duration)
+                }
+            } catch {
+                print("Inference failed: \(error)")
+                DispatchQueue.main.async {
+                    self.boxes = []
+                    completion([], 0)
+                }
             }
         }
     }
@@ -157,9 +286,20 @@ class YOLOv26Model: ObservableObject {
             let startTime = CFAbsoluteTimeGetCurrent()
             
             // 1. Resize & Draw to reusable pixel buffer (Zero Allocation)
-            // Clear context? Usually strict draw covers it, but to be safe:
+            // Fix: Handle Image Orientation
+            var inputCGImage = cgImage
+            if image.imageOrientation != .up {
+                // If not upright, use UIKit to normalize orientation into a new 640x640 CGImage
+                UIGraphicsBeginImageContextWithOptions(CGSize(width: 640, height: 640), false, 1.0)
+                image.draw(in: CGRect(x: 0, y: 0, width: 640, height: 640))
+                if let normalized = UIGraphicsGetImageFromCurrentImageContext()?.cgImage {
+                    inputCGImage = normalized
+                }
+                UIGraphicsEndImageContext()
+            }
+            
             // context.clear(CGRect(x: 0, y: 0, width: 640, height: 640)) 
-            context.draw(cgImage, in: CGRect(x: 0, y: 0, width: 640, height: 640))
+            context.draw(inputCGImage, in: CGRect(x: 0, y: 0, width: 640, height: 640))
             
             // 2. Normalize & Planarize (Zero Allocation into inputBuffer)
             let width = 640
@@ -204,6 +344,7 @@ class YOLOv26Model: ObservableObject {
                 // Data(bytesNoCopy:...) avoids another copy if Tensor supports it, 
                 // typically we cast the buffer to Data.
                 let data = Data(buffer: UnsafeBufferPointer(start: self.inputBuffer, count: self.inputBuffer.count))
+                // ... (Original Implementation matches until here)
 
                 let inputTensor = ZeticMLange.Tensor(data: data, dataType: ZeticMLange.BuiltinDataType.float32, shape: [1, 3, 640, 640])
                 let inputs: [ZeticMLange.Tensor] = [inputTensor]
@@ -342,34 +483,8 @@ class YOLOv26Model: ObservableObject {
             }
             
                 if maxScore > confidenceThreshold {
+                    // Debug block removed for performance
 
-                    // Debug: Specifically hunt for the Refrigerator (Class 72) or any non-person
-                    if maxClassIndex != 0 {
-                        let printLabel = (maxClassIndex >= 0 && maxClassIndex < CocoClasses.names.count) ? CocoClasses.names[maxClassIndex] : "Class \(maxClassIndex)"
-                        print("!!! ANOMALY DETECTED !!! Anchor [\(anchorIndex)] Label: \(printLabel) (\(maxClassIndex)) MaxScore: \(maxScore)")
-                        
-                        // Print top 5 scores
-                        var topAny: [(Int, Float)] = []
-                        for c in 0..<classCount {
-                           let idx = (4+c) * outputAnchors + anchorIndex
-                           if idx < data.count {
-                               topAny.append((c, data[idx]))
-                           }
-                        }
-                        // Filter: Only show classes with > 5% confidence
-                        let meaningful = topAny.filter { $0.1 > 0.05 }
-                        
-                        let topStr = meaningful.prefix(5).map { "Cls \($0.0)=\(String(format: "%.3f", $0.1))" }.joined(separator: ", ")
-                        print("  -> Candidates (>5%): \(topStr.isEmpty ? "None" : topStr)")
-
-                        
-                        // Print Raw Box Values to check normalization
-                        let rX = data[0 * outputAnchors + anchorIndex]
-                        let rY = data[1 * outputAnchors + anchorIndex]
-                        let rW = data[2 * outputAnchors + anchorIndex]
-                        let rH = data[3 * outputAnchors + anchorIndex]
-                        print("  -> Raw Box: [\(rX), \(rY), \(rW), \(rH)]")
-                    }
                 
                 let xc = data[0 * outputAnchors + anchorIndex]
                 let yc = data[1 * outputAnchors + anchorIndex]

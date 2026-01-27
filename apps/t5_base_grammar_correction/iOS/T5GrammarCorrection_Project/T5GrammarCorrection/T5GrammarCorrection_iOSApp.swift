@@ -84,14 +84,14 @@ class ModelHandler {
     
     // Model keys provided by user
     private let modelName = "Team_ZETIC/t5-grammar-correction"
-    private let privateTokenKey = "dev_d786c1fd7f2848acb9b0bf8060aa10b2"
-    private let modelVersion = 2
+    private let mlangeKey = "YOUR_MLANGE_KEY"
+    private let modelVersion = 1
     
     func loadModel() throws {
         if model == nil {
             print("Loading model: \(modelName)...")
             // USE RUN_ACCURACY (High Precision/CPU Preference) based on user req/Python findings
-            model = try ZeticMLangeModel(tokenKey: privateTokenKey, name: modelName, version: modelVersion, modelMode: ModelMode.RUN_ACCURACY)
+            model = try ZeticMLangeModel(tokenKey: mlangeKey, name: modelName, version: modelVersion, modelMode: ModelMode.RUN_ACCURACY)
             print("Model loaded successfully.")
         }
     }
