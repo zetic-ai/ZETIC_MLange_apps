@@ -20,7 +20,7 @@
 
 <h3>
 Production-ready source code for on-device AI. <br>
-Automated conversion. Full NPU speed. Deployed in hours, not weeks.
+Automated conversion. Full NPU speed. Deployed in hours.
 </h3>
 
 [Quick Start](#-quick-start) • [Available Models](#-available-models) • [Documentation](https://docs.zetic.ai) • [Contribute](#-contributing)
