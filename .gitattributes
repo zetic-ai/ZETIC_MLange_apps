@@ -1,0 +1,5 @@
+# Auto-convert API keys to placeholders on commit
+apps/**/*.swift filter=mlange-key-clean
+apps/**/*.kt filter=mlange-key-clean
+apps/**/*.java filter=mlange-key-clean
+apps/**/*.xcscheme filter=mlange-key-clean
