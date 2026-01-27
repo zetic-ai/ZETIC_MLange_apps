@@ -2,6 +2,18 @@
 
 <div align="center">
 
+<div align="center" style="display: flex; justify-content: center; gap: 40px; margin: 20px 0;">
+  <div align="center">
+    <img src="../../res/screenshots/t5-grammar-correction_android.png" width="200" alt="Android Screenshot">
+    <div style="margin-top: 10px;">Google Pixel 9 Pro</div>
+  </div>
+  <div align="center">
+    <img src="../../res/screenshots/t5-grammar-correction_ios.png" width="200" alt="iOS Screenshot">
+    <div style="margin-top: 10px;">iPhone 15 Pro</div>
+  </div>
+</div>
+
+
 **Robust Grammar Correction Based on T5 Architecture**
 
 [![MLange](https://img.shields.io/badge/Powered%20by-MLange-orange.svg)](https://mlange.zetic.ai)
@@ -12,6 +24,7 @@
 
 > [!TIP]
 > **View on MLange Dashboard**: [Team_ZETIC/t5-base-grammar-correction](https://mlange.zetic.ai/p/Team_ZETIC/t5-base-grammar-correction?from=use-cases) - Contains generated source code & benchmark reports.
+
 
 ## 🚀 Quick Start
 
@@ -57,13 +70,6 @@ The model can correct various types of grammar errors including:
 - **Preposition errors**: "interested on" → "interested in"
 - **Subject-verb agreement**: "My grammar are bad" → "My grammar is bad"
 - **Singular/plural agreement**: "The students was" → "The students were"
-
-## � Screenshots
-
-<div align="center">
-  <img src="../../res/screenshots/t5-grammar-correction_android.png" width="30%" alt="Android Screenshot" />
-  <img src="../../res/screenshots/t5-grammar-correction_ios.png" width="30%" alt="iOS Screenshot" />
-</div>
 
 ## �📁 Directory Structure
 
