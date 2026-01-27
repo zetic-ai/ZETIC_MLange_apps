@@ -12,9 +12,9 @@ fi
 
 echo "Updating keys to: $NEW_KEY"
 
-# Update iOS files (Swift) - looking for tokenKey: "..." or personalKey: "..."
-# Also update privateTokenKey pattern for t5_base_grammar_correction
-find apps -name "*.swift" -print0 | xargs -0 perl -i -pe 's/(tokenKey|personalKey|privateTokenKey):\s*"[^"]*"/${1}: "'"$NEW_KEY"'"/g'
+# Update iOS files (Swift) - looking for tokenKey: "..." 
+# Also update privateTokenKey pattern and YOUR_MLANGE_KEY pattern
+find apps -name "*.swift" -print0 | xargs -0 perl -i -pe 's/(tokenKey|privateTokenKey):\s*"[^"]*"/tokenKey: "'"$NEW_KEY"'"/g; s/"YOUR_MLANGE_KEY"/"'$NEW_KEY'"/g; s/"YOUR_PERSONAL_ACCESS_TOKEN"/"'$NEW_KEY'"/g'
 
 # Update iOS Xcode scheme files (xcscheme) - EnvironmentVariable for ZETIC_ACCESS_TOKEN
 find apps -name "*.xcscheme" -print0 | xargs -0 perl -i -pe 's/(key = "ZETIC_ACCESS_TOKEN"[^>]*value = ")[^"]*"/${1}"'"$NEW_KEY"'"/g'
