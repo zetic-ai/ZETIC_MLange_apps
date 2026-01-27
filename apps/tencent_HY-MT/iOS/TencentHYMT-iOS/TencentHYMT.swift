@@ -10,7 +10,7 @@ class TencentHYMT: ObservableObject {
     @Published var isGenerating: Bool = false
     
     private var model: ZeticMLangeLLMModel?
-    private let projectKey = "dev_182c82785ecd42369394fbd2721484fd"
+    private let projectKey = "YOUR_MLANGE_KEY"
     private let modelId = "vaibhav-zetic/tencent_HY-MT"
     
     private var currentSource: Language?
