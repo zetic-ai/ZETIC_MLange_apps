@@ -96,7 +96,7 @@ cd ZETIC_MLange_apps
 | :---: | :---: | :--- | :---: |
 | **Privacy / Anonymization** | [**tanaos-text-anonymizer-v1**](apps/TextAnonymizer) | Automatic detection and masking of PII (names, dates, locations, emails, phone numbers) for secure data processing. | [**View**](https://mlange.zetic.ai/p/jathin-zetic/tanaos-text-anonymizer?from=use-cases) |
 | **Grammar Correction** | [**t5-base-grammar-correction**](apps/t5_base_grammar_correction) | Robust grammar correction based on T5 architecture for real-time text processing. | [**View**](https://mlange.zetic.ai/p/Team_ZETIC/t5-base-grammar-correction?from=use-cases) |
-| **Object Detection** | [**YOLOv26**](apps/YOLOv26) | Next-generation NMS-free object detection. | [**View**](https://mlange.zetic.ai/p/Team_ZETIC/YOLOv26?from=use-cases) |
+| **Object Detection** | [**YOLO26**](apps/YOLO26) | Next-generation NMS-free object detection. | [**View**](https://mlange.zetic.ai/p/Team_ZETIC/YOLO26?from=use-cases) |
 | **Object Detection** | [**YOLOv8 Nano**](apps/YOLOv8) | Real-time object detection and tracking in milliseconds. | [**View**](https://mlange.zetic.ai/p/Ultralytics/YOLOv8n?from=use-cases) |
 | **Speech Recognition** | [**Whisper Tiny**](apps/whisper-tiny) | High-accuracy automatic speech recognition (ASR) completely offline. | [**View**](https://mlange.zetic.ai/p/OpenAI/whisper-tiny-decoder?from=use-cases) |
 | **Face Detection** | [**MediaPipe BlazeFace**](apps/MediaPipe-Face-Detection) | Ultra-fast face detection optimized for short-range selfie cameras. | [**View**](https://mlange.zetic.ai/p/google/MediaPipe-Face-Detection?from=use-cases) |
@@ -126,7 +126,7 @@ We're always adding new models. Here's what's on the way:
 ```
 ZETIC_MLange_apps/
 ├── apps/                          # On-device AI applications
-│   ├── YOLOv26/                  # Object detection app
+│   ├── YOLO26/                  # Object detection app
 │   │   ├── Android/              # Android implementation
 │   │   ├── iOS/                  # iOS implementation
 │   │   └── prepare/              # Model preparation scripts
@@ -173,7 +173,7 @@ import com.zeticai.mlange.core.tensor.Tensor
 val model = ZeticMLangeModel(
     context = this,
     tokenKey = "YOUR_PERSONAL_KEY",
-    modelName = "Team_ZETIC/YOLOv26"
+    modelName = "Team_ZETIC/YOLO26"
 )
 
 // Prepare inputs
@@ -198,7 +198,7 @@ import ZeticMLange
 // Initialize model
 let model = try ZeticMLangeModel(
     tokenKey: "YOUR_PERSONAL_KEY",
-    name: "Team_ZETIC/YOLOv26",
+    name: "Team_ZETIC/YOLO26",
     version: 1
 )
 
