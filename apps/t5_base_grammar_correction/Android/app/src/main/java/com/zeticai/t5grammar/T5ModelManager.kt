@@ -2,6 +2,7 @@ package com.zeticai.t5grammar
 
 import android.content.Context
 import android.util.Log
+import com.zeticai.mlange.core.model.ModelMode
 import com.zeticai.mlange.core.model.ZeticMLangeModel
 import com.zeticai.mlange.core.tensor.DataType
 import com.zeticai.mlange.core.tensor.Tensor
@@ -23,7 +24,12 @@ class T5ModelManager(context: Context) {
     private val _error = MutableStateFlow<String?>(null)
     val error = _error.asStateFlow()
 
+    private val _downloadProgress = MutableStateFlow(0f)
+    val downloadProgress = _downloadProgress.asStateFlow()
+
     // Model Config
+    // Must be 1024 to match the compiled model artifact. 
+    // Reducing this causes "Source buffer is smaller than expected" error unless the model is re-exported.
     private val fixedEncoderLength = 1024
     private val fixedDecoderLength = 128
     // SAFETY: Use 1024 for decoder tensor too to avoid 'Buffer Smaller' errors if slots mismatch
@@ -54,7 +60,16 @@ class T5ModelManager(context: Context) {
                 val version = 3
                 
                 Log.d("T5ModelManager", "Loading model: $modelName")
-                model = ZeticMLangeModel(context, tokenKey, modelName, version) // Default mode is usually generic/accuracy
+                model = ZeticMLangeModel(
+                    context = context, 
+                    tokenKey = tokenKey, 
+                    name = modelName, 
+                    version = version,
+                    onProgress = { progress ->
+                        _downloadProgress.value = progress
+                    },
+                    modelMode = ModelMode.RUN_ACCURACY
+                )
                 _isModelLoaded.value = true
                 Log.d("T5ModelManager", "Model loaded successfully.")
             } catch (e: Exception) {
@@ -107,22 +122,23 @@ class T5ModelManager(context: Context) {
         val vocabSize = 32128
         val logitsArray = FloatArray(vocabSize)
 
+        // 3. Create Tensors ONCE (Reuse wrappers)
+        // Encoder inputs are constant for the whole decoding loop of one sentence
+        val encoderInputTensor = Tensor(inputIdsBuffer, DataType.Int64, intArrayOf(1, fixedEncoderLength))
+        val encoderMaskTensor = Tensor(attentionMaskBuffer, DataType.Int64, intArrayOf(1, fixedEncoderLength))
+        val decoderInputTensor = Tensor(decoderInputIdsBuffer, DataType.Int64, intArrayOf(1, decoderTensorLength))
+
+        val inputs = arrayOf(encoderInputTensor, encoderMaskTensor, decoderInputTensor)
+
         for (step in 0 until (fixedDecoderLength - 1)) {
             try {
                 // Only update Decoder buffer inside loop
+                // Since decoderInputTensor wraps this buffer, we just need to update the buffer content
                 decoderInputIdsBuffer.clear()
                 val decoderLongs = LongArray(decoderTensorLength) { i -> decoderInputIds[i].toLong() }
                 decoderInputIdsBuffer.asLongBuffer().put(decoderLongs)
 
-                // Create Tensors (All Int64)
-                // Note: JVM creates lightweight objects, acceptable overhead vs memory copy
-                val inputs = arrayOf(
-                    Tensor(inputIdsBuffer, DataType.Int64, intArrayOf(1, fixedEncoderLength)),
-                    Tensor(attentionMaskBuffer, DataType.Int64, intArrayOf(1, fixedEncoderLength)),
-                    Tensor(decoderInputIdsBuffer, DataType.Int64, intArrayOf(1, decoderTensorLength))
-                )
-
-                // Run
+                // Run with cached Tensor objects
                 val outputs = model!!.run(inputs)
                 val logitsTensor = outputs.firstOrNull() ?: break
                 
