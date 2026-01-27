@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     object Constants {
-        const val MLANGE_PERSONAL_ACCESS_TOKEN = "dev_78004aa8173644b7a6a97c1bbc92476a"
+        const val MLANGE_PERSONAL_ACCESS_TOKEN = "YOUR_MLANGE_KEY"
         const val MODEL_NAME = "vaibhav-zetic/tencent_HY-MT"
     }
 
@@ -30,12 +30,25 @@ class MainActivity : AppCompatActivity() {
     
     // Track if spinners have been initialized to avoid redundant loads on startup
     private var isSpinnersInitialized = false
+    private var isSwapping = false
 
+    @Synchronized
     private fun getOrUpdateModel(source: Language, target: Language, onProgress: ((Float) -> Unit)? = null): ZeticMLangeLLMModel {
-        if (activeModel == null || source != currentSourceLang || target != currentTargetLang) {
+        if (activeModel == null) {
             currentSourceLang = source
             currentTargetLang = target
             activeModel = createModel(onProgress ?: {})
+        } else {
+            val isSwap = source == currentTargetLang && target == currentSourceLang
+            val isChange = source != currentSourceLang || target != currentTargetLang
+
+            if (isChange) {
+                currentSourceLang = source
+                currentTargetLang = target
+                
+                // Always clean up context when language direction changes to avoid model confusion
+                activeModel?.cleanUp()
+            }
         }
         return activeModel!!
     }
@@ -61,14 +74,14 @@ class MainActivity : AppCompatActivity() {
 
         // Trigger initial model loading (download if needed)
         val defaultSource = Languages.list.first { it.name == "English" }
-        val defaultTarget = Languages.list.first { it.name == "Chinese" }
+        val defaultTarget = Languages.list.first { it.name == "Korean" }
 
         lifecycleScope.launch(Dispatchers.IO) {
             try {
                 // Initialize model with defaults
                 getOrUpdateModel(defaultSource, defaultTarget) { progress ->
                     runOnUiThread {
-                        binding.messageInput.hint = "File Downloading... ${progress * 100f}%"
+                        binding.messageInput.hint = "File Downloading... ${(progress * 100).toInt()}%"
                     }
                 }
 
@@ -95,14 +108,14 @@ class MainActivity : AppCompatActivity() {
         binding.sourceLangSpinner.adapter = adapter
         binding.targetLangSpinner.adapter = adapter
 
-        // set default: English -> Chinese
+        // set default: English -> Korean
         binding.sourceLangSpinner.setSelection(Languages.list.indexOfFirst { it.name == "English" })
-        binding.targetLangSpinner.setSelection(Languages.list.indexOfFirst { it.name == "Chinese" })
+        binding.targetLangSpinner.setSelection(Languages.list.indexOfFirst { it.name == "Korean" })
         
         // Listener to eagerly load model on language change
         val spinnerListener = object : android.widget.AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: android.widget.AdapterView<*>?, view: View?, position: Int, id: Long) {
-                if (!isSpinnersInitialized) {
+                if (!isSpinnersInitialized || isSwapping) {
                     isSpinnersInitialized = true
                     return
                 }
@@ -118,11 +131,12 @@ class MainActivity : AppCompatActivity() {
                                 binding.statusText.text = "Switching Model... ${(progress * 100).toInt()}%"
                             }
                         }
-                        runOnUiThread { 
-                             if (binding.statusText.text.startsWith("Switching")) { 
-                                 binding.statusText.text = "Model Ready" 
-                             }
-                        }
+                            runOnUiThread { 
+                                 if (binding.statusText.text.startsWith("Switching")) { 
+                                     binding.statusText.text = "Model Ready" 
+                                     binding.sendButton.isEnabled = true
+                                 }
+                            }
                     } catch (e: Exception) {
                         e.printStackTrace()
                     }
@@ -134,6 +148,35 @@ class MainActivity : AppCompatActivity() {
         
         binding.sourceLangSpinner.onItemSelectedListener = spinnerListener
         binding.targetLangSpinner.onItemSelectedListener = spinnerListener
+
+        binding.swapButton.setOnClickListener {
+            isSwapping = true // Block listeners
+            val sourcePos = binding.sourceLangSpinner.selectedItemPosition
+            val targetPos = binding.targetLangSpinner.selectedItemPosition
+            binding.sourceLangSpinner.setSelection(targetPos)
+            binding.targetLangSpinner.setSelection(sourcePos)
+            isSwapping = false // Unblock
+            
+            // Manual update with final state using explicit indices
+            // NOTE: spinner.selectedItem might not be updated yet if checked immediately after setSelection
+            val source = Languages.list[targetPos]
+            val target = Languages.list[sourcePos]
+            
+            lifecycleScope.launch(Dispatchers.IO) {
+                try {
+                    getOrUpdateModel(source, target)
+                    runOnUiThread {
+                        // Don't just set text "Model Ready", check real status or leave it to getOrUpdateModel side effects if any?
+                        // Actually getOrUpdateModel doesn't emit "Model Ready" if it just returns activeModel.
+                        // So we should enforce it here.
+                        binding.statusText.text = "Model Ready"
+                        binding.sendButton.isEnabled = true
+                    }
+                } catch(e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+        }
 
         binding.sendButton.setOnClickListener {
             val inputText = binding.messageInput.text.toString()
