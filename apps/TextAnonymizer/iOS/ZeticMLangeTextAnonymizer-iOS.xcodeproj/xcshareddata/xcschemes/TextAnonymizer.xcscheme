@@ -58,7 +58,7 @@
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "ZETIC_ACCESS_TOKEN"
-            value = "YOUR_PERSONAL_ACCESS_TOKEN"
+            value = "YOUR_MLANGE_KEY"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
