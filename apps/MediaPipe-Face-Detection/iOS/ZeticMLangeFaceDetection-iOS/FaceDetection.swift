@@ -5,8 +5,8 @@ import ZeticMLange
 class FaceDetection: ObservableObject {
     @Published var faces: Array<FaceDetectionResult> = []
     
-    public static let modelKey = "9e9431d8e3874ab2aa9530be711e8575"
-    private let model = (try? ZeticMLangeModel(personalKey: "YOUR_MLANGE_KEY", name: "YOUR_PROJECT_NAME", version: 1))!
+    public static let modelKey = "google/MediaPipe-Face-Detection"
+    private let model = (try? ZeticMLangeModel(tokenKey: "YOUR_MLANGE_KEY", name: Self.modelKey, version: 1))!
     private let wrapper = FaceDetectionWrapper()
     
     func process(input: FaceDetectionInput) {

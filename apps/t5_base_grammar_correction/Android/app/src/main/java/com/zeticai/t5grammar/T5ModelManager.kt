@@ -56,7 +56,7 @@ class T5ModelManager(context: Context) {
             try {
                 // Keys from user request/iOS
                 val modelName = "Team_ZETIC/t5-base-grammar-correction"
-                val tokenKey = "YOUR_PERSONAL_ACCESS_TOKEN"
+                val tokenKey = "YOUR_MLANGE_KEY"
                 val version = 3
                 
                 Log.d("T5ModelManager", "Loading model: $modelName")

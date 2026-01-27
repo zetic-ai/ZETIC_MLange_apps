@@ -9,7 +9,7 @@ import com.zeticai.mlange.feature.faceemotionrecognition.FaceEmotionRecognitionW
 class FaceEmotionRecognition(
     context: Context,
 ) {
-    private val model: ZeticMLangeModel = ZeticMLangeModel(context, "YOUR_MLANGE_KEY", "YOUR_PROJECT_NAME")
+    private val model: ZeticMLangeModel = ZeticMLangeModel(context, "YOUR_MLANGE_KEY", modelKey)
     private val wrapper: FaceEmotionRecognitionWrapper = FaceEmotionRecognitionWrapper()
 
     fun run(imagePtr: Long, roi: Box): FaceEmotionRecognitionResult {
@@ -29,6 +29,6 @@ class FaceEmotionRecognition(
     }
 
     companion object {
-        val modelKey: String = "223fed6191c848df8b2b707b76707baa"
+        val modelKey: String = "ElenaRyumina/FaceEmotionRecognition"
     }
 }

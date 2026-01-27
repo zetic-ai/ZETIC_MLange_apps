@@ -3,7 +3,7 @@ import UIKit
 import ZeticMLange
 
 class FaceLandmark: ObservableObject {
-    private let model = (try? ZeticMLangeModel(personalKey: "YOUR_MLANGE_KEY", name: "YOUR_PROJECT_NAME", version: 1))!
+    private let model = (try? ZeticMLangeModel(tokenKey: "YOUR_MLANGE_KEY", name: "google/MediaPipe-Face-Landmark", version: 1))!
     private let wrapper = FaceLandmarkWrapper()
     
     func process(input: FaceLandmarkInput) -> FaceLandmarkOutput {

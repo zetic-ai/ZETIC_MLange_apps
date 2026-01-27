@@ -109,8 +109,8 @@ class ModelHandler {
     
     // Model keys provided by user
     private let modelName = "Team_ZETIC/t5-base-grammar-correction"
-    private let privateTokenKey = "YOUR_PERSONAL_ACCESS_TOKEN"
-    private let modelVersion = 3
+    private let mlangeKey = "YOUR_MLANGE_KEY"
+    private let modelVersion = 1
     
     func loadModel(onProgress: ((Float) -> Void)? = nil) throws {
         // Check tokenizer first
@@ -119,7 +119,7 @@ class ModelHandler {
         }
         
         if model == nil {
-            model = try ZeticMLangeModel(tokenKey: privateTokenKey, name: modelName, version: modelVersion, onDownload: onProgress)
+            model = try ZeticMLangeModel(tokenKey: mlangeKey, name: modelName, version: modelVersion, onDownload: onProgress)
         }
     }
     
