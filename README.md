@@ -115,7 +115,6 @@ We're always adding new models. Here's what's on the way:
 | **Healthcare / VQA** | [**MedGemma-1.5-4b-it**](https://huggingface.co/google/medgemma-1.5-4b-it) | Multimodal medical question answering and image understanding. |
 | **TTS** | [**neutts-nano**](https://huggingface.co/neuphonic/neutts-nano) | Compact, high-quality Text-to-Speech synthesis. |
 | **Depth Estimation** | [**DA3-SMALL**](https://huggingface.co/depth-anything/DA3-SMALL) | Efficient multi-view depth estimation for 3D understanding. |
-| **Grammar Correction** | [**t5-base-grammar-correction**](https://huggingface.co/vennify/t5-base-grammar-correction) | Robust grammar correction based on T5 architecture. |
 | **TTS** | [**pocket-tts**](https://huggingface.co/kyutai/pocket-tts) | Ultra-lightweight real-time speech synthesis. |
 | **Speech Recognition** | [**OmniASR**](https://huggingface.co/facebook/omniASR-CTC-300M) | Multilingual automatic speech recognition supporting 100+ languages with CTC architecture. |
 | **Time Series Forecasting** | [**Chronos-T5-Tiny**](https://huggingface.co/amazon/chronos-t5-tiny) | Efficient time series forecasting model for predicting future values from historical data. |

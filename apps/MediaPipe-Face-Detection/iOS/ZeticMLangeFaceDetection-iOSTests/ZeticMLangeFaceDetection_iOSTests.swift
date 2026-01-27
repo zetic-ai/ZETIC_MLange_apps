@@ -2,7 +2,7 @@
 //  ZeticMLangeFaceDetection_iOSTests.swift
 //  ZeticMLangeFaceDetection-iOSTests
 //
-//  Created by 김도엽 on 9/20/24.
+//  Created on 9/20/24.
 //
 
 import Testing
