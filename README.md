@@ -113,6 +113,9 @@ We're always adding new models. Here's what's on the way:
 
 | Use Case | Model | Description |
 | :---: | :---: | :--- |
+| **Machine Translation** | [**TranslateGemma-4B-IT**](https://mlange.zetic.ai/p/google/translategemma-4b-it) | Instruction-tuned multilingual translation model with 4B parameters. |
+| **TTS** | [**Qwen3-TTS-12Hz-0.6B-CustomVoice**](https://mlange.zetic.ai/p/Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice) | Custom voice Text-to-Speech synthesis with high-quality audio output. |
+| **Speech Recognition** | [**MedASR**](https://mlange.zetic.ai/p/google/medasr) | Medical domain automatic speech recognition for healthcare applications. |
 | **Healthcare / VQA** | [**MedGemma-1.5-4b-it**](https://huggingface.co/google/medgemma-1.5-4b-it) | Multimodal medical question answering and image understanding. |
 | **TTS** | [**neutts-nano**](https://huggingface.co/neuphonic/neutts-nano) | Compact, high-quality Text-to-Speech synthesis. |
 | **Depth Estimation** | [**DA3-SMALL**](https://huggingface.co/depth-anything/DA3-SMALL) | Efficient multi-view depth estimation for 3D understanding. |
