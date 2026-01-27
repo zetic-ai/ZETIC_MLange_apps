@@ -23,6 +23,7 @@ class T5ModelManager: ObservableObject {
     @Published var isDownloading: Bool = false
     @Published var loadingStatus: String = "Loading Model..."
     @Published var lastError: String? = nil
+    @Published var downloadProgress: Float = 0.0
     
     let handler = ModelHandler()
     
@@ -37,12 +38,17 @@ class T5ModelManager: ObservableObject {
         isLoading = true
         isDownloading = true
         loadingStatus = "Downloading Model..."
+        downloadProgress = 0.0
         lastError = nil
         
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             let startTime = Date()
             do {
-                try self?.handler.loadModel()
+                try self?.handler.loadModel(onProgress: { progress in
+                    DispatchQueue.main.async {
+                        self?.downloadProgress = progress * 100
+                    }
+                })
                 let elapsed = Date().timeIntervalSince(startTime)
                 
                 DispatchQueue.main.async {
@@ -106,14 +112,14 @@ class ModelHandler {
     private let privateTokenKey = "YOUR_PERSONAL_ACCESS_TOKEN"
     private let modelVersion = 3
     
-    func loadModel() throws {
+    func loadModel(onProgress: ((Float) -> Void)? = nil) throws {
         // Check tokenizer first
         if !tokenizer.vocabLoaded {
             throw NSError(domain: "ModelHandler", code: -3, userInfo: [NSLocalizedDescriptionKey: "Tokenizer vocab not loaded. Please check t5_vocab.json is included in Bundle Resources."])
         }
         
         if model == nil {
-            model = try ZeticMLangeModel(tokenKey: privateTokenKey, name: modelName, version: modelVersion)
+            model = try ZeticMLangeModel(tokenKey: privateTokenKey, name: modelName, version: modelVersion, onDownload: onProgress)
         }
     }
     

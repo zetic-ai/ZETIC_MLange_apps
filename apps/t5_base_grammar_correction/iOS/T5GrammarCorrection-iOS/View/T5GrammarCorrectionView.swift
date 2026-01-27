@@ -69,11 +69,22 @@ struct T5GrammarCorrectionView: View {
                     // Status Indicator
                     HStack(spacing: 6) {
                         if modelManager.isLoading {
-                            ProgressView()
-                                .scaleEffect(0.8)
-                            Text(modelManager.loadingStatus)
-                                .font(.caption)
-                                .foregroundColor(.gray)
+                            if modelManager.downloadProgress > 0 {
+                                VStack(spacing: 4) {
+                                    ProgressView(value: modelManager.downloadProgress, total: 100)
+                                        .progressViewStyle(LinearProgressViewStyle())
+                                        .frame(width: 150)
+                                    Text("Downloading... \(Int(modelManager.downloadProgress))%")
+                                        .font(.caption)
+                                        .foregroundColor(.gray)
+                                }
+                            } else {
+                                ProgressView()
+                                    .scaleEffect(0.8)
+                                Text(modelManager.loadingStatus)
+                                    .font(.caption)
+                                    .foregroundColor(.gray)
+                            }
                         } else if modelManager.isLoaded {
                             Image(systemName: "checkmark.circle.fill")
                                 .foregroundColor(.green)
