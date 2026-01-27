@@ -58,7 +58,14 @@ The model can correct various types of grammar errors including:
 - **Subject-verb agreement**: "My grammar are bad" → "My grammar is bad"
 - **Singular/plural agreement**: "The students was" → "The students were"
 
-## 📁 Directory Structure
+## � Screenshots
+
+<div align="center">
+  <img src="../../res/screenshots/t5-grammar-correction_android.png" width="30%" alt="Android Screenshot" />
+  <img src="../../res/screenshots/t5-grammar-correction_ios.png" width="30%" alt="iOS Screenshot" />
+</div>
+
+## �📁 Directory Structure
 
 ```
 t5_base_grammar_correction/
