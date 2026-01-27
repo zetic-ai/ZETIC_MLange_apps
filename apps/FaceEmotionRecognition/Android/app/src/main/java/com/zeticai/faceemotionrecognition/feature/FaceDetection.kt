@@ -8,7 +8,7 @@ import com.zeticai.mlange.feature.facedetection.FaceDetectionWrapper
 class FaceDetection(
     context: Context,
 ) {
-    private val model: ZeticMLangeModel = ZeticMLangeModel(context, "YOUR_MLANGE_KEY", "YOUR_PROJECT_NAME")
+    private val model: ZeticMLangeModel = ZeticMLangeModel(context, "YOUR_MLANGE_KEY", modelKey)
     private val wrapper: FaceDetectionWrapper = FaceDetectionWrapper()
 
     fun run(imagePtr: Long): FaceDetectionResults {
@@ -28,6 +28,6 @@ class FaceDetection(
     }
 
     companion object {
-        val modelKey: String = "9e9431d8e3874ab2aa9530be711e8575"
+        val modelKey: String = "ElenaRyumina/FaceEmotionRecognition"
     }
 }
