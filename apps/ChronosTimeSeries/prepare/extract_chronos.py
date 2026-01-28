@@ -1,180 +1,380 @@
+
 import os
-import math
-import numpy as np
+import io
 import torch
 import torch.nn as nn
+import numpy as np
+import pandas as pd
+from chronos import ChronosBoltPipeline
+from chronos.chronos_bolt import ChronosBoltModelForForecasting
 
-# ---------------------------------------------------------
-# CONSTANTS (Matches Real Model Architecture)
-# ---------------------------------------------------------
-INPUT_DIM = 48         
-HIDDEN_SIZE = 768      
-FFN_DIM = 3072         
-OUTPUT_BINS = 336      
-NUM_LAYERS = 12        
-SEQ_LENGTH = 512       
+# -------------------------------------------------------------------------
+# CONSTANTS & DATA
+# -------------------------------------------------------------------------
+PROJECT_NAME = "chronos-bolt-tiny"
+STATIC_CONTEXT_LENGTH = 512 # User requested sufficiently long static shape for NPU
+CSV_DATA = """date,late_night_snack_count,daily_spend_usd
+2025-12-20,1,38.47
+2025-12-21,2,48.97
+2025-12-22,1,32.13
+2025-12-23,1,30.36
+2025-12-24,1,12.89
+2025-12-25,1,25.65
+2025-12-26,1,8.64
+2025-12-27,3,40.33
+2025-12-28,0,27.38
+2025-12-29,0,13.77
+2025-12-30,0,19.18
+2025-12-31,0,15.64
+2026-01-01,1,21.79
+2026-01-02,0,6.04
+2026-01-03,1,16.5
+2026-01-04,0,30.5
+2026-01-05,3,26.88
+2026-01-06,0,17.41
+2026-01-07,3,22.62
+2026-01-08,0,15.85
+2026-01-09,3,25.26
+"""
 
-class PatchEmbedding(nn.Module):
-    def __init__(self, in_dim, hidden_dim, out_dim):
-        super().__init__()
-        self.hidden_layer = nn.Linear(in_dim, hidden_dim)
-        self.output_layer = nn.Linear(hidden_dim, out_dim)
-        self.residual_layer = nn.Linear(in_dim, out_dim)
-        self.act = nn.GELU()
+# -------------------------------------------------------------------------
+# MONKEY PATCH
+# -------------------------------------------------------------------------
+def patched_encode(
+    self, context: torch.Tensor, mask: torch.Tensor = None
+):
+    from typing import Tuple, Optional
+    # Original logic copied and modified
+    mask = mask.to(context.dtype) if mask is not None else torch.isnan(context).logical_not().to(context.dtype)
+    
+    # REMOVED: Dynamic context length check
+    # We guarantee input fits context_length in prepare_inputs (static 512)
+    # This removes TracerWarning and potential If nodes.
+    # if context.shape[-1] > self.chronos_config.context_length: ...
+    batch_size, _ = context.shape
 
-    def forward(self, x):
-        res = self.residual_layer(x)
-        out = self.hidden_layer(x)
-        out = self.act(out)
-        out = self.output_layer(out)
-        return res + out
+    # scaling
+    context, loc_scale = self.instance_norm(context)
 
-class SimpleEncoderLayer(nn.Module):
-    def __init__(self, hidden_size, ffn_dim, num_heads):
-        super().__init__()
-        if hidden_size % num_heads != 0:
-            raise ValueError("hidden_size must be divisible by num_heads")
-        self.num_heads = num_heads
-        self.head_dim = hidden_size // num_heads
-        self.scale = self.head_dim ** -0.5
-        self.q_proj = nn.Linear(hidden_size, hidden_size)
-        self.k_proj = nn.Linear(hidden_size, hidden_size)
-        self.v_proj = nn.Linear(hidden_size, hidden_size)
-        self.out_proj = nn.Linear(hidden_size, hidden_size)
-        self.ffn = nn.Sequential(
-            nn.Linear(hidden_size, ffn_dim),
-            nn.GELU(),
-            nn.Linear(ffn_dim, hidden_size),
+    # the scaling op above is done in 32-bit precision,
+    # then the context is moved to model's dtype
+    context = context.to(self.dtype)
+    mask = mask.to(self.dtype)
+
+    # patching
+    patched_context = self.patch(context)
+    patched_mask = torch.nan_to_num(self.patch(mask), nan=0.0)
+    patched_context = torch.where(patched_mask > 0.0, patched_context, 0.0)
+    # concat context and mask along patch dim
+    patched_context = torch.cat([patched_context, patched_mask], dim=-1)
+
+    # attention_mask = 1 if at least one item in the patch is observed
+    attention_mask = patched_mask.sum(dim=-1) > 0  # (batch_size, patched_seq_length)
+
+    input_embeds = self.input_patch_embedding(patched_context)
+
+    if self.chronos_config.use_reg_token:
+        # Append [REG]
+        # PATCH: Explicitly use dtype=torch.long for indices
+        reg_input_ids = torch.full(
+            (batch_size, 1),
+            self.config.reg_token_id,
+            device=input_embeds.device,
+            dtype=torch.long, # <--- FIXED
         )
-        self.norm1 = nn.LayerNorm(hidden_size)
-        self.norm2 = nn.LayerNorm(hidden_size)
+        reg_embeds = self.shared(reg_input_ids)
+        input_embeds = torch.cat([input_embeds, reg_embeds], dim=-2)
+        attention_mask = torch.cat(
+            [
+                attention_mask.to(self.dtype),
+                torch.ones_like(reg_input_ids).to(self.dtype),
+            ],
+            dim=-1,
+        )
 
-    def forward(self, x):
-        bsz, seq_len, hidden = x.shape
-        q = self.q_proj(x)
-        k = self.k_proj(x)
-        v = self.v_proj(x)
-        q = q.view(bsz, seq_len, self.num_heads, self.head_dim).transpose(1, 2)
-        k = k.view(bsz, seq_len, self.num_heads, self.head_dim).transpose(1, 2)
-        v = v.view(bsz, seq_len, self.num_heads, self.head_dim).transpose(1, 2)
-        attn_scores = torch.matmul(q, k.transpose(-2, -1)) * self.scale
-        attn_probs = torch.softmax(attn_scores, dim=-1)
-        attn_out = torch.matmul(attn_probs, v)
-        attn_out = attn_out.transpose(1, 2).contiguous().view(bsz, seq_len, hidden)
-        x = self.norm1(x + self.out_proj(attn_out))
-        x = self.norm2(x + self.ffn(x))
+    encoder_outputs = self.encoder(
+        attention_mask=attention_mask,
+        inputs_embeds=input_embeds,
+    )
+
+    return encoder_outputs[0], loc_scale, input_embeds, attention_mask
+
+def patched_decode(
+    self,
+    input_embeds,
+    attention_mask,
+    hidden_states,
+    output_attentions=False,
+):
+    batch_size = input_embeds.shape[0]
+    # PATCH: Explicitly use dtype=torch.long for indices
+    decoder_input_ids = torch.full(
+        (batch_size, 1),
+        self.config.decoder_start_token_id,
+        device=input_embeds.device,
+        dtype=torch.long, # <--- FIXED
+    )
+    decoder_outputs = self.decoder(
+        input_ids=decoder_input_ids,
+        encoder_hidden_states=hidden_states,
+        encoder_attention_mask=attention_mask,
+        output_attentions=output_attentions,
+        return_dict=True,
+    )
+
+    return decoder_outputs.last_hidden_state
+
+# Apply Patches
+print("[Patch] Applying monkeypatch to ChronosBoltModelForForecasting...")
+ChronosBoltModelForForecasting.encode = patched_encode
+ChronosBoltModelForForecasting.decode = patched_decode
+
+
+# -------------------------------------------------------------------------
+# MODEL WRAPPER
+# -------------------------------------------------------------------------
+class ChronosExportWrapper(nn.Module):
+    def __init__(self, inner_model):
+        super().__init__()
+        self.inner_model = inner_model
+
+    def forward(self, context):
+        # Forward pass returning just the quantile predictions tensor
+        # shape: [batch, num_quantiles, pred_len]
+        output = self.inner_model(context=context)
+        return output.quantile_preds
+
+# -------------------------------------------------------------------------
+# STATIC HELPERS (Graph Cleaning)
+# -------------------------------------------------------------------------
+class StaticPatch(nn.Module):
+    def __init__(self, patch_size: int, patch_stride: int):
+        super().__init__()
+        self.patch_size = patch_size
+        self.patch_stride = patch_stride
+    
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        # Static version: Assumes no padding needed (pre-validated)
+        # Removes: if length % self.patch_size != 0 check
+        x = x.unfold(dimension=-1, size=self.patch_size, step=self.patch_stride)
         return x
 
-class SimpleTransformerEncoder(nn.Module):
-    def __init__(self, hidden_size, ffn_dim, num_heads, num_layers):
-        super().__init__()
-        self.layers = nn.ModuleList(
-            [SimpleEncoderLayer(hidden_size, ffn_dim, num_heads) for _ in range(num_layers)]
-        )
+# -------------------------------------------------------------------------
+# HELPER FUNCTIONS
+# -------------------------------------------------------------------------
+def prepare_inputs(pipeline, csv_content):
+    df = pd.read_csv(io.StringIO(csv_content))
+    # We use 'daily_spend_usd' as the target time series
+    ts_data = torch.tensor(df["daily_spend_usd"].values, dtype=torch.float32)
+    
+    # 1. Create a static buffer of NaNs
+    # Shape: [1, STATIC_CONTEXT_LENGTH]
+    context = torch.full((1, STATIC_CONTEXT_LENGTH), float('nan'), dtype=torch.float32)
+    
+    # 2. Fill the end with actual data
+    data_len = len(ts_data)
+    if data_len > STATIC_CONTEXT_LENGTH:
+        # If data is too long, take the last STATIC_CONTEXT_LENGTH points
+        context[0, :] = ts_data[-STATIC_CONTEXT_LENGTH:]
+    else:
+        # If data fits, place it at the end (left-padding)
+        context[0, -data_len:] = ts_data
+        
+    return context
 
-    def forward(self, x):
-        for layer in self.layers:
-            x = layer(x)
-        return x
-
-class MockChronosFull(nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.input_patch_embedding = PatchEmbedding(INPUT_DIM, FFN_DIM, HIDDEN_SIZE)
-        
-        # Encoder (Full 12 Layers) using ONNX-friendly ops
-        self.encoder = SimpleTransformerEncoder(
-            HIDDEN_SIZE,
-            FFN_DIM,
-            num_heads=12,
-            num_layers=NUM_LAYERS,
-        )
-        
-        self.output_patch_embedding = nn.Sequential(
-            nn.Linear(HIDDEN_SIZE, FFN_DIM),
-            nn.GELU(),
-            nn.Linear(FFN_DIM, OUTPUT_BINS)
-        )
-
-    def forward(self, patch_input, attention_mask):
-        # 1. Embed
-        x = self.input_patch_embedding(patch_input)
-        
-        # 2. APPLY MASK
-        # We explicitly use attention_mask so it stays in the traced graph.
-        # mask is [Batch, Seq]. x is [Batch, Seq, Hidden].
-        # We unsqueeze to [Batch, Seq, 1], cast to Float, and multiply.
-        mask_float = attention_mask.unsqueeze(-1).to(x.dtype)
-        x = x * mask_float
-        
-        # 3. Encoder
-        x = self.encoder(x)
-        
-        # 4. Project
-        logits = self.output_patch_embedding(x)
-        return logits
-
-def main():
-    # Setup Directories
-    project_name = "chronos-2"
-    base_dir = os.path.join("model_zoo", project_name)
+def export_and_verify():
+    # 1. Setup Directories
+    base_dir = "/home/yeonseok/workspace/exp/zetic_mentat/model_zoo/chronos-ys"
     model_dir = os.path.join(base_dir, "model")
-    inputs_dir = os.path.join(base_dir, "inputs")
+    input_dir = os.path.join(base_dir, "input")
     
     os.makedirs(model_dir, exist_ok=True)
-    os.makedirs(inputs_dir, exist_ok=True)
-
-    # Initialize Model
-    print("Initializing Model...")
-    # Disable Transformer fastpath to avoid fused ops that ONNX export can't handle
-    try:
-        torch.backends.mha.set_fastpath_enabled(False)
-    except AttributeError:
-        pass
-    torch.manual_seed(42)
-    model = MockChronosFull().to(dtype=torch.float32)
-    model.eval()
-
-    # Generate Inputs
-    print("Generating inputs...")
-    patch_input = torch.randn(1, SEQ_LENGTH, INPUT_DIM, dtype=torch.float32)
-    attention_mask = torch.ones(1, SEQ_LENGTH, dtype=torch.float32)
-
-    input_path = os.path.join(inputs_dir, "patch_input.npy")
-    mask_path = os.path.join(inputs_dir, "attention_mask.npy")
+    os.makedirs(input_dir, exist_ok=True)
     
-    np.save(input_path, patch_input.cpu().numpy().astype(np.float32))
-    np.save(mask_path, attention_mask.cpu().numpy().astype(np.float32))
-    print("Inputs saved.")
-
-    # Trace and save TorchScript (.pt)
-    pt_path = os.path.join(model_dir, f"{project_name}.pt")
-    print(f"Tracing to {pt_path}...")
+    print(f"[Info] Loading model {PROJECT_NAME}...")
+    pipeline = ChronosBoltPipeline.from_pretrained(
+        "amazon/chronos-bolt-tiny",
+        device_map="cpu",
+        torch_dtype=torch.float32,
+    )
+    model = pipeline.model
+    model.eval()
+    
+    # DISABLE CACHE to simplify graph
+    model.config.use_cache = False
+    if hasattr(model, 'decoder'):
+        model.decoder.config.use_cache = False
+    print("[Info] Disabled use_cache for cleaner export.")
+    
+    # REPLACE Patch module with StaticPatch
+    print("[Patch] Replacing model.patch with StaticPatch...")
+    model.patch = StaticPatch(
+        patch_size=model.chronos_config.input_patch_size,
+        patch_stride=model.chronos_config.input_patch_stride
+    )
+    
+    # 2. Prepare Inputs
+    print("[Info] Preparing inputs from CSV...")
+    context = prepare_inputs(pipeline, CSV_DATA)
+    input_path = os.path.join(input_dir, "context.npy")
+    np.save(input_path, context.numpy())
+    print(f"[Info] Input saved to {input_path}")
+    print(f"[Info] Input Shape: {context.shape}")
+    
+    # 3. Create Wrapper
+    wrapper = ChronosExportWrapper(model)
+    wrapper.eval()
+    
+    # 4. Get Expected Output
+    print("[Info] Running original model for verification...")
+    with torch.no_grad():
+        original_output = wrapper(context) # [1, 9, 12]
+        
+    print(f"[Info] Output Shape: {original_output.shape}")
+    
+    # Semantic Verification Info
+    # Get last few valid inputs (ignoring NaNs)
+    # Reload data for verification context
+    df_verify = pd.read_csv(io.StringIO(CSV_DATA))
+    valid_inputs = torch.tensor(df_verify["daily_spend_usd"].values, dtype=torch.float32)
+    print("\n" + "="*50)
+    print("SEMANTIC CHECK")
+    print("="*50)
+    print(f"Last 5 Input Values: {valid_inputs[-5:].tolist()}")
+    
+    # Chronos Bolt outputs 9 quantiles. Median is index 4.
+    median_forecast = original_output[0, 4, :].tolist()
+    print(f"Median Forecast (12 steps): {[round(x, 2) for x in median_forecast]}")
+    
+    # Check if forecast is in reasonable range (e.g. within min/max of recent history +/- some margin)
+    recent_mean = valid_inputs[-10:].mean().item()
+    print(f"Recent History Mean: {recent_mean:.2f}")
+    
+    if abs(median_forecast[0] - recent_mean) < 15.0: # Arbitrary sanity check
+        print("[Check] Forecast seems reasonable (near recent mean).")
+    else:
+        print("[Check] Forecast might be far from mean (volatile?)")
+    print("="*50 + "\n")
+    
+    # 5. Export TorchScript
+    ts_path = os.path.join(model_dir, f"{PROJECT_NAME}.pt")
+    print(f"[Info] Exporting TorchScript to {ts_path}...")
     try:
         with torch.no_grad():
-            traced_model = torch.jit.trace(
-                model,
-                (patch_input, attention_mask),
-                strict=False,
-                check_trace=False
-            )
-        torch.jit.save(traced_model, pt_path)
-        print("Trace successful.")
+            traced_model = torch.jit.trace(wrapper, (context,))
+            torch.jit.save(traced_model, ts_path)
+        print("[Success] TorchScript export successful.")
+        
+        # Verify TS
+        print("[Verify] Verifying TorchScript...")
+        loaded_ts = torch.jit.load(ts_path)
+        ts_output = loaded_ts(context)
+        diff = (ts_output - original_output).abs().max()
+        print(f"TS Diff: {diff}")
+        if diff == 0:
+             print("[Success] TorchScript outputs match exactly.")
+        else:
+             print(f"[Warning] TorchScript outputs differ! Max diff: {diff}")
+             raise ValueError("TorchScript verification failed")
+             
     except Exception as e:
-        print(f"[ERROR] Failed to trace model: {e}")
+        print(f"[Error] TorchScript export/verify failed: {e}")
         import traceback
         traceback.print_exc()
-        exit(1)
 
-    print("\n" + "="*50)
-    print("TEST COMMAND")
-    print("="*50)
-    print(f"./unit_test/test_bash/test_qnn_converter.sh \\")
-    print(f"  {pt_path} \\")
-    # Note: Order must match input_names list above
-    print(f"  {input_path},{mask_path} \\")
-    print(f"  {base_dir}/output_results_full")
-    print("="*50)
+    # 6. Export ExportedProgram (.pt2)
+    pt2_path = os.path.join(model_dir, f"{PROJECT_NAME}.pt2")
+    print(f"[Info] Exporting ExportedProgram to {pt2_path}...")
+    try:
+        # torch.export.export
+        exported_program = torch.export.export(wrapper, (context,), strict=False)
+        torch.export.save(exported_program, pt2_path)
+        print("[Success] ExportedProgram successful.")
+        
+        # Verify PT2
+        print("[Verify] Verifying ExportedProgram...")
+        loaded_ep = torch.export.load(pt2_path)
+        ep_output = loaded_ep.module()(context)
+        diff = (ep_output - original_output).abs().max()
+        print(f"PT2 Diff: {diff}")
+        if diff == 0:
+             print("[Success] ExportedProgram outputs match exactly.")
+        else:
+             print(f"[Warning] ExportedProgram outputs differ! Max diff: {diff}")
+             if diff > 1e-6:
+                 raise ValueError("ExportedProgram verification failed")
+
+    except Exception as e:
+        print(f"[Error] ExportedProgram export/verify failed: {e}")
+        import traceback
+        traceback.print_exc()
+
+    # 7. Export ONNX
+    onnx_path = os.path.join(model_dir, f"{PROJECT_NAME}.onnx")
+    print(f"[Info] Exporting ONNX to {onnx_path}...")
+    try:
+        torch.onnx.export(
+            wrapper,
+            (context,),
+            onnx_path,
+            input_names=["context"],
+            output_names=["quantile_preds"],
+            opset_version=14, # Retry 14 with cleaner graph
+            # For NPU (static shape), we generally avoid dynamic axes on seq_len.
+            # We keep batch_size dynamic or static? User said "static shape".
+            # Usually strict static shape means NO dynamic axes.
+            # But let's keep batch_size dynamic just in case, unless explicit static batch 1 is preferred.
+            # User said "handle inputs sufficiently long... static shape".
+            # Let's fix seq_len (dim 1) but keep batch (dim 0) dynamic strictly for flexibility, 
+            # OR completely static for max NPU compatibility. 
+            # I will assume fixed batch size 1 is safest for strict NPU "demo app".
+            # So NO dynamic_axes.
+        )
+        print("[Success] ONNX export successful.")
+        
+        # Post-processing: Check and Infer Shapes
+        import onnx
+        print("[Info] Post-processing ONNX model...")
+        model_onnx = onnx.load(onnx_path)
+        print(f"[Info] Final Opset Version: {model_onnx.opset_import[0].version}")
+        onnx.checker.check_model(model_onnx)
+        model_onnx = onnx.shape_inference.infer_shapes(model_onnx)
+        onnx.save(model_onnx, onnx_path)
+        print("[Success] ONNX model checked and shapes inferred.")
+        
+        # Verify ONNX
+        import onnxruntime as ort
+        print("[Verify] Verifying ONNX...")
+        sess = ort.InferenceSession(onnx_path)
+        onnx_out = sess.run(None, {"context": context.numpy()})[0]
+        onnx_torch = torch.from_numpy(onnx_out)
+        
+        # Visual Comparison
+        print("-" * 30)
+        print("VISUAL COMPARISON (First 5 steps, Median)")
+        print(f"Original: {original_output[0, 4, :5].tolist()}")
+        print(f"ONNX    : {onnx_torch[0, 4, :5].tolist()}")
+        print("-" * 30)
+        
+        diff = (onnx_torch - original_output).abs().max()
+        print(f"ONNX Diff: {diff}")
+        if diff < 1e-4:
+             print(f"[Success] ONNX outputs match (Max diff: {diff}).")
+        else:
+             print(f"[Warning] ONNX outputs differ significantly! Max diff: {diff}")
+             raise ValueError("ONNX verification failed")
+             
+    except Exception as e:
+        print(f"[Error] ONNX export/verify failed: {e}")
+        import traceback
+        traceback.print_exc()
+        
+    print("\n[Summary] Export process completed.")
 
 if __name__ == "__main__":
-    main()
+    try:
+        export_and_verify()
+    except Exception as e:
+        print(f"[Fatal Error] {e}")
+        import traceback
+        traceback.print_exc()
