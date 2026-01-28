@@ -25,6 +25,11 @@ Automated conversion. Full NPU speed. Deployed in hours.
 
 [Quick Start](#-quick-start) • [Available Models](#-available-models) • [Documentation](https://docs.zetic.ai) • [Contribute](#-contributing)
 
+
+| | | | |
+|:---:|:---:|:---:|:---:|
+| <img src="res/screenshots/main_video0-1.gif" width="180" alt="Demo 1"> | <img src="res/screenshots/main_video1-1.gif" width="180" alt="Demo 2"> | <img src="res/screenshots/main_video2.gif" width="180" alt="Demo 3"> | <img src="res/screenshots/main_video3-1.gif" width="180" alt="Demo 4"> |
+
 </div>
 
 <br/>
@@ -90,10 +95,11 @@ cd ZETIC_MLange_apps
 
 <br/>
 
-## 🎯 Available Demo Apps
+## 🎯 Available Models
 
 | Feature | Model | Description | MLange Page |
 | :---: | :---: | :--- | :---: |
+| **Time Series Forecasting** | [**Chronos Bolt**](apps/ChronosTimeSeries) | Probabilistic time series forecasting with quantile output; CSV import and interactive charts. | [**View**](https://mlange.zetic.ai/p/Team_ZETIC/Chronos-balt-tiny?from=use-cases) |
 | **Machine Translation** | [**Tencent HY-MT**](apps/tencent_HY-MT) | Context-aware hybrid machine translation with real-time streaming and instant language swapping. | [**View**](https://mlange.zetic.ai/p/vaibhav-zetic/tencent_HY-MT?from=use-cases) |
 | **Grammar Correction** | [**t5-base-grammar-correction**](apps/t5_base_grammar_correction) | Robust grammar correction based on T5 architecture for real-time text processing. | [**View**](https://mlange.zetic.ai/p/Team_ZETIC/t5-base-grammar-correction?from=use-cases) |
 | **Object Detection** | [**YOLO26**](apps/YOLO26) | Next-generation NMS-free object detection. | [**View**](https://mlange.zetic.ai/p/Team_ZETIC/YOLO26?from=use-cases) |
@@ -121,7 +127,9 @@ We're always adding new models. Here's what's on the way:
 | **Depth Estimation** | [**DA3-SMALL**](https://huggingface.co/depth-anything/DA3-SMALL) | Efficient multi-view depth estimation for 3D understanding. |
 | **TTS** | [**pocket-tts**](https://huggingface.co/kyutai/pocket-tts) | Ultra-lightweight real-time speech synthesis. |
 | **Speech Recognition** | [**OmniASR**](https://huggingface.co/facebook/omniASR-CTC-300M) | Multilingual automatic speech recognition supporting 100+ languages with CTC architecture. |
-| **Time Series Forecasting** | [**Chronos-T5-Tiny**](https://huggingface.co/amazon/chronos-t5-tiny) | Efficient time series forecasting model for predicting future values from historical data. |
+
+> [!TIP]
+> **Want to ship your own model?** You can upload your model to [MLange](https://mlange.zetic.ai), convert it for on-device inference, and build an app from the generated code. No need to wait for a demo here.
 
 <br/>
 
@@ -130,13 +138,16 @@ We're always adding new models. Here's what's on the way:
 ```
 ZETIC_MLange_apps/
 ├── apps/                          # On-device AI applications
-│   ├── YOLO26/                  # Object detection app
+│   ├── ChronosTimeSeries/        # Time series forecasting (Chronos Bolt)
 │   │   ├── Android/              # Android implementation
 │   │   ├── iOS/                  # iOS implementation
 │   │   └── prepare/              # Model preparation scripts
+│   ├── YOLO26/                   # Object detection app
+│   ├── tencent_HY-MT/            # Machine translation
 │   ├── whisper-tiny/             # Speech recognition app
 │   ├── TextAnonymizer/           # PII detection and masking
 │   └── ...                       # More apps
+├── res/screenshots/              # Demo GIFs and images for app READMEs
 ├── extension/                    # MLange Extension Library (submodule)
 │   └── Helper extensions and utilities
 ├── adapt_mlange_key.sh           # Script to configure API keys
@@ -228,7 +239,7 @@ We love seeing what developers build! This repository is an open-source collecti
 1. **Fork the repo** and create a branch (`git checkout -b feature/amazing-app`)
 2. **Build your app**:
    - Option A: Use one of the pre-optimized models available on the [MLange Dashboard](https://mlange.zetic.ai)
-   - Option B: Have a custom model you want to showcase? [Join our Discord](https://discord.com/invite/gVFX6myuMx) and let us know, we'd love to help you get it running.
+   - Option B: Have a custom model you want to showcase? You can upload your model to [MLange](https://mlange.zetic.ai), convert it for on-device inference, and generate production-ready code automatically. Or [join our Discord](https://discord.com/invite/gVFX6myuMx) and let us know, we'd love to help you get it running.
 3. **Follow the Standards**
    - Keep code structure consistent with existing apps.
    - Include both Android and iOS versions if possible.

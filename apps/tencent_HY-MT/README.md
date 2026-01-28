@@ -1,14 +1,11 @@
 # Tencent HY-MT
 
-<div align="center" style="display: flex; justify-content: center; gap: 40px; margin: 20px 0;">
-  <div align="center">
-    <img src="../../res/screenshots/tencent_hy_mt_android.jpg" width="200" alt="Android Screenshot">
-    <div style="margin-top: 10px;">Samsung Galaxy S24</div>
-  </div>
-  <div align="center">
-    <img src="../../res/screenshots/tencent_hy_mt_ios.png" width="200" alt="iOS Screenshot">
-    <div style="margin-top: 10px;">iPhone 15 Pro</div>
-  </div>
+<div align="center">
+
+| **Samsung Galaxy S24** | **iPhone 15 Pro** |
+|:---:|:---:|
+| <img src="../../res/screenshots/tencent_hy_mt_android.jpg" width="200" alt="Android Screenshot"> | <img src="../../res/screenshots/tencent_hy_mt_ios.png" width="200" alt="iOS Screenshot"> |
+
 </div>
 
 <div align="center">

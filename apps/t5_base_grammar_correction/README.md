@@ -2,15 +2,12 @@
 
 <div align="center">
 
-<div align="center" style="display: flex; justify-content: center; gap: 40px; margin: 20px 0;">
-  <div align="center">
-    <img src="../../res/screenshots/t5-grammar-correction_android.png" width="200" alt="Android Screenshot">
-    <div style="margin-top: 10px;">Google Pixel 9 Pro</div>
-  </div>
-  <div align="center">
-    <img src="../../res/screenshots/t5-grammar-correction_ios.png" width="200" alt="iOS Screenshot">
-    <div style="margin-top: 10px;">iPhone 15 Pro</div>
-  </div>
+<div align="center">
+
+| **Google Pixel 9 Pro** | **iPhone 15 Pro** |
+|:---:|:---:|
+| <img src="../../res/screenshots/t5-grammar-correction_android.png" width="200" alt="Android Screenshot"> | <img src="../../res/screenshots/t5-grammar-correction_ios.png" width="200" alt="iOS Screenshot"> |
+
 </div>
 
 
