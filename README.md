@@ -25,6 +25,12 @@ Automated conversion. Full NPU speed. Deployed in hours.
 
 [Quick Start](#-quick-start) • [Available Models](#-available-models) • [Documentation](https://docs.zetic.ai) • [Contribute](#-contributing)
 
+<div align="center">
+
+| | | | |
+|:---:|:---:|:---:|:---:|
+| <img src="res/screenshots/main_video0-1.gif" width="180" alt="Demo 1"> | <img src="res/screenshots/main_video1-1.gif" width="180" alt="Demo 2"> | <img src="res/screenshots/main_video2.gif" width="180" alt="Demo 3"> | <img src="res/screenshots/main_video3-1.gif" width="180" alt="Demo 4"> |
+
 </div>
 
 <br/>
