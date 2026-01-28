@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F75EB342F2210FD00AB8D5F /* libespeak-ng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F75EB332F2210FD00AB8D5F /* libespeak-ng.a */; };
 		7F75FC8F2F23698900AB8D5F /* ZeticMLange in Frameworks */ = {isa = PBXBuildFile; productRef = 7F75FC8E2F23698900AB8D5F /* ZeticMLange */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +44,6 @@
 		1662748C2CB4C25D00075307 /* ZeticMLangeChronos-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZeticMLangeChronos-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1662749C2CB4C25E00075307 /* ZeticMLangeChronos-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ZeticMLangeChronos-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		166274A62CB4C25E00075307 /* ZeticMLangeChronos-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ZeticMLangeChronos-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7F75EB332F2210FD00AB8D5F /* libespeak-ng.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libespeak-ng.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -85,7 +83,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F75FC8F2F23698900AB8D5F /* ZeticMLange in Frameworks */,
-				7F75EB342F2210FD00AB8D5F /* libespeak-ng.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,7 +106,6 @@
 		166274832CB4C25D00075307 = {
 			isa = PBXGroup;
 			children = (
-				7F75EB332F2210FD00AB8D5F /* libespeak-ng.a */,
 				1662748E2CB4C25D00075307 /* ZeticMLangeChronos-iOS */,
 				1662749F2CB4C25E00075307 /* ZeticMLangeChronos-iOSTests */,
 				166274A92CB4C25E00075307 /* ZeticMLangeChronos-iOSUITests */,
@@ -444,7 +440,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ZeticMLangeChronos-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = WC5F57V6L5;
+				DEVELOPMENT_TEAM = 8WTTXXB63L;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -458,7 +454,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -484,7 +480,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ZeticMLangeChronos-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = WC5F57V6L5;
+				DEVELOPMENT_TEAM = 8WTTXXB63L;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -498,7 +494,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
