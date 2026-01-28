@@ -1,14 +1,11 @@
 # Chronos Bolt: Time Series Forecasting
 
-<div align="center" style="display: flex; justify-content: center; gap: 16px; margin-bottom: 12px;">
-  <div align="center">
-    <img src="../../res/screenshots/chronos-recording-ios.gif" width="200" alt="Chronos iOS Demo">
-    <div style="margin-top: 6px; font-size: 12px;">iPhone 15 Pro</div>
-  </div>
-  <div align="center">
-    <img src="../../res/screenshots/chronos-recording-android.gif" width="200" alt="Chronos Android Demo">
-    <div style="margin-top: 6px; font-size: 12px;">Galaxy S25</div>
-  </div>
+<div align="center">
+
+| **iPhone 15 Pro** | **Galaxy S25** |
+|:---:|:---:|
+| <img src="../../res/screenshots/chronos-recording-ios.gif" width="200" alt="Chronos iOS"> | <img src="../../res/screenshots/chronos-recording-android.gif" width="200" alt="Chronos Android"> |
+
 </div>
 
 <div align="center">
