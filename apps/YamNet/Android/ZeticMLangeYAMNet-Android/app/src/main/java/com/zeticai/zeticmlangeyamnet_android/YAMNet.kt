@@ -9,7 +9,7 @@ import java.nio.ByteOrder
 class YAMNet(
     context: Context,
 ) {
-    private val model: ZeticMLangeModel = ZeticMLangeModel(context, "YOUR_PERSONAL_KEY", "YOUR_PROJECT_NAME")
+    private val model: ZeticMLangeModel = ZeticMLangeModel(context, "YOUR_MLANGE_KEY", modelKey)
     private val audioRecord: AudioSampler by lazy {
         AudioSampler()
     }
@@ -60,6 +60,6 @@ class YAMNet(
     }
 
     companion object {
-        val modelKey: String = "0578064c31cf45669c5b1aadc23ed991"
+        val modelKey: String = "google/Sound Classification(YAMNET)"
     }
 }

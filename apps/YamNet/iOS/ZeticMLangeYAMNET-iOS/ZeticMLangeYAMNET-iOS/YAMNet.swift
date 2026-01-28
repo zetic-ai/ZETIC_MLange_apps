@@ -6,7 +6,7 @@ class YAMNet: ObservableObject {
     @Published var scores: Array<AudioClass>?
     
     let audioRecorder = YAMNetAudioRecorder()!
-    let model = (try? ZeticMLangeModel(personalKey: "YOUR_PERSONAL_KEY", name: "YOUR_PROJECT_NAME", version: 1))!
+    let model = (try? ZeticMLangeModel(tokenKey: "YOUR_MLANGE_KEY", name: "google/Sound Classification(YAMNET)", version: 1))!
     
     private var isProcessing = false
     

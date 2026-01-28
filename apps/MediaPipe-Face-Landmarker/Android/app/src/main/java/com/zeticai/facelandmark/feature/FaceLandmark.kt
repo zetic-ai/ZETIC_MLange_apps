@@ -9,7 +9,7 @@ import com.zeticai.mlange.feature.facelandmark.FaceLandmarkWrapper
 class FaceLandmark(
     context: Context,
 ) {
-    private val model: ZeticMLangeModel = ZeticMLangeModel(context, "YOUR_PERSONAL_KEY", "YOUR_PROJECT_NAME")
+    private val model: ZeticMLangeModel = ZeticMLangeModel(context, "YOUR_MLANGE_KEY", modelKey)
     private val wrapper: FaceLandmarkWrapper = FaceLandmarkWrapper()
 
     fun run(imagePtr: Long, roi: Box): FaceLandmarkResult {
@@ -35,6 +35,6 @@ class FaceLandmark(
     }
 
     companion object {
-        val modelKey: String = "c6a4ff77eee74c42bfc04e5afcbd712a"
+        val modelKey: String = "google/MediaPipe-Face-Landmark"
     }
 }

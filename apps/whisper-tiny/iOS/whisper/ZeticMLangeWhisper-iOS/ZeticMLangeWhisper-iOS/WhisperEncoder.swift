@@ -7,7 +7,7 @@ class WhisperEncoder {
     public static let modelKey = "OpenAI/whisper-tiny-encoder"
     
     init() {
-        model = (try? ZeticMLangeModel(personalKey: "YOUR_PERSONAL_KEY", name: "YOUR_PROJECT_NAME", version: 1))!
+        model = (try? ZeticMLangeModel(tokenKey: "YOUR_MLANGE_KEY", name: Self.modelKey, version: 1))!
     }
     
     func process(_ audio: [Float32]) -> Data {
