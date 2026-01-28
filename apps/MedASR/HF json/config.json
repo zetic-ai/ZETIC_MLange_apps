@@ -1,0 +1,46 @@
+{
+  "ctc_loss_reduction": "mean",
+  "ctc_zero_infinity": true,
+  "encoder_config": {
+    "activation_dropout": 0.1,
+    "attention_bias": false,
+    "attention_dropout": 0.1,
+    "batch_norm_momentum": 0.01,
+    "conv_kernel_size": 32,
+    "conv_residual_weights": [
+      2.0,
+      1.0
+    ],
+    "convolution_bias": false,
+    "dropout": 0.1,
+    "dropout_positions": 0.0,
+    "feed_forward_residual_weights": [
+      1.5,
+      0.5
+    ],
+    "hidden_act": "silu",
+    "hidden_size": 512,
+    "initializer_range": 0.02,
+    "intermediate_size": 2048,
+    "layer_norm_eps": 1e-06,
+    "layerdrop": 0.1,
+    "max_position_embeddings": 10000,
+    "model_type": "lasr_encoder",
+    "num_attention_heads": 8,
+    "num_hidden_layers": 17,
+    "num_key_value_heads": 8,
+    "num_mel_bins": 128,
+    "rope_parameters": {
+      "rope_theta": 10000.0,
+      "rope_type": "default"
+    },
+    "subsampling_conv_channels": 256,
+    "subsampling_conv_kernel_size": 5,
+    "subsampling_conv_stride": 2
+  },
+  "initializer_range": 0.02,
+  "model_type": "lasr_ctc",
+  "pad_token_id": 0,
+  "transformers_version": "5.0.0.dev0",
+  "vocab_size": 512
+}
