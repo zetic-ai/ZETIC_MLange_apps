@@ -1,0 +1,16 @@
+{
+    "ctc_blank_id": 0,
+    "feature_extractor": {
+        "feature_extractor_type": "LasrFeatureExtractor",
+        "feature_size": 128,
+        "hop_length": 160,
+        "n_fft": 512,
+        "padding_side": "right",
+        "padding_value": 0.0,
+        "return_attention_mask": true,
+        "sampling_rate": 16000,
+        "win_length": 400
+    },
+    "sampling_rate_detected": 16000,
+    "vocab_size": 613
+}

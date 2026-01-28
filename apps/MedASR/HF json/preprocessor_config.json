@@ -1,0 +1,12 @@
+{
+  "feature_extractor_type": "LASRFeatureExtractor",
+  "feature_size": 128,
+  "hop_length": 160,
+  "n_fft": 512,
+  "padding_side": "right",
+  "padding_value": 0.0,
+  "processor_class": "LASRProcessor",
+  "return_attention_mask": true,
+  "sampling_rate": 16000,
+  "win_length": 400
+}
