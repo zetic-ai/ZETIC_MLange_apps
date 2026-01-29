@@ -71,8 +71,8 @@ Get started with Mélange in minutes:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/zetic-ai/ZETIC_MLange_apps.git
-cd ZETIC_MLange_apps
+git clone https://github.com/zetic-ai/ZETIC_Melange_apps.git
+cd ZETIC_Melange_apps
 
 # 2. Get your free Mélange API key
 # Sign up at https://mlange.zetic.ai and get your personal access token
@@ -136,7 +136,7 @@ We're always adding new models. Here's what's on the way:
 ## 📁 Repository Structure
 
 ```
-ZETIC_MLange_apps/
+ZETIC_Melange_apps/
 ├── apps/                          # On-device AI applications
 │   ├── ChronosTimeSeries/        # Time series forecasting (Chronos Bolt)
 │   │   ├── Android/              # Android implementation
@@ -254,7 +254,7 @@ We love seeing what developers build! This repository is an open-source collecti
 ### Need Help?
 
 - **Discord**: [Jump into our Discord](https://discord.com/invite/gVFX6myuMx) and ask away
-- **GitHub Issues**: Found a bug or have an idea? [Open an issue](https://github.com/zetic-ai/ZETIC_MLange_apps/issues)
+- **GitHub Issues**: Found a bug or have an idea? [Open an issue](https://github.com/zetic-ai/ZETIC_Melange_apps/issues)
 - **Docs**: Check out [docs.zetic.ai](https://docs.zetic.ai) for detailed guides
 
 <br/>
@@ -295,7 +295,7 @@ This repository (the source code and example apps) is licensed under the Apache 
 
 ## 🙏 Acknowledgments
 
-- Big thanks to all our [contributors](https://github.com/zetic-ai/ZETIC_MLange_apps/graphs/contributors) who keep making this project better
+- Big thanks to all our [contributors](https://github.com/zetic-ai/ZETIC_Melange_apps/graphs/contributors) who keep making this project better
 - Shoutout to the model providers and the amazing open-source AI community
 
 ---
@@ -304,6 +304,6 @@ This repository (the source code and example apps) is licensed under the Apache 
 
 **By ZETIC.ai**
 
-[⭐ Star us on GitHub](https://github.com/zetic-ai/ZETIC_MLange_apps) • [🐛 Report Bug](https://github.com/zetic-ai/ZETIC_MLange_apps/issues) • [💡 Request Features](https://discord.com/invite/gVFX6myuMx) • [🚀 Try Mélange](https://mlange.zetic.ai) • [📖 Documentation](https://docs.zetic.ai)
+[⭐ Star us on GitHub](https://github.com/zetic-ai/ZETIC_Melange_apps) • [🐛 Report Bug](https://github.com/zetic-ai/ZETIC_Melange_apps/issues) • [💡 Request Features](https://discord.com/invite/gVFX6myuMx) • [🚀 Try Mélange](https://mlange.zetic.ai) • [📖 Documentation](https://docs.zetic.ai)
 
 </div>
