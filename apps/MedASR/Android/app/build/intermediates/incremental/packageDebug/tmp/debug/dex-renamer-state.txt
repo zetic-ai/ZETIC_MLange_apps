@@ -1,0 +1,16 @@
+#Tue Jan 27 20:41:35 IST 2026
+base.0=/Users/vaibhavg/Desktop/zetic/ZETIC_MLange_apps/apps/MedASR/Android/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+base.1=/Users/vaibhavg/Desktop/zetic/ZETIC_MLange_apps/apps/MedASR/Android/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
+base.2=/Users/vaibhavg/Desktop/zetic/ZETIC_MLange_apps/apps/MedASR/Android/app/build/intermediates/dex/debug/mergeProjectDexDebug/12/classes.dex
+base.3=/Users/vaibhavg/Desktop/zetic/ZETIC_MLange_apps/apps/MedASR/Android/app/build/intermediates/dex/debug/mergeProjectDexDebug/14/classes.dex
+base.4=/Users/vaibhavg/Desktop/zetic/ZETIC_MLange_apps/apps/MedASR/Android/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
+path.0=classes.dex
+path.1=0/classes.dex
+path.2=12/classes.dex
+path.3=14/classes.dex
+path.4=classes2.dex
+renamed.0=classes.dex
+renamed.1=classes2.dex
+renamed.2=classes3.dex
+renamed.3=classes4.dex
+renamed.4=classes5.dex
