@@ -8,8 +8,8 @@
 [![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20iOS-lightgrey.svg)](.)
 [![ZETIC.ai](https://img.shields.io/badge/Powered%20by-ZETIC.ai-orange.svg)](https://zetic.ai)
 
-<a href="https://docs.zetic.ai"><img alt="Mélange Documentation" src="https://img.shields.io/badge/Document-online-yellow"></a>
-<a href="https://mlange.zetic.ai"><img alt="Mélange Dashboard" src="https://img.shields.io/badge/MLange%20Dashboard-web-hotpink"></a>
+<a href="https://docs.zetic.ai"><img alt="Mélange Documentation" src="https://img.shields.io/badge/Document-Docs-yellow"></a>
+<a href="https://mlange.zetic.ai"><img alt="Mélange Dashboard" src="https://img.shields.io/badge/Mélange%20Dashboard-web-hotpink"></a>
 <a href="https://play.google.com/store/apps/details?id=com.zeticai.zeticapp"><img alt="ZeticApp Play Store" src="https://img.shields.io/badge/ZeticApp-Play%20Store-darkgreen"></a>
 <a href="https://apps.apple.com/app/zeticapp/id6739862746"><img alt="ZeticApp App Store" src="https://img.shields.io/badge/ZeticApp-App%20Store-lightblue"></a>
 <a href="https://discord.gg/gqhDWfZbgU"><img alt="Discord" src="https://img.shields.io/badge/Discord-Join%20Us-7289da"></a>
