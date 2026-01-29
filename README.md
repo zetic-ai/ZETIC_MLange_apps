@@ -12,7 +12,7 @@
 <a href="https://mlange.zetic.ai"><img alt="Mélange Dashboard" src="https://img.shields.io/badge/MLange%20Dashboard-web-hotpink"></a>
 <a href="https://play.google.com/store/apps/details?id=com.zeticai.zeticapp"><img alt="ZeticApp Play Store" src="https://img.shields.io/badge/ZeticApp-Play%20Store-darkgreen"></a>
 <a href="https://apps.apple.com/app/zeticapp/id6739862746"><img alt="ZeticApp App Store" src="https://img.shields.io/badge/ZeticApp-App%20Store-lightblue"></a>
-<a href="https://discord.gg/t46jvc6U"><img alt="Discord" src="https://img.shields.io/badge/Discord-Join%20Us-7289da"></a>
+<a href="https://discord.gg/gqhDWfZbgU"><img alt="Discord" src="https://img.shields.io/badge/Discord-Join%20Us-7289da"></a>
 
 <br/>
 
@@ -239,7 +239,7 @@ We love seeing what developers build! This repository is an open-source collecti
 1. **Fork the repo** and create a branch (`git checkout -b feature/amazing-app`)
 2. **Build your app**:
    - Option A: Use one of the pre-optimized models available on the [Mélange Dashboard](https://mlange.zetic.ai)
-   - Option B: Have a custom model you want to showcase? You can upload your model to [Mélange](https://mlange.zetic.ai), convert it for on-device inference, and generate production-ready code automatically. Or [join our Discord](https://discord.gg/t46jvc6U) and let us know, we'd love to help you get it running.
+   - Option B: Have a custom model you want to showcase? You can upload your model to [Mélange](https://mlange.zetic.ai), convert it for on-device inference, and generate production-ready code automatically. Or [join our Discord](https://discord.gg/gqhDWfZbgU) and let us know, we'd love to help you get it running.
 3. **Follow the Standards**
    - Keep code structure consistent with existing apps.
    - Include both Android and iOS versions if possible.
@@ -253,7 +253,7 @@ We love seeing what developers build! This repository is an open-source collecti
 
 ### Need Help?
 
-- **Discord**: [Jump into our Discord](https://discord.gg/t46jvc6U) and ask away
+- **Discord**: [Jump into our Discord](https://discord.gg/gqhDWfZbgU) and ask away
 - **GitHub Issues**: Found a bug or have an idea? [Open an issue](https://github.com/zetic-ai/ZETIC_Melange_apps/issues)
 - **Docs**: Check out [docs.zetic.ai](https://docs.zetic.ai) for detailed guides
 
@@ -266,7 +266,7 @@ We love seeing what developers build! This repository is an open-source collecti
 - **Website**: [zetic.ai](https://zetic.ai)
 - **Mélange Dashboard**: [mlange.zetic.ai](https://mlange.zetic.ai) - Get NPU-optimized SDKs, view benchmarks, and upload custom models
 - **Documentation**: [docs.zetic.ai](https://docs.zetic.ai) - Full API reference and guides
-- **Discord**: [Join our Discord](https://discord.gg/t46jvc6U) - Get help, share what you're building, meet other developers
+- **Discord**: [Join our Discord](https://discord.gg/gqhDWfZbgU) - Get help, share what you're building, meet other developers
 
 ### Check Out Our Demo App
 
@@ -304,6 +304,6 @@ This repository (the source code and example apps) is licensed under the Apache 
 
 **By ZETIC.ai**
 
-[⭐ Star us on GitHub](https://github.com/zetic-ai/ZETIC_Melange_apps) • [🐛 Report Bug](https://github.com/zetic-ai/ZETIC_Melange_apps/issues) • [💡 Request Features](https://discord.gg/t46jvc6U) • [🚀 Try Mélange](https://mlange.zetic.ai) • [📖 Documentation](https://docs.zetic.ai)
+[⭐ Star us on GitHub](https://github.com/zetic-ai/ZETIC_Melange_apps) • [🐛 Report Bug](https://github.com/zetic-ai/ZETIC_Melange_apps/issues) • [💡 Request Features](https://discord.gg/gqhDWfZbgU) • [🚀 Try Mélange](https://mlange.zetic.ai) • [📖 Documentation](https://docs.zetic.ai)
 
 </div>
