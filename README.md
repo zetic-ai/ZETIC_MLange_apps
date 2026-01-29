@@ -95,7 +95,7 @@ cd ZETIC_MLange_apps
 
 <br/>
 
-## 🎯 Available Models
+## 🎯 Available Local AI Apps
 
 | Feature | Model | Description | Mélange Page |
 | :---: | :---: | :--- | :---: |
@@ -162,7 +162,7 @@ Each app includes:
 
 <br/>
 
-## 💻 Deploying Models in Your App
+## 💻 Deploying Models in Your Own App
 
 Want to use these NPU capabilities in your own app? The Mélange SDK makes it simple. You don't need to write complex hardware code, just initialize the SDK and start running inference instantly.
 
@@ -268,7 +268,7 @@ We love seeing what developers build! This repository is an open-source collecti
 - **Documentation**: [docs.zetic.ai](https://docs.zetic.ai) - Full API reference and guides
 - **Discord**: [Join our Discord](https://discord.com/invite/gVFX6myuMx) - Get help, share what you're building, meet other developers
 
-### Check Out Our Apps
+### Check Out Our Demo App
 
 - **ZeticApp**: [Android](https://play.google.com/store/apps/details?id=com.zeticai.zeticapp) | [iOS](https://apps.apple.com/app/zeticapp/id6739862746) - Our official Mélange showcase app
 
