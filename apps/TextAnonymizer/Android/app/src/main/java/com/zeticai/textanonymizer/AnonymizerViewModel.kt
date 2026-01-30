@@ -86,7 +86,7 @@ class AnonymizerViewModel(private val context: Context) : ViewModel() {
                 println("📦 Attempting to load Zetic MLange model...")
                 
                 if (Constants.MLANGE_PERSONAL_ACCESS_TOKEN.isEmpty() || 
-                    Constants.MLANGE_PERSONAL_ACCESS_TOKEN == "YOUR_PERSONAL_ACCESS_TOKEN") {
+                    Constants.MLANGE_PERSONAL_ACCESS_TOKEN == "YOUR_MLANGE_KEY") {
                     throw Exception("Missing access token. Set MLANGE_PERSONAL_ACCESS_TOKEN in Constants.kt")
                 }
                 

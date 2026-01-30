@@ -1,0 +1,23 @@
+{
+  "prefix_tokens": {
+    "grammar": 19519,
+    "▁grammar": 19519
+  },
+  "punctuation": {
+    ":": 3,
+    ".": 3,
+    ",": 3,
+    "!": 3,
+    "?": 3
+  },
+  "common_words": {
+    "He": 216,
+    "▁He": 216,
+    "go": 281,
+    "▁go": 281,
+    "to": 12,
+    "▁to": 12,
+    "school": 496,
+    "▁school": 496
+  }
+}

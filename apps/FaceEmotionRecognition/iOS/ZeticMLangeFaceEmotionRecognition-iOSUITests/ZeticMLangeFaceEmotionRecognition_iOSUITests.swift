@@ -2,7 +2,7 @@
 //  ZeticMLangeFaceEmotionRecognition_iOSUITests.swift
 //  ZeticMLangeFaceEmotionRecognition-iOSUITests
 //
-//  Created by 김도엽 on 9/13/24.
+//  Created on 9/13/24.
 //
 
 import XCTest
