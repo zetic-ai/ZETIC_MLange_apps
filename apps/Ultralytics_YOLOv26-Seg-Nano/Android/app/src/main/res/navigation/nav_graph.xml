@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.zeticai.yolo26seg.ui.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_camera"
+            app:destination="@id/cameraFragment" />
+        <action
+            android:id="@+id/action_home_to_upload"
+            app:destination="@id/uploadFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="com.zeticai.yolo26seg.ui.CameraFragment"
+        android:label="Camera"
+        tools:layout="@layout/fragment_camera" />
+
+    <fragment
+        android:id="@+id/uploadFragment"
+        android:name="com.zeticai.yolo26seg.ui.UploadFragment"
+        android:label="Upload Image"
+        tools:layout="@layout/fragment_upload" />
+</navigation>
