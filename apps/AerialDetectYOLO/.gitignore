@@ -1,0 +1,3 @@
+# Generated model artifacts (re-create with export.py; uploaded to Melange, not stored in git)
+*.onnx
+*.npy

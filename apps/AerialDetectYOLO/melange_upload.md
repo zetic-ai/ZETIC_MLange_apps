@@ -1,6 +1,7 @@
 # Melange upload — AerialDetectYOLO
 
-Drag these into the dashboard:
+Drag these into the dashboard (generated locally by `export.py`; the binaries are
+NOT stored in git — re-run `python export.py` to recreate them):
 - model:  aerialdetect-yolov8s-visdrone.onnx
 - sample: sample_input.npy
 

@@ -24,7 +24,7 @@ A real-time, fully on-device aerial / drone object-detection demo for Flutter (i
 
 - Flutter source under apps/AerialDetectYOLO/Flutter/lib (main, screens/, services/ [melange_service, inference_isolate, preprocessor, postprocessor, nms], models/ [detection, label], widgets/ [detection_overlay, hud, coordinate_mapping]).
 - Tests under Flutter/test: decode_test, letterbox_test, nms_test, orientation_test, benchmark/hot_path_benchmark.
-- Model assets: export.py, aerialdetect-yolov8s-visdrone.onnx, sample_input.npy, model_selection.md, melange_upload.md; registered Melange model (ajayshah/AerialDetectYOLO v1).
+- Model assets: export.py (regenerates aerialdetect-yolov8s-visdrone.onnx + sample_input.npy locally; the binaries are uploaded to Melange and not stored in git), model_selection.md, melange_upload.md; registered Melange model (ajayshah/AerialDetectYOLO v1).
 - iOS config: Info.plist camera usage, Podfile (iOS 16.6), pbxproj IPHONEOS_DEPLOYMENT_TARGET 16.6. Android: manifest perms, minSdk 24.
 
 ## Tier A results
