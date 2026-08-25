@@ -5,7 +5,9 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.12.2
+  # The code needs nothing newer than Dart 3.9 language features; keep the
+  # floor low so slightly older stable Flutter toolchains still resolve.
+  sdk: ^3.9.0
 
 dependencies:
   flutter:

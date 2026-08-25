@@ -1,4 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Live camera capture for the redaction pipeline. -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- Flutter only injects INTERNET into the debug/profile manifests; the
+         release build needs it here for the Melange model download. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:label="RedactLens"
         android:name="${applicationName}"

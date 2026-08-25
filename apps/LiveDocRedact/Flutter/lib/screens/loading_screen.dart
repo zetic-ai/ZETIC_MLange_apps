@@ -42,12 +42,13 @@ class _LoadingScreenState extends State<LoadingScreen>
       _progress = 0;
       _status = 'Loading text detector…';
     });
+    DocPipeline? pipeline;
     try {
       // Charset for the CTC decoder: [blank] + en_dict.txt + ' '.
       final dictRaw = await rootBundle.loadString('assets/en_dict.txt');
       final decoder = CtcDecoder.fromDictString(dictRaw);
 
-      final pipeline = await DocPipeline.spawn();
+      pipeline = await DocPipeline.spawn();
 
       // Two download phases: detector 0–50%, recognizer 50–100%.
       await _service.init(
@@ -67,12 +68,18 @@ class _LoadingScreenState extends State<LoadingScreen>
         MaterialPageRoute(
           builder: (_) => MainScreen(
             service: _service,
-            pipeline: pipeline,
+            pipeline: pipeline!,
             decoder: decoder,
           ),
         ),
       );
     } catch (e) {
+      // A failure after DocPipeline.spawn() must not leak the worker isolate,
+      // and a detector handle opened before the recognizer failed must not stay
+      // open: kill the isolate and close any partially-created models so Retry
+      // restarts from a clean slate.
+      pipeline?.dispose();
+      _service.dispose();
       if (!mounted) return;
       setState(() => _error = '$e');
     }
